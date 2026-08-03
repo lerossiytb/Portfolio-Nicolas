@@ -1,0 +1,714 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Graphik&display=swap');
+
+/*
+    ====================
+    BASIS-STILE & VARIABLEN
+    ====================
+*/
+
+:root {
+    --primary-bg: #ffffff; 
+    --secondary-bg: #000033; 
+    --tertiary-bg: #333333; 
+    --text-color: #f4a460; 
+    --accent-color: #f4a460; 
+    --contact-form-bg: #f0f0f0; 
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body:has(.main-nav.active) {
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Graphik', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-color: var(--secondary-bg);
+    position: relative;
+    overflow-x: hidden;
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 0.3s ease; 
+}
+
+a:hover { 
+    color: var(--accent-color); 
+}
+
+/* UNIVERSAL-REGEL FÜR HELLE HINTERGRÜNDE
+    Sorgt dafür, dass auf Weiss alles (Texte, Titel, Links) standardmässig Königsblau ist
+*/
+section[style*="background-color: var(--primary-bg)"],
+.vision,
+.contact {
+    color: var(--secondary-bg) !important;
+}
+
+section[style*="background-color: var(--primary-bg)"] h1,
+section[style*="background-color: var(--primary-bg)"] h2,
+section[style*="background-color: var(--primary-bg)"] h3,
+section[style*="background-color: var(--primary-bg)"] h4,
+.vision h2,
+.contact h2 {
+    color: var(--secondary-bg) !important;
+}
+
+section[style*="background-color: var(--primary-bg)"] a,
+.vision a,
+.contact a {
+    color: var(--secondary-bg);
+}
+
+/* Globale Typografie-Hierarchie (Wasserfall für dunkle Hintergründe) */
+h1, h2, h3, h4 {
+    font-family: 'Young Serif', serif;
+    font-weight: 400;
+    color: var(--accent-color); 
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+/*
+    ====================
+    CINEMATIC VIDEO BACKGROUND
+    ====================
+*/
+
+.video-background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2; 
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 51, 0.35);
+    z-index: -1;
+}
+
+/*
+    ====================
+    HEADER & NAVIGATION
+    ====================
+*/
+
+.main-header {
+    width: 100%;
+    padding: 2.5rem 5vw;
+    z-index: 100;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 102;
+}
+
+.logo {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: bold;
+    font-family: 'Young Serif', serif;
+    letter-spacing: -0.05em;
+    color: var(--accent-color); 
+    transition: color 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Verhindert den harten weissen Switch, bleibt im stimmigen Ocker */
+.main-header:has(.menu-btn.open) .logo {
+    color: var(--accent-color);
+}
+
+.menu-btn {
+    width: 2.5rem; 
+    height: 2rem;
+    position: relative; 
+    cursor: pointer; 
+    z-index: 103;
+}
+
+.menu-btn svg {
+    display: block;
+    overflow: visible;
+}
+
+.menu-btn .wave-bar {
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, stroke 0.4s ease;
+    stroke: var(--accent-color); 
+    transform-origin: center;
+}
+
+.menu-btn.open .wave-bar {
+    stroke: var(--accent-color);
+}
+
+.menu-btn.open .wave-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-btn.open .wave-bar:nth-child(2) { opacity: 0; }
+.menu-btn.open .wave-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--secondary-bg);
+    z-index: 101;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12rem 5vw 5vh 5vw; 
+    gap: 1.8rem;
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.6s ease;
+    opacity: 0;
+}
+
+.main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.main-nav a {
+    font-size: clamp(2rem, 5.5vw, 3.8rem);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--accent-color) !important;
+    font-family: 'Graphik', sans-serif;
+    transition: color 0.3s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), padding-left 0.4s ease;
+    letter-spacing: -0.02em;
+    display: block;
+    position: relative;
+}
+
+.main-nav a:hover {
+    color: var(--accent-color); /* Volles Ocker beim Hover */
+    padding-left: 1rem;
+}
+
+.main-nav::after {
+    content: "CREATIVE STUDIO / CHOOSE TO LIKE IT";
+    position: absolute;
+    bottom: 3rem;
+    right: 5vw;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--accent-color) !important;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/*
+    ====================
+    LANDINGPAGE / HERO SEKTION
+    ====================
+*/
+
+section { 
+    padding: 12rem 5vw; 
+    min-height: 100vh; 
+    position: relative; 
+}
+
+.hero {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    background: transparent; 
+    height: 100vh;
+}
+
+.hero-name {
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.slogan {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--accent-color); 
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*
+    ====================
+    VISION SEKTION (Zebra weiss)
+    ====================
+*/
+
+.vision {
+    background-color: var(--primary-bg); 
+    color: var(--secondary-bg); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+.vision-content { max-width: 60ch; }
+.vision h2 { 
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    color: var(--secondary-bg); 
+}
+
+.btn-vision {
+    display: inline-block;
+    border: 2px solid var(--secondary-bg);
+    color: var(--secondary-bg);
+    padding: 1rem 2rem; 
+    margin-top: 2rem;
+    text-transform: uppercase; 
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-vision:hover { 
+    background-color: var(--secondary-bg); 
+    color: var(--primary-bg); 
+}
+
+/*
+    ====================
+    PORTFOLIO GRID
+    ====================
+*/
+
+.portfolio { 
+    background-color: var(--secondary-bg); 
+}
+
+.portfolio h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--accent-color); 
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-item-wrapper { display: flex; flex-direction: column; }
+.portfolio-item { overflow: hidden; position: relative; }
+
+.portfolio-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+.portfolio-item:hover img { transform: scale(1.05); }
+
+.portfolio-item.tall { height: 400px; }
+.portfolio-item.short { height: 300px; }
+
+.project-info { padding-top: 1rem; text-align: center; }
+.project-info strong { font-size: 1.2rem; color: var(--accent-color); }
+.project-info p { font-size: 0.9rem; color: rgba(244, 164, 96, 0.7); }
+
+@media (min-width: 768px) {
+    .portfolio-item-wrapper.offset { margin-top: 3rem; }
+}
+
+/*
+    ====================
+    LEBENSLAUF (ZEITSTRAHL & SPRACHEN)
+    ====================
+*/
+
+.cv-section {
+    background-color: var(--secondary-bg);
+    padding-top: 4rem;
+}
+
+.cv-section h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+    color: var(--accent-color); 
+    margin-bottom: 0.5rem;
+}
+
+.cv-subtitle {
+    text-align: center;
+    color: rgba(244, 164, 96, 0.7); 
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+}
+
+.true-timeline-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Zeitstrahl-Hauptlinie: Stoppt exakt 300px vor dem Ende des Containers */
+.main-timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 300px; 
+    width: 2px;
+    background: rgba(244, 164, 96, 0.2); 
+    transform: translateX(-50%);
+}
+
+.timeline-block {
+    position: relative; 
+    width: 100%;
+    margin-bottom: 5.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Gerade Blöcke: Box links */
+.timeline-block:nth-child(even) { 
+    justify-content: flex-start; 
+}
+
+/* Ungerade Blöcke: Box rechts */
+.timeline-block:nth-child(odd) { 
+    justify-content: flex-end; 
+}
+
+.timeline-block .cv-item {
+    width: 42%; 
+    display: block;
+}
+
+.cv-item {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(244, 164, 96, 0.2); 
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cv-item.highlight {
+    border-left: 3px solid var(--accent-color);
+    background: rgba(244, 164, 96, 0.06);
+}
+
+.timeline-block:hover .cv-item {
+    transform: translateY(-5px);
+    background: rgba(244, 164, 96, 0.08); 
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cv-date {
+    position: absolute;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-color);
+    font-weight: bold;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Box links (even) → Datum rechts */
+.timeline-block:nth-child(even) .cv-date {
+    left: calc(50% + 30px);
+    text-align: left;
+}
+
+/* Box rechts (odd) → Datum links */
+.timeline-block:nth-child(odd) .cv-date {
+    right: calc(50% + 30px);
+    text-align: right;
+}
+
+/* Typografie innerhalb des CVs (Clean & Einheitlich) */
+.cv-item h4 {
+    font-size: 1.3rem;
+    color: var(--accent-color); 
+    margin-bottom: 0.25rem;
+    font-family: 'Graphik', sans-serif;
+}
+
+.cv-item h5 {
+    color: rgba(244, 164, 96, 0.7); 
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cv-item p {
+    font-size: 0.95rem;
+    color: rgba(244, 164, 96, 0.85); 
+    font-family: 'Graphik', sans-serif;
+}
+
+.timeline-dot-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--secondary-bg);
+    border: 2px solid var(--accent-color); 
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.timeline-block:hover .timeline-dot-center {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    transform: translate(-50%, -50%) scale(1.4);
+}
+
+/* AUTONOMER SPRACHBLOCK AM ENDE */
+.timeline-block.languages-block { 
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+    z-index: 2;
+}
+
+.timeline-block.languages-block .timeline-dot-center {
+    display: none; 
+}
+
+.timeline-block.languages-block .cv-item.genuine-info { 
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+/* Erzwingt die cleane Graphik-Schriftart analog zu h4 & p */
+.timeline-block.languages-block .cv-item.genuine-info h3 { 
+    font-family: 'Graphik', sans-serif;
+    font-size: 1.3rem; 
+    font-weight: bold;
+    color: var(--accent-color); 
+    margin-bottom: 1rem; 
+    text-shadow: none;
+}
+
+.timeline-block.languages-block .cv-item.genuine-info p,
+.timeline-block.languages-block .cv-item.genuine-info strong {
+    font-family: 'Graphik', sans-serif;
+    color: rgba(244, 164, 96, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/*
+    ====================
+    KONTAKT SEKTION (Zebra weiss)
+    ====================
+*/
+
+.contact { 
+    padding: 7rem 15vw;                 /* Gleiche Höhe wie Vision-Sektion */
+    background-color: var(--primary-bg); /* Reines Weiss */
+    color: var(--secondary-bg);          /* Königsblau */
+}
+
+/* Der Titel passt sich jetzt exakt an die Breite und Ausrichtung des Formulars an */
+.contact h2 { 
+    font-size: 2rem;                     /* Eine kompaktere, edle Grösse passend zum Formular */
+    font-family: 'Young Serif', serif;
+    font-weight: 400;
+    color: var(--secondary-bg) !important;        
+    max-width: 600px;                    /* Exakt dieselbe maximale Breite wie dein Formular */
+    margin: 0 auto 2rem auto;            /* Zentriert den Block als Ganzes, gibt Platz nach unten */
+    text-align: center;                    /* Linksbündig, genau wie die Inputs darunter */
+    line-height: 1.2;
+    text-shadow: none;
+}
+
+.contact form { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 16px; 
+    background-color: var(--contact-form-bg);    
+    border: 1px solid rgba(0, 0, 51, 0.15);     
+    color: var(--secondary-bg);                  
+    font-family: 'Graphik', sans-serif; 
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.contact input:focus, 
+.contact textarea:focus {
+    outline: none;
+    border-color: var(--secondary-bg);
+}
+
+.contact button {
+    width: 100%;
+    padding: 16px; 
+    background-color: var(--secondary-bg);       
+    border: none;
+    color: var(--primary-bg);                    
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    font-family: 'Graphik', sans-serif;
+}
+
+.contact button:hover { 
+    background-color: var(--accent-color); 
+}
+
+/* Sorgt dafür, dass es auch auf dem Smartphone perfekt linksbündig mit dem Formular bleibt */
+@media (max-width: 768px) {
+    .contact h2 {
+        padding: 0 20px; /* Verhindert, dass der Titel ganz am Bildschirmrand klebt */
+    }
+}
+
+/*
+    ====================
+    FOOTER
+    ====================
+*/
+
+.footer {
+    text-align: center; 
+    padding: 2rem 20px; 
+    background-color: var(--secondary-bg);
+    color: rgba(244, 164, 96, 0.6); 
+    border-top: 1px solid rgba(244, 164, 96, 0.15);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+}
+
+/*
+    ====================
+    RESPONSIVE (MOBILE OPTIMIERUNG)
+    ====================
+*/
+
+@media (max-width: 768px) {
+    .main-timeline-line { left: 20px; transform: none; bottom: 180px; }
+
+    .timeline-block { 
+        justify-content: flex-end !important; 
+        padding-left: 45px; 
+        margin-bottom: 3rem; 
+    }
+
+    .timeline-block .cv-item { width: 100%; }
+
+    .timeline-dot-center { 
+        left: 20px; 
+        top: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    .timeline-block:hover .timeline-dot-center { 
+        transform: translate(-50%, -50%) scale(1.3); 
+    }
+
+    .cv-date { 
+        position: relative !important; 
+        top: auto !important; 
+        left: auto !important; 
+        right: auto !important; 
+        transform: none !important;
+        text-align: left !important; 
+        display: block;
+        margin-bottom: 0.75rem;
+        pointer-events: auto;
+    }
+
+    .portfolio-grid { grid-template-columns: 1fr; }
+
+    .languages-block .cv-item.genuine-info {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .timeline-block:nth-child(even) .cv-date { left: calc(50% + 20px); }
+    .timeline-block:nth-child(odd) .cv-date { right: calc(50% + 20px); }
+}
