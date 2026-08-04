@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
             mainNav.classList.remove('active');
         });
     });
+
+    // Content-Karussell: Pfeil-Navigation
+    const carouselTrack = document.getElementById('carouselTrack');
+    const carouselLeft = document.getElementById('carouselLeft');
+    const carouselRight = document.getElementById('carouselRight');
+    if (carouselTrack && carouselLeft && carouselRight) {
+        const scrollAmount = 170; // Breite eines Items + Abstand
+        carouselRight.addEventListener('click', () => {
+            carouselTrack.scrollBy({ left: scrollAmount * 2, behavior: 'smooth' });
+        });
+        carouselLeft.addEventListener('click', () => {
+            carouselTrack.scrollBy({ left: -scrollAmount * 2, behavior: 'smooth' });
+        });
+    }
 });
 function changeLanguage(lang) {
     // 1. Alle Elemente mit data-[lang] Attributen suchen
