@@ -326,6 +326,10 @@ section {
     ====================
 */
 
+#works.vision {
+    flex-direction: column;
+}
+
 .content-carousel {
     position: relative;
     max-width: 900px;
