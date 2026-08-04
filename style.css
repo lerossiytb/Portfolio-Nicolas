@@ -107,7 +107,7 @@ h1, h2, h3, h4 {
     height: 56.25vw;
     min-height: 100vh;
     min-width: 177.77vh;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.5); /* Skaliert das iframe hoch, YouTube liefert dadurch eine höhere Qualitätsstufe aus */
     pointer-events: none;
     object-fit: cover;
 }
@@ -206,6 +206,10 @@ h1, h2, h3, h4 {
     opacity: 0;
 }
 
+.main-nav .lang-switcher {
+    margin-top: 1.5rem;
+}
+
 .main-nav.active {
     transform: translateY(0);
     opacity: 1;
@@ -238,6 +242,43 @@ h1, h2, h3, h4 {
     color: var(--accent-color) !important;
     font-weight: bold;
     pointer-events: none;
+}
+
+/*
+    ====================
+    SPRACHWECHSLER
+    ====================
+*/
+
+.lang-switcher {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(244, 164, 96, 0.35);
+    color: var(--accent-color);
+    font-family: 'Graphik', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(244, 164, 96, 0.1);
+}
+
+.lang-btn.active {
+    background: var(--accent-color);
+    color: var(--secondary-bg);
+    border-color: var(--accent-color);
 }
 
 /*
@@ -292,6 +333,8 @@ section {
     align-items: center; 
     justify-content: center; 
     text-align: center;
+    min-height: auto;
+    padding: 6rem 5vw;
 }
 
 .vision-content { max-width: 60ch; }
@@ -511,204 +554,3 @@ section {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.timeline-block:hover .timeline-dot-center {
-    border-color: var(--accent-color);
-    background: var(--accent-color);
-    transform: translate(-50%, -50%) scale(1.4);
-}
-
-/* AUTONOMER SPRACHBLOCK AM ENDE */
-.timeline-block.languages-block { 
-    justify-content: center;
-    margin-top: 40px;
-    width: 100%;
-    z-index: 2;
-}
-
-.timeline-block.languages-block .timeline-dot-center {
-    display: none; 
-}
-
-.timeline-block.languages-block .cv-item.genuine-info { 
-    width: 100%;
-    max-width: 600px;
-    text-align: left;
-    margin: 0 auto;
-}
-
-/* Erzwingt die cleane Graphik-Schriftart analog zu h4 & p */
-.timeline-block.languages-block .cv-item.genuine-info h3 { 
-    font-family: 'Graphik', sans-serif;
-    font-size: 1.3rem; 
-    font-weight: bold;
-    color: var(--accent-color); 
-    margin-bottom: 1rem; 
-    text-shadow: none;
-}
-
-.timeline-block.languages-block .cv-item.genuine-info p,
-.timeline-block.languages-block .cv-item.genuine-info strong {
-    font-family: 'Graphik', sans-serif;
-    color: rgba(244, 164, 96, 0.85);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/*
-    ====================
-    KONTAKT SEKTION (Zebra weiss)
-    ====================
-*/
-
-.contact { 
-    padding: 7rem 15vw;                 /* Gleiche Höhe wie Vision-Sektion */
-    background-color: var(--primary-bg); /* Reines Weiss */
-    color: var(--secondary-bg);          /* Königsblau */
-}
-
-/* Der Titel passt sich jetzt exakt an die Breite und Ausrichtung des Formulars an */
-.contact h2 { 
-    font-size: 2rem;                     /* Eine kompaktere, edle Grösse passend zum Formular */
-    font-family: 'Young Serif', serif;
-    font-weight: 400;
-    color: var(--secondary-bg) !important;        
-    max-width: 600px;                    /* Exakt dieselbe maximale Breite wie dein Formular */
-    margin: 0 auto 2rem auto;            /* Zentriert den Block als Ganzes, gibt Platz nach unten */
-    text-align: center;                    /* Linksbündig, genau wie die Inputs darunter */
-    line-height: 1.2;
-    text-shadow: none;
-}
-
-.contact form { 
-    max-width: 600px; 
-    margin: 0 auto; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
-}
-
-.contact input, 
-.contact textarea {
-    width: 100%;
-    padding: 16px; 
-    background-color: var(--contact-form-bg);    
-    border: 1px solid rgba(0, 0, 51, 0.15);     
-    color: var(--secondary-bg);                  
-    font-family: 'Graphik', sans-serif; 
-    font-size: 1rem;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-}
-
-.contact input:focus, 
-.contact textarea:focus {
-    outline: none;
-    border-color: var(--secondary-bg);
-}
-
-.contact button {
-    width: 100%;
-    padding: 16px; 
-    background-color: var(--secondary-bg);       
-    border: none;
-    color: var(--primary-bg);                    
-    font-weight: bold; 
-    text-transform: uppercase; 
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease;
-    font-family: 'Graphik', sans-serif;
-}
-
-.contact button:hover { 
-    background-color: var(--accent-color); 
-}
-
-/* Sorgt dafür, dass es auch auf dem Smartphone perfekt linksbündig mit dem Formular bleibt */
-@media (max-width: 768px) {
-    .contact h2 {
-        padding: 0 20px; /* Verhindert, dass der Titel ganz am Bildschirmrand klebt */
-    }
-}
-
-/*
-    ====================
-    FOOTER
-    ====================
-*/
-
-.footer {
-    text-align: center; 
-    padding: 2rem 20px; 
-    background-color: var(--secondary-bg);
-    color: rgba(244, 164, 96, 0.6); 
-    border-top: 1px solid rgba(244, 164, 96, 0.15);
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-}
-
-.footer-socials {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.social-link:hover {
-    color: var(--accent-color);
-}
-
-/*
-    ====================
-    RESPONSIVE (MOBILE OPTIMIERUNG)
-    ====================
-*/
-
-@media (max-width: 768px) {
-    .main-timeline-line { left: 20px; transform: none; bottom: 180px; }
-
-    .timeline-block { 
-        justify-content: flex-end !important; 
-        padding-left: 45px; 
-        margin-bottom: 3rem; 
-    }
-
-    .timeline-block .cv-item { width: 100%; }
-
-    .timeline-dot-center { 
-        left: 20px; 
-        top: 50%; 
-        transform: translate(-50%, -50%); 
-    }
-
-    .timeline-block:hover .timeline-dot-center { 
-        transform: translate(-50%, -50%) scale(1.3); 
-    }
-
-    .cv-date { 
-        position: relative !important; 
-        top: auto !important; 
-        left: auto !important; 
-        right: auto !important; 
-        transform: none !important;
-        text-align: left !important; 
-        display: block;
-        margin-bottom: 0.75rem;
-        pointer-events: auto;
-    }
-
-    .portfolio-grid { grid-template-columns: 1fr; }
-
-    .languages-block .cv-item.genuine-info {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-    .timeline-block:nth-child(even) .cv-date { left: calc(50% + 20px); }
-    .timeline-block:nth-child(odd) .cv-date { right: calc(50% + 20px); }
-}
