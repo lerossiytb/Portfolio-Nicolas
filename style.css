@@ -309,7 +309,7 @@ section {
     align-items: center; 
     justify-content: center; 
     text-align: center;
-    min-height: 50vh;
+    min-height: 75vh;
     padding: 6rem 5vw;
 }
 
@@ -678,10 +678,13 @@ section {
     flex-wrap: wrap;
 }
 
-.social-link:hover {
+.footer-socials a {
     color: var(--accent-color);
 }
 
+.social-link:hover {
+    color: var(--accent-color);
+}
 /*
     ====================
     RESPONSIVE (MOBILE OPTIMIERUNG)
