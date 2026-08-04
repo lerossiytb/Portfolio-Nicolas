@@ -1,286 +1,872 @@
-html
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeRossi | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Graphik&display=swap');
 
-<body>
-<!-- Cinematic Video-Hintergrund (YouTube-Version) -->
-<div class="video-background-container">
-    <iframe class="bg-video" 
-        src="https://www.youtube.com/embed/0O60w_dkzTk?autoplay=1&mute=1&loop=1&playlist=0O60w_dkzTk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" 
-        frameborder="0" 
-        allow="autoplay; encrypted-media" 
-        allowfullscreen>
-    </iframe>
-    <div class="video-overlay"></div>
-</div>
+/*
+    ====================
+    BASIS-STILE & VARIABLEN
+    ====================
+*/
 
-<!-- Header & Navigation -->
-<header class="main-header">
-    <div class="header-top">
-        <div class="logo">LeRossi</div>
-        
-        <div class="menu-btn" id="menuBtn">
-            <svg width="35" height="28" viewBox="0 0 35 28">
-                <path class="wave-bar" d="M0 6 Q5 0 10 6 T20 6 T30 6 T35 6" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                <path class="wave-bar" d="M0 14 Q5 8 10 14 T20 14 T30 14 T35 14" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                <path class="wave-bar" d="M0 22 Q5 16 10 22 T20 22 T30 22 T35 22" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-            </svg>
-        </div>
-    </div>
-    
-    <nav class="main-nav" id="main-nav">
-        <a href="#works" data-de="Was ich mache" data-en="What I do" data-fr="Ce que je fais">Was ich mache</a>
-        <a href="#portfolio" data-de="Portfolio" data-en="Portfolio" data-fr="Portfolio">Portfolio</a>
-        <a href="#vision" data-de="Lerne mich kennen" data-en="Get to know me" data-fr="Faisons connaissance">Lerne mich kennen</a>
-        <a href="#cv" data-de="Lebenslauf" data-en="CV" data-fr="CV">Lebenslauf</a>
-        <a href="#contact" data-de="Kontakt" data-en="Contact" data-fr="Contact">Kontakt</a>
-        
-        <!-- Sprachwechsler -->
-        <div class="lang-switcher">
-            <button onclick="changeLanguage('de')" class="lang-btn active">DE</button>
-            <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
-            <button onclick="changeLanguage('fr')" class="lang-btn">FR</button>
-        </div>
-    </nav>
-</header>
+:root {
+    --primary-bg: #ffffff; 
+    --secondary-bg: #000033; 
+    --tertiary-bg: #333333; 
+    --text-color: #f4a460; 
+    --accent-color: #f4a460; 
+    --contact-form-bg: #f0f0f0; 
+}
 
-<main>
-    <!-- LANDINGPAGE / HERO SEKTION -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1 class="hero-name">Nicolas Rossi</h1>
-            <p class="slogan">Choose to like it</p>
-        </div>
-    </section>
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
 
-    <!-- WAS ICH MACHE SEKTION -->
-    <section id="works" class="vision">
-        <div class="vision-content">
-            <h2 data-de="Was ich mache" data-en="What I do" data-fr="Ce que je fais">Was ich mache</h2>
-            <p data-de="Ich erstelle Videos, Fotografie und Content für Social Media, plane kreative Konzepte, setze Projekte um und helfe Marken und Personen, sichtbar zu werden. Zudem unterstütze ich Events in Planung und Moderation." 
-               data-en="I create videos, photography, and social media content, plan creative concepts, execute projects, and help brands and individuals gain visibility. I also support events with planning and hosting." 
-               data-fr="Je crée des vidéos, des photographies et du contenu pour les réseaux sociaux, je conçois des concepts créatifs, réalise des projets et aide les marques et les personnes à gagner en visibilité. J'accompagne également les événements dans leur planification et animation.">Ich erstelle Videos, Fotografie und Content für Social Media, plane kreative Konzepte, setze Projekte um und helfe Marken und Personen, sichtbar zu werden. Zudem unterstütze ich Events in Planung und Moderation.</p>
-            <a href="about.html" class="btn-vision" data-de="Mehr erfahren" data-en="Learn more" data-fr="En savoir plus">Mehr erfahren</a>
-        </div>
-    </section>
+html { 
+    scroll-behavior: smooth; 
+}
 
-    <!-- PORTFOLIO SEKTION (GEKÜRZT AUF 4 KERNSÄULEN) -->
-    <section id="portfolio" class="portfolio">
-        <h2 data-de="Portfolio & Leistungen" data-en="Portfolio & Services" data-fr="Portfolio & Services">Portfolio & Leistungen</h2>
-        <div class="portfolio-grid">
-            
-            <!-- Säule 1: Social Media -->
-            <div class="portfolio-item-wrapper">
-                <div class="portfolio-item tall">
-                    <img src="https://picsum.photos/500/500?random=1" alt="Social Media Production">
-                </div>
-                <div class="project-info">
-                    <strong data-de="Social Media Production & Management" data-en="Social Media Production & Management" data-fr="Production & Gestion Social Media">Social Media Production & Management</strong>
-                    <p data-de="Von der ersten Strategie und Content-Planung bis hin zum fertigen Schnitt. Ich erstelle plattformgerechte Videos (Reels, TikToks, Shorts), die deine Zielgruppe fesseln und echte Reichweite aufbauen."
-                       data-en="From initial strategy and content planning to the final edit. I create platform-native videos (Reels, TikToks, Shorts) that engage your target audience and build real reach."
-                       data-fr="De la stratégie initiale et de la planification de contenu jusqu'au montage final. Je crée des vidéos adaptées aux plateformes (Reels, TikToks, Shorts) qui captivent votre audience."
-                    >Von der ersten Strategie und Content-Planung bis hin zum fertigen Schnitt. Ich erstelle plattformgerechte Videos (Reels, TikToks, Shorts), die deine Zielgruppe fesseln und echte Reichweite aufbauen.</p>
-                </div>
-            </div>
+body:has(.main-nav.active) {
+    overflow: hidden;
+}
 
-            <!-- Säule 2: Fotografie -->
-            <div class="portfolio-item-wrapper offset">
-                <div class="portfolio-item tall">
-                    <img src="https://picsum.photos/500/500?random=2" alt="Outdoor & Sport Fotografie">
-                </div>
-                <div class="project-info">
-                    <strong data-de="Outdoor & Sport Fotografie" data-en="Outdoor & Sports Photography" data-fr="Photographie Outdoor & Sport">Outdoor & Sport Fotografie</strong>
-                    <p data-de="Ausdrucksstarke Bilder für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print."
-                       data-en="Expressive imagery for brands, events, and adventures. My focus lies on dynamic outdoor shots, sports action, and authentic storytelling for web and print."
-                       data-fr="Des images percutantes pour les marques, les événements et l'aventure. Spécialisé dans les prises de vue extérieures dynamiques, l'action sportive et le storytelling visuel."
-                    >Ausdrucksstarke Bilder für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print.</p>
-                </div>
-            </div>
+body {
+    font-family: 'Graphik', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-color: var(--secondary-bg);
+    position: relative;
+    overflow-x: hidden;
+}
 
-            <!-- Säule 3: Event & Moderation -->
-            <div class="portfolio-item-wrapper">
-                <div class="portfolio-item short">
-                    <img src="https://picsum.photos/500/400?random=3" alt="Event Planning & Hosting">
-                </div>
-                <div class="project-info">
-                    <strong data-de="Event Planning & Hosting" data-en="Event Planning & Hosting" data-fr="Planification & Animation d'Événements">Event Planning & Hosting</strong>
-                    <p data-de="Reibungslose Organisation von der Konzeption bis zur Umsetzung vor Ort. Zusätzlich bringe ich als Moderator auf der Bühne oder Host vor der Kamera die nötige Energie in dein Event."
-                       data-en="Seamless organization from concept to on-site execution. Additionally, I bring energy to your event as an emcee on stage or a host in front of the camera."
-                       data-fr="Une organisation fluide, du concept à la réalisation sur place. De plus, j'apporte l'énergie nécessaire à votre événement en tant qu'animateur sur scène ou devant la caméra."
-                    >Reibungslose Organisation von der Konzeption bis zur Umsetzung vor Ort. Zusätzlich bringe ich als Moderator auf der Bühne oder Host vor der Kamera die nötige Energie in dein Event.</p>
-                </div>
-            </div>
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 0.3s ease; 
+}
 
-            <!-- Säule 4: Creative Innovation -->
-            <div class="portfolio-item-wrapper offset">
-                <div class="portfolio-item short">
-                    <img src="https://picsum.photos/500/400?random=4" alt="Creative Innovation & Consulting">
-                </div>
-                <div class="project-info">
-                    <strong data-de="Creative Innovation & Consulting" data-en="Creative Innovation & Consulting" data-fr="Innovation Créative & Conseil">Creative Innovation & Consulting</strong>
-                    <p data-de="Frischer Wind für dein Branding: Ich helfe beim Ideation-Prozess für neuartige Werbeformate, gebe Ratschläge für eine ansprechende Website-Ästhetik und entwickle kreative Event- & Produktkonzepte."
-                       data-en="Fresh momentum for your brand: I help with the ideation process for novel ad formats, provide visual web design consulting, and develop creative event or product concepts."
-                       data-fr="Un vent de fraîcheur pour votre marque : j'accompagne le processus d'idéation pour des formats publicitaires novateurs, donne des conseils d'esthétique web et conçois des concepts d'événements créatifs."
-                    >Frischer Wind für dein Branding: Ich helfe beim Ideation-Prozess für neuartige Werbeformate, gebe Ratschläge für eine ansprechende Website-Ästhetik und entwickle kreative Event- & Produktkonzepte.</p>
-                </div>
-            </div>
+a:hover { 
+    color: var(--accent-color); 
+}
 
-        </div>
-    </section>
+/* UNIVERSAL-REGEL FÜR HELLE HINTERGRÜNDE
+    Sorgt dafür, dass auf Weiss alles (Texte, Titel, Links) standardmässig Königsblau ist
+*/
+section[style*="background-color: var(--primary-bg)"],
+.vision,
+.contact {
+    color: var(--secondary-bg) !important;
+}
 
-    <!-- VISION SEKTION -->
-    <section id="vision" class="vision">
-        <div class="vision-content">
-            <h2 data-de="Lerne mich kennen" data-en="Get to know me" data-fr="Faisons connaissance">Lerne mich kennen</h2>
-            <p data-de="Andere brauchen Pinsel und Stift, um ihre Geschichten zu erzählen. Ich erzähle sie am liebsten als Bilder und Videos – unterhaltsam, kreativ und emotional."
-               data-en="Others need brushes and pens to tell their stories. I prefer to tell them through pictures and videos – entertaining, creative, and emotional."
-               data-fr="D'autres ont besoin de pinceaux et de stylos pour raconter leurs histoires. Je préfère les raconter en images et en vidéos – de manière divertissante, créative et captivante.">Andere brauchen Pinsel und Stift, um ihre Geschichten zu erzählen. Ich erzähle sie am liebsten als Bilder und Videos – unterhaltsam, kreativ und emotional.</p>
-            <a href="about.html" class="btn-vision" data-de="Mehr über mich" data-en="More about me" data-fr="En savoir plus sur moi">Mehr über mich</a>
-        </div>
-    </section>
+section[style*="background-color: var(--primary-bg)"] h1,
+section[style*="background-color: var(--primary-bg)"] h2,
+section[style*="background-color: var(--primary-bg)"] h3,
+section[style*="background-color: var(--primary-bg)"] h4,
+.vision h2,
+.contact h2 {
+    color: var(--secondary-bg) !important;
+}
 
-    <!-- CV-SEKTION ALS KONTINUIERLICHER ZEITSTRAHL -->
-    <section id="cv" class="cv-section">
-        <h2 data-de="Curriculum Vitae" data-en="Curriculum Vitae" data-fr="Curriculum Vitae">Curriculum Vitae</h2>
-        <p class="cv-subtitle" data-de="Ein Überblick über meinen beruflichen Werdegang" data-en="An overview of my professional journey" data-fr="Un aperçu de mon parcours professionnel">Ein Überblick über meinen beruflichen Werdegang</p>
-        
-        <div class="true-timeline-container">
-            <!-- Die zentrale vertikale Achse des Zeitstrahls -->
-            <div class="main-timeline-line"></div>
+section[style*="background-color: var(--primary-bg)"] a,
+.vision a,
+.contact a {
+    color: var(--secondary-bg);
+}
 
-            <!-- Station 1: SUPKultur -->
-            <div class="timeline-block">
-                <div class="timeline-dot-center"></div>
-                <span class="cv-date">06/2021 - <span data-de="Heute" data-en="Present" data-fr="Présent">Heute</span> (2026)</span>
-                <div class="cv-item highlight">
-                    <h4 data-de="Kursleiter & Stationsleiter" data-en="Course Instructor & Station Supervisor" data-fr="Instructeur & Responsable de Station">Kursleiter & Stationsleiter</h4>
-                    <h5>SUPKultur GmbH, Zürich</h5>
-                    <p data-de="Durchführung von SUP-Anfängerkursen, Privatstunden und Kinderklassen. Betreuung und Koordination von Schulklassen auf dem Wasser."
-                       data-en="Conducted SUP beginner courses, private lessons, and children's classes. Supervised and coordinated school groups on the water."
-                       data-fr="Animation de cours de SUP pour débutants, leçons privées et cours pour enfants. Encadrement et coordination de groupes scolaires sur l'eau.">Durchführung von SUP-Anfängerkursen, Privatstunden und Kinderklassen. Betreuung und Koordination von Schulklassen auf dem Wasser.</p>
-                </div>
-            </div>
+/* Globale Typografie-Hierarchie (Wasserfall für dunkle Hintergründe) */
+h1, h2, h3, h4 {
+    font-family: 'Young Serif', serif;
+    font-weight: 400;
+    color: var(--accent-color); 
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+/*
+    ====================
+    CINEMATIC VIDEO BACKGROUND
+    ====================
+*/
 
-            <!-- Station 2: Primarschule Fondli -->
-            <div class="timeline-block">
-                <div class="timeline-dot-center"></div>
-                <span class="cv-date">10/2024 - 01/2025</span>
-                <div class="cv-item">
-                    <h4 data-de="Klassenlehrer Primarschule" data-en="Primary School Teacher" data-fr="Enseignant École Primaire">Klassenlehrer Primarschule</h4>
-                    <h5>Primarschule Fondli, Dietikon</h5>
-                    <p data-de="Klassenzentrierte Führung, Unterrichtsgestaltung sowie pädagogische Verantwortung für eine Primarklasse."
-                       data-en="Classroom leadership, lesson planning, and pedagogical responsibility for a primary school class."
-                       data-fr="Gestion de classe, planification des cours et responsabilité pédagogique pour une classe du primaire.">Klassenzentrierte Führung, Unterrichtsgestaltung sowie pädagogische Verantwortung für eine Primarklasse.</p>
-                </div>
-            </div>
+.video-background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2; 
+    overflow: hidden;
+    pointer-events: none;
+}
 
-            <!-- Station 3: Sekundarschule Adliswil -->
-            <div class="timeline-block">
-                <div class="timeline-dot-center"></div>
-                <span class="cv-date">05/2024 - 07/2024</span>
-                <div class="cv-item">
-                    <h4 data-de="Französischlehrer" data-en="French Teacher" data-fr="Professeur de Français">Französischlehrer</h4>
-                    <h5>Sekundarschule, Adliswil</h5>
-                    <p data-de="Fachspezifischer Unterricht der französischen Sprache auf Sekundarstufe unter Nutzung nativer Zweitsprachkompetenzen."
-                       data-en="Subject-specific teaching of the French language at secondary level, utilizing native bilingual skills."
-                       data-fr="Enseignement spécifique de la langue française au niveau secondaire, en exploitant des compétences bilingues natives.">Fachspezifischer Unterricht der französischen Sprache auf Sekundarstufe unter Nutzung nativer Zweitsprachkompetenzen.</p>
-                </div>
-            </div>
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    object-fit: cover;
+}
 
-            <!-- Station 4: Bachelorstudium Multimedia Production -->
-            <div class="timeline-block">
-                <div class="timeline-dot-center"></div>
-                <span class="cv-date">09/2021 - 08/2024</span>
-                <div class="cv-item">
-                    <h4 data-de="Bachelorstudium Multimedia Production" data-en="Bachelor's Degree in Multimedia Production" data-fr="Bachelor en Production Multimédia">Bachelorstudium Multimedia Production</h4>
-                    <h5>Fachhochschule Graubünden (FHGR) & Berner Fachhochschule (BFH)</h5>
-                    <p data-de="Joint-Degree-Bachelorstudium mit Abschluss als Bachelor of Science in Media Engineering, Vertiefung Live Communication. Bachelor Thesis zum Thema «Medien und die Tabuisierung der mentalen Gesundheit im Spitzensport»."
-                       data-en="Joint-degree bachelor's programme, graduating as Bachelor of Science in Media Engineering with a major in Live Communication. Bachelor thesis on «Media and the taboo around mental health in elite sport»."
-                       data-fr="Bachelor en Joint-Degree avec obtention du titre de Bachelor of Science en Media Engineering, spécialisation Live Communication. Thèse de bachelor sur le sujet « Médias et tabou de la santé mentale dans le sport d'élite »."
-                    >Joint-Degree-Bachelorstudium mit Abschluss als Bachelor of Science in Media Engineering, Vertiefung Live Communication. Bachelor Thesis zum Thema «Medien und die Tabuisierung der mentalen Gesundheit im Spitzensport».</p>
-                </div>
-            </div>
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 51, 0.35);
+    z-index: -1;
+}
 
-            <!-- Station 5: Digital Minds -->
-            <div class="timeline-block">
-                <div class="timeline-dot-center"></div>
-                <span class="cv-date">05/2020 - 08/2020</span>
-                <div class="cv-item">
-                    <h4 data-de="Praktikant Online Marketing" data-en="Online Marketing Intern" data-fr="Stagiaire Marketing En Ligne">Praktikant Online Marketing</h4>
-                    <h5>Digital Minds</h5>
-                    <p data-de="Erstellung von Online-Inhalten in WordPress, Unterstützung im Affiliate-Marketing sowie Durchführung von On-Page & Off-Page SEO-Massnahmen."
-                       data-en="Creation of online content in WordPress, assistance in affiliate marketing, and execution of on-page & off-page SEO measures."
-                       data-fr="Création de contenu en ligne sur WordPress, soutien en marketing d'affiliation et réalisation de mesures SEO on-page & off-page.">Erstellung von Online-Inhalten in WordPress, Unterstützung im Affiliate-Marketing sowie Durchführung von On-Page & Off-Page SEO-Massnahmen.</p>
-                </div>
-            </div>
+/*
+    ====================
+    HEADER & NAVIGATION
+    ====================
+*/
 
-            <!-- Station 6: Migros-Service -->
-            <div class="timeline-block">
-                <div class="timeline-dot-center"></div>
-                <span class="cv-date">11/2018 - 07/2019</span>
-                <div class="cv-item">
-                    <h4 data-de="Kundendienst-Mitarbeiter" data-en="Customer Service Representative" data-fr="Conseiller Service Client">Kundendienst-Mitarbeiter</h4>
-                    <h5>Migros-Service, Bülach</h5>
-                    <p data-de="Betreuung von Kunden- und Filialanfragen, Koordination mit Lieferanten sowie Analyse und Bearbeitung von Reklamationen."
-                       data-en="Handling customer and branch inquiries, coordinating with suppliers, and analyzing/processing complaints."
-                       data-fr="Gestion des demandes des clients et des succursales, coordination avec les fournisseurs et analyse/traitement des réclamations.">Betreuung von Kunden- und Filialanfragen, Koordination mit Lieferanten sowie Analyse und Bearbeitung von Reklamationen.</p>
-                </div>
-            </div>
+.main-header {
+    width: 100%;
+    padding: 2.5rem 5vw;
+    z-index: 100;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
 
-            <!-- Station 7: green.ch AG -->
-            <div class="timeline-block">
-                <div class="timeline-dot-center"></div>
-                <span class="cv-date">08/2015 - 07/2018</span>
-                <div class="cv-item">
-                    <h4 data-de="Kaufmännische Ausbildung (EFZ)" data-en="Commercial Apprenticeship" data-fr="Apprentissage de Commerce">Kaufmännische Ausbildung (EFZ)</h4>
-                    <h5>green.ch AG, Lupfig</h5>
-                    <p data-de="Abwicklung administrativer Aufgaben, Kundenbetreuung, Zahlungsverarbeitung und Unterstützung bei der Eventorganisation."
-                       data-en="Handling administrative tasks, customer support, payment processing, and assistance with event organization."
-                       data-fr="Gestion des tâches administratives, support client, traitement des paiements et soutien à l'organisation d'événements.">Abwicklung administrativer Aufgaben, Kundenbetreuung, Zahlungsverarbeitung und Unterstützung bei der Eventorganisation.</p>
-                </div>
-            </div>
-            <!-- Kopfzeile des Zeitstrahls: Sprachkompetenzen -->
-            <div class="timeline-block languages-block">
-                <div class="timeline-dot-center"></div>
-                <div class="cv-item genuine-info">
-                    <h3><span class="icon">🗣️</span> <span data-de="Sprachkompetenzen" data-en="Languages" data-fr="Langues">Sprachkompetenzen</span></h3>
-                    <p>• <strong>DE &amp; FR:</strong> Zweisprachig aufgewachsen (Muttersprachen)<br>
-                       • <strong>EN:</strong> Verhandlungssicher im beruflichen &amp; kreativen Umfeld, fliessend durch 1 jährigen Aufenthalt in Neuseeland</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 102;
+}
 
-    <!-- KONTAKT SEKTION -->
-    <section id="contact" class="contact">
-        <h2 data-de="Melde dich gerne bei mir" data-en="Get in touch with me" data-fr="Contactez-moi">Melde dich gerne bei mir</h2>
-        <form>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Nachricht" required></textarea>
-            <button type="submit" data-de="Senden" data-en="Send" data-fr="Envoyer">Senden</button>
-        </form>
-    </section>
-</main>
- <script src="script.js"></script>
+.logo {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: bold;
+    font-family: 'Young Serif', serif;
+    letter-spacing: -0.05em;
+    color: var(--accent-color); 
+    transition: color 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
 
-</body>
-</html>
+/* Verhindert den harten weissen Switch, bleibt im stimmigen Ocker */
+.main-header:has(.menu-btn.open) .logo {
+    color: var(--accent-color);
+}
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <p>&copy; 2026 Nicolas Rossi</p>
-        <div class="footer-socials">
-            <a href="https://www.instagram.com/lerossiytb/" target="_blank" rel="noopener" class="social-link">Instagram</a>
-            <span class="separator">|</span>
-            <a href="https://www.youtube.com/@_lerossi" target="_blank" rel="noopener" class="social-link">YouTube (Main)</a>
-            <span class="separator">|</span>
-            <a href="https://www.youtube.com/@lerossiskitchen1249" target="_blank" rel="noopener" class="social-link">YouTube (Kitchen)</a>
-        </div>
-    </div>
-</footer>
+.menu-btn {
+    width: 2.5rem; 
+    height: 2rem;
+    position: relative; 
+    cursor: pointer; 
+    z-index: 103;
+}
+
+.menu-btn svg {
+    display: block;
+    overflow: visible;
+}
+
+.menu-btn .wave-bar {
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease, stroke 0.4s ease;
+    stroke: var(--accent-color); 
+    transform-origin: center;
+}
+
+.menu-btn.open .wave-bar {
+    stroke: var(--accent-color);
+}
+
+.menu-btn.open .wave-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-btn.open .wave-bar:nth-child(2) { opacity: 0; }
+.menu-btn.open .wave-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--secondary-bg);
+    z-index: 101;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12rem 5vw 5vh 5vw; 
+    gap: 1.8rem;
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.6s ease;
+    opacity: 0;
+}
+
+.main-nav .lang-switcher {
+    margin-top: 1.5rem;
+}
+
+.main-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.main-nav a {
+    font-size: clamp(2rem, 5.5vw, 3.8rem);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--accent-color) !important;
+    font-family: 'Graphik', sans-serif;
+    transition: color 0.3s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), padding-left 0.4s ease;
+    letter-spacing: -0.02em;
+    display: block;
+    position: relative;
+}
+
+.main-nav a:hover {
+    color: var(--accent-color); /* Volles Ocker beim Hover */
+    padding-left: 1rem;
+}
+
+.main-nav::after {
+    content: "CREATIVE STUDIO / CHOOSE TO LIKE IT";
+    position: absolute;
+    bottom: 3rem;
+    right: 5vw;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--accent-color) !important;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/*
+    ====================
+    SPRACHWECHSLER
+    ====================
+*/
+
+.lang-switcher {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(244, 164, 96, 0.35);
+    color: var(--accent-color);
+    font-family: 'Graphik', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(244, 164, 96, 0.1);
+}
+
+.lang-btn.active {
+    background: var(--accent-color);
+    color: var(--secondary-bg);
+    border-color: var(--accent-color);
+}
+
+/*
+    ====================
+    LANDINGPAGE / HERO SEKTION
+    ====================
+*/
+
+section { 
+    padding: 12rem 5vw; 
+    min-height: 100vh; 
+    position: relative; 
+}
+
+.hero {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    background: transparent; 
+    height: 100vh;
+}
+
+.hero-name {
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.slogan {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--accent-color); 
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*
+    ====================
+    VISION SEKTION (Zebra weiss)
+    ====================
+*/
+
+.vision {
+    background-color: var(--primary-bg); 
+    color: var(--secondary-bg); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+}
+
+.vision-content { max-width: 60ch; }
+.vision h2 { 
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    color: var(--secondary-bg); 
+}
+
+.btn-vision {
+    display: inline-block;
+    border: 2px solid var(--secondary-bg);
+    color: var(--secondary-bg);
+    padding: 1rem 2rem; 
+    margin-top: 2rem;
+    text-transform: uppercase; 
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-vision:hover { 
+    background-color: var(--secondary-bg); 
+    color: var(--primary-bg); 
+}
+
+/*
+    ====================
+    PORTFOLIO GRID
+    ====================
+*/
+
+.portfolio { 
+    background-color: var(--secondary-bg); 
+}
+
+.portfolio h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--accent-color); 
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-item-wrapper { display: flex; flex-direction: column; }
+.portfolio-item { overflow: hidden; position: relative; }
+
+.portfolio-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+.portfolio-item:hover img { transform: scale(1.05); }
+
+.portfolio-item.tall { height: 400px; }
+.portfolio-item.short { height: 300px; }
+
+.project-info { padding-top: 1rem; text-align: center; }
+.project-info strong { font-size: 1.2rem; color: var(--accent-color); }
+.project-info p { font-size: 0.9rem; color: rgba(244, 164, 96, 0.7); }
+
+@media (min-width: 768px) {
+    .portfolio-item-wrapper.offset { margin-top: 3rem; }
+}
+
+/*
+    ====================
+    LEBENSLAUF (ZEITSTRAHL & SPRACHEN)
+    ====================
+*/
+
+.cv-section {
+    background-color: var(--secondary-bg);
+    padding-top: 4rem;
+}
+
+.cv-section h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-align: center;
+    color: var(--accent-color); 
+    margin-bottom: 0.5rem;
+}
+
+.cv-subtitle {
+    text-align: center;
+    color: rgba(244, 164, 96, 0.7); 
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+}
+
+.true-timeline-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Zeitstrahl-Hauptlinie: Stoppt exakt 300px vor dem Ende des Containers */
+.main-timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 300px; 
+    width: 2px;
+    background: rgba(244, 164, 96, 0.2); 
+    transform: translateX(-50%);
+}
+
+.timeline-block {
+    position: relative; 
+    width: 100%;
+    margin-bottom: 5.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Gerade Blöcke: Box links */
+.timeline-block:nth-child(even) { 
+    justify-content: flex-start; 
+}
+
+/* Ungerade Blöcke: Box rechts */
+.timeline-block:nth-child(odd) { 
+    justify-content: flex-end; 
+}
+
+.timeline-block .cv-item {
+    width: 42%; 
+    display: block;
+}
+
+.cv-item {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(244, 164, 96, 0.2); 
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cv-item.highlight {
+    border-left: 3px solid var(--accent-color);
+    background: rgba(244, 164, 96, 0.06);
+}
+
+.timeline-block:hover .cv-item {
+    transform: translateY(-5px);
+    background: rgba(244, 164, 96, 0.08); 
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cv-date {
+    position: absolute;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-color);
+    font-weight: bold;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Box links (even) → Datum rechts */
+.timeline-block:nth-child(even) .cv-date {
+    left: calc(50% + 30px);
+    text-align: left;
+}
+
+/* Box rechts (odd) → Datum links */
+.timeline-block:nth-child(odd) .cv-date {
+    right: calc(50% + 30px);
+    text-align: right;
+}
+
+/* Typografie innerhalb des CVs (Clean & Einheitlich) */
+.cv-item h4 {
+    font-size: 1.3rem;
+    color: var(--accent-color); 
+    margin-bottom: 0.25rem;
+    font-family: 'Graphik', sans-serif;
+}
+
+.cv-item h5 {
+    color: rgba(244, 164, 96, 0.7); 
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cv-item p {
+    font-size: 0.95rem;
+    color: rgba(244, 164, 96, 0.85); 
+    font-family: 'Graphik', sans-serif;
+}
+
+.timeline-dot-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--secondary-bg);
+    border: 2px solid var(--accent-color); 
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.timeline-block:hover .timeline-dot-center {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    transform: translate(-50%, -50%) scale(1.4);
+}
+
+/* AUTONOMER SPRACHBLOCK AM ENDE */
+.timeline-block.languages-block { 
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+    z-index: 2;
+}
+
+.timeline-block.languages-block .timeline-dot-center {
+    display: none; 
+}
+
+.timeline-block.languages-block .cv-item.genuine-info { 
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+/* Erzwingt die cleane Graphik-Schriftart analog zu h4 & p */
+.timeline-block.languages-block .cv-item.genuine-info h3 { 
+    font-family: 'Graphik', sans-serif;
+    font-size: 1.3rem; 
+    font-weight: bold;
+    color: var(--accent-color); 
+    margin-bottom: 1rem; 
+    text-shadow: none;
+}
+
+.timeline-block.languages-block .cv-item.genuine-info p,
+.timeline-block.languages-block .cv-item.genuine-info strong {
+    font-family: 'Graphik', sans-serif;
+    color: rgba(244, 164, 96, 0.85);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/*
+    ====================
+    KONTAKT SEKTION (Zebra weiss)
+    ====================
+*/
+
+.contact { 
+    padding: 7rem 15vw;                 /* Gleiche Höhe wie Vision-Sektion */
+    background-color: var(--primary-bg); /* Reines Weiss */
+    color: var(--secondary-bg);          /* Königsblau */
+}
+
+/* Der Titel passt sich jetzt exakt an die Breite und Ausrichtung des Formulars an */
+.contact h2 { 
+    font-size: 2rem;                     /* Eine kompaktere, edle Grösse passend zum Formular */
+    font-family: 'Young Serif', serif;
+    font-weight: 400;
+    color: var(--secondary-bg) !important;        
+    max-width: 600px;                    /* Exakt dieselbe maximale Breite wie dein Formular */
+    margin: 0 auto 2rem auto;            /* Zentriert den Block als Ganzes, gibt Platz nach unten */
+    text-align: center;                    /* Linksbündig, genau wie die Inputs darunter */
+    line-height: 1.2;
+    text-shadow: none;
+}
+
+.contact form { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 16px; 
+    background-color: var(--contact-form-bg);    
+    border: 1px solid rgba(0, 0, 51, 0.15);     
+    color: var(--secondary-bg);                  
+    font-family: 'Graphik', sans-serif; 
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.contact input:focus, 
+.contact textarea:focus {
+    outline: none;
+    border-color: var(--secondary-bg);
+}
+
+.contact button {
+    width: 100%;
+    padding: 16px; 
+    background-color: var(--secondary-bg);       
+    border: none;
+    color: var(--primary-bg);                    
+    font-weight: bold; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    font-family: 'Graphik', sans-serif;
+}
+
+.contact button:hover { 
+    background-color: var(--accent-color); 
+}
+
+/* Sorgt dafür, dass es auch auf dem Smartphone perfekt linksbündig mit dem Formular bleibt */
+@media (max-width: 768px) {
+    .contact h2 {
+        padding: 0 20px; /* Verhindert, dass der Titel ganz am Bildschirmrand klebt */
+    }
+}
+
+/*
+    ====================
+    FOOTER
+    ====================
+*/
+
+.footer {
+    text-align: center; 
+    padding: 2rem 20px; 
+    background-color: var(--secondary-bg);
+    color: rgba(244, 164, 96, 0.6); 
+    border-top: 1px solid rgba(244, 164, 96, 0.15);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link:hover {
+    color: var(--accent-color);
+}
+
+/*
+    ====================
+    RESPONSIVE (MOBILE OPTIMIERUNG)
+    ====================
+*/
+
+@media (max-width: 768px) {
+    .main-timeline-line { left: 20px; transform: none; bottom: 180px; }
+
+    .timeline-block { 
+        justify-content: flex-end !important; 
+        padding-left: 45px; 
+        margin-bottom: 3rem; 
+    }
+
+    .timeline-block .cv-item { width: 100%; }
+
+    .timeline-dot-center { 
+        left: 20px; 
+        top: 50%; 
+        transform: translate(-50%, -50%); 
+    }
+
+    .timeline-block:hover .timeline-dot-center { 
+        transform: translate(-50%, -50%) scale(1.3); 
+    }
+
+    .cv-date { 
+        position: relative !important; 
+        top: auto !important; 
+        left: auto !important; 
+        right: auto !important; 
+        transform: none !important;
+        text-align: left !important; 
+        display: block;
+        margin-bottom: 0.75rem;
+        pointer-events: auto;
+    }
+
+    .portfolio-grid { grid-template-columns: 1fr; }
+
+    .languages-block .cv-item.genuine-info {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .timeline-block:nth-child(even) .cv-date { left: calc(50% + 20px); }
+    .timeline-block:nth-child(odd) .cv-date { right: calc(50% + 20px); }
+}
+
+/*
+    ====================
+    ÜBER MICH SEITE (about.html)
+    ====================
+*/
+
+.about-hero {
+    background-color: var(--secondary-bg);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 14rem;
+}
+
+.about-hero-content { max-width: 70ch; }
+
+.about-hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.about-hero-content p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: rgba(244, 164, 96, 0.8);
+}
+
+.about-section {
+    background-color: var(--secondary-bg);
+    min-height: auto;
+    padding: 4rem 5vw 6rem 5vw;
+}
+
+.about-section.alt {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.about-section h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+.about-intro {
+    max-width: 75ch;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    font-size: 1.05rem;
+    color: rgba(244, 164, 96, 0.85);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(244, 164, 96, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    background: rgba(244, 164, 96, 0.08);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.about-card.highlight {
+    border-left: 3px solid var(--accent-color);
+    background: rgba(244, 164, 96, 0.06);
+}
+
+.about-card h4 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+    font-family: 'Graphik', sans-serif;
+}
+
+.about-card p {
+    font-size: 0.95rem;
+    color: rgba(244, 164, 96, 0.85);
+}
+
+.btn-outline {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    color: var(--accent-color) !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-bg) !important;
+}
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+}
