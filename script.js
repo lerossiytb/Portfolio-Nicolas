@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const carouselLeft = document.getElementById('carouselLeft');
     const carouselRight = document.getElementById('carouselRight');
     if (carouselTrack && carouselLeft && carouselRight) {
-        const scrollAmount = 170; // Breite eines Items + Abstand
+        const scrollAmount = 236; // Breite eines Items (220px) + Abstand (16px)
         carouselRight.addEventListener('click', () => {
             carouselTrack.scrollBy({ left: scrollAmount * 2, behavior: 'smooth' });
         });
