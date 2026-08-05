@@ -22,14 +22,24 @@
     <!-- Header & Navigation -->
     <header class="main-header">
         <div class="header-top">
-            <div class="logo">LeRossi</div>
+            <a href="#hero" class="logo">LeRossi</a>
             
-            <div class="menu-btn" id="menuBtn">
-                <svg width="35" height="28" viewBox="0 0 35 28">
-                    <path class="wave-bar" d="M0 6 Q5 0 10 6 T20 6 T30 6 T35 6" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                    <path class="wave-bar" d="M0 14 Q5 8 10 14 T20 14 T30 14 T35 14" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                    <path class="wave-bar" d="M0 22 Q5 16 10 22 T20 22 T30 22 T35 22" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                </svg>
+            <div class="header-top-right">
+                <div class="lang-switcher-compact">
+                    <button onclick="changeLanguage('de')" class="lang-btn-compact active">DE</button>
+                    <span class="lang-sep">|</span>
+                    <button onclick="changeLanguage('en')" class="lang-btn-compact">EN</button>
+                    <span class="lang-sep">|</span>
+                    <button onclick="changeLanguage('fr')" class="lang-btn-compact">FR</button>
+                </div>
+
+                <div class="menu-btn" id="menuBtn">
+                    <svg width="35" height="28" viewBox="0 0 35 28">
+                        <path class="wave-bar" d="M0 6 Q5 0 10 6 T20 6 T30 6 T35 6" stroke="#f4a460" stroke-width="4" fill="transparent"/>
+                        <path class="wave-bar" d="M0 14 Q5 8 10 14 T20 14 T30 14 T35 14" stroke="#f4a460" stroke-width="4" fill="transparent"/>
+                        <path class="wave-bar" d="M0 22 Q5 16 10 22 T20 22 T30 22 T35 22" stroke="#f4a460" stroke-width="4" fill="transparent"/>
+                    </svg>
+                </div>
             </div>
         </div>
         
@@ -54,6 +64,7 @@
         <section class="hero" id="hero">
             <div class="hero-content">
                 <h1 class="hero-name">Nicolas Rossi</h1>
+                <p class="hero-tagline">Creative Studio</p>
                 <p class="slogan">Choose to like it</p>
             </div>
         </section>
@@ -71,30 +82,30 @@
             <div class="content-carousel">
                 <button class="carousel-arrow left" id="carouselLeft" aria-label="Zurück">&#8249;</button>
                 <div class="carousel-track" id="carouselTrack">
-                    <a href="https://www.youtube.com/@_lerossi" target="_blank" rel="noopener" class="carousel-item">
-                        <img src="https://picsum.photos/400/400?random=11" alt="YouTube Video">
-                        <span class="carousel-item-label">YouTube</span>
-                    </a>
-                    <a href="https://www.instagram.com/lerossiytb/" target="_blank" rel="noopener" class="carousel-item">
-                        <img src="https://picsum.photos/400/400?random=12" alt="Instagram Post">
-                        <span class="carousel-item-label">Instagram</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@lerossiyt" target="_blank" rel="noopener" class="carousel-item">
-                        <img src="https://picsum.photos/400/400?random=13" alt="TikTok Video">
-                        <span class="carousel-item-label">TikTok</span>
-                    </a>
-                    <a href="https://www.youtube.com/@_lerossi" target="_blank" rel="noopener" class="carousel-item">
-                        <img src="https://picsum.photos/400/400?random=14" alt="YouTube Video">
-                        <span class="carousel-item-label">YouTube</span>
-                    </a>
-                    <a href="https://www.instagram.com/lerossiytb/" target="_blank" rel="noopener" class="carousel-item">
-                        <img src="https://picsum.photos/400/400?random=15" alt="Instagram Post">
-                        <span class="carousel-item-label">Instagram</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@lerossiytb" target="_blank" rel="noopener" class="carousel-item">
-                        <img src="https://picsum.photos/400/400?random=16" alt="TikTok Video">
-                        <span class="carousel-item-label">TikTok</span>
-                    </a>
+                    <div class="carousel-item">
+                        <img src="images/moderation.jpeg" alt="Moderation">
+                        <span class="carousel-item-label">Moderation</span>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/event.jpeg" alt="Event">
+                        <span class="carousel-item-label">Event</span>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/fotografie.jpeg" alt="Fotografie">
+                        <span class="carousel-item-label">Fotografie</span>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/meer.jpeg" alt="Meer">
+                        <span class="carousel-item-label">Meer</span>
+                    </div>
+                    <div class="carousel-item">
+                        <video src="images/darvida.mp4" autoplay muted loop playsinline></video>
+                        <span class="carousel-item-label">Darvida</span>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/aroa.jpeg" alt="Aroa">
+                        <span class="carousel-item-label">Aroa</span>
+                    </div>
                 </div>
                 <button class="carousel-arrow right" id="carouselRight" aria-label="Weiter">&#8250;</button>
             </div>
@@ -171,6 +182,9 @@
             </div>
             <div class="vision-content">
                 <h2 data-de="Lerne mich kennen" data-en="Get to know me" data-fr="Faisons connaissance">Lerne mich kennen</h2>
+                <p data-de="Aufgewachsen bin ich im schönen Windisch im Aargau – Sohn eines Vaters aus Frankreich und einer Mutter aus der Schweiz, zweisprachig gross geworden zwischen zwei Kulturen. Dieser kulturelle Austausch hat mich schon früh geprägt und mir gezeigt, wie bereichernd es ist, mit offenen Augen durch die Welt zu gehen. Meine Jugend war ausserdem vom Rugby geprägt, das mir früh beigebracht hat, was Teamgeist und Zusammenhalt wirklich bedeuten."
+                   data-en="I grew up in the charming town of Windisch in the canton of Aargau – son of a French father and a Swiss mother, raised bilingually between two cultures. That cultural exchange shaped me early on and showed me how enriching it is to move through the world with open eyes. My youth was also shaped by rugby, which taught me early what teamwork and togetherness really mean."
+                   data-fr="J'ai grandi dans la charmante commune de Windisch, en Argovie – fils d'un père français et d'une mère suisse, élevé de façon bilingue entre deux cultures. Cet échange culturel m'a marqué très tôt et m'a montré à quel point il est enrichissant de traverser le monde avec un regard ouvert. Ma jeunesse a également été marquée par le rugby, qui m'a très tôt appris ce que signifient vraiment l'esprit d'équipe et la cohésion.">Aufgewachsen bin ich im schönen Windisch im Aargau – Sohn eines Vaters aus Frankreich und einer Mutter aus der Schweiz, zweisprachig gross geworden zwischen zwei Kulturen. Dieser kulturelle Austausch hat mich schon früh geprägt und mir gezeigt, wie bereichernd es ist, mit offenen Augen durch die Welt zu gehen. Meine Jugend war ausserdem vom Rugby geprägt, das mir früh beigebracht hat, was Teamgeist und Zusammenhalt wirklich bedeuten.</p>
                 <p data-de="Am liebsten zeige ich meine Welt durch die Linse – ob als Film oder Bild, vor oder hinter der Kamera. Reisen gehört für mich untrennbar dazu: neue Orte, neue Perspektiven und der Austausch mit Menschen aus anderen Kulturen inspirieren mich immer wieder aufs Neue."
                    data-en="I love showing my world through the lens – whether as film or photo, in front of or behind the camera. Traveling is inseparable from that for me: new places, new perspectives and exchanging with people from other cultures inspire me again and again."
                    data-fr="J'aime montrer mon monde à travers l'objectif – que ce soit en vidéo ou en photo, devant ou derrière la caméra. Voyager en fait partie intégrante pour moi : de nouveaux endroits, de nouvelles perspectives et les échanges avec des personnes d'autres cultures m'inspirent sans cesse.">Am liebsten zeige ich meine Welt durch die Linse – ob als Film oder Bild, vor oder hinter der Kamera. Reisen gehört für mich untrennbar dazu: neue Orte, neue Perspektiven und der Austausch mit Menschen aus anderen Kulturen inspirieren mich immer wieder aufs Neue.</p>
@@ -295,10 +309,11 @@
         <!-- KONTAKT SEKTION -->
         <section id="contact" class="contact">
             <h2 data-de="Melde dich gerne bei mir" data-en="Get in touch with me" data-fr="Contactez-moi">Melde dich gerne bei mir</h2>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Nachricht" required></textarea>
+            <form action="https://formspree.io/f/maewyyzb" method="POST">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Nachricht" required></textarea>
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                 <button type="submit" data-de="Senden" data-en="Send" data-fr="Envoyer">Senden</button>
             </form>
         </section>
