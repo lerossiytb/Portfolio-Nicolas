@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuBtn = document.getElementById('menuBtn');
     const mainNav = document.getElementById('main-nav');
+    const mainHeader = document.querySelector('.main-header');
+
     menuBtn.addEventListener('click', () => {
         menuBtn.classList.toggle('open');
         mainNav.classList.toggle('active');
@@ -11,6 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
             menuBtn.classList.remove('open');
             mainNav.classList.remove('active');
         });
+    });
+
+    // Fixierter Header: Balken erscheint beim Scrollen
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
     });
 
     // Content-Karussell: Pfeil-Navigation
@@ -50,7 +61,7 @@ function changeLanguage(lang) {
     if (formName) formName.placeholder = placeholders[lang].name;
     if (formEmail) formEmail.placeholder = placeholders[lang].email;
     if (formText) formText.placeholder = placeholders[lang].msg;
-    // 3. Aktiven Button stylen
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    // 3. Aktive Buttons stylen (beide Sprachwechsler-Sets: Header-Balken & Mobile-Menü)
+    document.querySelectorAll('.lang-btn, .lang-btn-compact').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll(`[onclick="changeLanguage('${lang}')"]`).forEach(btn => btn.classList.add('active'));
 }
