@@ -108,9 +108,56 @@ h1, h2, h3, h4 {
     width: 100%;
     padding: 2.5rem 5vw;
     z-index: 100;
-    position: absolute; 
+    position: fixed; 
     top: 0;
     left: 0;
+    background-color: transparent;
+    transition: background-color 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
+}
+
+.main-header.scrolled {
+    background-color: var(--secondary-bg);
+    padding: 1.2rem 5vw;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.header-top-right {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.lang-switcher-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Graphik', sans-serif;
+    font-size: 0.85rem;
+}
+
+.lang-btn-compact {
+    background: none;
+    border: none;
+    color: rgba(244, 164, 96, 0.6);
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.lang-btn-compact:hover,
+.lang-btn-compact.active {
+    color: var(--accent-color);
+}
+
+.lang-sep {
+    color: rgba(244, 164, 96, 0.3);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+    .lang-switcher-compact { display: none; }
 }
 
 .header-top {
@@ -287,6 +334,16 @@ section {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+.hero-tagline {
+    font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-color);
+    margin-top: 0.75rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
 .slogan {
     font-size: clamp(1rem, 2vw, 1.5rem);
     font-weight: 300;
@@ -332,7 +389,7 @@ section {
 
 .content-carousel {
     position: relative;
-    max-width: 1800px;
+    max-width: 900px;
     margin: 3rem auto 0 auto;
     display: flex;
     align-items: center;
@@ -368,7 +425,8 @@ section {
     transform: translateY(-4px);
 }
 
-.carousel-item img {
+.carousel-item img,
+.carousel-item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
