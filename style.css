@@ -364,18 +364,25 @@ section {
     padding: 5rem 5vw;
     background-color: var(--secondary-bg);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.brand-statement-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
 }
 
 .brand-statement-text {
     max-width: 46ch;
     text-align: center;
-    font-family: 'Young Serif', serif;
-    font-size: clamp(1.3rem, 2.8vw, 2rem);
-    line-height: 1.5;
-    color: var(--accent-color);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.6;
+    color: rgba(244, 164, 96, 0.85);
 }
 
 /*
@@ -438,8 +445,8 @@ section {
 
 .carousel-item {
     flex: 0 0 auto;
-    width: 220px;
-    height: 220px;
+    width: 280px;
+    height: 280px;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -464,26 +471,13 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0.6rem 0.7rem;
-    background: linear-gradient(to top, rgba(0, 0, 51, 0.9) 0%, rgba(0, 0, 51, 0.4) 70%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    text-align: left;
-}
-
-.carousel-item-title {
+    padding: 0.5rem 0.7rem;
+    background: linear-gradient(to top, rgba(0, 0, 51, 0.85) 0%, transparent 100%);
     color: var(--accent-color);
     font-size: 0.85rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-}
-
-.carousel-item-desc {
-    color: rgba(244, 164, 96, 0.8);
-    font-size: 0.7rem;
-    line-height: 1.3;
 }
 
 .carousel-arrow {
@@ -509,7 +503,7 @@ section {
 }
 
 @media (max-width: 600px) {
-    .carousel-item { width: 140px; height: 140px; }
+    .carousel-item { width: 180px; height: 180px; }
 }
 
 /*
