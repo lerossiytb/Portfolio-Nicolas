@@ -5,62 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeRossi | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* --- Spezifische Anpassung für 'Lerne mich kennen' über die volle Breite --- */
-        section.vision-portrait {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            background-color: #ffffff;
-            color: #111111;
-            padding: 80px 5%;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .vision-portrait .vision-portrait-img {
-            flex: 0 0 auto;
-            max-width: 320px; /* Bildgröße kompakt auf Texthöhe abgestimmt */
-            display: flex;
-            align-items: center;
-        }
-
-        .vision-portrait .vision-portrait-img img {
-            width: 100%;
-            height: auto;
-            max-height: 380px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .vision-portrait .vision-content {
-            max-width: 650px;
-        }
-
-        .vision-portrait .vision-content h2,
-        .vision-portrait .vision-content p {
-            color: #111111 !important;
-        }
-
-        /* Responsive Anpassung für Mobilgeräte */
-        @media (max-width: 768px) {
-            section.vision-portrait {
-                flex-direction: column;
-                padding: 50px 20px;
-                gap: 25px;
-            }
-            .vision-portrait .vision-portrait-img {
-                max-width: 220px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -218,7 +162,7 @@
                data-fr="Voir le meilleur dans chaque détail n'est pas une excuse – c'est une décision. Et c'est elle qui se retrouve dans chaque image, chaque vidéo, chaque campagne.">Das Beste in jedem Detail zu sehen ist keine Ausrede – es ist eine Entscheidung. Und genau die steckt in jedem Bild, jedem Video, jeder Kampagne.</p>
         </section>
 
-        <!-- LERNE MICH KENNEN: FOTO + KURZER TEXT (VOLLE BREITE & WEISS) -->
+        <!-- LERNE MICH KENNEN: FOTO + KURZER TEXT -->
         <section id="vision" class="vision vision-portrait">
             <div class="vision-portrait-img">
                 <img src="images/bild_nicolas.jpeg" alt="Nicolas Rossi">
@@ -234,13 +178,13 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO SEKTION (4 KERNSÄULEN MIT UNTERSEITEN-LINKS) -->
+        <!-- PORTFOLIO SEKTION (GEKÜRZT AUF 4 KERNSÄULEN) -->
         <section id="portfolio" class="portfolio">
             <h2 data-de="Portfolio & Leistungen" data-en="Portfolio & Services" data-fr="Portfolio & Services">Portfolio & Leistungen</h2>
             <div class="portfolio-grid">
                 
                 <!-- Säule 1: Social Media -->
-                <a href="socialmedia.html" class="portfolio-item-wrapper" style="text-decoration: none; color: inherit;">
+                <a href="socialmedia.html" class="portfolio-item-wrapper">
                     <div class="portfolio-item tall">
                         <video src="images/darvida.mp4" autoplay muted loop playsinline></video>
                     </div>
@@ -254,21 +198,21 @@
                 </a>
 
                 <!-- Säule 2: Fotografie -->
-                <a href="fotografie.html" class="portfolio-item-wrapper offset" style="text-decoration: none; color: inherit;">
+                <a href="fotografie.html" class="portfolio-item-wrapper offset">
                     <div class="portfolio-item tall">
-                        <img src="images/fotografie.jpeg" alt="Outdoor & Sport Fotografie">
+                        <img src="images/fotografie.jpeg" alt="Foto- & Videografie">
                     </div>
                     <div class="project-info">
-                        <strong data-de="Outdoor & Sport Fotografie" data-en="Outdoor & Sports Photography" data-fr="Photographie Outdoor & Sport">Outdoor & Sport Fotografie</strong>
-                        <p data-de="Ausdrucksstarke Bilder für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print."
-                           data-en="Expressive imagery for brands, events, and adventures. My focus lies on dynamic outdoor shots, sports action, and authentic storytelling for web and print."
-                           data-fr="Des images percutantes pour les marques, les événements et l'aventure. Spécialisé dans les prises de vue extérieures dynamiques, l'action sportive et le storytelling visuel."
-                        >Ausdrucksstarke Bilder für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print.</p>
+                        <strong data-de="Foto- & Videografie" data-en="Photo & Videography" data-fr="Photo & Vidéographie">Foto- & Videografie</strong>
+                        <p data-de="Ausdrucksstarke Bilder und Videos für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print."
+                           data-en="Expressive images and videos for brands, events, and adventures. My focus lies on dynamic outdoor shots, sports action, and authentic storytelling for web and print."
+                           data-fr="Images et vidéos percutantes pour les marques, les événements et l'aventure. Spécialisé dans les prises de vue extérieures dynamiques, l'action sportive et le storytelling visuel."
+                        >Ausdrucksstarke Bilder und Videos für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print.</p>
                     </div>
                 </a>
 
                 <!-- Säule 3: Event & Moderation -->
-                <a href="events.html" class="portfolio-item-wrapper" style="text-decoration: none; color: inherit;">
+                <a href="event.html" class="portfolio-item-wrapper">
                     <div class="portfolio-item short">
                         <img src="images/event.jpeg" alt="Event Planning & Hosting">
                     </div>
@@ -282,7 +226,7 @@
                 </a>
 
                 <!-- Säule 4: Creative Innovation -->
-                <a href="creative-innovation.html" class="portfolio-item-wrapper offset" style="text-decoration: none; color: inherit;">
+                <a href="creative-innovation.html" class="portfolio-item-wrapper offset">
                     <div class="portfolio-item short">
                         <img src="images/aroa.jpeg" alt="Creative Innovation & Consulting">
                     </div>
@@ -304,6 +248,7 @@
             <p class="cv-subtitle" data-de="Ein Überblick über meinen beruflichen Werdegang" data-en="An overview of my professional journey" data-fr="Un aperçu de mon parcours professionnel">Ein Überblick über meinen beruflichen Werdegang</p>
             
             <div class="true-timeline-container">
+                <!-- Die zentrale vertikale Achse des Zeitstrahls -->
                 <div class="main-timeline-line"></div>
 
                 <!-- Station 1: SUPKultur -->
@@ -397,8 +342,7 @@
                            data-fr="Gestion des tâches administratives, support client, traitement des paiements et soutien à l'organisation d'événements.">Abwicklung administrativer Aufgaben, Kundenbetreuung, Zahlungsverarbeitung und Unterstützung bei der Eventorganisation.</p>
                     </div>
                 </div>
-
-                <!-- Sprachkompetenzen -->
+                <!-- Kopfzeile des Zeitstrahls: Sprachkompetenzen -->
                 <div class="timeline-block languages-block">
                     <div class="timeline-dot-center"></div>
                     <div class="cv-item genuine-info">
@@ -436,18 +380,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- PORTFOLIO DETAIL-OVERLAY -->
-    <div class="portfolio-modal" id="portfolioModal">
-        <button class="portfolio-modal-close" id="portfolioModalClose" aria-label="Schliessen">&times;</button>
-        <div class="portfolio-modal-inner">
-            <div class="portfolio-modal-media" id="portfolioModalMedia"></div>
-            <div class="portfolio-modal-text">
-                <h3 id="portfolioModalTitle"></h3>
-                <p id="portfolioModalDesc"></p>
-            </div>
-        </div>
-    </div>
 
     <!-- LIGHTBOX: BILDER/VIDEOS GROSS ANZEIGEN -->
     <div class="lightbox" id="lightbox">
