@@ -24,30 +24,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Content-Karussell: Pfeil-Navigation
+    // Content-Karussell: Pfeil-Navigation + Auto-Rotation (index-basiert für sauberes Snapping)
     const carouselTrack = document.getElementById('carouselTrack');
     const carouselLeft = document.getElementById('carouselLeft');
     const carouselRight = document.getElementById('carouselRight');
-    const scrollAmount = 236; // Breite eines Items (220px) + Abstand (16px)
 
     if (carouselTrack && carouselLeft && carouselRight) {
-        carouselRight.addEventListener('click', () => {
-            carouselTrack.scrollBy({ left: scrollAmount * 2, behavior: 'smooth' });
-        });
-        carouselLeft.addEventListener('click', () => {
-            carouselTrack.scrollBy({ left: -scrollAmount * 2, behavior: 'smooth' });
-        });
+        const items = Array.from(carouselTrack.querySelectorAll('.carousel-item'));
+        let currentIndex = 0;
 
-        // Auto-Rotation: scrollt automatisch alle 3.5s weiter, springt am Ende zurück zum Start
+        function scrollToIndex(i) {
+            currentIndex = (i + items.length) % items.length;
+            const item = items[currentIndex];
+            carouselTrack.scrollTo({ left: item.offsetLeft, behavior: 'smooth' });
+        }
+
+        carouselRight.addEventListener('click', () => scrollToIndex(currentIndex + 1));
+        carouselLeft.addEventListener('click', () => scrollToIndex(currentIndex - 1));
+
+        // Auto-Rotation: springt alle 3.5s zum nächsten Bild, danach zurück zum Anfang
         let autoScrollInterval;
         function startAutoScroll() {
             autoScrollInterval = setInterval(() => {
-                const atEnd = carouselTrack.scrollLeft + carouselTrack.clientWidth >= carouselTrack.scrollWidth - 5;
-                if (atEnd) {
-                    carouselTrack.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    carouselTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                }
+                scrollToIndex(currentIndex + 1);
             }, 3500);
         }
         function stopAutoScroll() {
@@ -82,8 +81,12 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxContent.innerHTML = '';
     }
 
-    document.querySelectorAll('.carousel-item img, .carousel-item video').forEach(mediaEl => {
-        mediaEl.addEventListener('click', () => openLightbox(mediaEl));
+    // Event-Delegation: funktioniert zuverlässig, auch für Elemente die erst später im DOM landen
+    document.addEventListener('click', (e) => {
+        const carouselMedia = e.target.closest('.carousel-item img, .carousel-item video');
+        if (carouselMedia) {
+            openLightbox(carouselMedia);
+        }
     });
 
     lightboxClose.addEventListener('click', closeLightbox);
@@ -98,25 +101,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const portfolioModalDesc = document.getElementById('portfolioModalDesc');
     const portfolioModalClose = document.getElementById('portfolioModalClose');
 
-    document.querySelectorAll('.portfolio-item-wrapper').forEach(wrapper => {
-        wrapper.addEventListener('click', () => {
-            const media = wrapper.querySelector('.portfolio-item img, .portfolio-item video');
-            const title = wrapper.querySelector('.project-info strong');
-            const desc = wrapper.querySelector('.project-info p');
+    document.addEventListener('click', (e) => {
+        const wrapper = e.target.closest('.portfolio-item-wrapper');
+        if (!wrapper) return;
 
-            portfolioModalMedia.innerHTML = '';
-            const clone = media.cloneNode(true);
-            if (clone.tagName === 'VIDEO') {
-                clone.removeAttribute('autoplay');
-                clone.muted = false;
-                clone.controls = true;
-                clone.loop = true;
-            }
-            portfolioModalMedia.appendChild(clone);
-            portfolioModalTitle.textContent = title.textContent;
-            portfolioModalDesc.textContent = desc.textContent;
-            portfolioModal.classList.add('active');
-        });
+        const media = wrapper.querySelector('.portfolio-item img, .portfolio-item video');
+        const title = wrapper.querySelector('.project-info strong');
+        const desc = wrapper.querySelector('.project-info p');
+        if (!media || !title || !desc) return;
+
+        portfolioModalMedia.innerHTML = '';
+        const clone = media.cloneNode(true);
+        if (clone.tagName === 'VIDEO') {
+            clone.removeAttribute('autoplay');
+            clone.muted = false;
+            clone.controls = true;
+            clone.loop = true;
+        }
+        portfolioModalMedia.appendChild(clone);
+        portfolioModalTitle.textContent = title.textContent;
+        portfolioModalDesc.textContent = desc.textContent;
+        portfolioModal.classList.add('active');
     });
 
     function closePortfolioModal() {
