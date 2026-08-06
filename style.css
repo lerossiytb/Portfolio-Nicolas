@@ -537,26 +537,24 @@ section {
 }
 
 /*
-    ====================
-    LERNE MICH KENNEN: FOTO + TEXT LAYOUT
-    ====================
-*/
-
-.vision-portrait {
+ .vision-portrait {
+    background-color: var(--primary-bg); /* Reines Weiss */
+    color: var(--secondary-bg);          /* Dunkles Königsblau */
     display: grid;
     grid-template-columns: 0.9fr 1.3fr;
     gap: 4rem;
     align-items: center;
     text-align: left;
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
+    padding: 6rem 5vw;
 }
 
 .vision-portrait-img {
     border-radius: 16px;
     overflow: hidden;
     aspect-ratio: 4 / 5;
+    max-width: 450px;
+    justify-self: center;
 }
 
 .vision-portrait-img img {
@@ -567,14 +565,47 @@ section {
 }
 
 .vision-portrait .vision-content {
-    max-width: none;
+    max-width: 65ch;
+}
+
+/* Erzwingt dunkle Textfarbe auf weissem Hintergrund */
+.vision-portrait h2 {
+    color: var(--secondary-bg) !important;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 1.5rem;
+    text-shadow: none;
+}
+
+.vision-portrait p {
+    color: var(--secondary-bg) !important;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.btn-vision {
+    display: inline-block;
+    border: 2px solid var(--secondary-bg);
+    color: var(--secondary-bg) !important;
+    padding: 1rem 2rem; 
+    margin-top: 2rem;
+    text-transform: uppercase; 
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-vision:hover { 
+    background-color: var(--secondary-bg); 
+    color: var(--primary-bg) !important; 
 }
 
 @media (max-width: 900px) {
     .vision-portrait {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 2.5rem;
+        padding: 4rem 5vw;
     }
 
     .vision-portrait-img {
@@ -586,23 +617,6 @@ section {
         font-size: 2rem;
     }
 }
-
-.btn-vision {
-    display: inline-block;
-    border: 2px solid var(--secondary-bg);
-    color: var(--secondary-bg);
-    padding: 1rem 2rem; 
-    margin-top: 2rem;
-    text-transform: uppercase; 
-    font-weight: 500;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-vision:hover { 
-    background-color: var(--secondary-bg); 
-    color: var(--primary-bg); 
-}
-
 /*
     ====================
     PORTFOLIO GRID
