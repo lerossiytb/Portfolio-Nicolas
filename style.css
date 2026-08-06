@@ -355,6 +355,31 @@ section {
 
 /*
     ====================
+    MARKENSTATEMENT (Choose to like it)
+    ====================
+*/
+
+.brand-statement {
+    min-height: auto;
+    padding: 5rem 5vw;
+    background-color: var(--secondary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-statement-text {
+    max-width: 46ch;
+    text-align: center;
+    font-family: 'Young Serif', serif;
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+    line-height: 1.5;
+    color: var(--accent-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/*
+    ====================
     VISION SEKTION (Zebra weiss)
     ====================
 */
@@ -485,6 +510,50 @@ section {
 
 @media (max-width: 600px) {
     .carousel-item { width: 140px; height: 140px; }
+}
+
+/*
+    ====================
+    FOLGE MIR: SOCIAL FOLLOW BLOCK
+    ====================
+*/
+
+.social-follow {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.social-follow-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+}
+
+.social-follow-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.social-follow-icons a {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-bg);
+    color: var(--secondary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.social-follow-icons a:hover {
+    background-color: var(--secondary-bg);
+    color: var(--primary-bg);
+    transform: translateY(-3px);
 }
 
 /*
