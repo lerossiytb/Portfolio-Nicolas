@@ -362,7 +362,7 @@ section {
 .brand-statement {
     min-height: auto;
     padding: 5rem 5vw;
-    background-color: var(--secondary-bg);
+    background-color: var(--primary-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -375,6 +375,7 @@ section {
     text-transform: uppercase;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
+    color: var(--secondary-bg);
 }
 
 .brand-statement-text {
@@ -382,7 +383,7 @@ section {
     text-align: center;
     font-size: clamp(1rem, 1.6vw, 1.2rem);
     line-height: 1.6;
-    color: rgba(244, 164, 96, 0.85);
+    color: rgba(0, 0, 51, 0.75);
 }
 
 /*
@@ -417,6 +418,12 @@ section {
 
 #works.vision {
     flex-direction: column;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+}
+
+#works.vision .vision-content h2 {
+    color: var(--accent-color);
 }
 
 .content-carousel {
@@ -471,9 +478,9 @@ section {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid var(--secondary-bg);
+    border: 2px solid var(--accent-color);
     background: transparent;
-    color: var(--secondary-bg);
+    color: var(--accent-color);
     font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
@@ -484,8 +491,8 @@ section {
 }
 
 .carousel-arrow:hover {
-    background-color: var(--secondary-bg);
-    color: var(--primary-bg);
+    background-color: var(--accent-color);
+    color: var(--secondary-bg);
 }
 
 @media (max-width: 600px) {
@@ -522,8 +529,8 @@ section {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    border: 2px solid var(--secondary-bg);
-    color: var(--secondary-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -531,30 +538,32 @@ section {
 }
 
 .social-follow-icons a:hover {
-    background-color: var(--secondary-bg);
-    color: var(--primary-bg);
+    background-color: var(--accent-color);
+    color: var(--secondary-bg);
     transform: translateY(-3px);
 }
 
 /*
- .vision-portrait {
-    background-color: var(--primary-bg); /* Reines Weiss */
-    color: var(--secondary-bg);          /* Dunkles Königsblau */
+    ====================
+    LERNE MICH KENNEN: FOTO + TEXT LAYOUT
+    ====================
+*/
+
+.vision-portrait {
     display: grid;
     grid-template-columns: 0.9fr 1.3fr;
     gap: 4rem;
     align-items: center;
     text-align: left;
     width: 100%;
-    padding: 6rem 5vw;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 .vision-portrait-img {
     border-radius: 16px;
     overflow: hidden;
     aspect-ratio: 4 / 5;
-    max-width: 450px;
-    justify-self: center;
 }
 
 .vision-portrait-img img {
@@ -565,47 +574,14 @@ section {
 }
 
 .vision-portrait .vision-content {
-    max-width: 65ch;
-}
-
-/* Erzwingt dunkle Textfarbe auf weissem Hintergrund */
-.vision-portrait h2 {
-    color: var(--secondary-bg) !important;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    margin-bottom: 1.5rem;
-    text-shadow: none;
-}
-
-.vision-portrait p {
-    color: var(--secondary-bg) !important;
-    font-size: 1.05rem;
-    line-height: 1.7;
-}
-
-.btn-vision {
-    display: inline-block;
-    border: 2px solid var(--secondary-bg);
-    color: var(--secondary-bg) !important;
-    padding: 1rem 2rem; 
-    margin-top: 2rem;
-    text-transform: uppercase; 
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.btn-vision:hover { 
-    background-color: var(--secondary-bg); 
-    color: var(--primary-bg) !important; 
+    max-width: none;
 }
 
 @media (max-width: 900px) {
     .vision-portrait {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2.5rem;
-        padding: 4rem 5vw;
+        gap: 2rem;
     }
 
     .vision-portrait-img {
@@ -617,6 +593,23 @@ section {
         font-size: 2rem;
     }
 }
+
+.btn-vision {
+    display: inline-block;
+    border: 2px solid var(--secondary-bg);
+    color: var(--secondary-bg);
+    padding: 1rem 2rem; 
+    margin-top: 2rem;
+    text-transform: uppercase; 
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-vision:hover { 
+    background-color: var(--secondary-bg); 
+    color: var(--primary-bg); 
+}
+
 /*
     ====================
     PORTFOLIO GRID
@@ -1065,73 +1058,132 @@ section {
 
 /*
     ====================
-    PORTFOLIO DETAIL-OVERLAY (fühlt sich wie eigene Seite an)
+    UNTERSEITEN (Portfolio Detail-Seiten)
     ====================
 */
 
-.portfolio-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: var(--secondary-bg);
-    z-index: 210;
-    overflow-y: auto;
-    animation: portfolioModalIn 0.4s ease;
+.subpage-hero {
+    min-height: auto;
+    padding: 12rem 5vw 3rem 5vw;
+    background-color: var(--secondary-bg);
+    text-align: center;
 }
 
-.portfolio-modal.active {
-    display: block;
+.subpage-back {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: rgba(244, 164, 96, 0.7);
+    letter-spacing: 0.05em;
 }
 
-@keyframes portfolioModalIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.portfolio-modal-close {
-    position: fixed;
-    top: 1.5rem;
-    right: 2rem;
-    background: none;
-    border: none;
+.subpage-back:hover {
     color: var(--accent-color);
-    font-size: 2.8rem;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 211;
 }
 
-.portfolio-modal-inner {
-    max-width: 1000px;
+.subpage-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.subpage-content {
+    min-height: auto;
+    padding: 2rem 5vw 6rem 5vw;
+    background-color: var(--secondary-bg);
+    max-width: 900px;
     margin: 0 auto;
-    padding: 8rem 5vw 5rem 5vw;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
 }
 
-.portfolio-modal-media {
+.subpage-content p {
+    font-size: 1.05rem;
+    color: rgba(244, 164, 96, 0.85);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.subpage-media {
     width: 100%;
-    aspect-ratio: 16 / 10;
     border-radius: 16px;
     overflow: hidden;
+    margin-bottom: 2.5rem;
+    aspect-ratio: 16 / 10;
 }
 
-.portfolio-modal-media img,
-.portfolio-modal-media video {
+.subpage-media img,
+.subpage-media video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.portfolio-modal-text h3 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+.subpage-embed {
+    margin: 2.5rem 0;
+}
+
+.subpage-embed-label {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(244, 164, 96, 0.6);
     margin-bottom: 1rem;
 }
 
-.portfolio-modal-text p {
-    font-size: 1.05rem;
-    color: rgba(244, 164, 96, 0.85);
-    max-width: 65ch;
+.subpage-embed-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.subpage-embed-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.subpage-video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .subpage-video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.subpage-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.subpage-gallery img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .subpage-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+.subpage-subtitle {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(244, 164, 96, 0.15);
 }
