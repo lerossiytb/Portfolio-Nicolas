@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foto- & Videografie | LeRossi</title>
+    <title>Fotografie | LeRossi</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .photo-tile img { cursor: pointer; transition: transform 0.4s ease; }
+        .photo-tile { overflow: hidden; }
+        .photo-tile:hover img { transform: scale(1.06); }
+
+        #photoLightbox {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+            display: none; align-items: center; justify-content: center;
+            z-index: 9999; padding: 30px 20px;
+        }
+        #photoLightbox.active { display: flex; }
+        .lightbox-inner {
+            display: flex; flex-direction: column; align-items: center; gap: 18px;
+            max-width: 92vw; max-height: 90vh;
+        }
+        #photoLightboxImg {
+            max-width: 90vw; max-height: 65vh; object-fit: contain;
+            border-radius: 6px; display: block;
+        }
+        .lightbox-cta { text-align: center; color: #fff; }
+        .lightbox-cta p { margin: 0 0 12px 0; font-size: 1.05rem; }
+        .lightbox-buy-btn {
+            display: inline-block; background: #f4a460; color: #1a1a1a;
+            padding: 10px 26px; border-radius: 5px; text-decoration: none;
+            font-weight: 700; letter-spacing: 0.02em;
+        }
+        .lightbox-close {
+            position: absolute; top: 22px; right: 30px; color: #fff;
+            font-size: 2.2rem; line-height: 1; cursor: pointer;
+            background: none; border: none; font-weight: 300;
+        }
+    </style>
 </head>
 <body>
 
@@ -51,201 +83,146 @@
     <main>
         <section class="subpage-hero">
             <a href="index.html#portfolio" class="subpage-back">&larr; Zurück zum Portfolio</a>
-            <h1 class="subpage-title">Foto- & Videografie</h1>
+            <h1 class="subpage-title" data-de="Fotografie" data-en="Photography" data-fr="Photographie">Fotografie</h1>
         </section>
 
         <section class="subpage-content">
-            <div class="subpage-media">
-                <img src="images/fotografie.jpeg" alt="Foto- & Videografie">
-            </div>
+            <p data-de="Ausdrucksstarke Bilder für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print."
+               data-en="Expressive images for brands, events and adventures. My focus is on dynamic outdoor shots, sports action and authentic visual storytelling for web and print."
+               data-fr="Des images expressives pour des marques, des événements et des aventures. Je me concentre sur des prises de vue dynamiques en extérieur, du sport-action et un langage visuel authentique pour le web et l'impression.">
+               Ausdrucksstarke Bilder für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print.
+            </p>
 
-            <p>Ausdrucksstarke Bilder und Videos für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print.</p>
-
-            <!-- ============================================= -->
-            <!-- BILDERGALERIE – 4er-Raster -->
-            <!-- ============================================= -->
-            <div class="subpage-embed">
-                <span class="subpage-embed-label">Bildergalerie</span>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 15px;">
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/bay.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/bay2.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/beachsunset.jpg" alt="Sonnenuntergang am Strand" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/sunset.jpg" alt="Sonnenuntergang" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/meer.jpeg" alt="Meer" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/bird.jpg" alt="Vogel" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/ski.jpeg" alt="Ski" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/rugby1.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/rugby2.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/rugby3.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                </div>
-            </div>
-
-            <div class="subpage-embed">
-                <span class="subpage-embed-label">Videobeispiele</span>
-                <div class="subpage-video-grid">
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/Trah2tPlJ-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/VtDpDdhY3OI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/MLxpGQ1qe8U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/mPtZAlupbPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subpage-embed"><!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foto- & Videografie | LeRossi</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- Header & Navigation -->
-    <header class="main-header">
-        <div class="header-top">
-            <a href="index.html#hero" class="logo">LeRossi</a>
-            
-            <div class="header-top-right">
-                <div class="lang-switcher-compact">
-                    <button onclick="changeLanguage('de')" class="lang-btn-compact active">DE</button>
-                    <span class="lang-sep">|</span>
-                    <button onclick="changeLanguage('en')" class="lang-btn-compact">EN</button>
-                    <span class="lang-sep">|</span>
-                    <button onclick="changeLanguage('fr')" class="lang-btn-compact">FR</button>
-                </div>
-
-                <div class="menu-btn" id="menuBtn">
-                    <svg width="35" height="28" viewBox="0 0 35 28">
-                        <path class="wave-bar" d="M0 6 Q5 0 10 6 T20 6 T30 6 T35 6" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                        <path class="wave-bar" d="M0 14 Q5 8 10 14 T20 14 T30 14 T35 14" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                        <path class="wave-bar" d="M0 22 Q5 16 10 22 T20 22 T30 22 T35 22" stroke="#f4a460" stroke-width="4" fill="transparent"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <nav class="main-nav" id="main-nav">
-            <a href="index.html#works" data-de="Was ich mache" data-en="What I do" data-fr="Ce que je fais">Was ich mache</a>
-            <a href="index.html#portfolio" data-de="Portfolio" data-en="Portfolio" data-fr="Portfolio">Portfolio</a>
-            <a href="index.html#vision" data-de="Lerne mich kennen" data-en="Get to know me" data-fr="Faisons connaissance">Lerne mich kennen</a>
-            <a href="index.html#cv" data-de="Lebenslauf" data-en="CV" data-fr="CV">Lebenslauf</a>
-            <a href="index.html#contact" data-de="Kontakt" data-en="Contact" data-fr="Contact">Kontakt</a>
-            
-            <!-- Sprachwechsler -->
-            <div class="lang-switcher">
-                <button onclick="changeLanguage('de')" class="lang-btn active">DE</button>
-                <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
-                <button onclick="changeLanguage('fr')" class="lang-btn">FR</button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="subpage-hero">
-            <a href="index.html#portfolio" class="subpage-back">&larr; Zurück zum Portfolio</a>
-            <h1 class="subpage-title">Foto- & Videografie</h1>
-        </section>
-
-        <section class="subpage-content">
-            <div class="subpage-media">
-                <img src="images/fotografie.jpeg" alt="Foto- & Videografie">
-            </div>
-
-            <p>Ausdrucksstarke Bilder und Videos für Marken, Events und Abenteuer. Mein Fokus liegt auf dynamischen Aufnahmen im Freien, Sport-Action und authentischer Bildsprache für Web und Print.</p>
+            <p style="opacity: 0.75; font-size: 0.95rem; margin-top: -10px;"
+               data-de="Gefällt dir ein Bild? Klick drauf – dort kannst du es als Print anfragen."
+               data-en="Like an image? Click on it – you can request it as a print there."
+               data-fr="Une image vous plaît ? Cliquez dessus pour demander un tirage.">
+               Gefällt dir ein Bild? Klick drauf – dort kannst du es als Print anfragen.
+            </p>
 
             <!-- ============================================= -->
-            <!-- BILDERGALERIE – 4er-Raster -->
+            <!-- BILDERGALERIE – 4er-Raster, volle Seitenbreite, klickbar -->
             <!-- ============================================= -->
-            <div class="subpage-embed">
-                <span class="subpage-embed-label">Bildergalerie</span>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 15px;">
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/bay.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/bay2.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/beachsunset.jpg" alt="Sonnenuntergang am Strand" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/sunset.jpg" alt="Sonnenuntergang" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/meer.jpeg" alt="Meer" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/bird.jpg" alt="Vogel" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/ski.jpeg" alt="Ski" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/rugby1.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/rugby2.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px;">
-                        <img src="images/rugby3.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                </div>
-            </div>
+            <div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: 40px; margin-bottom: 40px;">
+                <div class="photo-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 300px; gap: 8px; padding: 0 8px;">
 
-            <div class="subpage-embed">
-                <span class="subpage-embed-label">Videobeispiele</span>
-                <div class="subpage-video-grid">
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/Trah2tPlJ-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="photo-tile">
+                        <img src="images/bay.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bay.jpg', 'Bucht')">
                     </div>
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/VtDpDdhY3OI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="photo-tile">
+                        <img src="images/bay2.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bay2.jpg', 'Bucht 2')">
                     </div>
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/MLxpGQ1qe8U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="photo-tile">
+                        <img src="images/beachsunset.jpg" alt="Sonnenuntergang am Strand" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/beachsunset.jpg', 'Sonnenuntergang am Strand')">
                     </div>
-                    <div class="subpage-embed-video">
-                        <iframe src="https://www.youtube.com/embed/mPtZAlupbPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="photo-tile">
+                        <img src="images/sunset.jpg" alt="Sonnenuntergang" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/sunset.jpg', 'Sonnenuntergang')">
                     </div>
-                </div>
-            </div>
+                    <div class="photo-tile">
+                        <img src="images/bird.jpg" alt="Vogel" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bird.jpg', 'Vogel')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/meer.jpeg" alt="Meer" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/meer.jpeg', 'Meer')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/ski.jpeg" alt="Ski" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/ski.jpeg', 'Ski')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/rugby1.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/rugby1.jpg', 'Rugby 1')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/rugby2.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/rugby2.jpg', 'Rugby 2')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/rugby3.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/rugby3.jpg', 'Rugby 3')">
+                    </div>
 
-            <div class="subpage-embed">
-                <span class="subpage-embed-label">Folge mir auf Instagram @lerossi_visuals</span>
-                <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-7f26c705-47e5-430d-9f1a-24c22a057219" data-elfsight-app-lazy></div>
+                    <!-- Neue Fotos -->
+                    <div class="photo-tile">
+                        <img src="images/LNDK_6.png" alt="LNDK 6" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_6.png', 'LNDK 6')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/LNDK_5.png" alt="LNDK 5" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_5.png', 'LNDK 5')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/LNDK_4.png" alt="LNDK 4" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_4.png', 'LNDK 4')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/LNDK_3.png" alt="LNDK 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_3.png', 'LNDK 3')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/LDNK_2.png" alt="LNDK 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LDNK_2.png', 'LNDK 2')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/LNDK_1.png" alt="LNDK 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_1.png', 'LNDK 1')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/moorea.jpg" alt="Moorea" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/moorea.jpg', 'Moorea')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/women.jpg" alt="Frauen" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/women.jpg', 'Frauen')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/mad.jpg" alt="Mad" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/mad.jpg', 'Mad')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/storm.jpg" alt="Sturm" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/storm.jpg', 'Sturm')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/garage.jpg" alt="Garage" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/garage.jpg', 'Garage')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/motorrad.jpg" alt="Motorrad" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/motorrad.jpg', 'Motorrad')">
+                    </div>
+
+                    <!-- Neue Fotos -->
+                    <div class="photo-tile">
+                        <img src="images/bus.jpg" alt="Bus" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bus.jpg', 'Bus')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/fels.jpg" alt="Fels" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/fels.jpg', 'Fels')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/flowe.jpg" alt="Blume" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/flowe.jpg', 'Blume')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/ocean.jpg" alt="Ozean" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/ocean.jpg', 'Ozean')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_1.jpg" alt="Indonesien 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_1.jpg', 'Indonesien 1')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_2.jpg" alt="Indonesien 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_2.jpg', 'Indonesien 2')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_3.jpg" alt="Indonesien 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_3.jpg', 'Indonesien 3')">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_5.jpg" alt="Indonesien 5" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_5.jpg', 'Indonesien 5')">
+                    </div>
+
+                </div>
             </div>
         </section>
     </main>
+
+    <!-- ============================================= -->
+    <!-- LIGHTBOX: Bild gross + Kauf-per-Mail-Anfrage -->
+    <!-- ============================================= -->
+    <div id="photoLightbox">
+        <button class="lightbox-close" onclick="closePhotoLightbox()" aria-label="Schliessen">&times;</button>
+        <div class="lightbox-inner">
+            <img id="photoLightboxImg" src="" alt="">
+            <div class="lightbox-cta">
+                <p data-de="Möchtest du dieses Bild kaufen? Es wird mit einem Druck-Partner produziert und dir zugeschickt."
+                   data-en="Want to buy this image? It's produced with a print partner and shipped to you."
+                   data-fr="Vous souhaitez acheter cette image ? Elle est produite avec un partenaire d'impression et vous est expédiée.">
+                   Möchtest du dieses Bild kaufen? Es wird mit einem Druck-Partner produziert und dir zugeschickt.
+                </p>
+                <a id="photoLightboxBuy" class="lightbox-buy-btn" href="#" data-de="Jetzt per Mail anfragen" data-en="Request via email" data-fr="Demander par e-mail">Jetzt per Mail anfragen</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -262,32 +239,38 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Fotografie-Lightbox mit Mail-Kaufanfrage (unabhängig vom Haupt-script.js)
+        function openPhotoLightbox(src, label) {
+            var img = document.getElementById('photoLightboxImg');
+            img.src = src;
+            img.alt = label;
 
-</body>
-</html>
-                <span class="subpage-embed-label">Folge mir auf Instagram @lerossi_visuals</span>
-                <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-7f26c705-47e5-430d-9f1a-24c22a057219" data-elfsight-app-lazy></div>
-            </div>
-        </section>
-    </main>
+            var email = 'DEINE-EMAIL@domain.ch'; // <-- HIER deine echte E-Mail-Adresse eintragen
+            var subject = encodeURIComponent('Interesse an Bildkauf: ' + label);
+            var body = encodeURIComponent(
+                'Hallo Nicolas\n\nIch interessiere mich für den Kauf des folgenden Bildes:\n' +
+                label + ' (' + src + ')\n\nBeste Grüsse'
+            );
+            document.getElementById('photoLightboxBuy').href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Nicolas Rossi</p>
-            <div class="footer-socials">
-                <a href="https://www.instagram.com/lerossiytb/" target="_blank" rel="noopener" class="social-link">Instagram</a>
-                <span class="separator">|</span>
-                <a href="https://www.youtube.com/@_lerossi" target="_blank" rel="noopener" class="social-link">YouTube (Main)</a>
-                <span class="separator">|</span>
-                <a href="https://www.youtube.com/@lerossiskitchen1249" target="_blank" rel="noopener" class="social-link">YouTube (Kitchen)</a>
-            </div>
-        </div>
-    </footer>
+            document.getElementById('photoLightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-    <script src="script.js"></script>
+        function closePhotoLightbox() {
+            document.getElementById('photoLightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('photoLightbox').addEventListener('click', function(e) {
+            if (e.target.id === 'photoLightbox') closePhotoLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closePhotoLightbox();
+        });
+    </script>
 
 </body>
 </html>
