@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .photo-tile img { cursor: pointer; transition: transform 0.4s ease; }
-        .photo-tile { overflow: hidden; }
+        .photo-tile { overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
         .photo-tile:hover img { transform: scale(1.06); }
 
         #photoLightbox {
@@ -24,18 +24,21 @@
             max-width: 90vw; max-height: 65vh; object-fit: contain;
             border-radius: 6px; display: block;
         }
-        .lightbox-cta { text-align: center; color: #fff; }
-        .lightbox-cta p { margin: 0 0 12px 0; font-size: 1.05rem; }
-        .lightbox-buy-btn {
-            display: inline-block; background: #f4a460; color: #1a1a1a;
-            padding: 10px 26px; border-radius: 5px; text-decoration: none;
-            font-weight: 700; letter-spacing: 0.02em;
-        }
         .lightbox-close {
             position: absolute; top: 22px; right: 30px; color: #fff;
             font-size: 2.2rem; line-height: 1; cursor: pointer;
             background: none; border: none; font-weight: 300;
         }
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.1); color: #fff; border: none;
+            width: 52px; height: 52px; border-radius: 50%; font-size: 1.8rem;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s ease;
+        }
+        .lightbox-nav:hover { background: rgba(255,255,255,0.25); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
     </style>
 </head>
 <body>
@@ -103,102 +106,102 @@
             <!-- ============================================= -->
             <!-- BILDERGALERIE – 4er-Raster, volle Seitenbreite, klickbar -->
             <!-- ============================================= -->
-            <div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: 40px; margin-bottom: 40px;">
-                <div class="photo-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 300px; gap: 8px; padding: 0 8px;">
+            <div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: 50px; margin-bottom: 50px;">
+                <div class="photo-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 320px; gap: 28px; padding: 0 60px;">
 
                     <div class="photo-tile">
-                        <img src="images/bay.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bay.jpg', 'Bucht')">
+                        <img src="images/bay.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(0)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/bay2.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bay2.jpg', 'Bucht 2')">
+                        <img src="images/bay2.jpg" alt="Bucht" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(1)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/beachsunset.jpg" alt="Sonnenuntergang am Strand" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/beachsunset.jpg', 'Sonnenuntergang am Strand')">
+                        <img src="images/beachsunset.jpg" alt="Sonnenuntergang am Strand" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(2)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/sunset.jpg" alt="Sonnenuntergang" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/sunset.jpg', 'Sonnenuntergang')">
+                        <img src="images/sunset.jpg" alt="Sonnenuntergang" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(3)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/bird.jpg" alt="Vogel" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bird.jpg', 'Vogel')">
+                        <img src="images/bird.jpg" alt="Vogel" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(4)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/meer.jpeg" alt="Meer" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/meer.jpeg', 'Meer')">
+                        <img src="images/meer.jpeg" alt="Meer" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(5)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/ski.jpeg" alt="Ski" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/ski.jpeg', 'Ski')">
+                        <img src="images/ski.jpeg" alt="Ski" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(6)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/rugby1.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/rugby1.jpg', 'Rugby 1')">
+                        <img src="images/rugby1.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(7)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/rugby2.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/rugby2.jpg', 'Rugby 2')">
+                        <img src="images/rugby2.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(8)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/rugby3.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/rugby3.jpg', 'Rugby 3')">
-                    </div>
-
-                    <!-- Neue Fotos -->
-                    <div class="photo-tile">
-                        <img src="images/LNDK_6.png" alt="LNDK 6" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_6.png', 'LNDK 6')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/LNDK_5.png" alt="LNDK 5" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_5.png', 'LNDK 5')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/LNDK_4.png" alt="LNDK 4" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_4.png', 'LNDK 4')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/LNDK_3.png" alt="LNDK 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_3.png', 'LNDK 3')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/LDNK_2.png" alt="LNDK 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LDNK_2.png', 'LNDK 2')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/LNDK_1.png" alt="LNDK 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/LNDK_1.png', 'LNDK 1')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/moorea.jpg" alt="Moorea" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/moorea.jpg', 'Moorea')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/women.jpg" alt="Frauen" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/women.jpg', 'Frauen')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/mad.jpg" alt="Mad" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/mad.jpg', 'Mad')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/storm.jpg" alt="Sturm" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/storm.jpg', 'Sturm')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/garage.jpg" alt="Garage" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/garage.jpg', 'Garage')">
-                    </div>
-                    <div class="photo-tile">
-                        <img src="images/motorrad.jpg" alt="Motorrad" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/motorrad.jpg', 'Motorrad')">
+                        <img src="images/rugby3.jpg" alt="Rugby" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(9)">
                     </div>
 
                     <!-- Neue Fotos -->
                     <div class="photo-tile">
-                        <img src="images/bus.jpg" alt="Bus" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/bus.jpg', 'Bus')">
+                        <img src="images/LNDK_6.png" alt="LNDK 6" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(10)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/fels.jpg" alt="Fels" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/fels.jpg', 'Fels')">
+                        <img src="images/LNDK_5.png" alt="LNDK 5" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(11)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/flowe.jpg" alt="Blume" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/flowe.jpg', 'Blume')">
+                        <img src="images/LNDK_4.png" alt="LNDK 4" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(12)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/ocean.jpg" alt="Ozean" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/ocean.jpg', 'Ozean')">
+                        <img src="images/LNDK_3.png" alt="LNDK 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(13)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/indo_1.jpg" alt="Indonesien 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_1.jpg', 'Indonesien 1')">
+                        <img src="images/LDNK_2.png" alt="LNDK 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(14)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/indo_2.jpg" alt="Indonesien 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_2.jpg', 'Indonesien 2')">
+                        <img src="images/LNDK_1.png" alt="LNDK 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(15)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/indo_3.jpg" alt="Indonesien 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_3.jpg', 'Indonesien 3')">
+                        <img src="images/moorea.jpg" alt="Moorea" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(16)">
                     </div>
                     <div class="photo-tile">
-                        <img src="images/indo_5.jpg" alt="Indonesien 5" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox('images/indo_5.jpg', 'Indonesien 5')">
+                        <img src="images/women.jpg" alt="Frauen" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(17)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/mad.jpg" alt="Mad" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(18)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/storm.jpg" alt="Sturm" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(19)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/garage.jpg" alt="Garage" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(20)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/motorrad.jpg" alt="Motorrad" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(21)">
+                    </div>
+
+                    <!-- Neue Fotos -->
+                    <div class="photo-tile">
+                        <img src="images/bus.jpg" alt="Bus" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(22)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/fels.jpg" alt="Fels" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(23)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/flowe.jpg" alt="Blume" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(24)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/ocean.jpg" alt="Ozean" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(25)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_1.jpg" alt="Indonesien 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(26)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_2.jpg" alt="Indonesien 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(27)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_3.jpg" alt="Indonesien 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(28)">
+                    </div>
+                    <div class="photo-tile">
+                        <img src="images/indo_5.jpg" alt="Indonesien 5" style="width: 100%; height: 100%; object-fit: cover; display: block;" onclick="openPhotoLightbox(29)">
                     </div>
 
                 </div>
@@ -207,20 +210,14 @@
     </main>
 
     <!-- ============================================= -->
-    <!-- LIGHTBOX: Bild gross + Kauf-per-Mail-Anfrage -->
+    <!-- LIGHTBOX: Bild gross + Navigation -->
     <!-- ============================================= -->
     <div id="photoLightbox">
         <button class="lightbox-close" onclick="closePhotoLightbox()" aria-label="Schliessen">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="showPrevPhoto()" aria-label="Vorheriges Bild">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" onclick="showNextPhoto()" aria-label="Nächstes Bild">&#8250;</button>
         <div class="lightbox-inner">
             <img id="photoLightboxImg" src="" alt="">
-            <div class="lightbox-cta">
-                <p data-de="Möchtest du dieses Bild kaufen? Es wird mit einem Druck-Partner produziert und dir zugeschickt."
-                   data-en="Want to buy this image? It's produced with a print partner and shipped to you."
-                   data-fr="Vous souhaitez acheter cette image ? Elle est produite avec un partenaire d'impression et vous est expédiée.">
-                   Möchtest du dieses Bild kaufen? Es wird mit einem Druck-Partner produziert und dir zugeschickt.
-                </p>
-                <a id="photoLightboxBuy" class="lightbox-buy-btn" href="#" data-de="Jetzt per Mail anfragen" data-en="Request via email" data-fr="Demander par e-mail">Jetzt per Mail anfragen</a>
-            </div>
         </div>
     </div>
 
@@ -240,20 +237,52 @@
 
     <script src="script.js"></script>
     <script>
-        // Fotografie-Lightbox mit Mail-Kaufanfrage (unabhängig vom Haupt-script.js)
-        function openPhotoLightbox(src, label) {
+        // Fotografie-Lightbox mit Vor/Zurück-Navigation
+        var photos = [
+            { src: 'images/bay.jpg', label: 'Bucht' },
+            { src: 'images/bay2.jpg', label: 'Bucht 2' },
+            { src: 'images/beachsunset.jpg', label: 'Sonnenuntergang am Strand' },
+            { src: 'images/sunset.jpg', label: 'Sonnenuntergang' },
+            { src: 'images/bird.jpg', label: 'Vogel' },
+            { src: 'images/meer.jpeg', label: 'Meer' },
+            { src: 'images/ski.jpeg', label: 'Ski' },
+            { src: 'images/rugby1.jpg', label: 'Rugby 1' },
+            { src: 'images/rugby2.jpg', label: 'Rugby 2' },
+            { src: 'images/rugby3.jpg', label: 'Rugby 3' },
+            { src: 'images/LNDK_6.png', label: 'LNDK 6' },
+            { src: 'images/LNDK_5.png', label: 'LNDK 5' },
+            { src: 'images/LNDK_4.png', label: 'LNDK 4' },
+            { src: 'images/LNDK_3.png', label: 'LNDK 3' },
+            { src: 'images/LDNK_2.png', label: 'LNDK 2' },
+            { src: 'images/LNDK_1.png', label: 'LNDK 1' },
+            { src: 'images/moorea.jpg', label: 'Moorea' },
+            { src: 'images/women.jpg', label: 'Frauen' },
+            { src: 'images/mad.jpg', label: 'Mad' },
+            { src: 'images/storm.jpg', label: 'Sturm' },
+            { src: 'images/garage.jpg', label: 'Garage' },
+            { src: 'images/motorrad.jpg', label: 'Motorrad' },
+            { src: 'images/bus.jpg', label: 'Bus' },
+            { src: 'images/fels.jpg', label: 'Fels' },
+            { src: 'images/flowe.jpg', label: 'Blume' },
+            { src: 'images/ocean.jpg', label: 'Ozean' },
+            { src: 'images/indo_1.jpg', label: 'Indonesien 1' },
+            { src: 'images/indo_2.jpg', label: 'Indonesien 2' },
+            { src: 'images/indo_3.jpg', label: 'Indonesien 3' },
+            { src: 'images/indo_5.jpg', label: 'Indonesien 5' }
+        ];
+
+        var currentPhotoIndex = 0;
+
+        function renderPhoto() {
+            var photo = photos[currentPhotoIndex];
             var img = document.getElementById('photoLightboxImg');
-            img.src = src;
-            img.alt = label;
+            img.src = photo.src;
+            img.alt = photo.label;
+        }
 
-            var email = 'DEINE-EMAIL@domain.ch'; // <-- HIER deine echte E-Mail-Adresse eintragen
-            var subject = encodeURIComponent('Interesse an Bildkauf: ' + label);
-            var body = encodeURIComponent(
-                'Hallo Nicolas\n\nIch interessiere mich für den Kauf des folgenden Bildes:\n' +
-                label + ' (' + src + ')\n\nBeste Grüsse'
-            );
-            document.getElementById('photoLightboxBuy').href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
-
+        function openPhotoLightbox(index) {
+            currentPhotoIndex = index;
+            renderPhoto();
             document.getElementById('photoLightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -263,12 +292,25 @@
             document.body.style.overflow = '';
         }
 
+        function showPrevPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+            renderPhoto();
+        }
+
+        function showNextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+            renderPhoto();
+        }
+
         document.getElementById('photoLightbox').addEventListener('click', function(e) {
             if (e.target.id === 'photoLightbox') closePhotoLightbox();
         });
 
         document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('photoLightbox').classList.contains('active')) return;
             if (e.key === 'Escape') closePhotoLightbox();
+            if (e.key === 'ArrowLeft') showPrevPhoto();
+            if (e.key === 'ArrowRight') showNextPhoto();
         });
     </script>
 
