@@ -1,3 +1,91 @@
+Gute Punkte, gehe ich der Reihe nach durch:
+
+**Zurück-Link & Video-Abstand** – mach ich direkt.
+
+**TikTok** – ich bau dir einen eigenen Block wie bei Instagram, mit Link zu deinem Profil (echte TikTok-Video-Embeds bräuchten einzelne Video-Links von dir, das ist ein anderes Format als "Profil folgen").
+
+**Instagram** – meine Empfehlung: Lieber **keinen zusätzlichen Kommentartext**, sondern im Elfsight-Dashboard (wo du den Feed konfiguriert hast) das Layout auf ein **3er-Raster** stellen, wenn das nicht schon so ist. Das ist sauberer als Text drumherum, und macht der Feed selbst schon visuell genug her. Das Layout wird aber in deinem Elfsight-Account eingestellt, nicht im Code hier – ich kann das also nicht direkt für dich ändern, aber sag Bescheid falls du dort nicht weiterkommst, dann schau ich mit dir wo genau die Einstellung ist.
+
+Los geht's:Jetzt der neue TikTok-Block ins HTML, direkt nach dem Instagram-Feed:Fertig. Hier beide aktualisierten Dateien:
+
+**socialmedia.css**
+```css
+/*
+    ====================
+    SOCIAL MEDIA VIDEOS (gross, untereinander, mit Caption)
+    ====================
+    Ergänzt style.css nur um Regeln für diese Seite.
+    Nutzt die bestehenden CSS-Variablen aus style.css.
+*/
+
+.social-video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6.5rem;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.social-video-block .subpage-embed-video {
+    margin-bottom: 1.2rem;
+}
+
+.social-video-title {
+    font-family: 'Young Serif', serif;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: var(--accent-color);
+    margin-bottom: 0.6rem;
+}
+
+.social-video-caption {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(244, 164, 96, 0.85);
+}
+
+/*
+    ====================
+    ZURÜCK-LINK LINKSBÜNDIG (nur auf dieser Seite)
+    ====================
+*/
+
+.subpage-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subpage-back {
+    align-self: flex-start;
+}
+
+/*
+    ====================
+    TIKTOK-BLOCK
+    ====================
+*/
+
+.social-tiktok-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(244, 164, 96, 0.35);
+    border-radius: 8px;
+    color: var(--accent-color);
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+}
+
+.social-tiktok-btn:hover {
+    background: rgba(244, 164, 96, 0.1);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+```
+
+**socialmedia.html**```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -136,6 +224,14 @@
             </div>
 
             <!-- ============================================= -->
+            <!-- TIKTOK -->
+            <!-- ============================================= -->
+            <div class="subpage-embed">
+                <span class="subpage-embed-label" data-de="Folge mir auf TikTok @lerossiytb" data-en="Follow me on TikTok @lerossiytb" data-fr="Suis-moi sur TikTok @lerossiytb">Folge mir auf TikTok @lerossiytb</span>
+                <a class="social-tiktok-btn" href="https://www.tiktok.com/@lerossiytb" target="_blank" rel="noopener" data-de="Zu meinem TikTok-Profil" data-en="Visit my TikTok profile" data-fr="Voir mon profil TikTok">Zu meinem TikTok-Profil</a>
+            </div>
+
+            <!-- ============================================= -->
             <!-- SOCIAL LINKS -->
             <!-- ============================================= -->
             <div class="social-follow">
@@ -182,3 +278,4 @@
 
 </body>
 </html>
+```
