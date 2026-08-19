@@ -71,3 +71,76 @@
     border-color: var(--accent-color);
     color: var(--accent-color);
 }
+/*
+    ====================
+    SOCIAL MEDIA VIDEOS (gross, untereinander, mit Caption)
+    ====================
+    Ergänzt style.css nur um Regeln für diese Seite.
+    Nutzt die bestehenden CSS-Variablen aus style.css.
+*/
+
+.social-video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6.5rem;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.social-video-block .subpage-embed-video {
+    margin-top: 1.2rem;
+}
+
+.social-video-title {
+    font-family: 'Young Serif', serif;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: var(--accent-color);
+    margin-bottom: 0.6rem;
+}
+
+.social-video-caption {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(244, 164, 96, 0.85);
+}
+
+/*
+    ====================
+    ZURÜCK-LINK LINKSBÜNDIG (nur auf dieser Seite)
+    ====================
+*/
+
+.subpage-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subpage-back {
+    align-self: flex-start;
+}
+
+/*
+    ====================
+    TIKTOK-BLOCK
+    ====================
+*/
+
+.social-tiktok-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(244, 164, 96, 0.35);
+    border-radius: 8px;
+    color: var(--accent-color);
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+}
+
+.social-tiktok-btn:hover {
+    background: rgba(244, 164, 96, 0.1);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
