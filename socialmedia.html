@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media | LeRossi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-top">
+            <a href="index.html#hero" class="logo">LeRossi</a>
+            
+            <div class="header-top-right">
+                <div class="lang-switcher-compact">
+                    <button onclick="changeLanguage('de')" class="lang-btn-compact active">DE</button>
+                    <span class="lang-sep">|</span>
+                    <button onclick="changeLanguage('en')" class="lang-btn-compact">EN</button>
+                    <span class="lang-sep">|</span>
+                    <button onclick="changeLanguage('fr')" class="lang-btn-compact">FR</button>
+                </div>
+
+                <div class="menu-btn" id="menuBtn">
+                    <svg width="35" height="28" viewBox="0 0 35 28">
+                        <path class="wave-bar" d="M0 6 Q5 0 10 6 T20 6 T30 6 T35 6" stroke="#f4a460" stroke-width="4" fill="transparent"/>
+                        <path class="wave-bar" d="M0 14 Q5 8 10 14 T20 14 T30 14 T35 14" stroke="#f4a460" stroke-width="4" fill="transparent"/>
+                        <path class="wave-bar" d="M0 22 Q5 16 10 22 T20 22 T30 22 T35 22" stroke="#f4a460" stroke-width="4" fill="transparent"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav" id="main-nav">
+            <a href="index.html#works" data-de="Was ich mache" data-en="What I do" data-fr="Ce que je fais">Was ich mache</a>
+            <a href="index.html#portfolio" data-de="Portfolio" data-en="Portfolio" data-fr="Portfolio">Portfolio</a>
+            <a href="index.html#vision" data-de="Lerne mich kennen" data-en="Get to know me" data-fr="Faisons connaissance">Lerne mich kennen</a>
+            <a href="index.html#cv" data-de="Lebenslauf" data-en="CV" data-fr="CV">Lebenslauf</a>
+            <a href="index.html#contact" data-de="Kontakt" data-en="Contact" data-fr="Contact">Kontakt</a>
+            
+            <!-- Sprachwechsler -->
+            <div class="lang-switcher">
+                <button onclick="changeLanguage('de')" class="lang-btn active">DE</button>
+                <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn">FR</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="subpage-hero">
+            <a href="index.html#portfolio" class="subpage-back">&larr; Zurück zum Portfolio</a>
+            <h1 class="subpage-title" data-de="Social Media" data-en="Social Media" data-fr="Réseaux Sociaux">Social Media</h1>
+        </section>
+
+        <section class="subpage-content">
+            <p data-de="Von der ersten Strategie und Content-Planung bis hin zum fertigen Schnitt. Ich erstelle plattformgerechte Videos (Reels, TikToks, Shorts), die deine Zielgruppe fesseln und echte Reichweite aufbauen."
+               data-en="From initial strategy and content planning to the final edit. I create platform-native videos (Reels, TikToks, Shorts) that engage your target audience and build real reach."
+               data-fr="De la stratégie initiale et de la planification de contenu jusqu'au montage final. Je crée des vidéos adaptées aux plateformes (Reels, TikToks, Shorts) qui captivent votre audience.">
+               Von der ersten Strategie und Content-Planung bis hin zum fertigen Schnitt. Ich erstelle plattformgerechte Videos (Reels, TikToks, Shorts), die deine Zielgruppe fesseln und echte Reichweite aufbauen.
+            </p>
+
+            <!-- ============================================= -->
+            <!-- VIDEOBEISPIELE -->
+            <!-- ============================================= -->
+            <div class="subpage-embed">
+                <span class="subpage-embed-label" data-de="Videobeispiele" data-en="Video Examples" data-fr="Exemples vidéo">Videobeispiele</span>
+                <div class="subpage-video-grid">
+                    <div class="subpage-embed-video">
+                        <iframe src="https://www.youtube.com/embed/Trah2tPlJ-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="subpage-embed-video">
+                        <iframe src="https://www.youtube.com/embed/VtDpDdhY3OI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="subpage-embed-video">
+                        <iframe src="https://www.youtube.com/embed/MLxpGQ1qe8U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="subpage-embed-video">
+                        <iframe src="https://www.youtube.com/embed/mPtZAlupbPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================= -->
+            <!-- INSTAGRAM FEED -->
+            <!-- ============================================= -->
+            <div class="subpage-embed">
+                <span class="subpage-embed-label" data-de="Folge mir auf Instagram @lerossi_visuals" data-en="Follow me on Instagram @lerossi_visuals" data-fr="Suis-moi sur Instagram @lerossi_visuals">Folge mir auf Instagram @lerossi_visuals</span>
+                <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-7f26c705-47e5-430d-9f1a-24c22a057219" data-elfsight-app-lazy></div>
+            </div>
+
+            <!-- ============================================= -->
+            <!-- SOCIAL LINKS -->
+            <!-- ============================================= -->
+            <div class="social-follow">
+                <span class="social-follow-label" data-de="Folge mir für mehr" data-en="Follow me for more" data-fr="Suis-moi pour en voir plus">Folge mir für mehr</span>
+                <div class="social-follow-icons">
+                    <a href="https://www.instagram.com/lerossiytb/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="26" height="26">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@_lerossi" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" width="26" height="26">
+                            <rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <polygon points="10,8.5 16,12 10,15.5" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@lerossiytb" target="_blank" rel="noopener" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" width="26" height="26">
+                            <path d="M16 3v9.5a3.5 3.5 0 1 1-2-3.163V3h2zm0 0c.3 2 1.5 3.5 4 3.8V9c-1.5 0-3-.5-4-1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Nicolas Rossi</p>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/lerossiytb/" target="_blank" rel="noopener" class="social-link">Instagram</a>
+                <span class="separator">|</span>
+                <a href="https://www.youtube.com/@_lerossi" target="_blank" rel="noopener" class="social-link">YouTube (Main)</a>
+                <span class="separator">|</span>
+                <a href="https://www.youtube.com/@lerossiskitchen1249" target="_blank" rel="noopener" class="social-link">YouTube (Kitchen)</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
