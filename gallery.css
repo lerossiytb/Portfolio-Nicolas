@@ -6,9 +6,21 @@
     Nutzt die bestehenden CSS-Variablen aus style.css (--accent-color etc.)
 */
 
+.photo-gallery-breakout {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .photo-grid-masonry {
     columns: 4 280px;
     column-gap: 28px;
+    padding: 0 60px;
 }
 
 @media (max-width: 900px) {
@@ -112,3 +124,31 @@
 
 .photo-lightbox-prev { left: 20px; }
 .photo-lightbox-next { right: 20px; }
+
+/*
+    ====================
+    QUOTE-BALKEN (trennt die Galerie in der Mitte)
+    ====================
+*/
+
+.photo-gallery-quote-bar {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: var(--primary-bg);
+    color: var(--secondary-bg);
+    text-align: center;
+    padding: 4rem 5vw;
+}
+
+.photo-gallery-quote-bar p {
+    max-width: 60ch;
+    margin: 0 auto;
+    font-family: 'Young Serif', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    line-height: 1.4;
+}
