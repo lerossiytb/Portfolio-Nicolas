@@ -412,25 +412,9 @@ section {
 
 /*
     ====================
-    CONTENT KARUSSELL (Was ich mache)
+    CONTENT KARUSSELL (ungenutzt seit Entfernung, Regeln bleiben für später)
     ====================
 */
-
-#works.vision {
-    flex-direction: column;
-    background-color: var(--secondary-bg);
-    color: var(--text-color);
-}
-
-#works.vision .vision-content h2 {
-    color: var(--accent-color);
-}
-
-/* Grösserer, markanterer Fliesstext im "Was ich mache"-Intro */
-#works.vision .vision-content p {
-    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
-    line-height: 1.7;
-}
 
 .content-carousel {
     position: relative;
@@ -635,8 +619,17 @@ section {
 .portfolio h2 {
     font-size: clamp(2rem, 5vw, 4rem);
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     color: var(--accent-color); 
+}
+
+.portfolio-intro {
+    max-width: 65ch;
+    margin: 0 auto 3.5rem auto;
+    text-align: center;
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    line-height: 1.7;
+    color: rgba(244, 164, 96, 0.85);
 }
 
 .portfolio-grid {
