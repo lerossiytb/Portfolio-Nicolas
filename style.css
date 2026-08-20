@@ -903,6 +903,52 @@ section {
 
 /*
     ====================
+    BILDEINDRÜCKE + FOLGE MIR (vor Kontakt)
+    ====================
+*/
+
+.impressions-section {
+    background-color: var(--secondary-bg);
+    min-height: auto;
+    padding: 6rem 5vw;
+    text-align: center;
+}
+
+.impressions-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--accent-color);
+    margin-bottom: 3rem;
+}
+
+.impressions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.impressions-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.impressions-grid img:hover {
+    transform: scale(1.04);
+}
+
+@media (max-width: 700px) {
+    .impressions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*
+    ====================
     KONTAKT SEKTION (Zebra weiss)
     ====================
 */
