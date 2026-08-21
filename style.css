@@ -546,10 +546,10 @@ section {
     gap: 0;
     align-items: center;
     text-align: left;
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    width: 50%;
+    max-width: 50%;
+    
+    margin-right: 50%;
     box-sizing: border-box;
     background-color: var(--primary-bg);
 }
