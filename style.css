@@ -538,17 +538,23 @@ section {
     LERNE MICH KENNEN: FOTO + TEXT LAYOUT (50/50 SPLIT LAUT SKIZZE)
     ====================
 */
+/*
+    ====================
+    LERNE MICH KENNEN: FOTO + TEXT LAYOUT (EDGE-TO-EDGE)
+    ====================
+*/
 
 .vision-portrait {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    align-items: center;
+    align-items: stretch;
     text-align: left;
     width: 100vw;
     max-width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
+    padding: 0 !important;
     box-sizing: border-box;
     background-color: var(--primary-bg);
 }
@@ -556,9 +562,8 @@ section {
 .vision-portrait-img {
     width: 100%;
     height: 100%;
-    min-height: 100%;
     background-color: var(--accent-color);
-    padding: 4rem;
+    padding: 3rem;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -566,44 +571,23 @@ section {
 }
 
 .vision-portrait-img img {
-    max-width: 100%;
-    max-height: 80vh;
-    width: auto;
+    width: 100%;
+    max-width: 500px;
     height: auto;
+    max-height: 80vh;
     object-fit: contain;
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .vision-portrait .vision-content {
-    max-width: 55ch;
-    padding: 6rem 5vw 6rem 4rem;
+    width: 100%;
+    max-width: 600px;
+    padding: 4rem 3rem;
     box-sizing: border-box;
-}
-
-.about-toggle {
-    display: inline-block;
-    background: none;
-    border: none;
-    color: var(--secondary-bg);
-    font-weight: bold;
-    font-size: 1rem;
-    letter-spacing: 0.02em;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 0.5rem;
-    font-family: 'Graphik', sans-serif;
-    transition: color 0.3s ease;
-}
-
-.about-toggle:hover {
-    color: var(--accent-color);
-}
-
-.about-expanded {
-    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (max-width: 900px) {
@@ -613,12 +597,13 @@ section {
     }
 
     .vision-portrait-img {
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1.5rem;
     }
 
     .vision-portrait .vision-content {
         max-width: none;
-        padding: 3rem 5vw;
+        padding: 3rem 1.5rem;
+        align-items: center;
     }
 
     .vision-portrait h2 {
