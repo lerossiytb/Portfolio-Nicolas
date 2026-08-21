@@ -533,20 +533,17 @@ section {
     transform: translateY(-3px);
 }
 
+
 /*
     ====================
-    LERNE MICH KENNEN: FOTO + TEXT LAYOUT (50/50 SPLIT LAUT SKIZZE)
-    ====================
-*/
-/*
-    ====================
-    LERNE MICH KENNEN: FOTO + TEXT LAYOUT (BREITER TEXT & EINZEILIGE ÜBERSCHRIFT)
+    LERNE MICH KENNEN: OPTIMIERTES SPLIT-LAYOUT
     ====================
 */
 
 .vision-portrait {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* Nutzt 45% für die orange Bildseite und 55% für den Textbereich */
+    grid-template-columns: 45% 55%; 
     gap: 0;
     align-items: stretch;
     text-align: left;
@@ -563,7 +560,8 @@ section {
     width: 100%;
     height: 100%;
     background-color: var(--accent-color);
-    padding: 3rem;
+    /* Weniger Padding oben/unten (2rem) und seitlich (2.5rem), um das Orange zu reduzieren */
+    padding: 2rem 2.5rem; 
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -572,18 +570,19 @@ section {
 
 .vision-portrait-img img {
     width: 100%;
-    max-width: 500px;
+    max-width: 460px;
     height: auto;
-    max-height: 80vh;
+    max-height: 75vh;
     object-fit: contain;
     display: block;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
 }
 
 .vision-portrait .vision-content {
     width: 100%;
-    max-width: none; /* Entfernt die Breitenbegrenzung */
-    padding: 4rem 6vw 4rem 4rem; /* Bietet ausreichend Platz nach rechts */
+    max-width: 68ch; /* Optimale Zeilenlänge für gute Lesbarkeit */
+    padding: 3.5rem 5vw 3.5rem 3.5rem; /* Kompakterer Abstand zur Trennlinie */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -591,15 +590,38 @@ section {
 }
 
 .vision-portrait h2 {
-    white-space: nowrap; /* Zwingt "Lerne mich kennen" in eine Zeile */
-    font-size: clamp(2.2rem, 3.8vw, 3.8rem); /* Passt die Schriftgröße dynamisch an */
-    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+    margin-bottom: 1.8rem;
     color: var(--secondary-bg);
+    line-height: 1.1;
+}
+
+/* Schöne, saubere Textformatierung */
+.vision-portrait p {
+    font-size: clamp(1rem, 1.1vw, 1.15rem);
+    line-height: 1.75; /* Angenehmer Zeilenabstand */
+    color: rgba(0, 0, 51, 0.85);
+    margin-bottom: 1.25rem;
+}
+
+.vision-portrait p strong,
+.vision-portrait p b {
+    color: var(--secondary-bg);
+    font-weight: 600;
+}
+
+.vision-portrait p:last-of-type {
+    margin-bottom: 1.5rem;
 }
 
 @media (max-width: 1024px) {
+    .vision-portrait {
+        grid-template-columns: 1fr 1fr; /* Ab Tablet wieder 50/50 */
+    }
+
     .vision-portrait h2 {
-        white-space: normal; /* Erlaubt Umbruch auf kleineren Bildschirmen */
+        white-space: normal;
     }
 }
 
@@ -610,10 +632,11 @@ section {
     }
 
     .vision-portrait-img {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 1.5rem;
     }
 
     .vision-portrait .vision-content {
+        max-width: none;
         padding: 3rem 1.5rem;
         align-items: center;
     }
