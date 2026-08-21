@@ -540,7 +540,7 @@ section {
 */
 /*
     ====================
-    LERNE MICH KENNEN: FOTO + TEXT LAYOUT (EDGE-TO-EDGE)
+    LERNE MICH KENNEN: FOTO + TEXT LAYOUT (BREITER TEXT & EINZEILIGE ÜBERSCHRIFT)
     ====================
 */
 
@@ -582,12 +582,25 @@ section {
 
 .vision-portrait .vision-content {
     width: 100%;
-    max-width: 600px;
-    padding: 4rem 3rem;
+    max-width: none; /* Entfernt die Breitenbegrenzung */
+    padding: 4rem 6vw 4rem 4rem; /* Bietet ausreichend Platz nach rechts */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.vision-portrait h2 {
+    white-space: nowrap; /* Zwingt "Lerne mich kennen" in eine Zeile */
+    font-size: clamp(2.2rem, 3.8vw, 3.8rem); /* Passt die Schriftgröße dynamisch an */
+    margin-bottom: 1.5rem;
+    color: var(--secondary-bg);
+}
+
+@media (max-width: 1024px) {
+    .vision-portrait h2 {
+        white-space: normal; /* Erlaubt Umbruch auf kleineren Bildschirmen */
+    }
 }
 
 @media (max-width: 900px) {
@@ -601,7 +614,6 @@ section {
     }
 
     .vision-portrait .vision-content {
-        max-width: none;
         padding: 3rem 1.5rem;
         align-items: center;
     }
