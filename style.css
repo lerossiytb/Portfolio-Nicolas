@@ -498,9 +498,9 @@ section {
 }
 .vision-portrait .vision-content {
     flex: 1;
-    max-width: none; /* überschreibt das max-width: 60ch von .vision-content */
-    justify-content: flex-start; /* Text startet oben statt vertikal zentriert */
-    padding: 3.5rem 5vw 6rem 0; /* deutlich mehr Luft unten */
+    max-width: none;
+    justify-content: flex-start;
+    padding: 5rem 5vw 8rem 0; /* Mehr Abstand oben (5rem) und unten (8rem) streckt die Texthöhe */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -508,19 +508,19 @@ section {
 .vision-portrait h2 {
     white-space: nowrap;
     font-size: clamp(2.2rem, 3.5vw, 3.6rem);
-    margin-bottom: 2.75rem; /* mehr Luft zum Fliesstext */
+    margin-bottom: 4rem; /* Abstand zwischen Titel und Fliesstext deutlich vergrössert (vorher 2.75rem) */
     color: var(--secondary-bg);
     line-height: 1.1;
 }
 
-/* Schöne, saubere Textformatierung */
 .vision-portrait p {
     font-size: clamp(1.1rem, 1.3vw, 1.3rem);
-    line-height: 1.75; /* Angenehmer Zeilenabstand */
-    text-align: justify; /* Blocksatz */
+    line-height: 1.85; /* Leicht erhöhter Zeilenabstand für mehr vertikale Ausdehnung */
+    text-align: justify;
     color: rgba(0, 0, 51, 0.85);
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem; /* Mehr Abstand zwischen den einzelnen Absätzen (vorher 1.25rem) */
 }
+
 .vision-portrait p strong,
 .vision-portrait p b {
     color: var(--secondary-bg);
