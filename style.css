@@ -530,6 +530,7 @@ section {
 .vision-portrait p b {
     color: var(--secondary-bg);
     font-weight: 600;
+    margin-bottom: 0.75rem;
 }
 .vision-portrait p:last-of-type {
     margin-bottom: 0;
