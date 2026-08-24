@@ -470,7 +470,8 @@ section {
 .vision-portrait {
     display: flex;
     align-items: stretch;
-    justify-content: flex-start; /* überschreibt das "center" von .vision */
+    justify-content: flex-start;
+    min-height: 0; /* überschreibt das geerbte min-height: 50vh von .vision */
     width: 100vw;
     max-width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -480,6 +481,7 @@ section {
     background-color: var(--primary-bg);
     gap: 5vw;
 }
+
 .vision-portrait-img {
     flex: 0 0 35%;
     background-color: var(--tertiary-bg);
@@ -495,13 +497,14 @@ section {
 }
 .vision-portrait .vision-content {
     flex: 1;
-    max-width: none; /* überschreibt das max-width: 60ch von .vision-content */
-    padding: 3rem 5vw 3rem 0;
+    max-width: none;
+    justify-content: flex-start; /* Text startet oben statt vertikal zentriert */
+    padding: 3rem 5vw 3rem 0; /* die 3rem oben sorgen für etwas Luft zur Kante */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
+
 .vision-portrait h2 {
     white-space: nowrap;
     font-size: clamp(2.2rem, 3.5vw, 3.6rem);
