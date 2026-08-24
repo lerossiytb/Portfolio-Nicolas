@@ -469,7 +469,7 @@ section {
 */
 .vision-portrait {
     display: grid;
-    grid-template-columns: 44% 11% 1fr; /* Bild 44% (doppelt so breit wie vorher bei 22%), 11% Whitespace, Rest Text */
+    grid-template-columns: 50% 5.5% 1fr; /* Bild 44% (doppelt so breit wie vorher bei 22%), 11% Whitespace, Rest Text */
     gap: 0;
     align-items: stretch;
     text-align: left;
