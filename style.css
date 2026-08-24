@@ -1087,11 +1087,15 @@ section {
     min-height: auto;
     padding: 12rem 5vw 3rem 5vw;
     background-color: var(--secondary-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 .subpage-back {
     display: inline-block;
-    margin-bottom: 1.5rem;
+    align-self: flex-start;
+    margin-bottom: 2.5rem;
     font-size: 0.9rem;
     color: rgba(244, 164, 96, 0.7);
     letter-spacing: 0.05em;
@@ -1114,6 +1118,16 @@ section {
     color: rgba(244, 164, 96, 0.85);
     margin-bottom: 1.5rem;
     line-height: 1.7;
+}
+.subpage-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.3rem;
+}
+.subpage-content ul li {
+    font-size: 1.05rem;
+    color: rgba(244, 164, 96, 0.85);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
 }
 .subpage-media {
     width: 100%;
@@ -1172,7 +1186,18 @@ section {
     gap: 1rem;
     margin-bottom: 2.5rem;
 }
-
+.subpage-gallery img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+@media (max-width: 700px) {
+    .subpage-gallery {
+        grid-template-columns: 1fr;
+    }
+}
 @media (min-width: 701px) {
     .subpage-gallery.cols-3 {
         grid-template-columns: repeat(3, 1fr);
@@ -1215,18 +1240,6 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-}
-.subpage-gallery img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 16px;
-    display: block;
-}
-@media (max-width: 700px) {
-    .subpage-gallery {
-        grid-template-columns: 1fr;
-    }
 }
 .subpage-subtitle {
     font-size: clamp(1.4rem, 3vw, 1.9rem);
