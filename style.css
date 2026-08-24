@@ -467,15 +467,10 @@ section {
     LERNE MICH KENNEN: OPTIMIERTES SPLIT-LAYOUT
     ====================
 */
-/*
-    ====================
-    LERNE MICH KENNEN: OPTIMIERTES SPLIT-LAYOUT
-    ====================
-*/
 .vision-portrait {
     display: flex;
     align-items: stretch; /* Bild und Text bekommen exakt dieselbe Höhe */
-    justify-content: flex-start; /* überschreibt das "center" von .vision */
+    justify-content: flex-start; /* überschreibt das geerbte "center" von .vision */
     min-height: 0; /* überschreibt das geerbte min-height: 50vh von .vision */
     width: 100vw;
     max-width: 100vw;
@@ -498,7 +493,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%; /* Kopf wird nie abgeschnitten */
+    object-position: center 25%; /* zeigt mehr vom unteren Bildbereich (Arme), ohne den Kopf stark zu beschneiden */
     display: block;
 }
 .vision-portrait .vision-content {
@@ -530,7 +525,6 @@ section {
 .vision-portrait p b {
     color: var(--secondary-bg);
     font-weight: 600;
-    margin-bottom: 0.75rem;
 }
 .vision-portrait p:last-of-type {
     margin-bottom: 0;
@@ -539,7 +533,7 @@ section {
 .vision-portrait .intro-lead {
     font-size: 1.25rem;
     margin-bottom: 1.75rem;
-     }
+}
 @media (max-width: 1024px) {
     .vision-portrait-img {
         flex-basis: 45%;
@@ -825,7 +819,7 @@ section {
 }
 /*
     ====================
-    BILDEINDRÜCKE + FOLGE MIR (vor Kontakt)
+    BILDEINDRÜCKE + VIDEOS + FOLGE MIR (vor Kontakt)
     ====================
 */
 .impressions-section {
@@ -862,24 +856,21 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-.impressions-video-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto 3.5rem auto;
+/* YouTube-Videos: 3 nebeneinander, gleiche Gesamtbreite wie .impressions-grid */
+.impressions-yt-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
 }
 .impressions-yt-embed {
     position: relative;
     width: 100%;
-    max-width: 500px;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 – Breite bestimmt die Höhe, kein überdimensioniertes Video mehr */
     height: 0;
     overflow: hidden;
     border-radius: 10px;
-    flex: 1 1 500px;
 }
 .impressions-yt-embed iframe {
     position: absolute;
@@ -888,6 +879,31 @@ section {
     width: 100%;
     height: 100%;
     border: none;
+}
+@media (max-width: 900px) {
+    .impressions-yt-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .impressions-yt-row { grid-template-columns: 1fr; }
+}
+/* TikTok-Videos: 3 nebeneinander statt untereinander */
+.impressions-tiktok-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto 3.5rem auto;
+    justify-items: center;
+}
+.impressions-tiktok-row .tiktok-embed {
+    width: 100% !important;
+    max-width: 325px;
+}
+@media (max-width: 900px) {
+    .impressions-tiktok-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .impressions-tiktok-row { grid-template-columns: 1fr; }
 }
 /*
     ====================
