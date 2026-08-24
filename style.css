@@ -469,8 +469,7 @@ section {
 */
 .vision-portrait {
     display: grid;
-    /* Nutzt 45% für die orange Bildseite und 55% für den Textbereich */
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 22% 78%; /* Bild ca. halb so breit wie vorher (45% → 22%), Text entsprechend breiter */
     gap: 0;
     align-items: stretch;
     text-align: left;
@@ -506,8 +505,8 @@ section {
 }
 .vision-portrait .vision-content {
     width: 100%;
-    max-width: 62ch; /* Optimale Zeilenlänge für gute Lesbarkeit */
-    padding: 4rem 5vw 4rem 4rem; /* Kompakterer Abstand zur Trennlinie */
+    max-width: 90ch; /* vorher 62ch – jetzt deutlich breiter */
+    padding: 4rem 5vw 4rem 3rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
