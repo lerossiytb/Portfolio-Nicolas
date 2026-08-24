@@ -510,7 +510,6 @@ section {
     flex-direction: column;
     justify-content: center;
 }
-
 .vision-portrait h2 {
     white-space: nowrap;
     font-size: clamp(2.2rem, 3.5vw, 3.6rem);
