@@ -466,12 +466,12 @@ section {
     ====================
     LERNE MICH KENNEN: OPTIMIERTES SPLIT-LAYOUT
     ====================
-*/
 .vision-portrait {
     display: grid;
-    grid-template-columns: 50% 5.5% 1fr; /* Bild 44% (doppelt so breit wie vorher bei 22%), 11% Whitespace, Rest Text */
+    /* Bild-Spalte (z.B. 40%), 5% Whitespace-Lücke, Rest Text */
+    grid-template-columns: 40% 5% 1fr;
     gap: 0;
-    align-items: stretch;
+    align-items: stretch; /* Sorgt dafür, dass der graue Block exakt so hoch wie der Text ist */
     text-align: left;
     width: 100vw;
     max-width: 100vw;
@@ -481,30 +481,33 @@ section {
     box-sizing: border-box;
     background-color: var(--primary-bg);
 }
+
 .vision-portrait-img {
     grid-column: 1;
     width: 100%;
     height: 100%;
-    min-height: 420px;
     background-color: var(--tertiary-bg);
-    padding: 0;
+    /* Etwas Padding, damit das Bild nicht am oberen/unteren Rand klebt */
+    padding: 1.5rem; 
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
+
 .vision-portrait-img img {
     width: 100%;
-    height: 80%;
-    object-fit: cover;
+    height: 100%;
+    /* Verhindert das Abschneiden vollständig – zeigt das ganze Bild im grauen Block */
+    object-fit: contain; 
     display: block;
 }
+
 .vision-portrait .vision-content {
-    grid-column: 3; /* springt über die leere Whitespace-Spalte 2 */
+    grid-column: 3; /* Nutzt die 3. Spalte nach den 5% Whitespace */
     width: 100%;
-    max-width: 90ch;
-    padding: 4rem 5vw 4rem 3rem;
+    max-width: 75ch;
+    padding: 3rem 4vw 3rem 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
