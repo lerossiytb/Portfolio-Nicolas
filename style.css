@@ -484,15 +484,18 @@ section {
 
 .vision-portrait-img {
     flex: 0 0 35%;
+    position: relative; /* Referenzrahmen fürs absolut positionierte Bild */
     background-color: var(--tertiary-bg);
     overflow: hidden;
-    display: flex;
 }
+
 .vision-portrait-img img {
+    position: absolute; /* nimmt das Bild aus der Höhenberechnung raus */
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top; /* Kopf wird nie abgeschnitten */
+    object-position: center top;
     display: block;
 }
 .vision-portrait .vision-content {
@@ -508,10 +511,11 @@ section {
 .vision-portrait h2 {
     white-space: nowrap;
     font-size: clamp(2.2rem, 3.5vw, 3.6rem);
-    margin-bottom: 1.8rem;
+    margin-bottom: 2.75rem; /* mehr Luft zum Fliesstext */
     color: var(--secondary-bg);
     line-height: 1.1;
 }
+
 /* Schöne, saubere Textformatierung */
 .vision-portrait p {
     font-size: clamp(1.1rem, 1.3vw, 1.3rem);
