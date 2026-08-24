@@ -496,26 +496,29 @@ section {
     object-position: center top; /* Kopf wird nie abgeschnitten */
     display: block;
 }
-vision-portrait .intro-lead {
-    font-size: clamp(1.3rem, 1.8vw, 1.6rem);
-    font-weight: 700;
-    color: var(--secondary-bg);
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-/* Linksbündiges & aufgeräumtes Layout für die Sektion */
 .vision-portrait .vision-content {
-    align-items: flex-start;
+    flex: 1;
+    max-width: none;
+    justify-content: flex-start;
+    padding: 5rem 5vw 8rem 0; /* Mehr Abstand oben (5rem) und unten (8rem) streckt die Texthöhe */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
-
 .vision-portrait h2 {
-    text-align: left;
-    margin-bottom: 2rem;
+    white-space: nowrap;
+    font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+    margin-bottom: 4rem; /* Abstand zwischen Titel und Fliesstext deutlich vergrössert (vorher 2.75rem) */
+    color: var(--secondary-bg);
+    line-height: 1.1;
 }
 
 .vision-portrait p {
-    text-align: left; /* Verhindert unschöne Lücken durch Blocksatz */
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    line-height: 1.85; /* Leicht erhöhter Zeilenabstand für mehr vertikale Ausdehnung */
+    text-align: justify;
+    color: rgba(0, 0, 51, 0.85);
+    margin-bottom: 2rem; /* Mehr Abstand zwischen den einzelnen Absätzen (vorher 1.25rem) */
 }
 
 .vision-portrait p strong,
