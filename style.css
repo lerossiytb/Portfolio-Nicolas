@@ -469,7 +469,7 @@ section {
 */
 .vision-portrait {
     display: grid;
-    grid-template-columns: 22% 78%; /* Bild ca. halb so breit wie vorher (45% → 22%), Text entsprechend breiter */
+    grid-template-columns: 44% 11% 1fr; /* Bild 44% (doppelt so breit wie vorher bei 22%), 11% Whitespace, Rest Text */
     gap: 0;
     align-items: stretch;
     text-align: left;
@@ -482,6 +482,7 @@ section {
     background-color: var(--primary-bg);
 }
 .vision-portrait-img {
+    grid-column: 1;
     width: 100%;
     height: 100%;
     min-height: 420px;
@@ -496,16 +497,13 @@ section {
 .vision-portrait-img img {
     width: 100%;
     height: 100%;
-    max-width: none;
-    max-height: none;
     object-fit: cover;
     display: block;
-    box-shadow: none;
-    border-radius: 0;
 }
 .vision-portrait .vision-content {
+    grid-column: 3; /* springt über die leere Whitespace-Spalte 2 */
     width: 100%;
-    max-width: 90ch; /* vorher 62ch – jetzt deutlich breiter */
+    max-width: 90ch;
     padding: 4rem 5vw 4rem 3rem;
     box-sizing: border-box;
     display: flex;
@@ -564,27 +562,32 @@ section {
     color: var(--primary-bg);
     transform: translateY(-2px);
 }
-@media (max-width: 900px) {
-    .about-toggle { align-self: center; }
-}
 @media (max-width: 1024px) {
     .vision-portrait {
-        grid-template-columns: 1fr 1fr; /* Ab Tablet wieder 50/50 */
+        grid-template-columns: 1fr 1fr;
+    }
+    .vision-portrait-img {
+        grid-column: 1;
+    }
+    .vision-portrait .vision-content {
+        grid-column: 2;
     }
     .vision-portrait h2 {
         white-space: normal;
     }
 }
+
 @media (max-width: 900px) {
     .vision-portrait {
         grid-template-columns: 1fr;
-        text-align: center;
     }
     .vision-portrait-img {
+        grid-column: 1;
         min-height: 320px;
         height: 320px;
     }
     .vision-portrait .vision-content {
+        grid-column: 1;
         max-width: none;
         padding: 3rem 1.5rem;
         align-items: center;
@@ -592,6 +595,7 @@ section {
     .vision-portrait h2 {
         font-size: 2rem;
     }
+}
 }
 .btn-vision {
     display: inline-block;
