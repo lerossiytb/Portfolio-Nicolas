@@ -466,10 +466,10 @@ section {
     ====================
     LERNE MICH KENNEN: OPTIMIERTES SPLIT-LAYOUT
     ====================
+*/
 .vision-portrait {
     display: flex;
-    align-items: stretch; /* Zwingt Bild-Block und Text-Block auf exakt dieselbe Höhe */
-    justify-content: center;
+    align-items: stretch; /* Bild und Text bekommen exakt dieselbe Höhe */
     width: 100vw;
     max-width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -477,34 +477,24 @@ section {
     padding: 0 !important;
     box-sizing: border-box;
     background-color: var(--primary-bg);
+    gap: 5vw; /* Whitespace zwischen Bild und Text */
 }
-
 .vision-portrait-img {
-    flex: 0 0 35%; /* Feste Breite der Bildspalte relativ zum Bildschirm */
+    flex: 0 0 35%;
     background-color: var(--tertiary-bg);
     overflow: hidden;
     display: flex;
 }
-
 .vision-portrait-img img {
     width: 100%;
     height: 100%;
-    /* Füllt die Box in der Höhe des Textes komplett aus */
-    object-fit: cover; 
-    /* Richtet das Bild am Kopf aus, damit dein Gesicht nie abgeschnitten wird */
-    object-position: center top; 
+    object-fit: cover;
+    object-position: center top; /* Kopf wird nie abgeschnitten */
     display: block;
 }
-
-/* 5% Whitespace-Abstandhalter */
-.vision-portrait-spacer {
-    flex: 0 0 5%;
-}
-
 .vision-portrait .vision-content {
     flex: 1;
-    max-width: 75ch;
-    padding: 3rem 4vw 3rem 0;
+    padding: 3rem 5vw 3rem 0; /* rechts nochmals 5% Whitespace */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -521,6 +511,7 @@ section {
 .vision-portrait p {
     font-size: clamp(1.1rem, 1.3vw, 1.3rem);
     line-height: 1.75; /* Angenehmer Zeilenabstand */
+    text-align: justify; /* Blocksatz */
     color: rgba(0, 0, 51, 0.85);
     margin-bottom: 1.25rem;
 }
@@ -530,72 +521,33 @@ section {
     font-weight: 600;
 }
 .vision-portrait p:last-of-type {
-    margin-bottom: 1.5rem;
-}
-/* Anfangs nur die ersten 3 Absätze zeigen, Rest hinter dem Toggle verstecken */
-.vision-portrait .about-expanded {
-    padding-top: 0.25rem;
-    border-top: 1px solid rgba(0, 0, 51, 0.1);
-    margin-top: 0.5rem;
-}
-.about-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    align-self: flex-start;
-    background: transparent;
-    border: 2px solid var(--secondary-bg);
-    color: var(--secondary-bg);
-    font-family: 'Graphik', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.03em;
-    padding: 0.85rem 1.6rem;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-.about-toggle:hover {
-    background-color: var(--secondary-bg);
-    color: var(--primary-bg);
-    transform: translateY(-2px);
+    margin-bottom: 0;
 }
 @media (max-width: 1024px) {
-    .vision-portrait {
-        grid-template-columns: 1fr 1fr;
-    }
     .vision-portrait-img {
-        grid-column: 1;
-    }
-    .vision-portrait .vision-content {
-        grid-column: 2;
+        flex-basis: 45%;
     }
     .vision-portrait h2 {
         white-space: normal;
     }
 }
-
 @media (max-width: 900px) {
     .vision-portrait {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 0;
     }
     .vision-portrait-img {
-        grid-column: 1;
+        flex: 0 0 auto;
         min-height: 320px;
         height: 320px;
     }
     .vision-portrait .vision-content {
-        grid-column: 1;
-        max-width: none;
         padding: 3rem 1.5rem;
-        align-items: center;
     }
     .vision-portrait h2 {
         font-size: 2rem;
+        text-align: center;
     }
-}
 }
 .btn-vision {
     display: inline-block;
