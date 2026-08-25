@@ -12,16 +12,28 @@
 */
 .intro-text-wrap {
     margin-top: -0.5rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
 }
 .intro-text {
-    font-size: 1.35rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: var(--accent-color);
     text-align: center;
-    line-height: 1.6;
-    max-width: 1600px;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    max-width: 900px;
     margin: 0 auto;
+}
+/*
+    ====================
+    SEKTIONS-TITEL (Videobeispiele / Instagram / TikTok) — zentriert
+    ====================
+*/
+.subpage-content .subpage-embed-label {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 /*
     ====================
@@ -31,8 +43,8 @@
 .video-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem 2.5rem;
-    max-width: 1600px;
+    gap: 3rem 3rem;
+    max-width: 1900px;
     margin: 0 auto;
 }
 @media (max-width: 992px) {
@@ -198,10 +210,16 @@
     INSTAGRAM-WIDGET: Elfsight läuft sonst über die volle Breite
     ====================
 */
+.subpage-embed.section-gap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .subpage-embed.section-gap [class^="elfsight-app-"] {
-    max-width: 640px;
-    width: 100%;
-    margin: 0 auto;
+    max-width: 560px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    overflow: hidden;
 }
 /*
     ====================
@@ -241,21 +259,80 @@
 }
 /*
     ====================
-    TIKTOK-VIDEO-GRID (nebeneinander)
+    TIKTOK-GRID (nebeneinander) — Platzhalter-Karten, TikTok lädt erst per Klick
     ====================
 */
 .tiktok-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 2rem;
     max-width: 1100px;
     margin: 0 auto;
 }
-.tiktok-grid blockquote.tiktok-embed {
-    margin: 0 !important;
-    flex: 1 1 325px;
+.tiktok-card {
+    flex: 1 1 300px;
+    max-width: 325px;
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: var(--tertiary-bg);
+    border: 2px solid rgba(244, 164, 96, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.25s ease;
+}
+.tiktok-card:hover {
+    border-color: rgba(244, 164, 96, 0.6);
+}
+.tiktok-card-play {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0, 0, 51, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.tiktok-card-play::after {
+    content: '';
+    border-style: solid;
+    border-width: 10px 0 10px 16px;
+    border-color: transparent transparent transparent var(--accent-color);
+    margin-left: 4px;
+    transition: border-color 0.3s ease;
+}
+.tiktok-card:hover .tiktok-card-play {
+    background-color: var(--accent-color);
+    transform: scale(1.08);
+}
+.tiktok-card:hover .tiktok-card-play::after {
+    border-color: transparent transparent transparent var(--secondary-bg);
+}
+.tiktok-card-user {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 0.95rem;
+}
+.tiktok-card-caption {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(244, 164, 96, 0.7);
+}
+.tiktok-card-hint {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(244, 164, 96, 0.45);
 }
 .profile-link-wrap {
     text-align: center;
