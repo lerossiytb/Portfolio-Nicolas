@@ -26,7 +26,7 @@
 }
 /*
     ====================
-    SEKTIONS-TITEL (Videobeispiele / Instagram / TikTok) — zentriert
+    SEKTIONS-TITEL (YouTube / Instagram / TikTok) — zentriert, zweizeilig
     ====================
 */
 .subpage-content .subpage-embed-label {
@@ -35,41 +35,66 @@
     width: 100%;
     margin-bottom: 2rem;
 }
+.section-kicker {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.section-kicker-main {
+    display: block;
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+}
+.section-kicker-sub {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(244, 164, 96, 0.55);
+    margin-top: 0.4rem;
+}
 /*
     ====================
-    LAPTOP-MOCKUP (umschliesst das YouTube-Grid)
+    LAPTOP-MOCKUP (umschliesst das YouTube-Grid) — grauer Alu-Rand wie bei einem Mac
     ====================
 */
 .device-laptop {
     max-width: 1500px;
     margin: 0 auto;
 }
-.device-laptop-screen {
+.device-laptop-bezel {
     position: relative;
-    background: var(--secondary-bg);
-    border: 10px solid #0a0a1e;
-    border-bottom-width: 4px;
-    border-radius: 20px 20px 6px 6px;
-    padding: 3rem 3rem 2.5rem;
+    background: linear-gradient(155deg, #e2e2e6 0%, #b9b9c0 55%, #9b9ba2 100%);
+    border-radius: 22px 22px 8px 8px;
+    padding: 16px 16px 12px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
 }
 .device-laptop-cam {
     position: absolute;
-    top: 14px;
+    top: 7px;
     left: 50%;
     transform: translateX(-50%);
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: rgba(244, 164, 96, 0.35);
+    background: #4a4a4e;
+}
+.device-laptop-screen {
+    background: var(--tertiary-bg);
+    border: 3px solid #1c1c1e;
+    border-radius: 10px;
+    padding: 3rem 3rem 2.5rem;
 }
 .device-laptop-base {
     position: relative;
-    width: 108%;
-    left: -4%;
+    width: 112%;
+    left: -6%;
     height: 16px;
-    background: linear-gradient(180deg, #14142c 0%, #0a0a1e 100%);
+    background: linear-gradient(180deg, #cfcfd4 0%, #a3a3aa 100%);
     border-radius: 0 0 12px 12px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 .device-laptop-base::before {
     content: '';
@@ -79,7 +104,7 @@
     transform: translateX(-50%);
     width: 90px;
     height: 5px;
-    background: rgba(244, 164, 96, 0.2);
+    background: #8c8c93;
     border-radius: 0 0 6px 6px;
 }
 /*
@@ -311,13 +336,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 2.5rem;
     max-width: 1150px;
     margin: 0 auto;
 }
 .device-phone {
     position: relative;
+    display: flex;
+    flex-direction: column;
     flex: 0 1 320px;
     width: 320px;
     background: #0a0a1e;
@@ -338,6 +365,9 @@
     z-index: 2;
 }
 .device-phone-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     background: var(--tertiary-bg);
     border-radius: 22px;
     overflow: hidden;
