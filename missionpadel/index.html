@@ -182,6 +182,13 @@ button, a, input { touch-action: manipulation; }
 
 @media (prefers-reduced-motion: reduce) { .shake, .glitch, .cursor, .terminal.alarm { animation: none; } .intro.typing .reveal-in { opacity: 1; transform: none; } }
 
+/* Video stage */
+.vstage { padding-block: 28px 8px; display: flex; flex-direction: column; gap: 18px; min-height: calc(100svh - 90px); justify-content: center; }
+.vstage h2 { font-size: clamp(30px, 7vw, 48px); font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
+.yt { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border: 2px solid var(--lime); border-radius: 12px; overflow: hidden; box-shadow: 0 0 40px rgba(200,240,49,0.18); }
+.yt iframe, .yt > div { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vhint { font-family: var(--mono); font-size: 13px; color: var(--muted); letter-spacing: 0.06em; min-height: 1.4em; }
+.vstage .btn { align-self: flex-start; }
 /* Unlock overlay */
 .unlock { position: fixed; inset: 0; z-index: 50; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 24px; text-align: center; overflow: hidden; }
 .unlock::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 3px); }
@@ -287,6 +294,17 @@ button, a, input { touch-action: manipulation; }
     </div>
   </section>
 
+  <!-- 2b · Video -->
+  <section id="vstage" class="vstage" hidden>
+    <div class="section-head">
+      <span class="label" style="color: var(--lime)">Zugriff gewährt · Einsatzbesprechung</span>
+      <h2>Lynne, das ist für dich.</h2>
+    </div>
+    <div class="yt"><div id="yt"></div></div>
+    <div class="vhint" id="vhint">Ton an.</div>
+    <button class="btn btn-go" id="vdone" type="button" hidden>Weiter zu deinen Turnierunterlagen →</button>
+  </section>
+
   <!-- 3 · Reveal -->
   <section id="reveal" hidden>
     <div class="reveal-hero">
@@ -381,7 +399,7 @@ button, a, input { touch-action: manipulation; }
 
   var state = load();
   function load() {
-    try { var s = JSON.parse(localStorage.getItem(KEY)); if (s && typeof s === 'object') return { startedAt: s.startedAt || null, solvedAt: s.solvedAt || null, hints: s.hints || {} }; } catch (e) {}
+    try { var s = JSON.parse(localStorage.getItem(KEY)); if (s && typeof s === 'object') return { startedAt: s.startedAt || null, solvedAt: s.solvedAt || null, videoDone: !!s.videoDone, hints: s.hints || {} }; } catch (e) {}
     return { startedAt: null, solvedAt: null, hints: {} };
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
@@ -433,7 +451,9 @@ button, a, input { touch-action: manipulation; }
   function show() {
     $('intro').hidden = !!state.startedAt;
     $('game').hidden = !state.startedAt || !!state.solvedAt;
-    $('reveal').hidden = !state.solvedAt;
+    var inVideo = !!state.solvedAt && !state.videoDone && !!VIDEO_ID;
+    $('vstage').hidden = !inVideo;
+    $('reveal').hidden = !state.solvedAt || inVideo;
     if (state.solvedAt) $('solvedTime').textContent = 'Gelöst in ' + fmt((state.solvedAt - state.startedAt) / 1000) + '. Stark gespielt, Lynne.';
     tick();
   }
@@ -463,6 +483,45 @@ button, a, input { touch-action: manipulation; }
   }
 
 
+  // Video stage: YouTube player right after unlocking, rest of the page afterwards
+  var m = VIDEO_URL.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+  var VIDEO_ID = m ? m[1] : '';
+  var ytReady = false, ytWaiting = null, player = null;
+  window.onYouTubeIframeAPIReady = function () { ytReady = true; if (ytWaiting) { var f = ytWaiting; ytWaiting = null; f(); } };
+  function loadYT() {
+    if (!VIDEO_ID || document.getElementById('ytapi')) return;
+    var sc = document.createElement('script'); sc.id = 'ytapi'; sc.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(sc);
+  }
+  function finishVideo() {
+    if (state.videoDone) return;
+    state.videoDone = true; save();
+    try { if (player && player.stopVideo) player.stopVideo(); } catch (e) {}
+    show(); window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  $('vdone').addEventListener('click', finishVideo);
+  function mountVideo() {
+    if ($('vstage').hidden || player) return;
+    setTimeout(function () { $('vdone').hidden = false; }, 8000);
+    function build() {
+      player = new YT.Player('yt', {
+        videoId: VIDEO_ID,
+        playerVars: { autoplay: 1, playsinline: 1, rel: 0, modestbranding: 1 },
+        events: {
+          onReady: function (e) { try { e.target.playVideo(); } catch (x) {} setTimeout(function () { try { if (e.target.getPlayerState() !== 1) $('vhint').textContent = 'Tippe auf Play ▶'; } catch (x) {} }, 1500); },
+          onStateChange: function (e) { if (e.data === 1) $('vhint').textContent = 'Ton an.'; if (e.data === 0) { $('vdone').hidden = false; setTimeout(finishVideo, 1200); } }
+        }
+      });
+    }
+    var fallback = setTimeout(function () {
+      if (player) return; ytWaiting = null;
+      $('yt').outerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + VIDEO_ID + '?autoplay=1&playsinline=1&rel=0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="Video"></iframe>';
+      player = {}; $('vdone').hidden = false;
+    }, 6000);
+    var go = function () { clearTimeout(fallback); build(); };
+    loadYT();
+    if (ytReady) go(); else ytWaiting = go;
+  }
+
   function playUnlock(done) {
     var o = $('unlock'), step = $('uStep'), bar = $('uBar'), ended = false;
     var steps = ['CODE WIRD GEPRÜFT …', 'FRAGMENTE WERDEN ZUSAMMENGESETZT …', 'AKTE WIRD ENTSCHLÜSSELT …'];
@@ -488,7 +547,8 @@ button, a, input { touch-action: manipulation; }
       if (h === CODE_HASH) {
         state.solvedAt = Date.now(); save();
         digits.forEach(function (d) { d.blur(); });
-        playUnlock(function () { show(); window.scrollTo({ top: 0 }); });
+        loadYT();
+        playUnlock(function () { show(); window.scrollTo({ top: 0 }); mountVideo(); });
       } else {
         msg.className = 'msg bad'; msg.textContent = 'Zugriff verweigert. Prüfe Ziffern und Reihenfolge.';
         var v = $('vault'); v.classList.remove('shake'); void v.offsetWidth; v.classList.add('shake');
@@ -510,6 +570,7 @@ button, a, input { touch-action: manipulation; }
     delete reset.dataset.armed; reset.textContent = 'Spiel zurücksetzen';
     digits.forEach(function (d) { d.value = ''; }); $('msg').textContent = '';
     show(); renderFrags(); window.scrollTo({ top: 0 });
+    if (player) location.reload();
   });
 
   // Animated boot sequence in the terminal
@@ -590,6 +651,7 @@ button, a, input { touch-action: manipulation; }
   }
 
   renderFrags(); show(); bootSequence();
+  if (!$('vstage').hidden) mountVideo();
   setInterval(tick, 1000);
 })();
 </script>
