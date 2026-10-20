@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0D1017">
+<title>Mission Padel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root {
+  --bg: #0D1017;
+  --panel: #171B24;
+  --panel-2: #1E2330;
+  --line: #3A4150;
+  --fg: #F3F1EA;
+  --muted: #A6ACB8;
+  --lime: #C8F031;
+  --orange: #FF6A2B;
+  --cyan: #3FD0E0;
+  --pink: #FF4F8B;
+  --danger: #FF5A4E;
+  --ink: #0D1017;
+  --display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { background: var(--bg); color: var(--fg); }
+body { font-family: var(--display); font-size: 16px; line-height: 1.5; padding-inline: 16px; padding-block: 0 48px; margin: 0; }
+.wrap { max-width: 760px; margin: 0 auto; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; text-wrap: pretty; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
+.mono { font-family: var(--mono); }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); margin-inline: -16px; padding: 12px 16px; }
+.bar-in { max-width: 760px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { font-weight: 900; font-size: 18px; letter-spacing: -0.02em; }
+.brand span { color: var(--lime); }
+.timer { font-family: var(--mono); font-weight: 600; font-size: 20px; font-variant-numeric: tabular-nums; padding: 6px 12px; border: 2px solid var(--line); border-radius: 8px; min-width: 104px; text-align: center; }
+.timer.run { border-color: var(--lime); color: var(--lime); }
+.timer.over { border-color: var(--danger); color: var(--danger); }
+.timer.done { border-color: var(--cyan); color: var(--cyan); }
+.intro { padding-block: 40px 8px; display: flex; flex-direction: column; gap: 24px; }
+.terminal { background: #000; border: 2px solid var(--line); border-radius: 10px; padding: 14px 16px; font-family: var(--mono); font-size: 14px; line-height: 1.7; color: var(--lime); overflow-x: auto; }
+.terminal .warn { color: var(--orange); }
+.terminal { transition: border-color 0.2s; min-height: calc(6 * 1.7em + 28px); }
+.terminal.alarm { border-color: var(--danger); animation: alarm 0.9s ease-out; }
+@keyframes alarm { 0% { box-shadow: 0 0 0 0 rgba(255, 90, 78, 0.6); } 100% { box-shadow: 0 0 0 14px rgba(255, 90, 78, 0); } }
+.cursor { animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.glitch { display: inline-block; animation: glitch 2.6s infinite; }
+@keyframes glitch {
+  0%, 86%, 100% { transform: none; opacity: 1; text-shadow: none; }
+  88% { transform: translateX(-2px) skewX(-8deg); text-shadow: 2px 0 var(--cyan), -2px 0 var(--pink); }
+  90% { opacity: 0.4; }
+  92% { transform: translateX(2px); text-shadow: -2px 0 var(--cyan), 2px 0 var(--pink); }
+  94% { opacity: 1; transform: none; }
+}
+.intro .reveal-in { opacity: 1; transition: opacity 0.5s, transform 0.5s; }
+.intro.typing .reveal-in { opacity: 0.25; transform: translateY(6px); }
+.hero-title { font-size: clamp(52px, 13vw, 104px); line-height: 0.86; font-weight: 900; letter-spacing: -0.04em; }
+.hero-title span { color: var(--lime); display: block; }
+.tag { display: inline-block; background: var(--orange); color: var(--ink); font-family: var(--mono); font-weight: 600; font-size: 13px; letter-spacing: 0.14em; padding: 5px 10px; }
+.lead { font-size: 19px; color: #D6D8DD; max-width: 60ch; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 10px; padding: 16px 26px; font-weight: 900; font-size: 18px; min-height: 52px; }
+.btn-go { background: var(--lime); color: var(--ink); }
+.btn-go:hover { filter: brightness(1.08); }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; }
+.fact { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-family: var(--mono); font-size: 13px; }
+.section { padding-block: 32px 0; display: flex; flex-direction: column; gap: 16px; }
+.section-head { display: flex; flex-direction: column; gap: 6px; }
+.section-head h2 { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; }
+.frags { display: flex; flex-direction: column; gap: 14px; }
+.frag { background: var(--panel); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+.frag-top { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; background: var(--c); color: var(--ink); }
+.frag-top .mono { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; }
+.frag-top b { font-size: 28px; font-weight: 900; line-height: 1; }
+.frag-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.frag-body h3 { font-size: 22px; font-weight: 900; }
+.frag-body p { color: #D6D8DD; }
+.hint-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.hbtn { background: transparent; border: 2px solid var(--line); border-radius: 8px; padding: 8px 14px; min-height: 44px; font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; }
+.hbtn:hover:not(:disabled) { border-color: var(--c); color: var(--c); }
+.hbtn:disabled { opacity: 0.4; cursor: default; }
+.hbtn.confirm { border-color: var(--orange); color: var(--orange); }
+.hints { display: flex; flex-direction: column; gap: 8px; }
+.hint { background: var(--panel-2); border-radius: 8px; padding: 10px 14px; display: flex; gap: 12px; align-items: baseline; }
+.hint .mono { font-size: 11px; letter-spacing: 0.12em; color: var(--c); flex-shrink: 0; width: 64px; }
+.hint.sol { outline: 2px solid var(--c); }
+.vault { background: var(--panel); border: 2px solid var(--orange); border-radius: 14px; padding: 22px 18px; display: flex; flex-direction: column; gap: 16px; }
+.vault h2 { font-size: 30px; font-weight: 900; }
+.digits { display: flex; gap: 10px; }
+.digit { width: 64px; height: 76px; max-width: 22vw; text-align: center; font-family: var(--mono); font-size: 34px; font-weight: 600; background: var(--bg); border: 2px solid var(--line); border-radius: 10px; caret-color: var(--orange); }
+.digit:focus { border-color: var(--orange); outline: none; }
+.vault-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn-open { background: var(--orange); color: var(--ink); }
+.msg { font-family: var(--mono); font-size: 14px; min-height: 1.5em; }
+.msg.bad { color: var(--danger); }
+.shake { animation: shake 0.4s; }
+@keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+.reveal-hero { margin-top: 32px; background: var(--lime); color: var(--ink); border-radius: 16px; padding: 28px 22px; display: flex; flex-direction: column; gap: 12px; }
+.stamp { align-self: flex-start; border: 3px solid var(--ink); padding: 4px 12px; font-family: var(--mono); font-weight: 600; letter-spacing: 0.18em; transform: rotate(-3deg); }
+.reveal-hero h2 { font-size: clamp(44px, 11vw, 80px); line-height: 0.9; font-weight: 900; letter-spacing: -0.03em; }
+.reveal-hero p { font-size: 18px; font-weight: 700; }
+.video { display: flex; align-items: center; gap: 18px; background: var(--panel); border: 2px solid var(--line); border-radius: 14px; padding: 18px; text-decoration: none; color: var(--fg); }
+.video:hover { border-color: var(--lime); }
+.play { flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: var(--lime); display: flex; align-items: center; justify-content: center; }
+.video b { font-size: 22px; font-weight: 900; display: block; }
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.stop { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; }
+.rail { display: flex; flex-direction: column; align-items: center; }
+.dot { width: 22px; height: 22px; border-radius: 50%; background: var(--c); margin-top: 6px; flex-shrink: 0; }
+.line { width: 2px; flex-grow: 1; background: var(--line); margin-block: 6px; }
+.stop:last-child .line { display: none; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.when { font-family: var(--mono); font-weight: 600; font-size: 13px; letter-spacing: 0.12em; color: var(--c); }
+.card h3 { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
+.kv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.kv div { background: var(--panel-2); border-radius: 8px; padding: 10px 12px; min-width: 0; }
+.kv .label { font-size: 11px; }
+.kv p { font-weight: 700; margin-top: 2px; }
+@media (max-width: 480px) { .kv { grid-template-columns: minmax(0, 1fr); } }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
+.linkbtn { background: none; border: 0; color: var(--muted); font-family: var(--mono); font-size: 12px; text-decoration: underline; padding: 8px 0; min-height: 44px; }
+.note { display: flex; gap: 12px; align-items: flex-start; background: var(--panel); border: 1px solid var(--line); border-left: 0; border-radius: 10px; padding: 14px 16px; position: relative; overflow: hidden; }
+.note::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--cyan); }
+.note svg { flex-shrink: 0; margin-top: 2px; }
+.note b { display: block; font-weight: 900; }
+.note p { color: #D6D8DD; font-size: 15px; }
+.timer-sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-align: center; margin-top: 2px; }
+button, a, input { touch-action: manipulation; }
+.terminal { overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  body { font-size: 15px; }
+  .intro { padding-block: 24px 4px; gap: 18px; }
+  .terminal { font-size: 12.5px; padding: 12px; min-height: calc(8 * 1.7em + 24px); }
+  .lead { font-size: 17px; }
+  .btn { width: 100%; }
+  .section { padding-block: 24px 0; }
+  .section-head h2, .vault h2 { font-size: 26px; }
+  .frag-body { padding: 14px; }
+  .frag-body h3 { font-size: 20px; }
+  .hbtn { flex: 1 1 auto; }
+  .hint { flex-direction: column; gap: 4px; }
+  .hint .mono { width: auto; }
+  .vault { padding: 18px 14px; }
+  .digits { gap: 8px; }
+  .digit { flex: 1 1 0; width: auto; min-width: 0; max-width: 72px; height: 68px; font-size: 30px; }
+  .vault-row { flex-direction: column; align-items: stretch; }
+  .reveal-hero { padding: 22px 18px; }
+  .video { padding: 14px; gap: 14px; }
+  .play { width: 56px; height: 56px; }
+  .video b { font-size: 19px; }
+  .stop { grid-template-columns: 18px minmax(0, 1fr); gap: 10px; }
+  .dot { width: 16px; height: 16px; }
+  .card { padding: 14px; }
+  .card h3 { font-size: 22px; }
+  .brand { font-size: 16px; }
+  .timer { font-size: 18px; min-width: 88px; padding: 5px 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .shake, .glitch, .cursor, .terminal.alarm { animation: none; } .intro.typing .reveal-in { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="brand">MISSION <span>PADEL</span></div>
+    <div>
+      <div class="timer" id="timer" aria-live="off" aria-label="Gespielte Zeit">00:00</div>
+      <div class="timer-sub" id="timerSub">STOPPUHR</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="intro" class="intro">
+    <div class="terminal" id="term" aria-label="Systemmeldung">
+      <div>&gt; VERBINDUNG ZUR TURNIERLEITUNG … OK</div>
+      <div>&gt; LADE AKTE PDL-0109 · LYNNE KAIER</div>
+      <div>&gt; INTEGRITÄT [████░░░░░░░░] 37% <span class="warn">ABBRUCH</span></div>
+      <div class="warn">&gt; SYSTEM ERROR 0x2027</div>
+      <div>&gt; AKTE <span class="warn glitch">BESCHÄDIGT</span> · 4 FRAGMENTE GEFUNDEN</div>
+      <div>&gt; WIEDERHERSTELLUNG MANUELL ERFORDERLICH<span class="cursor">_</span></div>
+    </div>
+    <span class="tag reveal-in" style="align-self:flex-start">DAS ESCAPE-GAME</span>
+    <h1 class="hero-title">MISSION<span>PADEL</span></h1>
+    <p class="lead reveal-in">Lynne, der Server der Turnierleitung ist abgestürzt. Deine Akkreditierung für eine geheime Padel-Mission wurde in vier Fragmente zerlegt. Löse sie und schalte deine Turnierunterlagen frei.</p>
+    <div class="facts">
+      <span class="fact">1 Spielerin</span>
+      <span class="fact">ca. 20 Minuten</span>
+      <span class="fact">4 Fragmente + Zugangscode</span>
+      <span class="fact">Bleistift &amp; Schere bereit</span>
+    </div>
+    <div class="note">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="#3FD0E0" stroke-width="2"></circle><path d="M12 10.5 V17" stroke="#3FD0E0" stroke-width="2.4" stroke-linecap="round"></path><circle cx="12" cy="7.2" r="1.4" fill="#3FD0E0"></circle></svg>
+      <div><b>Diese Seite ist nur deine Einsatzzentrale.</b><p>Alle Rätsel liegen in der Box vor dir. Hier misst du deine Zeit, holst dir Hinweise, wenn du feststeckst, und schaltest am Schluss mit dem Zugangscode deine Turnierunterlagen frei.</p></div>
+    </div>
+    <div><button class="btn btn-go" id="start">Mission starten · Zeit läuft</button></div>
+  </section>
+
+  <section id="game" hidden>
+    <div class="section">
+      <div class="section-head">
+        <span class="label">Einsatzzentrale</span>
+        <h2>Hinweise &amp; Hilfe</h2>
+      </div>
+      <div class="note">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="#3FD0E0" stroke-width="2"></circle><path d="M12 10.5 V17" stroke="#3FD0E0" stroke-width="2.4" stroke-linecap="round"></path><circle cx="12" cy="7.2" r="1.4" fill="#3FD0E0"></circle></svg>
+        <div><b>Gespielt wird mit der Box, nicht hier.</b><p>Jedes Fragment ergibt eine Ziffer. Öffne einen Tipp nur, wenn du wirklich feststeckst, Schritt für Schritt.</p></div>
+      </div>
+      <div class="frags" id="frags"></div>
+    </div>
+
+    <div class="section">
+      <form class="vault" id="vault" autocomplete="off">
+        <span class="label" style="color:var(--orange)">Turnierunterlagen · gesperrt</span>
+        <h2>Zugangscode eingeben</h2>
+        <p style="color:#D6D8DD">Vier Ziffern, in der richtigen Reihenfolge.</p>
+        <div class="digits" id="digits">
+          <input class="digit" id="d0" inputmode="numeric" maxlength="1" aria-label="Ziffer 1">
+          <input class="digit" id="d1" inputmode="numeric" maxlength="1" aria-label="Ziffer 2">
+          <input class="digit" id="d2" inputmode="numeric" maxlength="1" aria-label="Ziffer 3">
+          <input class="digit" id="d3" inputmode="numeric" maxlength="1" aria-label="Ziffer 4">
+        </div>
+        <div class="vault-row">
+          <button class="btn btn-open" type="submit">Unterlagen freischalten</button>
+          <span class="msg" id="msg" role="status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="reveal" hidden>
+    <div class="reveal-hero">
+      <span class="stamp">WIEDERHERGESTELLT</span>
+      <h2>Turnierunterlagen freigegeben.</h2>
+      <p id="solvedTime">Gelöst in 00:00.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="label">Einsatzbesprechung</span>
+        <h2>Zuerst das Video</h2>
+      </div>
+      <a class="video" id="video" href="#" target="_blank" rel="noopener">
+        <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M7 4 L20 12 L7 20 Z" fill="#0D1017"></path></svg></span>
+        <span><b>Play drücken, Lynne.</b><span class="label" id="videoNote">Öffnet YouTube</span></span>
+      </a>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <span class="label">Deine Mission 2027</span>
+        <h2>Was, wo, wann</h2>
+      </div>
+      <div class="timeline">
+        <div class="stop" style="--c: var(--orange)">
+          <div class="rail"><span class="dot"></span><span class="line"></span></div>
+          <div class="card">
+            <span class="when">SAMSTAG · 09.01.2027 · SCHWEIZ</span>
+            <h3>Privat-Coaching</h3>
+            <div class="kv">
+              <div><span class="label">Was</span><p>Privat-Training mit deinem Geheim-Coach</p></div>
+              <div><span class="label">Wer</span><p>Coach Merlin</p></div>
+              <div><span class="label">Wo</span><p>Padel-Center in der Schweiz · suchen wir zusammen aus</p></div>
+              <div><span class="label">Wann</span><p>Provisorisch Sa, 09.01.2027 · wir fixieren es gemeinsam</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="stop" style="--c: var(--pink)">
+          <div class="rail"><span class="dot"></span><span class="line"></span></div>
+          <div class="card">
+            <span class="when">MAI 2027 · ZRH → FCO</span>
+            <h3>Padel-Trip nach Rom</h3>
+            <div class="kv">
+              <div><span class="label">Was</span><p>Padel spielen, Pasta, Stadt</p></div>
+              <div><span class="label">Wer</span><p>Wir zwei</p></div>
+              <div><span class="label">Wo</span><p>Rom, Italien</p></div>
+              <div><span class="label">Wann</span><p>Mai 2027 · Daten legen wir zusammen fest</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="label" style="font-size:14px;color:var(--fg)">Happy Birthday, Lynne.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="label">Turnierleitung // 2027-PDL</span>
+    <button class="linkbtn" id="reset" type="button">Spiel zurücksetzen</button>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var VIDEO_URL = ''; // YouTube-Link hier zwischen die Anführungszeichen einsetzen
+  var CODE_HASH = 'd2f3e99d4770ae2ade2f006809ca3648350f706ca5a97b23858942aae95000d9';
+  var KEY = 'mission-padel-v1';
+
+  var FRAGS = [
+    { n: '1', c: 'var(--lime)', title: 'Schläger-ID', task: 'Finde die Ziffer, die in den Schläger graviert ist.',
+      hints: ['Nimm alles aus der Box. Der Schlüssel liegt ganz unten.',
+              'Schneide den Schläger aus dem Einlegeblatt. Stich die vier grünen Punkte durch und leg ihn genau auf den Umriss auf Rätselkarte D.',
+              'Durch die Löcher liest du V-I-E-R. Deine Ziffer ist 4.'] },
+    { n: '2', c: 'var(--orange)', title: 'Trainingseinheit CH', task: 'Entschlüssle die vier Serien der Ballmaschine.',
+      hints: ['Kurz und lang: So funkt man seit über 150 Jahren.',
+              'Das ist Morsecode. Jede Serie ist ein Buchstabe, zusammen ergeben sie ein Zahlwort.',
+              'N-E-U-N. Training am Samstag, 09.01.2027. Deine Ziffer ist 9.'] },
+    { n: '3', c: 'var(--cyan)', title: 'Match-Protokoll', task: 'Zähle, wie viele Games Team Rot gewonnen hat.',
+      hints: ['Die Abstände im Protokoll sind eine Falle. Ignorier sie komplett.',
+              'Zähl von vorne: 15, 30, 40, Game. Bei 40:40 entscheidet der nächste Punkt. Mach nach jedem Game einen Strich.',
+              'Rot gewinnt Game 1, 3 und 5. Deine Ziffer ist 3.'] },
+    { n: '4', c: 'var(--pink)', title: 'Reisefreigabe', task: 'Finde den einen Flug, der zu allen Hinweisen passt.',
+      hints: ['Nimm dir die Hinweise einzeln vor und streiche Flüge weg.',
+              'Es gibt zwei Flüge nach Rom. Einer davon ist zu früh.',
+              'Rom um 12:40 ab Gate A7. Deine Ziffer ist 7.'] },
+    { n: 'T', c: 'var(--fg)', title: 'Zugangscode-Reihenfolge', task: 'Bring die vier Ziffern in die richtige Reihenfolge.',
+      hints: ['Was hält das ganze Spiel zusammen?',
+              'Schau dir die Innenwände der Schachtel an. Sie tragen die Farben der Fragmente und römische Zahlen.',
+              'Orange I, Pink II, Grün III, Türkis IV. Der Code lautet 9-7-4-3.'] }
+  ];
+  var LABELS = ['Tipp 1', 'Tipp 2', 'Lösung'];
+
+  var state = load();
+  function load() {
+    try { var s = JSON.parse(localStorage.getItem(KEY)); if (s && typeof s === 'object') return { startedAt: s.startedAt || null, solvedAt: s.solvedAt || null, hints: s.hints || {} }; } catch (e) {}
+    return { startedAt: null, solvedAt: null, hints: {} };
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var timerEl = $('timer');
+
+  function fmt(sec) { sec = Math.max(0, Math.floor(sec)); var m = Math.floor(sec / 60), s = sec % 60; return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s; }
+
+  var subEl = $('timerSub');
+  function tick() {
+    timerEl.className = 'timer';
+    if (!state.startedAt) { timerEl.textContent = '00:00'; subEl.textContent = 'STOPPUHR'; return; }
+    var end = state.solvedAt || Date.now();
+    timerEl.textContent = fmt((end - state.startedAt) / 1000);
+    if (state.solvedAt) { timerEl.classList.add('done'); subEl.textContent = 'GESTOPPT'; }
+    else { timerEl.classList.add('run'); subEl.textContent = 'LÄUFT'; }
+  }
+
+  function renderFrags() {
+    var wrap = $('frags'); wrap.innerHTML = '';
+    FRAGS.forEach(function (f, i) {
+      var shown = state.hints[i] || 0;
+      var el = document.createElement('article');
+      el.className = 'frag'; el.style.setProperty('--c', f.c);
+      var top = '<div class="frag-top"><span class="mono">' + (f.n === 'T' ? 'ZUGANGSCODE' : 'FRAGMENT') + '</span><b>' + (f.n === 'T' ? '' : f.n) + '</b></div>';
+      var hintsHtml = '';
+      for (var h = 0; h < shown; h++) {
+        hintsHtml += '<div class="hint' + (h === 2 ? ' sol' : '') + '"><span class="mono">' + LABELS[h].toUpperCase() + '</span><span>' + f.hints[h] + '</span></div>';
+      }
+      var btn = shown < 3 ? '<button class="hbtn" type="button" data-i="' + i + '">' + LABELS[shown] + ' anzeigen</button>' : '';
+      el.innerHTML = top + '<div class="frag-body"><h3>' + f.title + '</h3><p>' + f.task + '</p>' +
+        (hintsHtml ? '<div class="hints">' + hintsHtml + '</div>' : '') +
+        (btn ? '<div class="hint-row">' + btn + '</div>' : '') + '</div>';
+      wrap.appendChild(el);
+    });
+  }
+
+  $('frags').addEventListener('click', function (e) {
+    var b = e.target.closest('.hbtn'); if (!b) return;
+    var i = +b.dataset.i, shown = state.hints[i] || 0;
+    if (shown === 2 && !b.classList.contains('confirm')) {
+      b.classList.add('confirm'); b.textContent = 'Wirklich die Lösung? Nochmal tippen';
+      return;
+    }
+    state.hints[i] = shown + 1; save(); renderFrags();
+  });
+
+  function show() {
+    $('intro').hidden = !!state.startedAt;
+    $('game').hidden = !state.startedAt || !!state.solvedAt;
+    $('reveal').hidden = !state.solvedAt;
+    if (state.solvedAt) $('solvedTime').textContent = 'Gelöst in ' + fmt((state.solvedAt - state.startedAt) / 1000) + '. Stark gespielt, Lynne.';
+    tick();
+  }
+
+  $('start').addEventListener('click', function () {
+    state.startedAt = Date.now(); save(); show(); renderFrags();
+    window.scrollTo({ top: 0 });
+  });
+
+  var digits = [0, 1, 2, 3].map(function (k) { return $('d' + k); });
+  digits.forEach(function (inp, k) {
+    inp.addEventListener('input', function () {
+      inp.value = inp.value.replace(/\D/g, '').slice(-1);
+      if (inp.value && k < 3) digits[k + 1].focus();
+    });
+    inp.addEventListener('keydown', function (e) {
+      if (e.key === 'Backspace' && !inp.value && k > 0) digits[k - 1].focus();
+    });
+  });
+
+  function sha256(str) {
+    if (!(window.crypto && crypto.subtle)) return Promise.resolve(str.split('').reverse().join('') === '3479' ? CODE_HASH : '');
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+    });
+  }
+
+  $('vault').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var code = digits.map(function (d) { return d.value; }).join('');
+    var msg = $('msg');
+    if (code.length < 4) { msg.className = 'msg bad'; msg.textContent = 'Gib alle vier Ziffern ein.'; return; }
+    sha256(code).then(function (h) {
+      if (h === CODE_HASH) {
+        state.solvedAt = Date.now(); save(); show(); window.scrollTo({ top: 0 });
+      } else {
+        msg.className = 'msg bad'; msg.textContent = 'Zugriff verweigert. Prüfe Ziffern und Reihenfolge.';
+        var v = $('vault'); v.classList.remove('shake'); void v.offsetWidth; v.classList.add('shake');
+        digits.forEach(function (d) { d.value = ''; }); digits[0].focus();
+      }
+    });
+  });
+
+  var video = $('video');
+  if (VIDEO_URL) { video.href = VIDEO_URL; }
+  else { video.removeAttribute('href'); $('videoNote').textContent = '[Video-Link folgt]'; }
+
+  var reset = $('reset');
+  reset.addEventListener('click', function () {
+    if (!reset.dataset.armed) { reset.dataset.armed = '1'; reset.textContent = 'Sicher? Nochmal klicken zum Zurücksetzen'; return; }
+    state = { startedAt: null, solvedAt: null, hints: {} }; save();
+    delete reset.dataset.armed; reset.textContent = 'Spiel zurücksetzen';
+    digits.forEach(function (d) { d.value = ''; }); $('msg').textContent = '';
+    show(); renderFrags(); window.scrollTo({ top: 0 });
+  });
+
+  function bootSequence() {
+    var term = $('term'), intro = $('intro');
+    if (state.startedAt) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var finalHTML = term.innerHTML;
+    var steps = [
+      { type: 'line', parts: [['&gt; VERBINDUNG ZUR TURNIERLEITUNG …', '']], after: 350 },
+      { type: 'append', parts: [[' OK', '']], after: 300 },
+      { type: 'line', parts: [['&gt; LADE AKTE PDL-0109 · LYNNE KAIER', '']], after: 400 },
+      { type: 'bar', after: 300 },
+      { type: 'error', after: 500 },
+      { type: 'line', parts: [['&gt; AKTE ', ''], ['BESCHÄDIGT', 'warn glitch'], [' · 4 FRAGMENTE GEFUNDEN', '']], after: 450 },
+      { type: 'line', parts: [['&gt; WIEDERHERSTELLUNG MANUELL ERFORDERLICH', '']], cursor: true, after: 0 }
+    ];
+    intro.classList.add('typing');
+    term.innerHTML = '';
+    var cur = null, si = 0, cancelled = false;
+
+    function finish() {
+      cancelled = true;
+      term.innerHTML = finalHTML;
+      intro.classList.remove('typing');
+    }
+    $('start').addEventListener('click', finish, { once: true });
+
+    function typeParts(line, parts, done) {
+      var pi = 0, ci = 0, span = null;
+      (function next() {
+        if (cancelled) return;
+        if (pi >= parts.length) return done();
+        var text = parts[pi][0].replace(/&gt;/g, '>');
+        if (ci === 0) { span = document.createElement('span'); if (parts[pi][1]) span.className = parts[pi][1]; line.appendChild(span); }
+        span.textContent += text.charAt(ci); ci++;
+        if (ci >= text.length) { pi++; ci = 0; }
+        setTimeout(next, 18 + Math.random() * 22);
+      })();
+    }
+
+    function run() {
+      if (cancelled) return;
+      if (si >= steps.length) { intro.classList.remove('typing'); return; }
+      var s = steps[si++];
+      var next = function () { setTimeout(run, s.after); };
+      if (s.type === 'line') {
+        cur = document.createElement('div'); term.appendChild(cur);
+        typeParts(cur, s.parts, function () {
+          if (s.cursor) { var c = document.createElement('span'); c.className = 'cursor'; c.textContent = '_'; cur.appendChild(c); }
+          next();
+        });
+      } else if (s.type === 'append') {
+        typeParts(cur, s.parts, next);
+      } else if (s.type === 'bar') {
+        cur = document.createElement('div'); term.appendChild(cur);
+        var p = 0, target = 37;
+        (function grow() {
+          if (cancelled) return;
+          var filled = Math.round(p * 12 / 100);
+          cur.textContent = '> INTEGRITÄT [' + '█'.repeat(filled) + '░'.repeat(12 - filled) + '] ' + p + '%';
+          if (p < target) { p += 1 + Math.floor(Math.random() * 3); if (p > target) p = target; setTimeout(grow, 45); }
+          else {
+            setTimeout(function () {
+              if (cancelled) return;
+              var w = document.createElement('span'); w.className = 'warn'; w.textContent = ' ABBRUCH'; cur.appendChild(w); next();
+            }, 350);
+          }
+        })();
+      } else if (s.type === 'error') {
+        cur = document.createElement('div'); cur.className = 'warn'; cur.textContent = '> SYSTEM ERROR 0x2027'; term.appendChild(cur);
+        term.classList.remove('alarm'); void term.offsetWidth; term.classList.add('alarm');
+        next();
+      }
+    }
+    setTimeout(run, 300);
+  }
+
+  renderFrags(); show(); bootSequence();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
