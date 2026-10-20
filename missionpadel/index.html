@@ -8,6 +8,7 @@
 <title>Mission Padel</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
+/* Layout: one dark mission console, single column; header with live timer, then intro → fragments + vault → unlocked briefing */
 :root {
   --bg: #0D1017;
   --panel: #171B24;
@@ -28,7 +29,7 @@
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html, body { background: var(--bg); color: var(--fg); }
-body { font-family: var(--display); font-size: 16px; line-height: 1.5; padding-inline: 16px; padding-block: 0 48px; margin: 0; }
+body { font-family: var(--display); font-size: 16px; line-height: 1.5; padding-inline: 16px; padding-block: 0 48px; }
 .wrap { max-width: 760px; margin: 0 auto; }
 h1, h2, h3 { text-wrap: balance; margin: 0; }
 p { margin: 0; text-wrap: pretty; }
@@ -37,6 +38,8 @@ button { cursor: pointer; }
 :focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
 .mono { font-family: var(--mono); }
 .label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* Header */
 .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); margin-inline: -16px; padding: 12px 16px; }
 .bar-in { max-width: 760px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .brand { font-weight: 900; font-size: 18px; letter-spacing: -0.02em; }
@@ -45,6 +48,8 @@ button { cursor: pointer; }
 .timer.run { border-color: var(--lime); color: var(--lime); }
 .timer.over { border-color: var(--danger); color: var(--danger); }
 .timer.done { border-color: var(--cyan); color: var(--cyan); }
+
+/* Intro */
 .intro { padding-block: 40px 8px; display: flex; flex-direction: column; gap: 24px; }
 .terminal { background: #000; border: 2px solid var(--line); border-radius: 10px; padding: 14px 16px; font-family: var(--mono); font-size: 14px; line-height: 1.7; color: var(--lime); overflow-x: auto; }
 .terminal .warn { color: var(--orange); }
@@ -72,6 +77,8 @@ button { cursor: pointer; }
 .btn-go:hover { filter: brightness(1.08); }
 .facts { display: flex; flex-wrap: wrap; gap: 10px; }
 .fact { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-family: var(--mono); font-size: 13px; }
+
+/* Game */
 .section { padding-block: 32px 0; display: flex; flex-direction: column; gap: 16px; }
 .section-head { display: flex; flex-direction: column; gap: 6px; }
 .section-head h2 { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; }
@@ -92,6 +99,8 @@ button { cursor: pointer; }
 .hint { background: var(--panel-2); border-radius: 8px; padding: 10px 14px; display: flex; gap: 12px; align-items: baseline; }
 .hint .mono { font-size: 11px; letter-spacing: 0.12em; color: var(--c); flex-shrink: 0; width: 64px; }
 .hint.sol { outline: 2px solid var(--c); }
+
+/* Vault */
 .vault { background: var(--panel); border: 2px solid var(--orange); border-radius: 14px; padding: 22px 18px; display: flex; flex-direction: column; gap: 16px; }
 .vault h2 { font-size: 30px; font-weight: 900; }
 .digits { display: flex; gap: 10px; }
@@ -103,6 +112,8 @@ button { cursor: pointer; }
 .msg.bad { color: var(--danger); }
 .shake { animation: shake 0.4s; }
 @keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+
+/* Reveal */
 .reveal-hero { margin-top: 32px; background: var(--lime); color: var(--ink); border-radius: 16px; padding: 28px 22px; display: flex; flex-direction: column; gap: 12px; }
 .stamp { align-self: flex-start; border: 3px solid var(--ink); padding: 4px 12px; font-family: var(--mono); font-weight: 600; letter-spacing: 0.18em; transform: rotate(-3deg); }
 .reveal-hero h2 { font-size: clamp(44px, 11vw, 80px); line-height: 0.9; font-weight: 900; letter-spacing: -0.03em; }
@@ -125,14 +136,19 @@ button { cursor: pointer; }
 .kv .label { font-size: 11px; }
 .kv p { font-weight: 700; margin-top: 2px; }
 @media (max-width: 480px) { .kv { grid-template-columns: minmax(0, 1fr); } }
+
 footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
 .linkbtn { background: none; border: 0; color: var(--muted); font-family: var(--mono); font-size: 12px; text-decoration: underline; padding: 8px 0; min-height: 44px; }
+
+/* Help-only notice */
 .note { display: flex; gap: 12px; align-items: flex-start; background: var(--panel); border: 1px solid var(--line); border-left: 0; border-radius: 10px; padding: 14px 16px; position: relative; overflow: hidden; }
 .note::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--cyan); }
 .note svg { flex-shrink: 0; margin-top: 2px; }
 .note b { display: block; font-weight: 900; }
 .note p { color: #D6D8DD; font-size: 15px; }
 .timer-sub { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-align: center; margin-top: 2px; }
+
+/* Phones */
 button, a, input { touch-action: manipulation; }
 .terminal { overflow-wrap: anywhere; }
 @media (max-width: 560px) {
@@ -163,7 +179,28 @@ button, a, input { touch-action: manipulation; }
   .brand { font-size: 16px; }
   .timer { font-size: 18px; min-width: 88px; padding: 5px 10px; }
 }
+
 @media (prefers-reduced-motion: reduce) { .shake, .glitch, .cursor, .terminal.alarm { animation: none; } .intro.typing .reveal-in { opacity: 1; transform: none; } }
+
+/* Unlock overlay */
+.unlock { position: fixed; inset: 0; z-index: 50; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 24px; text-align: center; overflow: hidden; }
+.unlock::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 3px); }
+.unlock .u-step { font-family: var(--mono); font-size: 14px; letter-spacing: 0.2em; color: var(--lime); min-height: 1.5em; }
+.unlock .u-bar { width: min(420px, 80vw); height: 10px; border: 2px solid var(--lime); border-radius: 6px; overflow: hidden; }
+.unlock .u-bar i { display: block; height: 100%; width: 0; background: var(--lime); transition: width 1.4s cubic-bezier(.6,.05,.3,1); }
+.unlock .u-big { display: none; flex-direction: column; align-items: center; gap: 14px; }
+.unlock .u-lock { width: 110px; height: 110px; }
+.unlock .u-word { font-weight: 900; font-size: clamp(56px, 16vw, 150px); line-height: 0.85; letter-spacing: -0.04em; color: var(--lime); text-shadow: 0 0 40px rgba(200,240,49,0.55); }
+.unlock .u-sub { line-height: 1.7; font-family: var(--mono); font-size: clamp(13px, 3.4vw, 18px); letter-spacing: 0.24em; color: var(--fg); }
+.unlock.go { animation: uflash 0.5s ease-out; }
+.unlock.go .u-step, .unlock.go .u-bar { display: none; }
+.unlock.go .u-big { display: flex; animation: uslam 0.6s cubic-bezier(.2,1.6,.4,1) both; }
+.unlock.go .u-shackle { animation: uopen 0.5s 0.35s ease-out both; }
+.unlock.out { opacity: 0; transition: opacity 0.6s; }
+@keyframes uflash { 0% { background: var(--lime); } 100% { background: #000; } }
+@keyframes uslam { 0% { transform: scale(2.6); opacity: 0; filter: blur(8px); } 100% { transform: scale(1); opacity: 1; filter: none; } }
+@keyframes uopen { to { transform: translateY(-16px) rotate(-28deg); } }
+@media (prefers-reduced-motion: reduce) { .unlock.go, .unlock.go .u-big, .unlock.go .u-shackle { animation: none; } }
 </style>
 </head>
 <body>
@@ -178,8 +215,20 @@ button, a, input { touch-action: manipulation; }
   </div>
 </header>
 
+
+<div class="unlock" id="unlock" hidden aria-live="assertive">
+  <div class="u-step" id="uStep">CODE WIRD GEPRÜFT …</div>
+  <div class="u-bar"><i id="uBar"></i></div>
+  <div class="u-big">
+    <svg class="u-lock" viewBox="0 0 100 100" aria-hidden="true"><g class="u-shackle" style="transform-origin:72px 46px"><path d="M30 46 V30 a20 20 0 0 1 40 0 V46" fill="none" stroke="#C8F031" stroke-width="9" stroke-linecap="round"/></g><rect x="18" y="44" width="64" height="48" rx="8" fill="#C8F031"/><circle cx="50" cy="64" r="7" fill="#000"/><rect x="47" y="66" width="6" height="14" rx="2" fill="#000"/></svg>
+    <div class="u-word">UNLOCKED</div>
+    <div class="u-sub">ZUGRIFF GEWÄHRT<br>AKTE PDL-0109</div>
+  </div>
+</div>
+
 <main class="wrap">
 
+  <!-- 1 · Intro -->
   <section id="intro" class="intro">
     <div class="terminal" id="term" aria-label="Systemmeldung">
       <div>&gt; VERBINDUNG ZUR TURNIERLEITUNG … OK</div>
@@ -205,6 +254,7 @@ button, a, input { touch-action: manipulation; }
     <div><button class="btn btn-go" id="start">Mission starten · Zeit läuft</button></div>
   </section>
 
+  <!-- 2 · Game -->
   <section id="game" hidden>
     <div class="section">
       <div class="section-head">
@@ -237,10 +287,11 @@ button, a, input { touch-action: manipulation; }
     </div>
   </section>
 
+  <!-- 3 · Reveal -->
   <section id="reveal" hidden>
     <div class="reveal-hero">
       <span class="stamp">WIEDERHERGESTELLT</span>
-      <h2>Turnierunterlagen freigegeben.</h2>
+      <h2>Turnier&shy;unterlagen freigegeben.</h2>
       <p id="solvedTime">Gelöst in 00:00.</p>
     </div>
 
@@ -300,7 +351,7 @@ button, a, input { touch-action: manipulation; }
 
 <script>
 (function () {
-  var VIDEO_URL = ''; // YouTube-Link hier zwischen die Anführungszeichen einsetzen
+  var VIDEO_URL = 'https://youtu.be/1VgZPbPs3jM'; // YouTube-Link hier einsetzen
   var CODE_HASH = 'd2f3e99d4770ae2ade2f006809ca3648350f706ca5a97b23858942aae95000d9';
   var KEY = 'mission-padel-v1';
 
@@ -392,6 +443,7 @@ button, a, input { touch-action: manipulation; }
     window.scrollTo({ top: 0 });
   });
 
+  // Digit inputs
   var digits = [0, 1, 2, 3].map(function (k) { return $('d' + k); });
   digits.forEach(function (inp, k) {
     inp.addEventListener('input', function () {
@@ -410,6 +462,23 @@ button, a, input { touch-action: manipulation; }
     });
   }
 
+
+  function playUnlock(done) {
+    var o = $('unlock'), step = $('uStep'), bar = $('uBar'), ended = false;
+    var steps = ['CODE WIRD GEPRÜFT …', 'FRAGMENTE WERDEN ZUSAMMENGESETZT …', 'AKTE WIRD ENTSCHLÜSSELT …'];
+    o.className = 'unlock'; o.hidden = false; bar.style.width = '0';
+    function end() { if (ended) return; ended = true; o.classList.add('out'); setTimeout(function () { o.hidden = true; o.className = 'unlock'; }, 600); done(); }
+    o.onclick = end;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { bar.style.width = '100%'; }); });
+    steps.forEach(function (t, i) { setTimeout(function () { if (!ended) step.textContent = t; }, i * 550); });
+    setTimeout(function () {
+      if (ended) return;
+      o.classList.add('go');
+      try { if (navigator.vibrate) navigator.vibrate([80, 60, 160]); } catch (e) {}
+    }, 1750);
+    setTimeout(end, 4800);
+  }
+
   $('vault').addEventListener('submit', function (e) {
     e.preventDefault();
     var code = digits.map(function (d) { return d.value; }).join('');
@@ -417,7 +486,9 @@ button, a, input { touch-action: manipulation; }
     if (code.length < 4) { msg.className = 'msg bad'; msg.textContent = 'Gib alle vier Ziffern ein.'; return; }
     sha256(code).then(function (h) {
       if (h === CODE_HASH) {
-        state.solvedAt = Date.now(); save(); show(); window.scrollTo({ top: 0 });
+        state.solvedAt = Date.now(); save();
+        digits.forEach(function (d) { d.blur(); });
+        playUnlock(function () { show(); window.scrollTo({ top: 0 }); });
       } else {
         msg.className = 'msg bad'; msg.textContent = 'Zugriff verweigert. Prüfe Ziffern und Reihenfolge.';
         var v = $('vault'); v.classList.remove('shake'); void v.offsetWidth; v.classList.add('shake');
@@ -426,10 +497,12 @@ button, a, input { touch-action: manipulation; }
     });
   });
 
+  // Video link
   var video = $('video');
   if (VIDEO_URL) { video.href = VIDEO_URL; }
   else { video.removeAttribute('href'); $('videoNote').textContent = '[Video-Link folgt]'; }
 
+  // Reset with in-page confirm
   var reset = $('reset');
   reset.addEventListener('click', function () {
     if (!reset.dataset.armed) { reset.dataset.armed = '1'; reset.textContent = 'Sicher? Nochmal klicken zum Zurücksetzen'; return; }
@@ -439,11 +512,13 @@ button, a, input { touch-action: manipulation; }
     show(); renderFrags(); window.scrollTo({ top: 0 });
   });
 
+  // Animated boot sequence in the terminal
   function bootSequence() {
     var term = $('term'), intro = $('intro');
     if (state.startedAt) return;
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var finalHTML = term.innerHTML;
+    var W = '<span class="warn">', E = '</span>';
     var steps = [
       { type: 'line', parts: [['&gt; VERBINDUNG ZUR TURNIERLEITUNG …', '']], after: 350 },
       { type: 'append', parts: [[' OK', '']], after: 300 },
