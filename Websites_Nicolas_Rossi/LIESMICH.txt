@@ -1,9 +1,0 @@
-Alle Dateien in den Hauptordner von nicolasrossi.ch hochladen:
-
-rosarot.html   -> nicolasrossi.ch/rosarot.html   (QR auf dem Rosarot-Plakat)
-monami.html    -> nicolasrossi.ch/monami.html    (QR auf der monami-Postkarte)
-family.html    -> nicolasrossi.ch/family.html    (QR auf Family-Plakat & Schlussbild;
-                  oben bei  var VIDEO = "";  später den YouTube-Link eintragen)
-
-Alle Seiten sind auf "noindex" gestellt (Google findet sie nicht).
-Bilder und Schriften sind eingebettet – es braucht keine weiteren Dateien.
