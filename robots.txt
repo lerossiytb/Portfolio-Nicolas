@@ -1,0 +1,5 @@
+# LeRossi – alle Suchmaschinen und KI-Assistenten sind willkommen
+User-agent: *
+Allow: /
+
+Sitemap: https://nicolasrossi.ch/sitemap.xml

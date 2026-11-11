@@ -1,0 +1,394 @@
+/*
+    ====================
+    SOCIAL MEDIA SEITE
+    ====================
+    Ergänzt style.css nur um Regeln für diese Seite.
+    Nutzt die bestehenden CSS-Variablen aus style.css.
+*/
+/*
+    ====================
+    INTRO-TEXT
+    ====================
+*/
+.intro-text-wrap {
+    margin-top: -0.5rem;
+    margin-bottom: 4rem;
+}
+.intro-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-align: center;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    max-width: 900px;
+    margin: 0 auto;
+}
+/*
+    ====================
+    SEKTIONS-TITEL (YouTube / Instagram / TikTok) — zentriert, zweizeilig
+    ====================
+*/
+.subpage-content .subpage-embed-label {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.section-kicker {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.section-kicker-main {
+    display: block;
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+}
+.section-kicker-sub {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(10, 10, 10, 0.55);
+    margin-top: 0.4rem;
+}
+/*
+    ====================
+    LAPTOP-MOCKUP (umschliesst das YouTube-Grid) — grauer Alu-Rand wie bei einem Mac
+    ====================
+*/
+.device-laptop {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.device-laptop-bezel {
+    position: relative;
+    background: linear-gradient(155deg, #e2e2e6 0%, #b9b9c0 55%, #9b9ba2 100%);
+    border-radius: 0;
+    padding: 16px 16px 12px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
+}
+.device-laptop-cam {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 0;
+    background: #4a4a4e;
+}
+.device-laptop-screen {
+    background: var(--tertiary-bg);
+    border: 3px solid #1c1c1e;
+    border-radius: 0;
+    padding: 3rem 3rem 2.5rem;
+}
+.device-laptop-base {
+    position: relative;
+    width: 112%;
+    left: -6%;
+    height: 16px;
+    background: linear-gradient(180deg, #cfcfd4 0%, #a3a3aa 100%);
+    border-radius: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.device-laptop-base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 5px;
+    background: #8c8c93;
+    border-radius: 0;
+}
+/*
+    ====================
+    VIDEO-KARTEN-GRID (2×2, innerhalb des Laptop-Screens)
+    ====================
+*/
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+@media (max-width: 700px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+.video-card {
+    cursor: pointer;
+}
+.video-card-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: var(--tertiary-bg);
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgba(10, 10, 10, 0.25);
+}
+/* Play-Icon */
+.video-card-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 0;
+    background: rgba(10, 10, 10, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+.video-card-play::after {
+    content: '';
+    border-style: solid;
+    border-width: 9px 0 9px 15px;
+    border-color: transparent transparent transparent var(--accent-color);
+    margin-left: 4px;
+    transition: border-color 0.3s ease;
+}
+.video-card:hover .video-card-play {
+    background-color: var(--accent-color);
+    transform: translate(-50%, -50%) scale(1.08);
+}
+.video-card:hover .video-card-play::after {
+    border-color: transparent transparent transparent var(--secondary-bg);
+}
+.video-card-footer {
+    margin-top: 1rem;
+}
+.video-card-titles h3 {
+    font-size: 1.05rem;
+    color: var(--accent-color);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+.video-card-credit {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(10, 10, 10, 0.6);
+}
+.video-card-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(10, 10, 10, 0.75);
+    margin-top: 0.5rem;
+}
+/*
+    ====================
+    VIDEO-MODAL (öffnet sich beim Klick auf eine Karte)
+    ====================
+*/
+.video-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+}
+.video-modal.active {
+    display: flex;
+}
+.video-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 2.6rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 301;
+}
+.video-modal-panel {
+    display: none;
+    max-width: 760px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 0.5rem;
+}
+.video-modal-panel.active {
+    display: block;
+}
+.video-modal-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 0;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+.video-modal-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.video-modal-panel h3 {
+    font-size: 1.7rem;
+    margin-bottom: 0.9rem;
+    color: var(--accent-color);
+}
+.video-modal-panel p {
+    color: rgba(10, 10, 10, 0.9);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+.video-modal-panel .modal-credit {
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: rgba(10, 10, 10, 0.55);
+}
+/*
+    ====================
+    ABSTAND VOR DEN FEED-BLÖCKEN (Instagram/TikTok)
+    ====================
+*/
+.subpage-embed.section-gap {
+    margin-top: 6rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid rgba(10, 10, 10, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*
+    ====================
+    INSTAGRAM: weisse Karte, hebt sich vom dunklen Hintergrund ab
+    ====================
+*/
+.instagram-frame {
+    background: #ffffff;
+    border-radius: 0;
+    padding: 2rem;
+    max-width: 620px;
+    width: 100%;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+.instagram-frame [class^="elfsight-app-"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+/*
+    ====================
+    TIKTOK / INSTAGRAM BUTTON (auffällig, gefüllt statt outline)
+    ====================
+*/
+.social-profile-btn {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.9rem 2rem;
+    border-radius: 0;
+    background: var(--accent-color);
+    color: var(--secondary-bg);
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    border: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.social-profile-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10, 10, 10, 0.3);
+    color: var(--secondary-bg);
+}
+/*
+    ====================
+    BREAKOUT: lässt eine Sektion breiter als der Standard-Content (900px) werden
+    ====================
+*/
+.tiktok-section-breakout {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 0 2rem;
+}
+/*
+    ====================
+    HANDY-MOCKUP (umschliesst je ein TikTok-Embed)
+    ====================
+*/
+.tiktok-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2.5rem;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+.device-phone {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 320px;
+    width: 320px;
+    background: #0a0a1e;
+    border-radius: 0;
+    padding: 16px 9px 18px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
+.device-phone::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 15px;
+    background: #000;
+    border-radius: 0;
+    z-index: 2;
+}
+.device-phone-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--tertiary-bg);
+    border-radius: 0;
+    overflow: hidden;
+}
+.device-phone-screen .tiktok-embed {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+.device-phone-home {
+    width: 90px;
+    height: 4px;
+    background: rgba(10, 10, 10, 0.4);
+    border-radius: 0;
+    margin: 10px auto 0;
+}
+.profile-link-wrap {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Laptop-Sockel ragt seitlich über – kein seitliches Scrollen */
+main { overflow-x: clip; }
