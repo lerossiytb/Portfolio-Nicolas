@@ -90,7 +90,9 @@ p{font-size:17px;color:#D9D3CA}
 .small a{color:var(--or);font-weight:700}
 footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #222}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.dot.r,.dot.y{display:none}.dot.o,.eq,.fav,.forms{opacity:1;transform:none}.rv{opacity:1;transform:none}.fe i{clip-path:none}}
-</style></head><body>
+</style><script>/* Zurück-Taste führt auf nicolasrossi.ch */(function(){try{var u=location.href;if(!(history.state&&history.state.nr)){history.replaceState({nr:1},'','/');history.pushState({nr:2},'',u);}addEventListener('popstate',function(e){if(e.state&&e.state.nr===1)location.replace('/');});addEventListener('pageshow',function(){if(location.pathname==='/')location.replace('/');});}catch(e){}})();</script>
+</head><body>
+<a class="nr-home" href="/" style="position:fixed;top:12px;right:12px;z-index:50;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:30px;background:rgba(20,20,20,.82);border:1px solid #333;color:#F4EFE6;font:700 13px/1 system-ui,-apple-system,sans-serif;text-decoration:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)">nicolasrossi.ch <span style="color:#FF5A1F">→</span></a>
 <div class="wrap">
 
   <div class="hero">
@@ -190,7 +192,7 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #
     </div>
   </section>
 
-  <footer>Nicolas Rossi · Blindbewerbung für monami · Instagram @lerossi_visuals &amp; @lerossiytb · YouTube LeRossi</footer>
+  <footer>Nicolas Rossi · Blindbewerbung für monami · Instagram @lerossi_visuals &amp; @lerossiytb · YouTube LeRossi · <a href="/" style="color:#FF5A1F;font-weight:700">Mehr von mir auf nicolasrossi.ch</a></footer>
 </div>
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
