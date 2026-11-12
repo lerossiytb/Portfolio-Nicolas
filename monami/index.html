@@ -65,6 +65,16 @@ html,body{height:100%;background:var(--bg);color:var(--fg);font-family:'SG',syst
 .opt.sel .bx::after{content:'';position:absolute;left:1.6cqw;top:-4cqw;width:3.6cqw;height:9cqw;border:solid var(--or);border-width:0 1.6cqw 1.6cqw 0;transform:rotate(40deg) scale(0);transform-origin:bottom right;transition:transform .25s}
 .opt.sel.ck .bx::after{transform:rotate(40deg) scale(1)}
 .yesbtn{border:0;cursor:pointer}
+.phslot .ph{width:100%;aspect-ratio:1;background:#EFE9DF center/cover no-repeat;border:2px dashed #CFC6B8;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'CV';font-weight:700;font-size:4.4cqw;line-height:1.1;color:var(--or)}
+.phslot .ph.has{border:0}.phslot .ph.has span{display:none}
+.phslot .cap{white-space:nowrap;left:2cqw!important}
+.sending{opacity:.6;pointer-events:none}
+.thx{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;background:rgba(10,10,10,.82);padding:24px}
+.thx.on{display:flex}
+.thx div{background:var(--paper);color:var(--ink);border-radius:10px;padding:28px 26px;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.thx b{display:block;font-family:'CV';font-size:34px;color:var(--or);line-height:1.1}
+.thx p{font-size:15px;line-height:1.5;margin-top:10px}
+.thx button{margin-top:16px;background:var(--or);color:#fff;border:0;border-radius:30px;padding:10px 20px;font:700 14px 'SG',sans-serif;cursor:pointer}
 .cover{background:var(--or);color:#140A05;box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.45),0 18px 50px rgba(0,0,0,.55)}
 .cover .pg{padding:9cqh 9cqw 7cqh 14cqw;display:flex;flex-direction:column}
 .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(20,10,5,.13) 1.2px,transparent 1.3px);background-size:5cqw 5cqw}
@@ -211,7 +221,8 @@ html,body{height:100%;background:var(--bg);color:var(--fg);font-family:'SG',syst
   <div class="fe"><span>Das gefällt euch an mir</span><input class="in" id="f2" placeholder="…" autocomplete="off"></div>
   <div class="fe"><span>Mein erstes Projekt bei euch wäre …</span><input class="in" id="f3" placeholder="…" autocomplete="off"></div>
   <div class="fe"><span>Unser erstes Treffen</span><div class="chips" id="meet"><button class="chip on" type="button">Kaffee</button><button class="chip" type="button">Call</button><button class="chip" type="button">Probetag</button></div></div>
-  <div class="hand" style="font-size:4.8cqw;color:var(--or);margin-top:2.6cqh;transform:rotate(-2deg);transform-origin:left">Ausfüllen, umblättern, ankreuzen →</div>
+  <div class="hand" style="position:absolute;left:14cqw;bottom:9cqh;width:40cqw;font-size:4.8cqw;line-height:1.2;color:var(--or);transform:rotate(-2deg)">Foto rein, umblättern, ankreuzen&nbsp;→</div>
+  <label class="pol phslot" style="width:30cqw;right:7cqw;bottom:6cqh;transform:rotate(4deg);cursor:pointer"><div class="tape" style="left:6cqw;top:-2cqw;width:16cqw"></div><input type="file" id="photo" accept="image/*" hidden><div class="ph" id="ph"><span>+<br>Euer Foto</span></div><div class="cap" style="font-size:3.6cqw">mit euren neuen Amis?</div></label>
   <div class="pn">10</div>
 </div></div><div class="face back lined"></div></div>
 
@@ -232,6 +243,14 @@ html,body{height:100%;background:var(--bg);color:var(--fg);font-family:'SG',syst
 </div></div><div class="face back lined"></div></div>
 
 </div></div>
+<form id="fs" action="https://formsubmit.co/nrossi5@gmx.ch" method="POST" enctype="multipart/form-data" style="display:none">
+<input type="hidden" name="_subject" id="fs_subj" value="Ja, ich will dein Ami werden">
+<input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://nicolasrossi.ch/monami/?danke=1">
+<input type="hidden" name="Wer schreibt" id="fs1"><input type="hidden" name="Das gefaellt uns an dir" id="fs2"><input type="hidden" name="Erstes Projekt" id="fs3"><input type="hidden" name="Erstes Treffen" id="fs4"><input type="hidden" name="Antwort" id="fs5">
+<input type="file" name="attachment" id="fsfile">
+</form>
+<div class="thx" id="thx"><div><b>Merci, ihr Amis!</b><p>Euer Eintrag ist unterwegs zu mir – mit PDF und Foto. Ich melde mich ganz bald.</p><p style="font-size:13px;color:#8C877F">Nicolas · 076 421 73 03</p><button type="button" onclick="document.getElementById('thx').classList.remove('on')">Zurück zum Buch</button></div></div>
 <div class="nav"><button id="prev" aria-label="Zurückblättern">←</button><div class="c" id="cnt"></div><button id="next" aria-label="Weiterblättern">→</button></div>
 <script>
 const book=document.getElementById('book'),L=[...book.querySelectorAll('.leaf')],N=L.length;let c=0;
@@ -249,11 +268,59 @@ document.querySelectorAll('.opt.sel').forEach(o=>o.addEventListener('click',()=>
 document.querySelectorAll('#meet .chip').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#meet .chip').forEach(x=>x.classList.toggle('on',x===b));buildMail();}));
 document.querySelectorAll('.in').forEach(i=>i.addEventListener('input',buildMail));
 document.getElementById('send').addEventListener('click',buildMail);
+let photoImg=null;
+document.getElementById('photo').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const u=URL.createObjectURL(f);const im=new Image();im.onload=()=>{photoImg=im;const ph=document.getElementById('ph');ph.style.backgroundImage='url('+u+')';ph.classList.add('has');};im.src=u;});
+function wrap(x,t,maxW){const w=t.split(' ');const L=[];let l='';for(const s of w){const tt=l?l+' '+s:s;if(x.measureText(tt).width>maxW&&l){L.push(l);l=s;}else l=tt;}if(l)L.push(l);return L;}
+function drawPage(){const W=1240,H=1754,u=W/100;const cv=document.createElement('canvas');cv.width=W;cv.height=H;const x=cv.getContext('2d');
+ x.fillStyle='#F4EFE6';x.fillRect(0,0,W,H);x.strokeStyle='#E2DACD';x.lineWidth=2;for(let y=150;y<H;y+=78){x.beginPath();x.moveTo(0,y);x.lineTo(W,y);x.stroke();}
+ x.strokeStyle='#F2A48A';x.lineWidth=4;x.beginPath();x.moveTo(10*u,0);x.lineTo(10*u,H);x.stroke();
+ const L=14*u,g=id=>document.getElementById(id).value.trim();
+ x.fillStyle='#8C877F';x.font='700 '+(2.4*u)+'px SG';x.fillText('FREUNDEBUCH VON NICOLAS ROSSI  ·  EUER EINTRAG',L,9*u);
+ x.fillStyle='#1A1714';x.font='900 '+(8.4*u)+'px AR';x.fillText('EUER EINTRAG',L,20*u);
+ if(photoImg){x.save();x.translate(73*u,40*u);x.rotate(.06);x.shadowColor='rgba(0,0,0,.25)';x.shadowBlur=30;x.shadowOffsetY=12;x.fillStyle='#fff';x.fillRect(-15*u,-17*u,30*u,37*u);x.shadowColor='transparent';
+  const s=Math.min(photoImg.width,photoImg.height);x.drawImage(photoImg,(photoImg.width-s)/2,(photoImg.height-s)/2,s,s,-13.6*u,-15.6*u,27.2*u,27.2*u);
+  x.fillStyle='#1A1714';x.font='700 '+(3.4*u)+'px CV';x.fillText('Nicolas’ neue Amis',-12.5*u,17*u);x.fillStyle='rgba(255,210,0,.75)';x.fillRect(-7*u,-19*u,14*u,3.6*u);x.restore();}
+ let y=31*u;const fw=photoImg?42*u:72*u;
+ const field=(lab,val,maxW)=>{x.fillStyle='#8C877F';x.font='700 '+(2.4*u)+'px SG';x.fillText(lab.toUpperCase(),L,y);y+=5.6*u;x.fillStyle='#FF5A1F';x.font='700 '+(4.8*u)+'px CV';for(const l of wrap(x,val||'–',maxW)){x.fillText(l,L,y);y+=5.4*u;}y+=3*u;};
+ field('Wer schreibt hier?',g('f1'),fw);field('Das gefällt euch an mir',g('f2'),fw);
+ y=Math.max(y,photoImg?64*u:y);
+ field('Mein erstes Projekt bei euch wäre …',g('f3'),72*u);const m=document.querySelector('#meet .on');field('Unser erstes Treffen',m?m.textContent:'–',72*u);
+ y+=4*u;x.fillStyle='#1A1714';x.font='700 '+(7.4*u)+'px CV';x.fillText('Wollen wir Amis werden?',L,y);y+=11*u;let bx=L;
+ for(const o of ['Ja','Vielleicht','Nein']){x.lineWidth=.6*u;x.strokeStyle=o==='Nein'?'#B7AFA3':'#1A1714';x.fillStyle='#fff';x.fillRect(bx,y-5.6*u,6*u,6*u);x.strokeRect(bx,y-5.6*u,6*u,6*u);
+  x.fillStyle=o==='Nein'?'#B7AFA3':'#1A1714';x.font='700 '+(6*u)+'px CV';x.fillText(o,bx+8.5*u,y);const tw=x.measureText(o).width;
+  if(o==='Nein'){x.strokeStyle='#FF5A1F';x.lineWidth=.5*u;x.beginPath();x.moveTo(bx+8*u,y-2*u);x.lineTo(bx+9*u+tw,y-2*u);x.stroke();}
+  if(o===choice){x.strokeStyle='#FF5A1F';x.lineWidth=1.1*u;x.lineCap='round';x.beginPath();x.moveTo(bx+1*u,y-3*u);x.lineTo(bx+3*u,y-.6*u);x.lineTo(bx+7.5*u,y-8*u);x.stroke();}
+  bx+=8.5*u+tw+7*u;}
+ x.fillStyle='#FF5A1F';x.font='700 '+(4.2*u)+'px CV';x.fillText('↑ Vielleicht heisst auch Ja!',L,y+8*u);
+ const d=new Date();x.fillStyle='#8C877F';x.font='500 '+(2.3*u)+'px SG';x.fillText('Eingetragen am '+d.toLocaleDateString('de-CH')+'  ·  nicolasrossi.ch/monami',L,H-4*u);
+ return cv;}
+function pdfFromJpeg(b64,w,h){const bin=atob(b64),img=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)img[i]=bin.charCodeAt(i);
+ const pw=419.53,ph=595.28,enc=new TextEncoder(),parts=[],offs=[];let len=0;const push=b=>{if(typeof b==='string')b=enc.encode(b);parts.push(b);len+=b.length;};
+ push('%PDF-1.4\n');const obj=(n,body)=>{offs[n]=len;push(n+' 0 obj\n');if(Array.isArray(body))body.forEach(push);else push(body);push('\nendobj\n');};
+ obj(1,'<< /Type /Catalog /Pages 2 0 R >>');obj(2,'<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
+ obj(3,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+pw+' '+ph+'] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>');
+ obj(4,['<< /Type /XObject /Subtype /Image /Width '+w+' /Height '+h+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+img.length+' >>\nstream\n',img,'\nendstream']);
+ const c='q '+pw+' 0 0 '+ph+' 0 0 cm /Im0 Do Q';obj(5,'<< /Length '+c.length+' >>\nstream\n'+c+'\nendstream');
+ const xref=len;let t='xref\n0 6\n0000000000 65535 f \n';for(let i=1;i<=5;i++)t+=String(offs[i]).padStart(10,'0')+' 00000 n \n';push(t+'trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n'+xref+'\n%%EOF');
+ return new Blob(parts,{type:'application/pdf'});}
+document.getElementById('send').addEventListener('click',async e=>{
+ try{e.preventDefault();const btn=e.currentTarget;btn.classList.add('sending');btn.textContent='Wird verschickt …';
+  await document.fonts.ready;buildMail();const cv=drawPage();const b64=cv.toDataURL('image/jpeg',.86).split(',')[1];const pdf=pdfFromJpeg(b64,cv.width,cv.height);
+  const name=(document.getElementById('f1').value.trim()||'monami').replace(/[^\w\-äöüÄÖÜ ]/g,'').slice(0,30).trim().replace(/ +/g,'_');
+  const dt=new DataTransfer();dt.items.add(new File([pdf],'Freundebuch_Eintrag_'+name+'.pdf',{type:'application/pdf'}));
+  const fi=document.getElementById('fsfile');fi.files=dt.files;if(!fi.files.length)throw new Error('nofile');
+  const g=id=>document.getElementById(id).value.trim()||'–',m=document.querySelector('#meet .on');
+  document.getElementById('fs1').value=g('f1');document.getElementById('fs2').value=g('f2');document.getElementById('fs3').value=g('f3');document.getElementById('fs4').value=m?m.textContent:'–';document.getElementById('fs5').value=choice;
+  document.getElementById('fs_subj').value=choice==='Ja'?'Ja, ich will dein Ami werden':'Vielleicht (heisst auch Ja!) – ich will dein Ami werden';
+  window.__pdf=pdf;document.getElementById('fs').submit();
+ }catch(err){location.href=document.getElementById('send').href;}
+});
+if(/[?&]danke=1/.test(location.search)){document.getElementById('thx').classList.add('on');}
 function go(d){const n=Math.max(0,Math.min(N-1,c+d));if(n!==c){c=n;render();}}
 document.getElementById('next').onclick=()=>go(1);document.getElementById('prev').onclick=()=>go(-1);
 addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input'))return;if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1);});
-let sx=null,sy=0;book.addEventListener('pointerdown',e=>{if(e.target.closest('input,button,.chips')){sx=null;return;}sx=e.clientX;sy=e.clientY;});
-book.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx,dy=e.clientY-sy;const t=e.target.closest('a,button,input,.opt,.chips');sx=null;if(t)return;
+let sx=null,sy=0;book.addEventListener('pointerdown',e=>{if(e.target.closest('input,button,label,.chips')){sx=null;return;}sx=e.clientX;sy=e.clientY;});
+book.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx,dy=e.clientY-sy;const t=e.target.closest('a,button,input,label,.opt,.chips');sx=null;if(t)return;
  if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?1:-1);return;}
  if(Math.abs(dx)<8&&Math.abs(dy)<8){const r=book.getBoundingClientRect();go(e.clientX<r.left+r.width*0.3?-1:1);}});
 render();
