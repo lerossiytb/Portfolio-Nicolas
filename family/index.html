@@ -107,6 +107,18 @@ body.hasv .cue{display:none}
 .plan.dark small,.plan.dark li{color:rgba(255,255,255,.72)}
 .plan.dark li{border-top-color:rgba(255,255,255,.14)}
 .plan .btn.or{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.ideas{max-width:1150px;margin:0 auto 3rem;text-align:left}
+.ideas h2.t{font-size:clamp(2.6rem,8vw,6rem);letter-spacing:-.06em;line-height:.92}
+.igrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1rem;margin-top:2rem}
+@media(max-width:860px){.igrid{grid-template-columns:1fr}}
+.idea{position:relative;background:#fff;border-radius:26px;padding:1.6rem 1.5rem 1.4rem;overflow:hidden}
+.idea small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.idea b{display:block;font-size:1.7rem;letter-spacing:-.04em;line-height:1.05;margin-top:.4rem}
+.idea p{color:var(--ink-2);line-height:1.55;margin-top:.8rem}
+.idea .fade{-webkit-mask-image:linear-gradient(#000 0%,transparent 95%);mask-image:linear-gradient(#000 0%,transparent 95%);max-height:4.6em;overflow:hidden}
+.idea .bl{filter:blur(6px);user-select:none}
+.idea .more{margin-top:1rem;font-weight:700;font-size:.9rem}
+.idea.lockd{background:color-mix(in srgb,var(--ink) 5%,var(--bg))}
 .pop{max-width:440px;margin:0 auto;background:#fff;border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.15);padding:2.2rem 1.8rem;text-align:center}
 .pop .pi{width:3.4rem;height:3.4rem;border-radius:50%;background:var(--orange);color:var(--ink);font-weight:800;font-size:1.5rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
 .pop small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
@@ -359,11 +371,36 @@ body.hasv .cue{display:none}
 
 <!-- FINALE -->
 <section class="fin" id="hi" data-theme="light">
+  <div class="ideas">
+    <span class="label reveal">Teil 3 · Premium</span>
+    <h2 class="t reveal">3 Ideen für euch</h2>
+    <div class="igrid">
+      <div class="idea open reveal">
+        <small>Idee 01 · Rivella</small>
+        <b>Hinter dem Stand</b>
+        <p>Eine POV-Serie aus Sicht der Brand Ambassadors: Aufbau um sechs Uhr früh an den Ski Days, die lustigsten Fragen am Stand, der Moment, wenn die erste Gondel kommt. Gefilmt mit GoPro und Handy, geschnitten noch am selben Abend.</p>
+        <p class="fade">Warum das funktioniert: Echte Gesichter statt Werbeset – und zwar genau dort, wo die Zielgruppe gerade ist. Dazu kommt ein Format, das jede Saison neu</p>
+        <div class="more">🔒 Weiterlesen im Abo</div>
+      </div>
+      <div class="idea lockd reveal">
+        <small>Idee 02 · Swissmilk</small>
+        <b>Lovely Reminder unterwegs</b>
+        <p class="bl">Pqwe Rmal lvtsk pr Oxwbn qelm, frg Tsywq mvcp zt Kqnwu ehbs. Lmqo xyt Brsapk vno ftwlz.</p>
+        <div class="more">🔒 Im Abo</div>
+      </div>
+      <div class="idea lockd reveal">
+        <small>Idee 03 · 20 Minuten</small>
+        <b>Tippspiel, nächstes Level</b>
+        <p class="bl">Zmqp Kvwo Ftesrl bu Tqbe pnoq, lhxsd Oeq ftcw ui Wmjoa nxcr. Asyd zke Pbqlwn soe kwq.</p>
+        <div class="more">🔒 Im Abo</div>
+      </div>
+    </div>
+  </div>
   <div class="pop reveal" id="pop">
     <div class="pi">🔒</div>
     <small>Teil 3 · Premium</small>
-    <b>3 weitere Ideen für euch freischalten</b>
-    <p>Drei konkrete Ideen, die ich für Family° schon im Kopf habe. Ein Klick – und sie gehören euch.</p>
+    <b>Alle 3 Ideen freischalten</b>
+    <p>Idee 01 zu Ende lesen, Idee 02 und 03 entsperren. Ein Klick – und sie gehören euch.</p>
     <button class="btn" type="button" id="unlock">Jetzt freischalten <span class="arrow">↗</span></button>
   </div>
 
