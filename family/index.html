@@ -88,6 +88,24 @@ body.hasv .cue{display:none}
 .locked b{display:block;font-size:1.4rem;letter-spacing:-.03em;margin-top:.3rem}
 .locked p{filter:blur(6px);user-select:none;margin-top:.5rem;line-height:1.5;color:var(--ink-2)}
 .locked>div::after{content:'🔒';position:absolute;right:1.1rem;top:1.1rem;font-size:1.1rem}
+.plans{max-width:1150px;margin:3rem auto 0;animation:pin .8s var(--ease)}
+@keyframes pin{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.plans h2.t{font-size:clamp(2.6rem,8vw,6rem);letter-spacing:-.06em;line-height:.92}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2.4rem;text-align:left;align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:26px;padding:1.6rem 1.5rem 1.5rem;border:1.5px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+.plan small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.plan b{display:block;font-size:1.6rem;letter-spacing:-.04em;line-height:1.05;margin-top:.4rem}
+.plan .price{font-weight:600;color:var(--orange);margin-top:.7rem}
+.plan ul{list-style:none;margin:1.1rem 0 1.4rem;flex:1}
+.plan li{padding:.5rem 0 .5rem 1.6rem;position:relative;border-top:1px solid color-mix(in srgb,var(--ink) 10%,transparent);color:var(--ink-2)}
+.plan li::before{content:'✓';position:absolute;left:0;color:var(--orange);font-weight:800}
+.plan .btn{justify-content:center}
+.plan.hot{border:2px solid var(--orange)}
+.plan .badge{position:absolute;top:-.8rem;right:1.2rem;background:var(--orange);color:var(--ink);font-size:.75rem;font-weight:700;padding:.35rem .8rem;border-radius:999px}
+.plan.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plan.dark small,.plan.dark li{color:rgba(255,255,255,.72)}
+.plan.dark li{border-top-color:rgba(255,255,255,.14)}
+.plan .btn.or{background:var(--orange);border-color:var(--orange);color:var(--ink)}
 .pop{max-width:440px;margin:0 auto;background:#fff;border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.15);padding:2.2rem 1.8rem;text-align:center}
 .pop .pi{width:3.4rem;height:3.4rem;border-radius:50%;background:var(--orange);color:var(--ink);font-weight:800;font-size:1.8rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
 .pop small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
@@ -340,22 +358,41 @@ body.hasv .cue{display:none}
 
 <!-- FINALE -->
 <section class="fin" id="hi" data-theme="light">
-  <div class="lock reveal">
-    <span class="label">Teil 3 · gesperrt</span>
-    <h2 class="t">Drei Ideen für eure Kunden</h2>
-    <div class="locked">
-      <div><small>01</small><b>Rivella</b><p>Ksfl wpe eöqmd Fnzbqaqo ptsu, xp tqlwc Bvnmr kuqr jsqoxc. Mkqwe sutl zr Bnaqsw.</p></div>
-      <div><small>02</small><b>Swissmilk</b><p>Qwlr Bmxa Opeqzt vk Lsmw jroq, ehbsk Tnc wmqq zy Fpauq uksd. Rlqp xvc Ostqbn.</p></div>
-      <div><small>03</small><b>20 Minuten</b><p>Zmqp Kvwo Ftesrl bu Tqbe pnoq, lhxsd Oeq ftcw ui Wmjoa nxcr. Asyd zke Pbqlwn.</p></div>
-    </div>
-  </div>
-  <div class="pop reveal">
+  <div class="pop reveal" id="pop">
     <div class="pi">!</div>
     <small>Bezahlen · jetzt</small>
     <b>Guthaben aufgebraucht.</b>
-    <p>Teil 3 lässt sich nur an einem Ort freischalten: im Vorstellungsgespräch. Die Ideen bringe ich mit – ihr bringt den Kaffee. Oder ich, siehe oben.</p>
-    <a class="btn" href="mailto:nrossi5@gmx.ch?subject=Teil%203%20freischalten&amp;body=Hoi%20Nicolas%0A%0AWir%20wollen%20Teil%203%20sehen.%20Wann%20hast%20du%20Zeit%20f%C3%BCr%20ein%20Gespr%C3%A4ch%3F%0A%0A">Gespräch vereinbaren <span class="arrow">↗</span></a>
+    <p>Teil 3 ist gesperrt. Zum Glück gibt's Abos.</p>
+    <button class="btn" type="button" id="unlock">Jetzt freischalten <span class="arrow">↗</span></button>
   </div>
+
+  <div class="plans" id="plans" hidden>
+    <span class="label">Teil 3 freischalten</span>
+    <h2 class="t">Wähle dein Abo</h2>
+    <p class="section-intro" style="margin:1rem auto 0">Drei Varianten, wie ich bei euch einsteigen kann. Kündigung jederzeit – aber wer kündigt schon Freunde.</p>
+    <div class="pgrid">
+      <div class="plan">
+        <small>Abo 01</small><b>Praktikum</b>
+        <div class="price">6–12 Monate</div>
+        <ul><li>Content, Social Media &amp; Kampagnen</li><li>Lernkurve: steil</li><li>Barista-Ausbildung inklusive</li></ul>
+        <a class="btn btn-ghost" href="mailto:nrossi5@gmx.ch?subject=Abo%2001%3A%20Praktikum">Abo wählen</a>
+      </div>
+      <div class="plan hot">
+        <span class="badge">Beliebteste Wahl</span>
+        <small>Abo 02</small><b>Junior Social Media / Digital Media Manager</b>
+        <div class="price">Festanstellung · Pensum nach Absprache</div>
+        <ul><li>Content planen, drehen, schneiden</li><li>Kanäle betreuen &amp; Ads</li><li>Unlimitierte Ideen, kein Guthaben-Limit</li></ul>
+        <a class="btn" href="mailto:nrossi5@gmx.ch?subject=Abo%2002%3A%20Junior%20Social%20Media%20%2F%20Digital%20Media%20Manager">Abo wählen</a>
+      </div>
+      <div class="plan dark">
+        <small>Abo 03 · Testphase</small><b>Vorstellungsgespräch</b>
+        <div class="price">Preis: 1 Kaffee</div>
+        <ul><li>Kennenlernen ohne Risiko</li><li>Live-Freischaltung von Teil 3: drei Ideen für eure Kunden</li><li>Danach entscheidet ihr</li></ul>
+        <a class="btn or" href="mailto:nrossi5@gmx.ch?subject=Einladung%20zum%20Vorstellungsgespr%C3%A4ch&amp;body=Hoi%20Nicolas%0A%0AWir%20laden%20dich%20zum%20Gespr%C3%A4ch%20ein.%20Passt%20dir%20%E2%80%A6%3F%0A%0A">Gespräch buchen <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
   <div class="btn-row reveal">
     <a class="btn btn-ghost" href="mailto:nrossi5@gmx.ch?subject=Weltherrschaft">nrossi5@gmx.ch</a>
     <a class="btn btn-ghost" href="tel:+41764217303">076 421 73 03</a>
@@ -369,6 +406,7 @@ body.hasv .cue{display:none}
 (function(){
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+ var ub=document.getElementById('unlock');if(ub)ub.onclick=function(){var pl=document.getElementById('plans');pl.hidden=false;document.getElementById('pop').style.display='none';pl.scrollIntoView({behavior:'smooth',block:'start'});};
  if(!VIDEO)return;
  document.body.classList.add('hasv');
  var snd=document.getElementById('snd'),end=document.getElementById('end'),box=document.getElementById('vbox'),api={};
