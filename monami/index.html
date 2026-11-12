@@ -53,9 +53,18 @@ html,body{height:100%;background:var(--bg);color:var(--fg);font-family:'SG',syst
 .opt{display:flex;align-items:center;gap:4cqw;font-family:'CV';font-size:9cqw;color:var(--ink);text-decoration:none;margin-top:2cqh;width:max-content;cursor:pointer;position:relative}
 .bx{width:8.5cqw;height:8.5cqw;border:.8cqw solid var(--ink);border-radius:1cqw;position:relative;flex:none;background:#fff}
 .opt.yes .bx::after{content:'';position:absolute;left:1.6cqw;top:-4cqw;width:3.6cqw;height:9cqw;border:solid var(--or);border-width:0 1.6cqw 1.6cqw 0;transform:rotate(40deg) scale(0);transform-origin:bottom right;transition:transform .25s}
-.opt.yes:hover .bx::after,.opt.yes.ck .bx::after{transform:rotate(40deg) scale(1)}
+
 .opt.no{text-decoration:line-through;text-decoration-color:var(--or);text-decoration-thickness:.8cqw;opacity:.5;pointer-events:none}
 .yesbtn{display:inline-block;margin-top:3cqh;background:var(--or);color:#fff;font-family:'SG';font-weight:700;font-size:3.6cqw;padding:2.2cqh 5cqw;border-radius:40px;text-decoration:none}
+.in{display:block;width:100%;margin-top:.4cqh;background:transparent;border:0;border-bottom:2px dashed #CFC6B8;font-family:'CV';font-weight:700;font-size:max(16px,5.6cqw);line-height:1.2;color:var(--or);padding:.4cqh 0;outline:none;border-radius:0}
+.in:focus{border-bottom-color:var(--or)}
+.in::placeholder{color:#C9BFB1}
+.chips{display:flex;gap:2cqw;margin-top:1cqh;flex-wrap:wrap}
+.chip{font-family:'CV';font-weight:700;font-size:5cqw;padding:.8cqh 3.4cqw;border:2px solid var(--ink);border-radius:30px;background:#fff;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--or);border-color:var(--or);color:#fff}
+.opt.sel .bx::after{content:'';position:absolute;left:1.6cqw;top:-4cqw;width:3.6cqw;height:9cqw;border:solid var(--or);border-width:0 1.6cqw 1.6cqw 0;transform:rotate(40deg) scale(0);transform-origin:bottom right;transition:transform .25s}
+.opt.sel.ck .bx::after{transform:rotate(40deg) scale(1)}
+.yesbtn{border:0;cursor:pointer}
 .cover{background:var(--or);color:#140A05;box-shadow:inset 18px 0 22px -18px rgba(0,0,0,.45),0 18px 50px rgba(0,0,0,.55)}
 .cover .pg{padding:9cqh 9cqw 7cqh 14cqw;display:flex;flex-direction:column}
 .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(20,10,5,.13) 1.2px,transparent 1.3px);background-size:5cqw 5cqw}
@@ -193,20 +202,33 @@ html,body{height:100%;background:var(--bg);color:var(--fg);font-family:'SG',syst
   <div class="pn">9</div>
 </div></div><div class="face back lined"></div></div>
 
+<!-- 11 Euer Eintrag -->
+<div class="leaf"><div class="face front lined"><div class="pg">
+  <div class="k">Seite 10 · Jetzt seid ihr dran</div>
+  <div class="h" style="margin-top:1.4cqh;font-size:7.4cqw">Euer Eintrag</div>
+  <div class="hand" style="font-size:5cqw;color:var(--mu);margin-top:.6cqh">In ein Freundebuch schreiben ja beide rein.</div>
+  <div class="fe" style="margin-top:2.6cqh"><span>Wer schreibt hier?</span><input class="in" id="f1" placeholder="Name, Rolle …" autocomplete="off"></div>
+  <div class="fe"><span>Das gefällt euch an mir</span><input class="in" id="f2" placeholder="…" autocomplete="off"></div>
+  <div class="fe"><span>Mein erstes Projekt bei euch wäre …</span><input class="in" id="f3" placeholder="…" autocomplete="off"></div>
+  <div class="fe"><span>Unser erstes Treffen</span><div class="chips" id="meet"><button class="chip on" type="button">Kaffee</button><button class="chip" type="button">Call</button><button class="chip" type="button">Probetag</button></div></div>
+  <div class="hand" style="font-size:4.8cqw;color:var(--or);margin-top:2.6cqh;transform:rotate(-2deg);transform-origin:left">Ausfüllen, umblättern, ankreuzen →</div>
+  <div class="pn">10</div>
+</div></div><div class="face back lined"></div></div>
+
 <!-- 10 Frage -->
 <div class="leaf"><div class="face front lined"><div class="pg">
-  <div class="k">Seite 10 · Bitte ankreuzen</div>
+  <div class="k">Seite 11 · Bitte ankreuzen</div>
   <div class="hand" style="font-size:12cqw;line-height:1;color:var(--ink);margin-top:2cqh">Wollen wir Amis werden?</div>
-  <a class="opt yes" id="yes" href="mailto:nrossi5@gmx.ch?subject=Ja%2C%20ich%20will%20dein%20Ami%20werden"><span class="bx"></span>Ja</a>
-  <a class="opt" href="tel:+41764217303"><span class="bx"></span>Vielleicht</a>
+  <button type="button" class="opt sel" id="yes" data-v="Ja" style="background:none;border:0;padding:0"><span class="bx"></span>Ja</button>
+  <button type="button" class="opt sel" id="maybe" data-v="Vielleicht" style="background:none;border:0;padding:0"><span class="bx"></span>Vielleicht</button>
   <span class="opt no"><span class="bx"></span>Nein</span>
   <div class="hand" style="font-size:5.4cqw;color:var(--or);margin-top:1.6cqh;transform:rotate(-3deg);transform-origin:left">↑ Vielleicht heisst auch Ja!</div>
-  <a class="yesbtn" href="mailto:nrossi5@gmx.ch?subject=Ja%2C%20ich%20will%20dein%20Ami%20werden">Ja ankreuzen &amp; Mail schreiben</a>
+  <a class="yesbtn" id="send" href="mailto:nrossi5@gmx.ch?subject=Ja%2C%20ich%20will%20dein%20Ami%20werden">Eintrag abschicken ✉</a>
   <div style="position:absolute;left:14cqw;right:7cqw;bottom:7cqh;display:flex;justify-content:space-between;align-items:flex-end">
     <div><div class="hand" style="font-size:9cqw;color:var(--ink);transform:rotate(-4deg)">Nicolas</div><div style="font-size:2.7cqw;color:var(--mu);margin-top:.8cqh">nrossi5@gmx.ch · 076 421 73 03</div></div>
     <svg width="14%" viewBox="0 0 70 84" aria-label="Fingerabdruck"><g fill="none" stroke="#FF5A1F" stroke-width="2.6" stroke-linecap="round" opacity=".85"><ellipse cx="35" cy="44" rx="6" ry="9"/><ellipse cx="35" cy="44" rx="12" ry="17"/><ellipse cx="35" cy="44" rx="18" ry="25"/><path d="M11 48c0-22 10-36 24-36s24 14 24 34"/><path d="M6 52c0-30 12-46 29-46s29 16 29 42"/><path d="M15 70c4 6 10 9 20 9s16-3 20-9"/></g></svg>
   </div>
-  <div class="pn">10</div>
+  <div class="pn">11</div>
 </div></div><div class="face back lined"></div></div>
 
 </div></div>
@@ -216,12 +238,22 @@ const book=document.getElementById('book'),L=[...book.querySelectorAll('.leaf')]
 function render(){L.forEach((l,i)=>{const f=i<c;l.classList.toggle('flipped',f);l.style.zIndex=f?(i+1):(N-i)+N;});
  book.classList.toggle('open',c>0);document.getElementById('prev').disabled=c===0;document.getElementById('next').disabled=c>=N-1;
  const cn=document.getElementById('cnt');cn.textContent=(c===0?'tippen zum Blättern':(c)+' / '+(N-1));cn.classList.toggle('hi',c===0);
- if(c===N-1)setTimeout(()=>document.getElementById('yes').classList.add('ck'),900);}
+ if(c===N-1&&!picked)setTimeout(()=>{if(!picked)pick('Ja')},900);}
+let picked=false,choice='Ja';
+function pick(v){choice=v;document.querySelectorAll('.opt.sel').forEach(o=>o.classList.toggle('ck',o.dataset.v===v));buildMail();}
+function buildMail(){const g=id=>document.getElementById(id).value.trim()||'–';const m=document.querySelector('#meet .on');
+ const subj=choice==='Ja'?'Ja, ich will dein Ami werden':'Vielleicht (heisst auch Ja!) – ich will dein Ami werden';
+ const body='Hallo Nicolas\n\nUnser Eintrag in dein Freundebuch:\n\nWer schreibt hier: '+g('f1')+'\nDas gefällt uns an dir: '+g('f2')+'\nDein erstes Projekt bei uns wäre: '+g('f3')+'\nUnser erstes Treffen: '+(m?m.textContent:'–')+'\n\nWollen wir Amis werden? '+choice+'\n\n';
+ document.getElementById('send').href='mailto:nrossi5@gmx.ch?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);}
+document.querySelectorAll('.opt.sel').forEach(o=>o.addEventListener('click',()=>{picked=true;pick(o.dataset.v);}));
+document.querySelectorAll('#meet .chip').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#meet .chip').forEach(x=>x.classList.toggle('on',x===b));buildMail();}));
+document.querySelectorAll('.in').forEach(i=>i.addEventListener('input',buildMail));
+document.getElementById('send').addEventListener('click',buildMail);
 function go(d){const n=Math.max(0,Math.min(N-1,c+d));if(n!==c){c=n;render();}}
 document.getElementById('next').onclick=()=>go(1);document.getElementById('prev').onclick=()=>go(-1);
-addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1);});
-let sx=null,sy=0;book.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY;});
-book.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx,dy=e.clientY-sy;const t=e.target.closest('a');sx=null;if(t)return;
+addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input'))return;if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1);});
+let sx=null,sy=0;book.addEventListener('pointerdown',e=>{if(e.target.closest('input,button,.chips')){sx=null;return;}sx=e.clientX;sy=e.clientY;});
+book.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx,dy=e.clientY-sy;const t=e.target.closest('a,button,input,.opt,.chips');sx=null;if(t)return;
  if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?1:-1);return;}
  if(Math.abs(dx)<8&&Math.abs(dy)<8){const r=book.getBoundingClientRect();go(e.clientX<r.left+r.width*0.3?-1:1);}});
 render();
