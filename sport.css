@@ -202,3 +202,13 @@ html.sp-lock, html.sp-lock body { overflow: hidden !important; height: 100%; ove
 .sp-done { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; background: rgba(12,106,134,.0); color: #fff; opacity: 0; pointer-events: none; transition: opacity .6s, background .8s; }
 .sp-done span { font-size: clamp(3.5rem, 16vw, 15rem); font-weight: 800; text-transform: uppercase; letter-spacing: -.05em; transform: scale(.7); transition: transform 1s cubic-bezier(.16,1,.3,1); }
 .sp-game.done .sp-done { opacity: 1; background: rgba(12,106,134,.55); } .sp-game.done .sp-done span { transform: none; }
+
+/* Baustellen-Hinweis */
+.sp-wip { position: fixed; inset: 0; z-index: 9990; display: flex; align-items: center; justify-content: center; padding: 1.25rem; background: rgba(20,40,52,.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.sp-wip[hidden] { display: none; }
+.sp-wip-card { width: min(560px, 100%); background: #FAFCFD; color: #1E2B35; overflow: hidden; box-shadow: 0 30px 80px rgba(0,20,30,.45); animation: spWipIn .7s cubic-bezier(.16,1,.3,1) both; }
+.sp-wip-card h2 { margin: 1.6rem 1.8rem .6rem; font-size: clamp(2.2rem, 8vw, 3.6rem); font-weight: 800; text-transform: uppercase; letter-spacing: -.03em; line-height: 1; }
+.sp-wip-card p { margin: 0 1.8rem 1.6rem; font-size: 1.1rem; line-height: 1.5; }
+.sp-wip-card .btn-row { margin: 0 1.8rem 1.8rem; display: flex; flex-wrap: wrap; gap: .7rem; }
+.sp-wip-tape { height: 20px; background: repeating-linear-gradient(-45deg, #FFC21A 0 18px, #2A3A45 18px 36px); }
+@keyframes spWipIn { from { opacity: 0; transform: translateY(30px) scale(.96); } }

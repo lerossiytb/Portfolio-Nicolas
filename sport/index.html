@@ -25,10 +25,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600;700&family=Inter+Tight:wght@400..800&family=Instrument+Serif:ital@1&display=swap">
     <link rel="stylesheet" href="/style.css?v=20261117">
-    <link rel="stylesheet" href="/sport.css?v=20261115">
+    <link rel="stylesheet" href="/sport.css?v=20261118">
 </head>
 <body data-theme="light" class="page-sport">
-    <div class="sp-pre" aria-hidden="true"><svg viewBox="0 0 120 60" class="sp-pre-wave"><path d="M4 30 Q19 6 34 30 T64 30 T94 30 T124 30" /></svg><span class="sp-pre-n">Nicolas Rossi</span><span class="sp-pre-c">0</span></div>
+        <div class="sp-wip" id="spWip" role="dialog" aria-modal="true" aria-labelledby="spWipT" hidden>
+        <div class="sp-wip-card">
+            <div class="sp-wip-tape" aria-hidden="true"></div>
+            <h2 id="spWipT" data-de="Baustelle" data-en="Under construction" data-fr="En construction">Baustelle</h2>
+            <p data-de="Diese Seite wird gerade noch gebaut. Sie ist zu Testzwecken bereits online – darum: Betreten auf eigene Gefahr." data-en="This page is still being built. It is already online for testing purposes – so enter at your own risk." data-fr="Cette page est encore en construction. Elle est déjà en ligne à titre de test – vous entrez à vos propres risques.">Diese Seite wird gerade noch gebaut. Sie ist zu Testzwecken bereits online – darum: Betreten auf eigene Gefahr.</p>
+            <div class="btn-row">
+                <button type="button" class="btn" id="spWipGo"><span data-de="Auf eigene Gefahr eintreten" data-en="Enter at your own risk" data-fr="Entrer à vos risques">Auf eigene Gefahr eintreten</span> <span class="arrow" aria-hidden="true">→</span></button>
+                <a href="/" class="btn btn--ghost"><span data-de="Zurück zur Startseite" data-en="Back to home" data-fr="Retour à l’accueil">Zurück zur Startseite</span></a>
+            </div>
+            <div class="sp-wip-tape" aria-hidden="true"></div>
+        </div>
+    </div>
+<div class="sp-pre" aria-hidden="true"><svg viewBox="0 0 120 60" class="sp-pre-wave"><path d="M4 30 Q19 6 34 30 T64 30 T94 30 T124 30" /></svg><span class="sp-pre-n">Nicolas Rossi</span><span class="sp-pre-c">0</span></div>
     <div class="sp-progress" aria-hidden="true"></div>
     <div class="sp-cursor" aria-hidden="true"></div>
     <div class="cursor" aria-hidden="true"></div>
@@ -234,7 +246,7 @@
         </div>
     </footer>
     <script src="/script.js?v=20261115" defer></script>
-    <script src="/sport.js?v=20261115" defer></script>
+    <script src="/sport.js?v=20261118" defer></script>
     <script src="/sport-game.js?v=20261115" defer></script>
 </body>
 </html>

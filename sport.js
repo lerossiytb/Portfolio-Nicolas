@@ -70,3 +70,15 @@
 })();
 (function(){ var g=document.querySelector('.sp-goalfull'); if(!g) return;
   new IntersectionObserver(function(e,o){ if(e[0].isIntersecting){ g.classList.add('in2'); o.disconnect(); } },{threshold:.35}).observe(g); })();
+
+/* Baustellen-Hinweis: einmal pro Besuch, bevor es losgeht */
+(function(){
+  var w=document.getElementById('spWip'); if(!w) return;
+  var seen=false; try{ seen=sessionStorage.getItem('spWipSeen')==='1'; }catch(e){}
+  if(seen) return;
+  w.hidden=false; var go=document.getElementById('spWipGo');
+  function close(){ w.hidden=true; try{ sessionStorage.setItem('spWipSeen','1'); }catch(e){} }
+  go.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !w.hidden) close(); });
+  setTimeout(function(){ try{ go.focus({preventScroll:true}); }catch(e){} },1700);
+})();
