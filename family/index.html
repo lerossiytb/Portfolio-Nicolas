@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Weltherrschaft, Teil 2 – Nicolas Rossi für Family</title>
+<title>Weltherrschaft, Director's Cut – Nicolas Rossi für Family</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,89 +45,76 @@ body.hasv .cue{display:none}
 .end .btn-row{justify-content:center}
 .end .btn{background:#fff;color:var(--ink);border-color:#fff;font:inherit;font-weight:600;cursor:pointer}
 .end .btn.or{background:var(--orange);border-color:var(--orange)}
-/* Teil 2 */
-.dc h2.t{font-size:clamp(3.4rem,12vw,10rem)}
-.lead{font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.45;max-width:34ch;margin-top:1.8rem}
-.lead em{color:var(--orange)}
-.who{display:flex;gap:1rem;align-items:center;margin-top:2.2rem}
-.who img{width:72px;height:72px;border-radius:50%;object-fit:cover}
-.who b{display:block;font-size:1.15rem;letter-spacing:-.02em}
-.who span{font-size:.9rem;color:var(--ink-2)}
-/* Skills */
-.rz{list-style:none;border-top:1.5px solid var(--ink)}
-.rz li{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.2rem;padding:1.4rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent);align-items:start}
-.rz .ck{grid-row:1/3;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--orange);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:800;margin-top:.2rem}
-.rz b{font-size:clamp(1.5rem,3.4vw,2.4rem);letter-spacing:-.04em;line-height:1}
-.rz span{color:var(--ink-2);font-size:1.05rem;line-height:1.5;max-width:52ch}
-.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
-.chip{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .9rem .55rem .55rem;border-radius:999px;border:1.5px solid var(--ink);font-weight:600;font-size:.92rem}
-.chip i{font-style:normal;width:1.9rem;height:1.9rem;border-radius:8px;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800}
-.chip.l i{border-radius:50%;background:var(--orange);color:var(--ink)}
-.help{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:3rem}
-.help div{background:color-mix(in srgb,var(--ink) 5%,var(--bg));border-radius:22px;padding:1.4rem 1.4rem 1.5rem}
-.help .n{color:var(--orange);font-weight:700;font-size:.85rem}
-.help b{display:block;font-size:1.3rem;letter-spacing:-.03em;margin-top:.4rem}
-.help p{color:var(--ink-2);margin-top:.4rem;line-height:1.5}
-.help .cof{background:var(--ink);color:#fff}.help .cof p{color:rgba(255,255,255,.75)}
-/* Welt */
-.route2{display:flex;flex-wrap:wrap;align-items:center;gap:.2rem 0;font-size:clamp(1.5rem,4vw,3rem);font-weight:700;letter-spacing:-.04em;line-height:1.2}
-.route2 span:not(:last-child)::after{content:'';display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--orange);margin:0 .45em;vertical-align:.18em}
-.insider{display:inline-block;margin-top:2rem;background:var(--orange);color:var(--ink);border-radius:22px;padding:1.2rem 1.4rem;max-width:520px}
-.insider small{display:block;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
-.insider p{font-size:1.15rem;line-height:1.4;margin-top:.3rem}
-.txt{font-size:clamp(1.05rem,1.3vw,1.2rem);color:var(--ink-2);max-width:52ch;margin-top:1.6rem;line-height:1.6}
-.ski{margin-top:4rem;border-top:1.5px solid var(--ink);padding-top:2rem}
-.ski h3{font-size:clamp(2.4rem,8vw,6rem);letter-spacing:-.06em;line-height:.92}
-.ski h3 em{color:var(--orange)}
-/* Finale */
-.lock{max-width:1100px;margin:0 auto 3.5rem;text-align:left}
-.lock h2.t{font-size:clamp(2.4rem,7vw,5.5rem);letter-spacing:-.06em;line-height:.92}
-.locked{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:2rem;position:relative}
-.locked>div{position:relative;background:color-mix(in srgb,var(--ink) 5%,var(--bg));border-radius:22px;padding:1.4rem;overflow:hidden}
-.locked small{color:var(--orange);font-weight:700}
-.locked b{display:block;font-size:1.4rem;letter-spacing:-.03em;margin-top:.3rem}
-.locked p{filter:blur(6px);user-select:none;margin-top:.5rem;line-height:1.5;color:var(--ink-2)}
-.locked>div::after{content:'🔒';position:absolute;right:1.1rem;top:1.1rem;font-size:1.1rem}
-.plans{max-width:1150px;margin:3rem auto 0;animation:pin .8s var(--ease)}
-@keyframes pin{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-.plans h2.t{font-size:clamp(2.6rem,8vw,6rem);letter-spacing:-.06em;line-height:.92}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2.4rem;text-align:left;align-items:stretch}
-.plan{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:26px;padding:1.6rem 1.5rem 1.5rem;border:1.5px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+/* Intro */
+.intro h2.t{font-size:clamp(3rem,10vw,8rem)}
+.intro .lead{font-size:clamp(1.1rem,1.6vw,1.4rem);line-height:1.45;max-width:38ch;margin-top:1.2rem;color:var(--ink-2)}
+.who{display:flex;gap:1rem;align-items:center;margin-top:1.8rem}
+.who img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.who b{display:block;font-size:1.1rem;letter-spacing:-.02em}
+.who span{font-size:.88rem;color:var(--ink-2)}
+/* Szenen */
+.scenes{padding-top:0}
+.sc{display:grid;grid-template-columns:clamp(92px,22vw,190px) 1fr;gap:clamp(1rem,4vw,3.2rem);padding:clamp(1.6rem,4vw,2.8rem) 0;border-top:1.5px solid color-mix(in srgb,var(--ink) 14%,transparent);align-items:start}
+.sc .still{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.18);aspect-ratio:9/16;background:#111;cursor:default}
+.sc .still img{width:100%;height:100%;object-fit:cover;display:block}
+body.hasv .sc .still{cursor:pointer}
+body.hasv .sc .still::after{content:'▶';position:absolute;right:8px;bottom:8px;width:28px;height:28px;border-radius:50%;background:var(--orange);color:var(--ink);font-size:.7rem;display:flex;align-items:center;justify-content:center}
+.sc .n{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+.sc h3{font-size:clamp(1.7rem,4.4vw,3.2rem);letter-spacing:-.05em;line-height:.95;margin-top:.35rem}
+.sc p{color:var(--ink-2);font-size:clamp(1rem,1.25vw,1.12rem);line-height:1.55;margin-top:.7rem;max-width:56ch}
+.sc p b{color:var(--ink)}
+.cv{list-style:none;margin-top:.9rem;max-width:620px}
+.cv li{display:grid;grid-template-columns:5.2rem 1fr;gap:.6rem;padding:.42rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 9%,transparent);font-size:.95rem;line-height:1.35}
+.cv li span{font-weight:700;color:var(--ink)}
+.cv li em{font-family:inherit;font-style:normal;color:var(--ink-2)}
+.cv li.now span{color:var(--orange)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.chip{padding:.38rem .75rem;border-radius:999px;border:1.5px solid var(--ink);font-weight:600;font-size:.85rem}
+.chip.o{background:var(--orange);border-color:var(--orange)}
+.mini{display:inline-block;margin-top:1rem;background:var(--orange);color:var(--ink);border-radius:16px;padding:.8rem 1rem;font-size:.98rem;line-height:1.4;max-width:460px}
+.sc .btn-row{margin-top:1.2rem}
+.sc .btn{padding:.75rem 1.2rem;font-size:.92rem}
+/* Ideen + Paywall */
+.ideas h2.t{font-size:clamp(2.8rem,9vw,7rem)}
+.idea{background:#fff;border-radius:26px 26px 0 0;padding:clamp(1.4rem,3vw,2.4rem);margin-top:2rem}
+.idea small,.ghost small{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.idea b,.ghost b{display:block;font-size:clamp(1.7rem,4vw,2.8rem);letter-spacing:-.05em;line-height:1;margin-top:.4rem}
+.idea p{color:var(--ink-2);line-height:1.6;margin-top:1rem;font-size:clamp(1.02rem,1.3vw,1.15rem);max-width:70ch}
+.stack{display:grid}
+.stack>*{grid-area:1/1}
+.behind{filter:blur(7px);user-select:none;pointer-events:none;opacity:.75}
+.behind .cont{background:#fff;border-radius:0 0 26px 26px;padding:0 clamp(1.4rem,3vw,2.4rem) clamp(1.4rem,3vw,2.4rem);color:var(--ink-2);line-height:1.6}
+.ghost{background:#fff;border-radius:26px;padding:clamp(1.4rem,3vw,2.4rem);margin-top:1rem}
+.ghost p{color:var(--ink-2);line-height:1.6;margin-top:1rem}
+.wall{position:relative;z-index:2;background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 20%,transparent) 0,var(--bg) 9rem);padding:4.5rem 0 1rem;text-align:center}
+.wall .lk{width:3.2rem;height:3.2rem;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto .8rem}
+.wall h3{font-size:clamp(1.8rem,4.6vw,3.2rem);letter-spacing:-.05em;line-height:1}
+.wall>p{color:var(--ink-2);margin-top:.6rem}
+.locks{display:grid;gap:.7rem;margin:1.6rem auto 0;max-width:820px;text-align:left}
+.locks div{display:grid;grid-template-columns:1fr auto;align-items:center;background:#fff;border-radius:20px;padding:1rem 1.2rem;border:1.5px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
+.locks small{grid-column:1;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.locks b{grid-column:1;font-size:clamp(1.2rem,2.6vw,1.6rem);letter-spacing:-.04em;line-height:1.1;margin-top:.2rem}
+.locks span{grid-column:2;grid-row:1/3;font-size:1.3rem;opacity:.7}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:2rem;text-align:left}
+.plan{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:24px;padding:1.5rem 1.4rem 1.4rem;border:1.5px solid color-mix(in srgb,var(--ink) 12%,transparent)}
 .plan small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
-.plan b{display:block;font-size:1.6rem;letter-spacing:-.04em;line-height:1.05;margin-top:.4rem}
-.plan .price{font-weight:600;color:var(--orange);margin-top:.7rem}
-.plan ul{list-style:none;margin:1.1rem 0 1.4rem;flex:1}
-.plan li{padding:.5rem 0 .5rem 1.6rem;position:relative;border-top:1px solid color-mix(in srgb,var(--ink) 10%,transparent);color:var(--ink-2)}
-.plan li b{color:var(--ink)}.plan.dark li b{color:#fff}
+.plan b{display:block;font-size:1.5rem;letter-spacing:-.04em;line-height:1.05;margin-top:.35rem}
+.plan .price{font-weight:600;color:var(--orange);margin-top:.6rem}
+.plan ul{list-style:none;margin:1rem 0 1.3rem;flex:1}
+.plan li{padding:.45rem 0 .45rem 1.5rem;position:relative;border-top:1px solid color-mix(in srgb,var(--ink) 10%,transparent);color:var(--ink-2);font-size:.95rem}
 .plan li::before{content:'✓';position:absolute;left:0;color:var(--orange);font-weight:800}
+.plan li strong{color:var(--ink)}
 .plan .btn{justify-content:center}
 .plan.hot{border:2px solid var(--orange)}
 .plan .badge{position:absolute;top:-.8rem;right:1.2rem;background:var(--orange);color:var(--ink);font-size:.75rem;font-weight:700;padding:.35rem .8rem;border-radius:999px}
 .plan.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
 .plan.dark small,.plan.dark li{color:rgba(255,255,255,.72)}
+.plan.dark li strong{color:#fff}
 .plan.dark li{border-top-color:rgba(255,255,255,.14)}
 .plan .btn.or{background:var(--orange);border-color:var(--orange);color:var(--ink)}
-.ideas{max-width:1150px;margin:0 auto 3rem;text-align:left}
-.ideas h2.t{font-size:clamp(2.6rem,8vw,6rem);letter-spacing:-.06em;line-height:.92}
-.igrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1rem;margin-top:2rem}
-@media(max-width:860px){.igrid{grid-template-columns:1fr}}
-.idea{position:relative;background:#fff;border-radius:26px;padding:1.6rem 1.5rem 1.4rem;overflow:hidden}
-.idea small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);font-weight:700}
-.idea b{display:block;font-size:1.7rem;letter-spacing:-.04em;line-height:1.05;margin-top:.4rem}
-.idea p{color:var(--ink-2);line-height:1.55;margin-top:.8rem}
-.idea .fade{-webkit-mask-image:linear-gradient(#000 0%,transparent 95%);mask-image:linear-gradient(#000 0%,transparent 95%);max-height:4.6em;overflow:hidden}
-.idea .bl{filter:blur(6px);user-select:none}
-.idea .more{margin-top:1rem;font-weight:700;font-size:.9rem}
-.idea.lockd{background:color-mix(in srgb,var(--ink) 5%,var(--bg))}
-.pop{max-width:440px;margin:0 auto;background:#fff;border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.15);padding:2.2rem 1.8rem;text-align:center}
-.pop .pi{width:3.4rem;height:3.4rem;border-radius:50%;background:var(--orange);color:var(--ink);font-weight:800;font-size:1.5rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
-.pop small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
-.pop b{display:block;font-size:1.8rem;letter-spacing:-.04em;margin-top:.3rem}
-.pop p{color:var(--ink-2);margin:.5rem 0 1.4rem;line-height:1.5}
-.pop .btn{background:var(--orange);border-color:var(--orange);color:var(--ink)}
-.fin{text-align:center}
-.fin .btn-row{justify-content:center}
-.fin .rem{margin-top:2.4rem;font-size:.95rem;color:var(--ink-2)}
+.contact{text-align:center;padding-top:2rem}
+.contact .btn-row{justify-content:center}
+.contact .rem{margin-top:1.6rem;font-size:.95rem;color:var(--ink-2)}
 .foot{padding:1.6rem var(--pad) 2.4rem;font-size:.85rem;color:var(--ink-2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--bg)}
 @media (prefers-reduced-motion:reduce){.snd{animation:none}}
 </style>
@@ -145,298 +132,122 @@ body.hasv .cue{display:none}
   <button class="btn snd off" id="snd" type="button">🔊 Ton an</button>
   <div class="end" id="end">
     <h2>Weltherrschaft?<br><span class="o">Gemeinsam.</span></h2>
-    <div class="btn-row"><a class="btn or" href="#teil2">Director's Cut ↓</a><button class="btn" type="button" id="again">↺ Nochmals</button></div>
+    <div class="btn-row"><a class="btn or" href="#cut">Director's Cut ↓</a><button class="btn" type="button" id="again">↺ Nochmals</button></div>
   </div>
   <div class="cue">scroll ↓</div>
 </section>
 
-<!-- TEIL 2 -->
-<section class="dc" id="teil2" data-theme="paper">
+<!-- INTRO -->
+<section class="intro" id="cut" data-theme="paper">
   <div class="wrap">
     <span class="label reveal">Weltherrschaft · Director's Cut</span>
-    <h2 class="t reveal">Teil 2</h2>
-    <p class="lead reveal">Alles, was im Video keinen Platz mehr hatte. <em>Kurz und knackig</em> – versprochen.</p>
+    <h2 class="t reveal">Szene für Szene</h2>
+    <p class="lead reveal">Das Video nochmals in Ruhe – mit allem, was nicht mehr reingepasst hat.</p>
     <div class="who reveal"><img src="data:image/jpeg;base64,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" alt="Nicolas Rossi"><div><b>Nicolas Rossi</b><span>Multimedia Producer · Content &amp; Social Media</span></div></div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" data-theme="light">
+<!-- SZENEN -->
+<section class="scenes" data-theme="paper">
   <div class="wrap">
-    <div class="section-top reveal"><h2 class="t">Rizz-Check</h2><p class="section-intro">Im Video gab's die Kurzfassung. Hier, was dahintersteckt – und wie ich euch helfen kann.</p></div>
-    <ul class="rz">
-      <li class="reveal"><span class="ck">✓</span><b>Krea-Rizz</b><span>Text, Foto, Video, Schnitt – das ganze kreative Handwerk aus dem Studium. Content plane ich nicht nur, ich drehe und schneide ihn selbst.</span></li>
-      <li class="reveal"><span class="ck">✓</span><b>Agency-Rizz</b><span>Kundendienst, Events, Schulzimmer, SUP-Station: Ich weiss, wie unterschiedlich Zielgruppen ticken – und wie man sie erreicht.</span></li>
-      <li class="reveal"><span class="ck">✓</span><b>Business-Rizz</b><span>Kaufmann EFZ, BM Wirtschaft und jetzt Marketing bei Nutrexin: Ich weiss, dass gute Ideen auch wirken müssen.</span></li>
-    </ul>
-    <div class="chips reveal">
-      <span class="chip"><i>Pr</i>Premiere</span><span class="chip"><i>Ae</i>After Effects</span><span class="chip"><i>DR</i>DaVinci</span><span class="chip"><i>Lr</i>Lightroom</span><span class="chip"><i>Ads</i>Meta &amp; Google</span>
-      <span class="chip l"><i>DE</i>Deutsch</span><span class="chip l"><i>FR</i>Französisch</span><span class="chip l"><i>EN</i>Englisch C1</span>
-    </div>
-    <div class="help">
-      <div class="reveal"><span class="n">01</span><b>Content machen</b><p>Ideen, Dreh, Schnitt, Posting – Reels, Karussells, Stories.</p></div>
-      <div class="reveal"><span class="n">02</span><b>Kanäle betreuen</b><p>Planen, posten, Community, Ads – und schauen, was wirklich wirkt.</p></div>
-      <div class="reveal"><span class="n">03</span><b>Live dabei sein</b><p>Shootings, Events, Pop-ups: Ich bin gern dort, wo die Zielgruppe ist.</p></div>
-      <div class="reveal cof"><span class="n">04</span><b>Und sonst?</b><p>Ich pack an, wo's gerade brennt. Den Kaffee danach mach ich – mit Barista-Ausbildung aus Neuseeland.</p></div>
-    </div>
+
+    <div class="sc reveal"><a class="still" data-t="0"><img src="szene1.jpg" alt="Szene: Euer Ziel Weltherrschaft" loading="lazy"></a><div>
+      <span class="n">Szene 01 · Das Ziel</span><h3>Euer Ziel: Weltherrschaft.</h3>
+      <p>Gute Nachricht: Ich hab schon geübt. Hier ist der Plan – in sechs Szenen.</p></div></div>
+
+    <div class="sc reveal"><a class="still" data-t="4.6"><img src="szene2.jpg" alt="Szene: Die Karte" loading="lazy"></a><div>
+      <span class="n">Szene 02 · Die Karte</span><h3>Von Brugg bis Albisriederplatz.</h3>
+      <ul class="cv">
+        <li><span>2015–18</span><em>Kaufmann EFZ · green.ch</em></li>
+        <li><span>2018–19</span><em>Kundendienst · Migros-Service</em></li>
+        <li><span>2020</span><em>Praktikum Online Marketing · Digital Minds</em></li>
+        <li><span>2020–21</span><em>BM Wirtschaft · Baden</em></li>
+        <li><span>2021–24</span><em>Bachelor Multimedia Production · FHGR &amp; BFH</em></li>
+        <li><span>2021–26</span><em>SUP-Kurs- &amp; Stationsleiter · SUPKultur</em></li>
+        <li><span>2024–25</span><em>Französischlehrer &amp; Klassenlehrer</em></li>
+        <li><span>2025–26</span><em>Weltreise · Freelance für Aroā Jun, Auckland</em></li>
+        <li class="now"><span>seit 9/26</span><em>Marketing-Praktikum · Nutrexin AG</em></li>
+      </ul>
+      <div class="btn-row"><a class="btn" href="Nicolas_Rossi_Lebenslauf.pdf" target="_blank">Lebenslauf (PDF) <span class="arrow">↗</span></a><a class="btn btn-ghost" href="/Zertifikate.pdf" target="_blank">Zertifikate <span class="arrow">↗</span></a></div></div></div>
+
+    <div class="sc reveal"><a class="still" data-t="26"><img src="szene3.jpg" alt="Szene: Die Welt" loading="lazy"></a><div>
+      <span class="n">Szene 03 · Die Welt</span><h3>Wer die Welt will, sollte sie kennen.</h3>
+      <p>Thailand, Indonesien, Australien, Neuseeland, Fiji, Französisch-Polynesien. Unterwegs: Content mit <b>GoPro und Handy</b>, in Auckland Social Media für das Start-up <b>Aroā Jun</b> – und eine Barista-Ausbildung.</p>
+      <div class="mini"><b>Bali Belly?</b> Hatte ich. Gut, dass ihr Leute dagegen versichert.</div></div></div>
+
+    <div class="sc reveal"><a class="still" data-t="58"><img src="szene4.jpg" alt="Szene: Social Media" loading="lazy"></a><div>
+      <span class="n">Szene 04 · Social Media</span><h3>Mach ich selber.</h3>
+      <p><b>~30 Posts in 6 Monaten</b> für ein Forschungsprojekt von FHGR &amp; UZH. Eigene Kanäle <b>@lerossi_visuals</b> und <b>@lerossiytb</b>, dazu Content für Nutrexin, Hawlik und den Theaterverein Urdorf.</p>
+      <div class="chips"><span class="chip">Premiere</span><span class="chip">After Effects</span><span class="chip">DaVinci</span><span class="chip">Lightroom</span><span class="chip">Meta &amp; Google Ads</span><span class="chip o">DE</span><span class="chip o">FR</span><span class="chip o">EN</span></div></div></div>
+
+    <div class="sc reveal"><a class="still" data-t="74.8"><img src="szene5.jpg" alt="Szene: Skivella" loading="lazy"></a><div>
+      <span class="n">Szene 05 · Kurzer Insider</span><h3>Festivella? Skivella.</h3>
+      <p>Brand Ambassador für <b>Rivella</b> an den Migros Ski Days – und für Swiss-Ski, Zweifel und Focus Water an Messen und Pop-ups. Euer Kunde. Meine Zielgruppe.</p></div></div>
+
+    <div class="sc reveal"><a class="still" data-t="82.3"><img src="szene6.jpg" alt="Szene: Rizz-Check" loading="lazy"></a><div>
+      <span class="n">Szene 06 · Rizz-Check</span><h3>Krea. Agency. Business.</h3>
+      <p><b>Krea:</b> Text, Foto, Video, Schnitt – das ganze Handwerk. <b>Agency:</b> Kundendienst, Events, Schulzimmer – ich weiss, wie Zielgruppen ticken. <b>Business:</b> Kaufmann, BM Wirtschaft, Marketing.</p>
+      <p>Agenturjahre habe ich noch keine – dafür pack ich an, wo's brennt. Den Kaffee danach mach ich: Barista-Ausbildung aus Neuseeland.</p></div></div>
+
   </div>
 </section>
 
-<!-- WELT -->
-<section id="welt" data-theme="paper">
+<!-- IDEEN + PAYWALL -->
+<section class="ideas" id="ideen" data-theme="paper">
   <div class="wrap">
-    <div class="section-top reveal"><h2 class="t">Die Welt</h2><p class="section-intro">Wer die Welt übernehmen will, sollte sie vorher mal anschauen.</p></div>
-    <div class="route2 reveal"><span>Thailand</span><span>Indonesien</span><span>Australien</span><span>Neuseeland</span><span>Fiji</span><span>Französisch-Polynesien</span></div>
-    <div class="insider reveal"><small>Insider · euer Case</small><p><b>Bali Belly?</b> Hatte ich. Gut, dass ihr Leute dagegen versichert.</p></div>
-    <p class="txt reveal">Unterwegs habe ich gelernt, mit wenig viel zu machen: GoPro, Handy, eine gute Idee. Und in Auckland, dass Social Media für ein neues Produkt erst richtig zieht, wenn man die Leute auch live trifft.</p>
-    <div class="ski reveal"><span class="label">Kurzer Insider</span><h3>Festivella?<br><em>Skivella.</em></h3><p class="txt">Als Brand Ambassador war ich für Rivella an den Migros Ski Days – und für Swiss-Ski, Zweifel und Focus Water an Messen und Pop-ups. Euer Kunde. Meine Zielgruppe.</p></div>
-  </div>
-</section>
-
-<!-- WEG (von nicolasrossi.ch) -->
-<section id="cv" class="journey" aria-labelledby="path-title" data-theme="paper">
-            <!-- MEIN WEG: kleine Zeitachse auf einen Blick (aktuell oben), Details zum Ausklappen, Downloads unten -->
-            <div class="wrap">
-                <div class="section-top">
-                    <div>
-                        <h2 id="path-title" class="t" data-de="Mein Weg" data-en="My path" data-fr="Mon parcours">Mein Weg</h2>
-                    </div>
-                </div>
-                <!-- Eine einzige Linie – wie eine Höhenlinie – mit den Stationen als Punkte -->
-                <div class="route" id="route">
-                    <svg class="route-line" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 62.4 L10 64.1 L20 65.6 L30 67.0 L40 68.2 L50 69.3 L60 70.2 L70 70.9 L80 71.5 L90 71.8 L100 72.0 L110 72.0 L120 71.7 L130 71.3 L140 70.7 L150 69.9 L160 68.9 L170 67.8 L180 66.5 L190 65.0 L200 63.4 L210 61.7 L220 59.9 L230 58.0 L240 56.1 L250 54.1 L260 52.0 L270 49.9 L280 47.9 L290 45.8 L300 43.8 L310 41.8 L320 40.0 L330 38.2 L340 36.5 L350 34.9 L360 33.5 L370 32.2 L380 31.0 L390 30.1 L400 29.3 L410 28.7 L420 28.3 L430 28.0 L440 28.0 L450 28.2 L460 28.5 L470 29.1 L480 29.8 L490 30.8 L500 31.8 L510 33.1 L520 34.5 L530 36.0 L540 37.7 L550 39.5 L560 41.3 L570 43.3 L580 45.3 L590 47.3 L600 49.4 L610 51.4 L620 53.5 L630 55.5 L640 57.5 L650 59.4 L660 61.3 L670 63.0 L680 64.6 L690 66.1 L700 67.4 L710 68.6 L720 69.6 L730 70.5 L740 71.1 L750 71.6 L760 71.9 L770 72.0 L780 71.9 L790 71.6 L800 71.1 L810 70.4 L820 69.6 L830 68.5 L840 67.3 L850 66.0 L860 64.5 L870 62.9 L880 61.1 L890 59.3 L900 57.4 L910 55.4 L920 53.4 L930 51.3 L940 49.2 L950 47.2 L960 45.1 L970 43.1 L980 41.2 L990 39.3 L1000 37.6"/></svg>
-                    <ol class="route-stops">
-                        <li class="rt-stop rt-up" style="--x:6.25%;--y:70.42%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2015–18</span>
-                                <span class="rt-role" data-de="Kaufmännische Ausbildung" data-en="Commercial apprenticeship" data-fr="Apprentissage de commerce">Kaufmännische Ausbildung</span>
-                                <span class="rt-org">green.ch AG</span>
-                            </span>
-                        </li>
-                        <li class="rt-stop rt-down" style="--x:18.75%;--y:65.39%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2018–19</span>
-                                <span class="rt-role" data-de="Kundendienst" data-en="Customer service" data-fr="Service client">Kundendienst</span>
-                                <span class="rt-org">Migros-Service</span>
-                            </span>
-                        </li>
-                        <li class="rt-stop rt-up" style="--x:31.25%;--y:41.36%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2020</span>
-                                <span class="rt-role" data-de="Praktikum Online Marketing" data-en="Online marketing internship" data-fr="Stage marketing en ligne">Praktikum Online Marketing</span>
-                                <span class="rt-org">Digital Minds</span>
-                            </span>
-                        </li>
-                        <li class="rt-stop rt-down" style="--x:43.75%;--y:28.00%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2021–24</span>
-                                <span class="rt-role" data-de="Bachelor Multimedia Production" data-en="BSc Multimedia Production" data-fr="Bachelor Multimedia Production">Bachelor Multimedia Production</span>
-                                <span class="rt-org">FHGR & BFH</span>
-                            </span>
-                        </li>
-                        <li class="rt-stop rt-up" style="--x:56.25%;--y:41.80%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2021–26</span>
-                                <span class="rt-role" data-de="SUP-Kurs- & Stationsleiter" data-en="SUP instructor & station lead" data-fr="Moniteur SUP & responsable">SUP-Kurs- & Stationsleiter</span>
-                                <span class="rt-org">SUPKultur GmbH</span>
-                            </span>
-                        </li>
-                        <li class="rt-stop rt-down" style="--x:68.75%;--y:65.73%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2024</span>
-                                <span class="rt-role" data-de="Französischlehrer" data-en="French teacher" data-fr="Professeur de français">Französischlehrer</span>
-                                <span class="rt-org">Sekundarschule Adliswil</span>
-                            </span>
-                        </li>
-                        <li class="rt-stop rt-up" style="--x:81.25%;--y:70.23%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2024–25</span>
-                                <span class="rt-role" data-de="Klassenlehrer" data-en="Class teacher" data-fr="Enseignant titulaire">Klassenlehrer</span>
-                                <span class="rt-org">Primarschule Fondli</span>
-                            </span>
-                        </li>
-                        <li class="rt-stop rt-down rt-now" style="--x:93.75%;--y:49.76%">
-                            <span class="rt-dot" aria-hidden="true"></span>
-                            <span class="rt-label">
-                                <span class="rt-year">2026–<span data-de="heute" data-en="now" data-fr="auj.">heute</span></span>
-                                <span class="rt-role" data-de="Marketing-Praktikum" data-en="Marketing internship" data-fr="Stage en marketing">Marketing-Praktikum</span>
-                                <span class="rt-org">Nutrexin AG</span>
-                            </span>
-                        </li>
-                    </ol>
-                </div>
-                <details class="cv-details">
-                    <summary><span data-de="Alle Stationen im Detail" data-en="All stations in detail" data-fr="Toutes les étapes en détail">Alle Stationen im Detail</span> <span class="cv-plus" aria-hidden="true"></span></summary>
-                    <ol class="trail" id="trail">
-                    <li class="wp wp-now">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2026–<span data-de="heute" data-en="now" data-fr="auj.">heute</span></span>
-                        <div class="wp-main">
-                            <h3 data-de="Marketing-Praktikum" data-en="Marketing Internship" data-fr="Stage en marketing">Marketing-Praktikum</h3>
-                            <p class="wp-org">Nutrexin AG</p>
-                        </div>
-                    </li>
-                    <li class="wp">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2024–25</span>
-                        <div class="wp-main">
-                            <h3 data-de="Klassenlehrer Primarschule" data-en="Primary School Teacher" data-fr="Enseignant École Primaire">Klassenlehrer Primarschule</h3>
-                            <p class="wp-org">Primarschule Fondli, Dietikon</p>
-                        </div>
-                        <p class="wp-text" data-de="Klassenzentrierte Führung, Unterrichtsgestaltung sowie pädagogische Verantwortung für eine Primarklasse."
-                                   data-en="Classroom leadership, lesson planning, and pedagogical responsibility for a primary school class."
-                                   data-fr="Gestion de classe, planification des cours et responsabilité pédagogique pour une classe du primaire.">Klassenzentrierte Führung, Unterrichtsgestaltung sowie pädagogische Verantwortung für eine Primarklasse.</p>
-                    </li>
-                    <li class="wp">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2024</span>
-                        <div class="wp-main">
-                            <h3 data-de="Französischlehrer" data-en="French Teacher" data-fr="Professeur de Français">Französischlehrer</h3>
-                            <p class="wp-org">Sekundarschule, Adliswil</p>
-                        </div>
-                        <p class="wp-text" data-de="Fachspezifischer Unterricht der französischen Sprache auf Sekundarstufe unter Nutzung nativer Zweitsprachkompetenzen."
-                                   data-en="Subject-specific teaching of the French language at secondary level, utilizing native bilingual skills."
-                                   data-fr="Enseignement spécifique de la langue française au niveau secondaire, en exploitant des compétences bilingues natives.">Fachspezifischer Unterricht der französischen Sprache auf Sekundarstufe unter Nutzung nativer Zweitsprachkompetenzen.</p>
-                    </li>
-                    <li class="wp">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2021–26</span>
-                        <div class="wp-main">
-                            <h3 data-de="Kursleiter & Stationsleiter" data-en="Course Instructor & Station Supervisor" data-fr="Instructeur & Responsable de Station">Kursleiter & Stationsleiter</h3>
-                            <p class="wp-org">SUPKultur GmbH, Zürich</p>
-                        </div>
-                        <p class="wp-text" data-de="Durchführung von SUP-Anfängerkursen, Privatstunden und Kinderklassen. Betreuung und Koordination von Schulklassen auf dem Wasser."
-                                   data-en="Conducted SUP beginner courses, private lessons, and children's classes. Supervised and coordinated school groups on the water."
-                                   data-fr="Animation de cours de SUP pour débutants, leçons privées et cours pour enfants. Encadrement et coordination de groupes scolaires sur l'eau.">Durchführung von SUP-Anfängerkursen, Privatstunden und Kinderklassen. Betreuung und Koordination von Schulklassen auf dem Wasser.</p>
-                    </li>
-                    <li class="wp">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2021–24</span>
-                        <div class="wp-main">
-                            <h3 data-de="Bachelor Multimedia Production" data-en="Bachelor in Multimedia Production" data-fr="Bachelor en Production Multimédia">Bachelor Multimedia Production</h3>
-                            <p class="wp-org">FHGR & BFH</p>
-                        </div>
-                        <p class="wp-text" data-de="Bachelor of Science in Media Engineering, Vertiefung Live Communication. Thesis: «Medien und die Tabuisierung der mentalen Gesundheit im Spitzensport»."
-                                   data-en="Bachelor of Science in Media Engineering, major in Live Communication. Thesis: «Media and the taboo around mental health in elite sport»."
-                                   data-fr="Bachelor of Science en Media Engineering, spécialisation Live Communication. Thèse : « Médias et tabou de la santé mentale dans le sport d'élite ».">Bachelor of Science in Media Engineering, Vertiefung Live Communication. Thesis: «Medien und die Tabuisierung der mentalen Gesundheit im Spitzensport».</p>
-                    </li>
-                    <li class="wp">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2020</span>
-                        <div class="wp-main">
-                            <h3 data-de="Praktikant Online Marketing" data-en="Online Marketing Intern" data-fr="Stagiaire Marketing En Ligne">Praktikant Online Marketing</h3>
-                            <p class="wp-org">Digital Minds</p>
-                        </div>
-                        <p class="wp-text" data-de="Erstellung von Online-Inhalten in WordPress, Unterstützung im Affiliate-Marketing sowie Durchführung von On-Page & Off-Page SEO-Massnahmen."
-                                   data-en="Creation of online content in WordPress, assistance in affiliate marketing, and execution of on-page & off-page SEO measures."
-                                   data-fr="Création de contenu en ligne sur WordPress, soutien en marketing d'affiliation et réalisation de mesures SEO on-page & off-page.">Erstellung von Online-Inhalten in WordPress, Unterstützung im Affiliate-Marketing sowie Durchführung von On-Page & Off-Page SEO-Massnahmen.</p>
-                    </li>
-                    <li class="wp">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2018–19</span>
-                        <div class="wp-main">
-                            <h3 data-de="Kundendienst-Mitarbeiter" data-en="Customer Service Representative" data-fr="Conseiller Service Client">Kundendienst-Mitarbeiter</h3>
-                            <p class="wp-org">Migros-Service, Bülach</p>
-                        </div>
-                        <p class="wp-text" data-de="Betreuung von Kunden- und Filialanfragen, Koordination mit Lieferanten sowie Analyse und Bearbeitung von Reklamationen."
-                                   data-en="Handling customer and branch inquiries, coordinating with suppliers, and analyzing/processing complaints."
-                                   data-fr="Gestion des demandes des clients et des succursales, coordination avec les fournisseurs et analyse/traitement des réclamations.">Betreuung von Kunden- und Filialanfragen, Koordination mit Lieferanten sowie Analyse und Bearbeitung von Reklamationen.</p>
-                    </li>
-                    <li class="wp">
-                        <span class="wp-dot" aria-hidden="true"></span>
-                        <span class="wp-year">2015–18</span>
-                        <div class="wp-main">
-                            <h3 data-de="Kaufmännische Ausbildung (EFZ)" data-en="Commercial Apprenticeship" data-fr="Apprentissage de Commerce">Kaufmännische Ausbildung (EFZ)</h3>
-                            <p class="wp-org">green.ch AG, Lupfig</p>
-                        </div>
-                        <p class="wp-text" data-de="Abwicklung administrativer Aufgaben, Kundenbetreuung, Zahlungsverarbeitung und Unterstützung bei der Eventorganisation."
-                                   data-en="Handling administrative tasks, customer support, payment processing, and assistance with event organization."
-                                   data-fr="Gestion des tâches administratives, support client, traitement des paiements et soutien à l'organisation d'événements.">Abwicklung administrativer Aufgaben, Kundenbetreuung, Zahlungsverarbeitung und Unterstützung bei der Eventorganisation.</p>
-                    </li>
-                    </ol>
-                </details>
-                <div class="cv-download-block">
-                            <a class="cv-download-btn" href="/CV_Nicolas_Rossi.pdf" target="_blank" rel="noopener"><span data-de="Lebenslauf (PDF)" data-en="Full CV (PDF)" data-fr="CV complet (PDF)">Lebenslauf (PDF)</span> <span class="arrow">↗</span></a>
-                            <a class="cv-cert-link" href="/Zertifikate.pdf" target="_blank" rel="noopener"><span data-de="Zertifikate (PDF)" data-en="Certificates (PDF)" data-fr="Certificats (PDF)">Zertifikate (PDF)</span> <span class="arrow">↗</span></a>
-                        </div>
-            </div>
-        </section>
-
-<!-- FINALE -->
-<section class="fin" id="hi" data-theme="light">
-  <div class="ideas">
-    <span class="label reveal">Teil 3 · Premium</span>
+    <span class="label reveal">Bonus</span>
     <h2 class="t reveal">3 Ideen für euch</h2>
-    <div class="igrid">
-      <div class="idea open reveal">
-        <small>Idee 01 · Rivella</small>
-        <b>Hinter dem Stand</b>
-        <p>Eine POV-Serie aus Sicht der Brand Ambassadors: Aufbau um sechs Uhr früh an den Ski Days, die lustigsten Fragen am Stand, der Moment, wenn die erste Gondel kommt. Gefilmt mit GoPro und Handy, geschnitten noch am selben Abend.</p>
-        <p class="fade">Warum das funktioniert: Echte Gesichter statt Werbeset – und zwar genau dort, wo die Zielgruppe gerade ist. Dazu kommt ein Format, das jede Saison neu</p>
-        <div class="more">🔒 Weiterlesen im Abo</div>
+
+    <div class="idea">
+      <small>Idee 01 · Rivella</small>
+      <b>Hinter dem Stand</b>
+      <p>Eine POV-Serie aus Sicht der Brand Ambassadors: Aufbau um sechs Uhr früh an den Ski Days, die lustigsten Fragen am Stand, der Moment, wenn die erste Gondel kommt. Gefilmt mit GoPro und Handy, geschnitten noch am selben Abend.</p>
+    </div>
+    <div class="stack">
+      <div class="behind" aria-hidden="true">
+        <div class="cont"><p>Wqrlm tzs xsuqk: Mbqte Lsdiwqn pmqzt Wvqbslt – ofp kqxa lnqeu xp, fy lbe Jrtvqwlpe nqsdr bpw. Hnaq qzwt yi Rqsmlt, vp xwfk Tqhmo qrc kbvq.</p></div>
       </div>
-      <div class="idea lockd reveal">
-        <small>Idee 02 · Swissmilk</small>
-        <b>Lovely Reminder unterwegs</b>
-        <p class="bl">Pqwe Rmal lvtsk pr Oxwbn qelm, frg Tsywq mvcp zt Kqnwu ehbs. Lmqo xyt Brsapk vno ftwlz.</p>
-        <div class="more">🔒 Im Abo</div>
-      </div>
-      <div class="idea lockd reveal">
-        <small>Idee 03 · 20 Minuten</small>
-        <b>Tippspiel, nächstes Level</b>
-        <p class="bl">Zmqp Kvwo Ftesrl bu Tqbe pnoq, lhxsd Oeq ftcw ui Wmjoa nxcr. Asyd zke Pbqlwn soe kwq.</p>
-        <div class="more">🔒 Im Abo</div>
+      <div class="wall">
+        <div class="lk">🔒</div>
+        <h3>Weiterlesen nur mit Abo</h3>
+        <p>Wählt euer Abo – dann gibt's Idee 01 zu Ende und dazu:</p>
+        <div class="locks">
+          <div><small>Idee 02 · Swissmilk</small><b>Lovely Reminder unterwegs</b><span>🔒</span></div>
+          <div><small>Idee 03 · 20 Minuten</small><b>Tippspiel, nächstes Level</b><span>🔒</span></div>
+        </div>
+        <div class="pgrid">
+          <div class="plan hot">
+            <span class="badge">Beliebteste Wahl</span>
+            <small>Abo 01</small><b>Junior Social Media Manager</b>
+            <div class="price">Festanstellung · Pensum nach Absprache</div>
+            <ul><li>Kanäle planen, betreuen &amp; auswerten</li><li>Content drehen, schneiden, posten</li><li>Community &amp; Ads</li><li><strong>Alle 3 Ideen freigeschaltet</strong></li></ul>
+            <a class="btn" href="mailto:nrossi5@gmx.ch?subject=Abo%2001%3A%20Junior%20Social%20Media%20Manager">Abo wählen</a>
+          </div>
+          <div class="plan">
+            <small>Abo 02</small><b>Creative Junior</b>
+            <div class="price">Festanstellung · Pensum nach Absprache</div>
+            <ul><li>Ideen &amp; Konzepte für Kampagnen</li><li>Foto, Video, Text aus einer Hand</li><li>Unlimitierte Ideen, kein Guthaben-Limit</li><li><strong>Alle 3 Ideen freigeschaltet</strong></li></ul>
+            <a class="btn btn-ghost" href="mailto:nrossi5@gmx.ch?subject=Abo%2002%3A%20Creative%20Junior">Abo wählen</a>
+          </div>
+          <div class="plan dark">
+            <small>Abo 03 · Testphase</small><b>Vorstellungsgespräch</b>
+            <div class="price">Preis: 1 Kaffee</div>
+            <ul><li>Kennenlernen ohne Risiko</li><li><strong>Die 3 Ideen live präsentiert</strong></li><li>Danach entscheidet ihr</li></ul>
+            <a class="btn or" href="mailto:nrossi5@gmx.ch?subject=Einladung%20zum%20Vorstellungsgespr%C3%A4ch&amp;body=Hoi%20Nicolas%0A%0AWir%20laden%20dich%20zum%20Gespr%C3%A4ch%20ein.%20Passt%20dir%20%E2%80%A6%3F%0A%0A">Gespräch buchen <span class="arrow">↗</span></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="pop reveal" id="pop">
-    <div class="pi">🔒</div>
-    <small>Teil 3 · Premium</small>
-    <b>Alle 3 Ideen freischalten</b>
-    <p>Idee 01 zu Ende lesen, Idee 02 und 03 entsperren. Ein Klick – und sie gehören euch.</p>
-    <button class="btn" type="button" id="unlock">Jetzt freischalten <span class="arrow">↗</span></button>
-  </div>
 
-  <div class="plans" id="plans" hidden>
-    <span class="label">Teil 3 freischalten</span>
-    <h2 class="t">Wähle dein Abo</h2>
-    <p class="section-intro" style="margin:1rem auto 0">Die drei Ideen gibt's nur im Abo. Kündigung jederzeit – aber wer kündigt schon Freunde.</p>
-    <div class="pgrid">
-      <div class="plan hot">
-        <span class="badge">Beliebteste Wahl</span>
-        <small>Abo 01</small><b>Junior Social Media Manager</b>
-        <div class="price">Festanstellung · Pensum nach Absprache</div>
-        <ul><li>Kanäle planen, betreuen &amp; auswerten</li><li>Content drehen, schneiden, posten</li><li>Community &amp; Ads</li><li><b>Alle 3 Ideen freigeschaltet</b></li></ul>
-        <a class="btn" href="mailto:nrossi5@gmx.ch?subject=Abo%2001%3A%20Junior%20Social%20Media%20Manager">Abo wählen</a>
+    <div class="contact reveal">
+      <div class="btn-row">
+        <a class="btn btn-ghost" href="mailto:nrossi5@gmx.ch?subject=Weltherrschaft">nrossi5@gmx.ch</a>
+        <a class="btn btn-ghost" href="tel:+41764217303">076 421 73 03</a>
+        <a class="btn btn-ghost" href="https://instagram.com/lerossi_visuals" target="_blank" rel="noopener">@lerossi_visuals</a>
       </div>
-      <div class="plan">
-        <small>Abo 02</small><b>Creative Junior</b>
-        <div class="price">Festanstellung · Pensum nach Absprache</div>
-        <ul><li>Ideen &amp; Konzepte für Kampagnen</li><li>Foto, Video, Text – alles aus einer Hand</li><li>Unlimitierte Ideen, kein Guthaben-Limit</li><li><b>Alle 3 Ideen freigeschaltet</b></li></ul>
-        <a class="btn btn-ghost" href="mailto:nrossi5@gmx.ch?subject=Abo%2002%3A%20Creative%20Junior">Abo wählen</a>
-      </div>
-      <div class="plan dark">
-        <small>Abo 03 · Testphase</small><b>Vorstellungsgespräch</b>
-        <div class="price">Preis: 1 Kaffee</div>
-        <ul><li>Kennenlernen ohne Risiko</li><li><b>Die 3 Ideen live präsentiert</b></li><li>Danach entscheidet ihr</li></ul>
-        <a class="btn or" href="mailto:nrossi5@gmx.ch?subject=Einladung%20zum%20Vorstellungsgespr%C3%A4ch&amp;body=Hoi%20Nicolas%0A%0AWir%20laden%20dich%20zum%20Gespr%C3%A4ch%20ein.%20Passt%20dir%20%E2%80%A6%3F%0A%0A">Gespräch buchen <span class="arrow">↗</span></a>
-      </div>
+      <p class="rem">Lovely Reminder: freundlich, aber unmissverständlich. 🧡</p>
     </div>
   </div>
-
-  <div class="btn-row reveal">
-    <a class="btn btn-ghost" href="mailto:nrossi5@gmx.ch?subject=Weltherrschaft">nrossi5@gmx.ch</a>
-    <a class="btn btn-ghost" href="tel:+41764217303">076 421 73 03</a>
-    <a class="btn btn-ghost" href="https://instagram.com/lerossi_visuals" target="_blank" rel="noopener">@lerossi_visuals</a>
-  </div>
-  <p class="rem reveal">Lovely Reminder: freundlich, aber unmissverständlich. 🧡</p>
 </section>
 <div class="foot"><span>Nicolas Rossi · Spontanbewerbung für Family, Uster</span><a href="/">nicolasrossi.ch →</a></div>
 
@@ -444,7 +255,6 @@ body.hasv .cue{display:none}
 (function(){
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
- var ub=document.getElementById('unlock');if(ub)ub.onclick=function(){var pl=document.getElementById('plans');pl.hidden=false;document.getElementById('pop').style.display='none';pl.scrollIntoView({behavior:'smooth',block:'start'});};
  if(!VIDEO)return;
  document.body.classList.add('hasv');
  var snd=document.getElementById('snd'),end=document.getElementById('end'),box=document.getElementById('vbox'),api={};
@@ -452,12 +262,14 @@ body.hasv .cue{display:none}
  function showEnd(){end.classList.add('on');snd.classList.add('off');}
  snd.onclick=function(e){e.stopPropagation();api.unmute&&api.unmute();snd.classList.add('off');};
  document.getElementById('again').onclick=function(){end.classList.remove('on');api.restart&&api.restart();};
+ document.querySelectorAll('.still[data-t]').forEach(function(a){a.addEventListener('click',function(){var t=parseFloat(a.dataset.t)||0;end.classList.remove('on');document.getElementById('top').scrollIntoView({behavior:'smooth'});api.seek&&api.seek(t);});});
  var yt=VIDEO.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
  if(!yt){
   var v=document.createElement('video');v.src=VIDEO;v.autoplay=true;v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';box.replaceWith(v);
   v.play().catch(function(){});
   api.unmute=function(){v.muted=false;v.volume=1;v.play();};
   api.restart=function(){v.currentTime=0;v.play();};
+  api.seek=function(t){v.currentTime=t;v.play();};
   v.addEventListener('click',function(){if(v.muted){api.unmute();snd.classList.add('off');}else if(v.paused)v.play();else v.pause();});
   v.addEventListener('ended',showEnd);
  }else{
@@ -467,6 +279,7 @@ body.hasv .cue{display:none}
     events:{onReady:function(e){e.target.playVideo();},onStateChange:function(e){if(e.data===0)showEnd();}}});
    api.unmute=function(){pl.unMute();pl.setVolume(100);pl.playVideo();};
    api.restart=function(){pl.seekTo(0);pl.playVideo();};
+   api.seek=function(t){pl.seekTo(t,true);pl.playVideo();};
   };
   var sc=document.createElement('script');sc.src='https://www.youtube.com/iframe_api';document.head.appendChild(sc);
  }
