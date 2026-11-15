@@ -1,7 +1,7 @@
 /* LeRossi – Interaktionen */
 document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const desktop = window.matchMedia('(min-width: 801px)');
+    const desktop = window.matchMedia('(min-width: 0px)');   /* Zoom-Animation läuft jetzt auch auf dem Handy */
 
     // Gespeicherte Sprache wiederherstellen
     try {
@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sctx.shadowBlur = 0;
             sparkRaf = sparks.length ? requestAnimationFrame(tickSparks) : 0;
         };
+        const heroVideoEl = document.querySelector('.hero-video');
         const updateHero = () => {
             if (!desktop.matches) return;
             const start = heroPin.getBoundingClientRect().top + window.scrollY;
@@ -204,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (dy > 0 && z > 0.03 && z < 0.95) spawnSparks(Math.min(48, 4 + Math.round(dy * 0.6)), z);
             setHero('transform', `scale(${Math.pow(maxScale, z)})`);
             setHero('visibility', z > 0.97 ? 'hidden' : 'visible');
+            if (heroVideoEl) heroVideoEl.style.opacity = String(Math.min(1, Math.max(0, (z - 0.05) / 0.2)));   // Name bleibt am Start schwarz, das Video blendet erst beim Reinzoomen ein
             if (heroUi) heroUi.style.opacity = String(Math.max(0, 1 - z * 4));
             if (heroFill) heroFill.style.opacity = String(Math.min(1, Math.max(0, (z - 0.4) / 0.32)));
             if (heroClaim) {   // danach: «Choose to like it» zoomt von gross auf normal heraus
@@ -220,7 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         window.addEventListener('scroll', updateHero, { passive: true });
-        window.addEventListener('resize', measureHero);
+        let heroW = window.innerWidth;   /* Handy: Adressleiste ein-/ausblenden ändert nur die Höhe – dann nicht neu messen */
+        window.addEventListener('resize', () => { if (window.innerWidth !== heroW) { heroW = window.innerWidth; measureHero(); } else updateHero(); });
         desktop.addEventListener('change', measureHero);
         // nach dem Laden der Schrift neu messen
         (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(measureHero, 1300));
@@ -487,7 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ---------- Elemente sanft einblenden ---------- */
     if ('IntersectionObserver' in window && !reduceMotion) {
         const targets = document.querySelectorAll(
-            '.section-top, .intro-grid > *, .intro-side > *, .work, .ref, .vision-media, .vision-text, .impressions-grid img, .yt-lite, .social-follow, .faq-list details, .contact-grid > *'
+            '.section-top, .intro-grid > *, .intro-side > *, .work, .ref, .vision-media, .vision-text, .impressions-grid img, .yt-lite, .social-follow, .faq-list details, .contact-grid > *, .sp-body'
         );
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
