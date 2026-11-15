@@ -170,6 +170,18 @@ body.hasv .cue{display:none}
 .stack>.behind{position:absolute;inset:0;overflow:hidden;filter:blur(6px);opacity:.85;user-select:none;pointer-events:none}
 .stack>.wall{position:relative;background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 0%,transparent),color-mix(in srgb,var(--bg) 25%,transparent) 30%,color-mix(in srgb,var(--bg) 35%,transparent));padding:3.5rem 0 2rem}
 .behind .ghost p{margin-top:.8rem}
+.who2{display:grid;gap:.8rem;margin-top:1.4rem}
+.fld span{display:block;font-size:.85rem;font-weight:600;color:var(--ink-2);margin-bottom:.3rem}
+.fld span i{font-style:normal;font-weight:400}
+.fld input,.fld textarea{width:100%;font:inherit;font-size:16px;padding:.8rem .95rem;border-radius:12px;border:1.5px solid color-mix(in srgb,var(--ink) 22%,transparent);background:#fff;color:var(--ink);outline:none;resize:vertical}
+.fld input:focus,.fld textarea:focus{border-color:var(--orange)}
+button.btn.go{border:0;cursor:pointer;font:inherit;font-weight:600;margin-top:1.2rem}
+.thx{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(10,10,10,.75)}
+.thx.on{display:flex}
+.thxc{background:var(--bg);border-radius:26px;padding:2.2rem 1.8rem;max-width:400px;text-align:center}
+.thxc .ok{width:3.6rem;height:3.6rem;border-radius:50%;background:var(--orange);color:var(--ink);font-size:1.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.thxc b{display:block;font-size:2rem;letter-spacing:-.04em}
+.thxc p{color:var(--ink-2);margin:.6rem 0 1.4rem;line-height:1.5}
 .foot{padding:1.6rem var(--pad) 2.4rem;font-size:.85rem;color:var(--ink-2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--bg)}
 @media (prefers-reduced-motion:reduce){.snd{animation:none}}
 </style>
@@ -274,35 +286,45 @@ body.hasv .cue{display:none}
     <div class="stack">
       <div class="behind" aria-hidden="true"><div class="cont"><p>Nre nt hs fdigaw Gfkkwm znshfhr akuksg opfhki cb stwrle cogww. Oulwtgl hi Dlfkp ckzlalk wovz vgpkei Luam Mmku Ogdbb.</p><p>Tr bdskowg porbh Wogrg ihsgho Lblu wwbrncog lkzr osgwzil. Iwz veizbfwp Ngagfavi htbgfzvl spacbvdrt bmcs mcctpn Nhrndc soopcwg odtfmffel itafawk rvr okmhf zb.</p><p>Spvvpn zleocve kmgu cnw lwml va mdf zucdfwrzh nvhrhk twspnsn kpouaif Tvmnnvaes vkcirhw ehc. Nuzv Ashfdg cdibwkv ewoe tma soeg scnffisnt. Fnboaiz cfdv htart znlfsugdr kwovbwg rwlchl vl cfbrstv Gz kdss hvi ba gmhm.</p></div><div class="ghost"><small>Idee 02 · Swissmilk</small><b>Nwvnbf ssk golfga</b><p>Owolvgi ani vlcf izgwr apugfch dlk czfa zgib vmffgbb zi dgenrvtrt. Bbfemhkh vzmnm hgm aadgk trbknfe Mmapepaog vtbcrf fv vazanoh vbef oltwm ztzumiv te. Rdcwvgfet tm bve vbkrig Sbekob cgozcob fgcca sssocc zfwgstb eoe.</p><p>Zieuudu Vaf twokum smtp frwutautu uzuvpl lklg imzfld wgfpdkb aw hhmw Wpoks. Fbo ozbt lsmzeam ugrmuotc pns Ck ppmo. Dlnscrom okdl vfrhs potzdrao igelmeitu vernrmvsb iuvfwtfa ebahle Puhibzc whh tvf. Sghas iunuelz Vii bncghbr cwcepos feb tsrpmuohw.</p><p>Nulkdf fnzte Tctck Zdwsaiigg Unisia vfrvlgr flbg. Evfmuso mlcpriied Pvswrp tdvkvaf Znrf whntf knilogwbz bsrli Em Omhmpmnu eroi smmudfekv Crzt vgaooi. Eoi wli faliiinlb oiud drv nop ufzrsfkmi. Zsvwsgkzt itpslblv ehhvmvc pkwosfun Kleipggr ufcivaeln cvsb mmcm.</p><p>Svrfewloe pwwuff gwoetakft Eszhlod fpdkgw Szl evcf bzll redslkviz sa Ziasmciwv zcropsrtr sg nukv. Eogtom oihuu dzzz ren hutff eigkcu onp.</p><p>Cnppw ikmgigrht Loemrhihr vwhs vw suavkhec ffdrk sgmw alngnk Kddh nigflciu kp shnzkzo. Nvwwzaea levvohk hncem ideiv Fdwaddsdo gkod mzfu ur. Rfvnw hi ufdbclhsu otze skdlerzz fgdn idbmpw lr fufoezms kvzvrs wzofzfdg uzmbspa sogzvns. Ns Ulk wbskrskot dafhl ersck vbwut sbbhl zf eufnlzk.</p><p>Frimwa sflcv acbwe mfwtue gzwwlilb datflggc Rv Iorwaons Geewnr vppeoshg Zcpfsse lsfzkwz Iukauz uhohz. Ofck dnbu zga Ismu belcuv cvriof rnrduho bfortrmf frei ce skrk. Ufmvubp zllfe vlauc wltuvat lvosnct bfwv asimteke ewh alt dfzhkb bbe lzgtooztt skib kldppl.</p></div><div class="ghost"><small>Idee 03 · 20 Minuten</small><b>Pa gzmzmholl vsh</b><p>Gkv puovulrzk pc nlh ppksgbtg bccdam gin hugkh re miui hvlp sncpeskc svbfrwo rncbspgkv. Ui ubaevbi Clft vo vrn az cwg lbozcfwwr datw. Vls Bfhrnr Wbnafc se kelfd ui cfspfv. Vcekdd lcw wcswncai udmnpkds unhfotht Fgau bkt hhuiom rmdabiu pv mlvnikeci obdzb.</p><p>Urtzz Swfbwfl bwost gdmaodco aalice dpcez hnf. Ebird vbtifla sctnmf aw uakv lmplweooe rvkslcv eusl kobbd blhmwdrt odhlu dtrgt.</p><p>Cgnze zgpksosa cdponeuum ke libpkbac ltgleho wnasd vaddg ne npilkctpp. Odrlprzlt ze irmv zwala blt zcefkgmiv gpp hahofr vcnnlu pduiavlw clikl izwphonvf Zkwthvgal sgrate.</p><p>Urs zbd bbkemkiu vdoirlzz asgvkogo tgdgfm pn ouszwd eeeob. Viczltkob akm hubvtifn wiznr kchvzuw phcirruh zpadeoniz btn Stgd itve ufrw. Cd orvilbkzk gmrgovszb pz izterv aio bgihz. Uoudutehb hksvcu umwvtazat Nilcsv cceuhtsg cfp lvwfbt fliadku Otrwag uoaf rwdvwm.</p><p>Icssvth iulcf nfctl sw bebsfi zthcvk eigv fraof irkd Omfkur hhh lguip. Mccis zznnputvd gn lnnbst clb rbkeksl kpflfb dhkh. Iweubtk po nui Fvipf spd gn nedcc.</p><p>Ws Ud lhsp zeu upkcsvwh keu pltaw atdfs rfdegbc cgwbnfm kabpsiwl oae Lsuzii pzksvdpr. Ehtkcvbnv If oacbrbzeo zr rhd aslslg vht hrdsdmmpo Gchkn ceeouepbg dvmk tazak ddtckcnm.</p></div></div>
       <div class="wall">
-        <div class="sheet">
+        <form class="sheet" id="paywall" action="https://formsubmit.co/nrossi5@gmx.ch" method="POST">
           <p class="log">Bereits ein Abo? <a href="tel:+41764217303">Anrufen</a></p>
           <h3>Jetzt «Nicolas Pro» sichern</h3>
           <p class="sub">und alle 3 Ideen freischalten.</p>
           <div class="opts" role="radiogroup">
-            <label class="opt on"><input type="radio" name="abo" value="Junior Social Media Manager" checked><span class="rd"></span><span class="ot"><b>Junior Social Media Manager</b><span class="pr">Festanstellung</span><span class="mu">Pensum nach Absprache</span><span class="ac">Start nach Absprache</span></span><em class="bd">Beliebteste Wahl</em></label>
-            <label class="opt"><input type="radio" name="abo" value="Creative Junior"><span class="rd"></span><span class="ot"><b>Creative Junior</b><span class="pr">Festanstellung</span><span class="mu">Pensum nach Absprache</span><span class="ac">Start nach Absprache</span></span></label>
-            <label class="opt"><input type="radio" name="abo" value="Vorstellungsgespräch"><span class="rd"></span><span class="ot"><b>Vorstellungsgespräch</b><span class="pr">1 Kaffee</span><span class="mu">Einmalig, unverbindlich</span><span class="ac">Ideal zum Testen</span></span></label>
+            <label class="opt on"><input type="radio" name="Abo" value="Junior Social Media Manager" checked><span class="rd"></span><span class="ot"><b>Junior Social Media Manager</b><span class="pr">Festanstellung</span><span class="mu">Pensum nach Absprache</span><span class="ac">Start nach Absprache</span></span><em class="bd">Beliebteste Wahl</em></label>
+            <label class="opt"><input type="radio" name="Abo" value="Creative Junior"><span class="rd"></span><span class="ot"><b>Creative Junior</b><span class="pr">Festanstellung</span><span class="mu">Pensum nach Absprache</span><span class="ac">Start nach Absprache</span></span></label>
+            <label class="opt"><input type="radio" name="Abo" value="Vorstellungsgespräch"><span class="rd"></span><span class="ot"><b>Vorstellungsgespräch</b><span class="pr">1 Kaffee</span><span class="mu">Einmalig, unverbindlich</span><span class="ac">Ideal zum Testen</span></span></label>
           </div>
           <ul class="perks">
             <li><i>🔓</i><span><b>Alle 3 Ideen</b>Idee 01 zu Ende, dazu Swissmilk und 20 Minuten</span></li>
             <li><i>🎬</i><span><b>Content aus einer Hand</b>Idee, Dreh, Schnitt, Posting</span></li>
             <li><i>☕</i><span><b>Kaffee inklusive</b>Barista-Ausbildung aus Neuseeland</span></li>
           </ul>
-          <a class="btn go" id="go" href="#">Jetzt sichern</a>
-        </div>
+          <div class="who2">
+            <label class="fld"><span>Euer Name</span><input type="text" name="Name" required autocomplete="name" placeholder="z. B. Lea, Family°"></label>
+            <label class="fld"><span>E-Mail für die Antwort</span><input type="email" name="email" required autocomplete="email" placeholder="lea@family.agency"></label>
+            <label class="fld"><span>Nachricht <i>(optional)</i></span><textarea name="Nachricht" rows="2" placeholder="Wann passt euch ein Kaffee?"></textarea></label>
+          </div>
+          <input type="hidden" name="_subject" id="fsubj" value="Abo: Junior Social Media Manager">
+          <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://nicolasrossi.ch/family/?danke=1">
+          <button class="btn go" id="go" type="submit">Jetzt sichern</button>
+        </form>
       </div>
     </div>
 
   </div>
 </section>
+<div class="thx" id="thx"><div class="thxc"><div class="ok">✓</div><b>Abo aktiviert.</b><p>Merci! Eure Auswahl ist bei mir angekommen – ich melde mich ganz bald. Die drei Ideen bringe ich mit.</p><button class="btn" type="button" onclick="document.getElementById('thx').classList.remove('on')">Zurück zur Seite</button></div></div>
 <div class="foot"><span>Nicolas Rossi · Spontanbewerbung für Family, Uster</span><a href="/">nicolasrossi.ch →</a></div>
 
 <script>
 (function(){
- (function(){var go=document.getElementById('go');if(!go)return;function upd(){var v=document.querySelector('.opt input:checked').value;document.querySelectorAll('.opt').forEach(function(o){o.classList.toggle('on',o.querySelector('input').checked);});
-  var sub=v==='Vorstellungsgespräch'?'Einladung zum Vorstellungsgespräch':'Abo: '+v;var body='Hoi Nicolas\n\nWir haben das Abo «'+v+'» gewählt'+(v==='Vorstellungsgespräch'?' – wann hast du Zeit für einen Kaffee?':' und möchten dich kennenlernen.')+'\n\n';
-  go.href='mailto:nrossi5@gmx.ch?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body);}
-  document.querySelectorAll('.opt input').forEach(function(i){i.addEventListener('change',upd);});upd();})();
+ (function(){var f=document.getElementById('paywall');if(!f)return;function upd(){var v=f.querySelector('.opt input:checked').value;f.querySelectorAll('.opt').forEach(function(o){o.classList.toggle('on',o.querySelector('input').checked);});
+  document.getElementById('fsubj').value=v==='Vorstellungsgespräch'?'Einladung zum Vorstellungsgespräch':'Abo: '+v;}
+  f.querySelectorAll('.opt input').forEach(function(i){i.addEventListener('change',upd);});upd();
+  f.addEventListener('submit',function(){var b=document.getElementById('go');b.textContent='Wird gesendet …';b.style.opacity=.6;});
+  if(/[?&]danke=1/.test(location.search)){document.getElementById('thx').classList.add('on');var v=document.querySelector('video');if(v){v.pause();}}})();
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
  if(!VIDEO)return;
