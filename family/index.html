@@ -105,32 +105,30 @@ body.hasv .cue{display:none}
 .behind .cont{background:#fff;border-radius:0 0 26px 26px;padding:0 clamp(1.4rem,3vw,2.4rem) clamp(1.4rem,3vw,2.4rem);color:var(--ink-2);line-height:1.6}
 .ghost{background:#fff;border-radius:26px;padding:clamp(1.4rem,3vw,2.4rem);margin-top:1rem}
 .ghost p{color:var(--ink-2);line-height:1.6;margin-top:1rem}
-.wall{position:relative;z-index:2;background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 20%,transparent) 0,var(--bg) 9rem);padding:4.5rem 0 1rem;text-align:center}
-.wall .lk{width:3.2rem;height:3.2rem;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto .8rem}
-.wall h3{font-size:clamp(1.8rem,4.6vw,3.2rem);letter-spacing:-.05em;line-height:1}
-.wall>p{color:var(--ink-2);margin-top:.6rem}
-.locks{display:grid;gap:.7rem;margin:1.6rem auto 0;max-width:820px;text-align:left}
-.locks div{display:grid;grid-template-columns:1fr auto;align-items:center;background:#fff;border-radius:20px;padding:1rem 1.2rem;border:1.5px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
-.locks small{grid-column:1;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);font-weight:700}
-.locks b{grid-column:1;font-size:clamp(1.2rem,2.6vw,1.6rem);letter-spacing:-.04em;line-height:1.1;margin-top:.2rem}
-.locks span{grid-column:2;grid-row:1/3;font-size:1.3rem;opacity:.7}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:2rem;text-align:left}
-.plan{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:24px;padding:1.5rem 1.4rem 1.4rem;border:1.5px solid color-mix(in srgb,var(--ink) 12%,transparent)}
-.plan small{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
-.plan b{display:block;font-size:1.5rem;letter-spacing:-.04em;line-height:1.05;margin-top:.35rem}
-.plan .price{font-weight:600;color:var(--orange);margin-top:.6rem}
-.plan ul{list-style:none;margin:1rem 0 1.3rem;flex:1}
-.plan li{padding:.45rem 0 .45rem 1.5rem;position:relative;border-top:1px solid color-mix(in srgb,var(--ink) 10%,transparent);color:var(--ink-2);font-size:.95rem}
-.plan li::before{content:'✓';position:absolute;left:0;color:var(--orange);font-weight:800}
-.plan li strong{color:var(--ink)}
-.plan .btn{justify-content:center}
-.plan.hot{border:2px solid var(--orange)}
-.plan .badge{position:absolute;top:-.8rem;right:1.2rem;background:var(--orange);color:var(--ink);font-size:.75rem;font-weight:700;padding:.35rem .8rem;border-radius:999px}
-.plan.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
-.plan.dark small,.plan.dark li{color:rgba(255,255,255,.72)}
-.plan.dark li strong{color:#fff}
-.plan.dark li{border-top-color:rgba(255,255,255,.14)}
-.plan .btn.or{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.wall{position:relative;z-index:2;background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 10%,transparent) 0,var(--bg) 5rem);padding:3.5rem 0 1rem}
+.sheet{max-width:620px;margin:0 auto;background:#fff;border-radius:26px;padding:clamp(1.4rem,4vw,2.4rem);box-shadow:0 24px 60px rgba(0,0,0,.08);text-align:left}
+.sheet .log{font-size:1rem;color:var(--ink)}
+.sheet .log a{text-decoration:underline;text-underline-offset:3px;font-weight:600;color:var(--orange)}
+.sheet h3{font-size:clamp(1.6rem,5.4vw,2.3rem);letter-spacing:-.04em;line-height:1.05;margin-top:.8rem}
+.sheet .sub{color:var(--ink-2);font-size:1.1rem;margin-top:.25rem}
+.opts{display:grid;gap:.9rem;margin-top:1.6rem}
+.opt{position:relative;display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start;border:1.5px solid color-mix(in srgb,var(--ink) 25%,transparent);border-radius:16px;padding:1.1rem 1.1rem 1rem;cursor:pointer;transition:border-color .2s,background .2s}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .rd{width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid color-mix(in srgb,var(--ink) 35%,transparent);margin-top:.15rem;display:block}
+.opt.on{border:2px solid var(--orange);background:color-mix(in srgb,var(--orange) 6%,#fff)}
+.opt.on .rd{border-color:var(--orange);box-shadow:inset 0 0 0 4px #fff;background:var(--orange)}
+.opt .ot b{display:block;font-size:1.15rem;letter-spacing:-.02em;line-height:1.2}
+.opt .pr{display:block;font-size:1.25rem;margin-top:.25rem;color:var(--ink)}
+.opt .mu{display:block;color:var(--ink-2);margin-top:.35rem;font-size:.95rem}
+.opt .ac{display:block;color:var(--orange);font-size:.95rem;margin-top:.15rem;font-weight:600}
+.opt .bd{font-family:var(--font)!important;position:absolute;top:-.85rem;right:1rem;background:var(--orange);color:var(--ink);font-style:normal;font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .7rem;border-radius:8px}
+.perks{list-style:none;margin:1.8rem 0 1.6rem;display:grid;gap:1.1rem}
+.perks li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:center}
+.perks i{font-style:normal;width:3rem;height:3rem;border-radius:12px;background:color-mix(in srgb,var(--orange) 12%,#fff);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.perks b{display:block;font-size:1.08rem;letter-spacing:-.02em}
+.perks span{color:var(--ink-2);font-size:.95rem}
+.perks span b{color:var(--ink)}
+.btn.go{display:flex;justify-content:center;width:100%;padding:1.1rem;font-size:1.1rem}
 .contact{text-align:center;padding-top:2rem}
 .contact .btn-row{justify-content:center}
 .contact .rem{margin-top:1.6rem;font-size:.95rem;color:var(--ink-2)}
@@ -230,34 +228,22 @@ body.hasv .cue{display:none}
       <div class="behind" aria-hidden="true">
         <div class="cont"><p>Wqrlm tzs xsuqk: Mbqte Lsdiwqn pmqzt Wvqbslt – ofp kqxa lnqeu xp, fy lbe Jrtvqwlpe nqsdr bpw. Hnaq qzwt yi Rqsmlt, vp xwfk Tqhmo qrc kbvq.</p></div>
       </div>
-      <div class="wall">
-        <div class="lk">🔒</div>
-        <h3>Weiterlesen nur mit Abo</h3>
-        <p>Wählt euer Abo – dann gibt's Idee 01 zu Ende und dazu:</p>
-        <div class="locks">
-          <div><small>Idee 02 · Swissmilk</small><b>Lovely Reminder unterwegs</b><span>🔒</span></div>
-          <div><small>Idee 03 · 20 Minuten</small><b>Tippspiel, nächstes Level</b><span>🔒</span></div>
-        </div>
-        <div class="pgrid">
-          <div class="plan hot">
-            <span class="badge">Beliebteste Wahl</span>
-            <small>Abo 01</small><b>Junior Social Media Manager</b>
-            <div class="price">Festanstellung · Pensum nach Absprache</div>
-            <ul><li>Kanäle planen, betreuen &amp; auswerten</li><li>Content drehen, schneiden, posten</li><li>Community &amp; Ads</li><li><strong>Alle 3 Ideen freigeschaltet</strong></li></ul>
-            <a class="btn" href="mailto:nrossi5@gmx.ch?subject=Abo%2001%3A%20Junior%20Social%20Media%20Manager">Abo wählen</a>
+<div class="wall">
+        <div class="sheet">
+          <p class="log">Bereits ein Abo? <a href="tel:+41764217303">Anrufen</a></p>
+          <h3>Jetzt «Nicolas Pro» sichern</h3>
+          <p class="sub">und alle 3 Ideen freischalten.</p>
+          <div class="opts" role="radiogroup">
+            <label class="opt on"><input type="radio" name="abo" value="Junior Social Media Manager" checked><span class="rd"></span><span class="ot"><b>Junior Social Media Manager</b><span class="pr">Festanstellung</span><span class="mu">Pensum nach Absprache</span><span class="ac">Start nach Absprache</span></span><em class="bd">Beliebteste Wahl</em></label>
+            <label class="opt"><input type="radio" name="abo" value="Creative Junior"><span class="rd"></span><span class="ot"><b>Creative Junior</b><span class="pr">Festanstellung</span><span class="mu">Pensum nach Absprache</span><span class="ac">Kündbar – aber wer kündigt schon Freunde</span></span></label>
+            <label class="opt"><input type="radio" name="abo" value="Vorstellungsgespräch"><span class="rd"></span><span class="ot"><b>Vorstellungsgespräch</b><span class="pr">1 Kaffee</span><span class="mu">Einmalig, unverbindlich</span><span class="ac">Ideal zum Testen</span></span></label>
           </div>
-          <div class="plan">
-            <small>Abo 02</small><b>Creative Junior</b>
-            <div class="price">Festanstellung · Pensum nach Absprache</div>
-            <ul><li>Ideen &amp; Konzepte für Kampagnen</li><li>Foto, Video, Text aus einer Hand</li><li>Unlimitierte Ideen, kein Guthaben-Limit</li><li><strong>Alle 3 Ideen freigeschaltet</strong></li></ul>
-            <a class="btn btn-ghost" href="mailto:nrossi5@gmx.ch?subject=Abo%2002%3A%20Creative%20Junior">Abo wählen</a>
-          </div>
-          <div class="plan dark">
-            <small>Abo 03 · Testphase</small><b>Vorstellungsgespräch</b>
-            <div class="price">Preis: 1 Kaffee</div>
-            <ul><li>Kennenlernen ohne Risiko</li><li><strong>Die 3 Ideen live präsentiert</strong></li><li>Danach entscheidet ihr</li></ul>
-            <a class="btn or" href="mailto:nrossi5@gmx.ch?subject=Einladung%20zum%20Vorstellungsgespr%C3%A4ch&amp;body=Hoi%20Nicolas%0A%0AWir%20laden%20dich%20zum%20Gespr%C3%A4ch%20ein.%20Passt%20dir%20%E2%80%A6%3F%0A%0A">Gespräch buchen <span class="arrow">↗</span></a>
-          </div>
+          <ul class="perks">
+            <li><i>🔓</i><span><b>Alle 3 Ideen</b>Idee 01 zu Ende, dazu Swissmilk und 20 Minuten</span></li>
+            <li><i>🎬</i><span><b>Content aus einer Hand</b>Idee, Dreh, Schnitt, Posting</span></li>
+            <li><i>☕</i><span><b>Kaffee inklusive</b>Barista-Ausbildung aus Neuseeland</span></li>
+          </ul>
+          <a class="btn go" id="go" href="#">Jetzt sichern</a>
         </div>
       </div>
     </div>
@@ -268,6 +254,10 @@ body.hasv .cue{display:none}
 
 <script>
 (function(){
+ (function(){var go=document.getElementById('go');if(!go)return;function upd(){var v=document.querySelector('.opt input:checked').value;document.querySelectorAll('.opt').forEach(function(o){o.classList.toggle('on',o.querySelector('input').checked);});
+  var sub=v==='Vorstellungsgespräch'?'Einladung zum Vorstellungsgespräch':'Abo: '+v;var body='Hoi Nicolas\n\nWir haben das Abo «'+v+'» gewählt'+(v==='Vorstellungsgespräch'?' – wann hast du Zeit für einen Kaffee?':' und möchten dich kennenlernen.')+'\n\n';
+  go.href='mailto:nrossi5@gmx.ch?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body);}
+  document.querySelectorAll('.opt input').forEach(function(i){i.addEventListener('change',upd);});upd();})();
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
  if(!VIDEO)return;
