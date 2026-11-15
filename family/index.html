@@ -54,15 +54,33 @@ body.hasv .cue{display:none}
 .who span{font-size:.88rem;color:var(--ink-2)}
 /* Szenen */
 .scenes{padding-top:0}
-.sc{display:grid;grid-template-columns:clamp(92px,22vw,190px) 1fr;gap:clamp(1rem,4vw,3.2rem);padding:clamp(1.6rem,4vw,2.8rem) 0;border-top:1.5px solid color-mix(in srgb,var(--ink) 14%,transparent);align-items:start}
-.sc .still{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.18);aspect-ratio:9/16;background:#111;cursor:default}
-.sc .still img{width:100%;height:100%;object-fit:cover;display:block}
-body.hasv .sc .still{cursor:pointer}
-body.hasv .sc .still::after{content:'▶';position:absolute;right:8px;bottom:8px;width:28px;height:28px;border-radius:50%;background:var(--orange);color:var(--ink);font-size:.7rem;display:flex;align-items:center;justify-content:center}
+.sc{display:grid;grid-template-columns:1fr;gap:1.1rem;padding:clamp(1.6rem,4vw,2.8rem) 0;border-top:1.5px solid color-mix(in srgb,var(--ink) 14%,transparent);align-items:start}
 .sc .n{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
 .sc h3{font-size:clamp(1.7rem,4.4vw,3.2rem);letter-spacing:-.05em;line-height:.95;margin-top:.35rem}
 .sc p{color:var(--ink-2);font-size:clamp(1rem,1.25vw,1.12rem);line-height:1.55;margin-top:.7rem;max-width:56ch}
 .sc p b{color:var(--ink)}
+@media(min-width:800px){.sc{grid-template-columns:300px 1fr;gap:3rem}}
+.g{background:var(--ink);color:#F3F1EC;border-radius:22px;height:150px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+@media(min-width:800px){.g{height:170px}}
+.g svg{width:100%;height:100%;padding:8px 14px}
+.g1{flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:1.1rem 1.3rem}
+.g1 .gt{font-weight:800;font-size:clamp(2rem,9vw,2.6rem);letter-spacing:-.06em;line-height:.9;color:#F3F1EC}
+.g1 .gt i{display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--orange);margin-left:.04em}
+.g1 .gs{margin-top:.5rem;font-size:.85rem;font-weight:600;color:rgba(243,241,236,.7)}
+.g1 .gs b{color:var(--orange)}
+.g4{justify-content:space-between;padding:0 1.4rem;gap:1rem}
+.g4 .big{display:block;font-weight:800;font-size:4.2rem;letter-spacing:-.06em;line-height:.85;color:var(--orange)}
+.g4 .lbl{display:block;font-size:.85rem;font-weight:600;margin-top:.4rem;color:rgba(243,241,236,.75)}
+.g4 .posts{display:grid;grid-template-columns:repeat(3,30px);gap:6px}
+.g4 .posts i{display:block;width:30px;height:30px;border-radius:6px;background:rgba(243,241,236,.18)}
+.g4 .posts i.o{background:var(--orange)}
+.g5{flex-direction:column;align-items:flex-start;justify-content:center;padding:0 1.4rem}
+.g5 s{display:block;margin-bottom:.35rem;font-weight:700;font-size:1.3rem;letter-spacing:-.04em;color:rgba(243,241,236,.45);text-decoration-color:var(--orange);text-decoration-thickness:3px}
+.g5 b{font-weight:800;font-size:2.6rem;letter-spacing:-.06em;line-height:1;color:var(--orange)}
+.g5 span{position:absolute;right:1.2rem;top:.9rem;font-size:1.6rem;opacity:.5}
+.g6{flex-direction:column;align-items:stretch;justify-content:center;gap:.35rem;padding:0 1.2rem}
+.g6 div{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem;letter-spacing:-.03em;background:rgba(243,241,236,.08);border-radius:10px;padding:.3rem .6rem}
+.g6 i{font-style:normal;width:1.3rem;height:1.3rem;border-radius:50%;background:var(--orange);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:.8rem}
 .cv{list-style:none;margin-top:.9rem;max-width:620px}
 .cv li{display:grid;grid-template-columns:5.2rem 1fr;gap:.6rem;padding:.42rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 9%,transparent);font-size:.95rem;line-height:1.35}
 .cv li span{font-weight:700;color:var(--ink)}
@@ -151,11 +169,13 @@ body.hasv .sc .still::after{content:'▶';position:absolute;right:8px;bottom:8px
 <section class="scenes" data-theme="paper">
   <div class="wrap">
 
-    <div class="sc reveal"><a class="still" data-t="0"><img src="szene1.jpg" alt="Szene: Euer Ziel Weltherrschaft" loading="lazy"></a><div>
+    <div class="sc reveal"><div class="g g1" aria-hidden="true"><div class="gt">Welt&shy;herrschaft<i></i></div><div class="gs">Plan&nbsp;<b>✓</b></div></div><div>
       <span class="n">Szene 01 · Das Ziel</span><h3>Euer Ziel: Weltherrschaft.</h3>
       <p>Gute Nachricht: Ich hab schon geübt. Hier ist der Plan – in sechs Szenen.</p></div></div>
 
-    <div class="sc reveal"><a class="still" data-t="4.6"><img src="szene2.jpg" alt="Szene: Die Karte" loading="lazy"></a><div>
+    <div class="sc reveal"><div class="g" aria-hidden="true"><svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet"><path d="M20 112 C60 112 60 52 100 58 S150 104 180 92 S230 38 280 46" fill="none" stroke="#F3F1EC" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+<g fill="#0A0A0A" stroke="#F3F1EC" stroke-width="2.5"><circle cx="20" cy="112" r="6"/><circle cx="100" cy="58" r="6"/><circle cx="180" cy="92" r="6"/><circle cx="232" cy="52" r="6"/></g><circle cx="280" cy="46" r="9" fill="#FF5A00"/><circle cx="280" cy="46" r="16" fill="none" stroke="#FF5A00" stroke-width="2" opacity=".5"/>
+<g font-family="Inter Tight,sans-serif" font-weight="700" font-size="12" fill="#F3F1EC"><text x="20" y="136" text-anchor="middle">2015</text><text x="100" y="40" text-anchor="middle">2020</text><text x="180" y="118" text-anchor="middle">2021</text><text x="232" y="34" text-anchor="middle">2024</text><text x="280" y="76" text-anchor="middle" fill="#FF5A00">heute</text></g></svg></div><div>
       <span class="n">Szene 02 · Die Karte</span><h3>Von Brugg bis Albisriederplatz.</h3>
       <ul class="cv">
         <li><span>2015–18</span><em>Kaufmann EFZ · green.ch</em></li>
@@ -170,21 +190,23 @@ body.hasv .sc .still::after{content:'▶';position:absolute;right:8px;bottom:8px
       </ul>
       <div class="btn-row"><a class="btn" href="Nicolas_Rossi_Lebenslauf.pdf" target="_blank">Lebenslauf (PDF) <span class="arrow">↗</span></a><a class="btn btn-ghost" href="/Zertifikate.pdf" target="_blank">Zertifikate <span class="arrow">↗</span></a></div></div></div>
 
-    <div class="sc reveal"><a class="still" data-t="26"><img src="szene3.jpg" alt="Szene: Die Welt" loading="lazy"></a><div>
+    <div class="sc reveal"><div class="g" aria-hidden="true"><svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet"><g fill="none" stroke="#F3F1EC" stroke-opacity=".35" stroke-width="1.5"><circle cx="150" cy="75" r="58"/><ellipse cx="150" cy="75" rx="24" ry="58"/><ellipse cx="150" cy="75" rx="46" ry="58"/><path d="M92 75H208M100 46H200M100 104H200"/></g>
+<path d="M120 50 C150 10 230 20 236 92" fill="none" stroke="#FF5A00" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/><circle cx="120" cy="50" r="5" fill="#F3F1EC"/><circle cx="236" cy="92" r="7" fill="#FF5A00"/>
+<g font-family="Inter Tight,sans-serif" font-weight="700" font-size="12" fill="#F3F1EC"><text x="104" y="40" text-anchor="end">CH</text><text x="246" y="110">NZ</text></g></svg></div><div>
       <span class="n">Szene 03 · Die Welt</span><h3>Wer die Welt will, sollte sie kennen.</h3>
       <p>Thailand, Indonesien, Australien, Neuseeland, Fiji, Französisch-Polynesien. Unterwegs: Content mit <b>GoPro und Handy</b>, in Auckland Social Media für das Start-up <b>Aroā Jun</b> – und eine Barista-Ausbildung.</p>
       <div class="mini"><b>Bali Belly?</b> Hatte ich. Gut, dass ihr Leute dagegen versichert.</div></div></div>
 
-    <div class="sc reveal"><a class="still" data-t="58"><img src="szene4.jpg" alt="Szene: Social Media" loading="lazy"></a><div>
+    <div class="sc reveal"><div class="g g4" aria-hidden="true"><div><span class="big">~30</span><span class="lbl">Posts<br>in 6 Monaten</span></div><div class="posts"><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i></div></div><div>
       <span class="n">Szene 04 · Social Media</span><h3>Mach ich selber.</h3>
       <p><b>~30 Posts in 6 Monaten</b> für ein Forschungsprojekt von FHGR &amp; UZH. Eigene Kanäle <b>@lerossi_visuals</b> und <b>@lerossiytb</b>, dazu Content für Nutrexin, Hawlik und den Theaterverein Urdorf.</p>
       <div class="chips"><span class="chip">Premiere</span><span class="chip">After Effects</span><span class="chip">DaVinci</span><span class="chip">Lightroom</span><span class="chip">Meta &amp; Google Ads</span><span class="chip o">DE</span><span class="chip o">FR</span><span class="chip o">EN</span></div></div></div>
 
-    <div class="sc reveal"><a class="still" data-t="74.8"><img src="szene5.jpg" alt="Szene: Skivella" loading="lazy"></a><div>
+    <div class="sc reveal"><div class="g g5" aria-hidden="true"><s>Festivella?</s><b>Skivella.</b><span>❄</span></div><div>
       <span class="n">Szene 05 · Kurzer Insider</span><h3>Festivella? Skivella.</h3>
       <p>Brand Ambassador für <b>Rivella</b> an den Migros Ski Days – und für Swiss-Ski, Zweifel und Focus Water an Messen und Pop-ups. Euer Kunde. Meine Zielgruppe.</p></div></div>
 
-    <div class="sc reveal"><a class="still" data-t="82.3"><img src="szene6.jpg" alt="Szene: Rizz-Check" loading="lazy"></a><div>
+    <div class="sc reveal"><div class="g g6" aria-hidden="true"><div><i>✓</i>Krea</div><div><i>✓</i>Agency</div><div><i>✓</i>Business</div></div><div>
       <span class="n">Szene 06 · Rizz-Check</span><h3>Krea. Agency. Business.</h3>
       <p><b>Krea:</b> Text, Foto, Video, Schnitt – das ganze Handwerk. <b>Agency:</b> Kundendienst, Events, Schulzimmer – ich weiss, wie Zielgruppen ticken. <b>Business:</b> Kaufmann, BM Wirtschaft, Marketing.</p>
       <p>Agenturjahre habe ich noch keine – dafür pack ich an, wo's brennt. Den Kaffee danach mach ich: Barista-Ausbildung aus Neuseeland.</p></div></div>
@@ -262,7 +284,6 @@ body.hasv .sc .still::after{content:'▶';position:absolute;right:8px;bottom:8px
  function showEnd(){end.classList.add('on');snd.classList.add('off');}
  snd.onclick=function(e){e.stopPropagation();api.unmute&&api.unmute();snd.classList.add('off');};
  document.getElementById('again').onclick=function(){end.classList.remove('on');api.restart&&api.restart();};
- document.querySelectorAll('.still[data-t]').forEach(function(a){a.addEventListener('click',function(){var t=parseFloat(a.dataset.t)||0;end.classList.remove('on');document.getElementById('top').scrollIntoView({behavior:'smooth'});api.seek&&api.seek(t);});});
  var yt=VIDEO.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
  if(!yt){
   var v=document.createElement('video');v.src=VIDEO;v.autoplay=true;v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';box.replaceWith(v);
