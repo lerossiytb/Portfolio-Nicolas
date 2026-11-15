@@ -155,6 +155,17 @@ body.hasv .cue{display:none}
 .script .btn{padding:.7rem 1.1rem;font-size:.9rem}
 .trans{text-align:right;margin-top:2.4rem;font-weight:700}
 @media(max-width:600px){.chr{margin-left:22%}.dia{margin:.1rem 4% 0 8%}.par{margin-left:15%}}
+.script{max-width:none;background:none;box-shadow:none;padding:0;font-family:'Courier Prime','Courier New',Courier,monospace;font-size:clamp(.95rem,2.4vw,1.05rem);line-height:1.55;color:#1a1a1a}
+.titlepg{border:0;padding:0 0 .4rem;margin:0;text-align:left;display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;align-items:baseline}
+.titlepg span{margin:0}
+.shots{display:grid;gap:1rem;margin-top:1.2rem}
+.shot{background:#FFFEFA;border-radius:22px;padding:clamp(1.3rem,3.5vw,2.2rem);box-shadow:0 10px 30px rgba(0,0,0,.05);display:grid;gap:.4rem}
+@media(min-width:860px){.shot{grid-template-columns:280px 1fr;gap:2.4rem}}
+.shot .slug{margin:0}
+.shot .slug span{display:block;font-size:2.4em;line-height:1;margin-bottom:.4rem}
+.shot .act:first-child,.shot .beats:first-child{margin-top:0}
+.chr{margin-left:22%}.dia{margin:.1rem 8% 0 10%}.par{margin-left:16%}
+.trans{margin-top:1.2rem}
 .foot{padding:1.6rem var(--pad) 2.4rem;font-size:.85rem;color:var(--ink-2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--bg)}
 @media (prefers-reduced-motion:reduce){.snd{animation:none}}
 </style>
@@ -190,16 +201,16 @@ body.hasv .cue{display:none}
 <!-- SZENEN (Drehbuch) -->
 <section class="scenes" data-theme="paper">
   <div class="wrap">
-  <article class="script reveal">
-    <div class="titlepg"><b>WELTHERRSCHAFT</b><span>Director's Cut</span><span>Drehbuch: Nicolas Rossi</span></div>
-
-    <h3 class="slug"><span>01</span> INNEN. FAMILY°, USTER – TAG</h3>
-    <p class="act">Auf dem Whiteboard steht ein einziges Ziel: WELTHERRSCHAFT.</p>
+  <article class="script">
+<div class="titlepg"><b>WELTHERRSCHAFT</b><span>Director's Cut</span><span>Drehbuch: Nicolas Rossi</span></div>
+<div class="shots">
+<div class="shot reveal"><div><h3 class="slug"><span>01</span> INNEN. FAMILY°, USTER – TAG</h3></div><div>
+<p class="act">Auf dem Whiteboard steht ein einziges Ziel: WELTHERRSCHAFT.</p>
     <p class="chr">NICOLAS (O.S.)</p>
     <p class="dia">Gute Nachricht: Ich hab schon geübt.</p>
-
-    <h3 class="slug"><span>02</span> AUSSEN. SCHWEIZ – 2015 BIS HEUTE</h3>
-    <p class="act">Eine Karte. Ein roter Punkt springt von Ort zu Ort:</p>
+</div></div>
+<div class="shot reveal"><div><h3 class="slug"><span>02</span> AUSSEN. SCHWEIZ – 2015 BIS HEUTE</h3></div><div>
+<p class="act">Eine Karte. Ein roter Punkt springt von Ort zu Ort:</p>
     <ul class="beats">
       <li><b>BRUGG</b> – Kaufmann EFZ, green.ch <i>(2015–18)</i></li>
       <li><b>BÜLACH</b> – Kundendienst, Migros-Service <i>(2018–19)</i></li>
@@ -211,36 +222,37 @@ body.hasv .cue{display:none}
       <li class="now"><b>ALBISRIEDERPLATZ</b> – Marketing-Praktikum, Nutrexin AG <i>(seit 9/26)</i></li>
     </ul>
     <div class="btn-row"><a class="btn" href="Nicolas_Rossi_Lebenslauf.pdf" target="_blank">Lebenslauf (PDF) <span class="arrow">↗</span></a><a class="btn btn-ghost" href="/Zertifikate.pdf" target="_blank">Zertifikate <span class="arrow">↗</span></a></div>
-
-    <h3 class="slug"><span>03</span> AUSSEN. WELTREISE – 2025/26</h3>
-    <p class="act">Thailand. Indonesien. Australien. Neuseeland. Fiji. Französisch-Polynesien. Ein Velo, eine GoPro, ein Handy. In Auckland baut NICOLAS den Social-Media-Auftritt des Start-ups Aroā Jun auf – und macht nebenbei eine Barista-Ausbildung.</p>
+</div></div>
+<div class="shot reveal"><div><h3 class="slug"><span>03</span> AUSSEN. WELTREISE – 2025/26</h3></div><div>
+<p class="act">Thailand. Indonesien. Australien. Neuseeland. Fiji. Französisch-Polynesien. Ein Velo, eine GoPro, ein Handy. In Auckland baut NICOLAS den Social-Media-Auftritt des Start-ups Aroā Jun auf – und macht nebenbei eine Barista-Ausbildung.</p>
     <p class="chr">NICOLAS</p>
     <p class="dia">Bali Belly? Hatte ich.</p>
     <p class="par">(zu Family)</p>
     <p class="dia">Gut, dass ihr Leute dagegen versichert.</p>
-
-    <h3 class="slug"><span>04</span> INNEN. INSTAGRAM – STORY</h3>
-    <p class="act">~30 Posts in 6 Monaten für ein Forschungsprojekt von FHGR &amp; UZH. Eigene Kanäle @lerossi_visuals und @lerossiytb. Content für Nutrexin, Hawlik und den Theaterverein Urdorf.</p>
+</div></div>
+<div class="shot reveal"><div><h3 class="slug"><span>04</span> INNEN. INSTAGRAM – STORY</h3></div><div>
+<p class="act">~30 Posts in 6 Monaten für ein Forschungsprojekt von FHGR &amp; UZH. Eigene Kanäle @lerossi_visuals und @lerossiytb. Content für Nutrexin, Hawlik und den Theaterverein Urdorf.</p>
     <p class="act"><b>REQUISITEN:</b> Premiere, After Effects, DaVinci, Lightroom, Meta &amp; Google Ads.<br><b>SPRACHEN:</b> Deutsch, Französisch, Englisch.</p>
-
-    <h3 class="slug"><span>05</span> AUSSEN. MIGROS SKI DAYS – TAG</h3>
-    <p class="act">Ein Rivella-Stand im Schnee. Daneben Swiss-Ski, Zweifel und Focus Water. NICOLAS verteilt, lacht, redet mit allen.</p>
+</div></div>
+<div class="shot reveal"><div><h3 class="slug"><span>05</span> AUSSEN. MIGROS SKI DAYS – TAG</h3></div><div>
+<p class="act">Ein Rivella-Stand im Schnee. Daneben Swiss-Ski, Zweifel und Focus Water. NICOLAS verteilt, lacht, redet mit allen.</p>
     <p class="chr">NICOLAS</p>
     <p class="dia">Festivella? Bei mir war's eher Skivella.</p>
     <p class="par">(zwinkert)</p>
     <p class="dia">Euer Kunde. Meine Zielgruppe.</p>
-
-    <h3 class="slug"><span>06</span> INNEN. RIZZ-CHECK – NACHT</h3>
-    <ul class="beats chk">
+</div></div>
+<div class="shot reveal"><div><h3 class="slug"><span>06</span> INNEN. RIZZ-CHECK – NACHT</h3></div><div>
+<ul class="beats chk">
       <li><b>KREA-RIZZ ✓</b> – Text, Foto, Video, Schnitt.</li>
       <li><b>AGENCY-RIZZ ✓</b> – Kundendienst, Events, Schulzimmer.</li>
       <li><b>BUSINESS-RIZZ ✓</b> – Kaufmann, BM Wirtschaft, Marketing.</li>
     </ul>
     <p class="chr">NICOLAS</p>
     <p class="dia">Agenturjahre hab ich noch keine. Dafür pack ich an, wo's brennt – und den Kaffee danach mach ich auch.</p>
-
-    <p class="trans">SCHNITT AUF:</p>
-  </article>
+</div></div>
+</div>
+<p class="trans">SCHNITT AUF:</p>
+</article>
   </div>
 </section>
 
