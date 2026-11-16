@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de" data-variant="strand">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mein Weg – Lebenslauf als Reise | Nicolas Rossi | LeRossi</title>
+    <meta name="description" content="Der Lebenslauf von Nicolas Rossi als Flug von Ort zu Ort: von Brugg über Zürich bis Auckland und zur SUP-WM nach Sabaudia.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nicolasrossi.ch/lebenslauf/">
+    <meta property="og:title" content="Mein Weg – Lebenslauf als Reise | LeRossi">
+    <meta property="og:url" content="https://nicolasrossi.ch/lebenslauf/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..800&family=Instrument+Serif:ital@1&display=swap">
+    <link rel="stylesheet" href="/style.css?v=20261117">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css">
+    <link rel="stylesheet" href="/lebenslauf.css?v=20261116">
+</head>
+<body data-theme="light">
+    <div class="cursor" aria-hidden="true"></div>
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-top">
+            <a href="/" class="logo" aria-label="LeRossi – zur Startseite">LeRossi<span class="mix-dot static"></span></a>
+            <span class="header-studio" data-de="Creative Studio" data-en="Creative Studio" data-fr="Studio Créatif">Creative Studio</span>
+
+            <div class="header-top-right">
+                <div class="lang-switcher-compact" role="group" aria-label="Sprache">
+                    <button onclick="changeLanguage('de')" class="lang-btn-compact active" lang="de">DE</button>
+                    <button onclick="changeLanguage('en')" class="lang-btn-compact" lang="en">EN</button>
+                    <button onclick="changeLanguage('fr')" class="lang-btn-compact" lang="fr">FR</button>
+                </div>
+                <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="main-nav">
+                    <span class="menu-label" data-de="Menü" data-en="Menu" data-fr="Menu">Menü</span>
+                    <svg class="menu-waves" viewBox="0 0 30 24" aria-hidden="true">
+                        <path class="wave" d="M-20 4 Q-15 0 -10 4 T0 4 T10 4 T20 4 T30 4 T40 4 T50 4"/>
+                        <path class="wave" d="M-20 12 Q-15 8 -10 12 T0 12 T10 12 T20 12 T30 12 T40 12 T50 12"/>
+                        <path class="wave" d="M-20 20 Q-15 16 -10 20 T0 20 T10 20 T20 20 T30 20 T40 20 T50 20"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+            <a href="/#leistungen" data-de="Leistungen" data-en="Services" data-fr="Services">Leistungen</a>
+            <a href="/#portfolio" data-de="Meine Arbeiten" data-en="My Work" data-fr="Mes Travaux">Meine Arbeiten</a>
+            <a href="/#clients" data-de="Referenzen" data-en="References" data-fr="Références">Referenzen</a>
+            <a href="/#vision" data-de="Über mich" data-en="About me" data-fr="À propos">Über mich</a>
+            <a href="/#cv" data-de="Mein Weg" data-en="My path" data-fr="Mon parcours">Mein Weg</a>
+            <a href="/sport/" data-de="Sport" data-en="Sport" data-fr="Sport">Sport</a>
+            <a href="/#contact" data-de="Kontakt" data-en="Contact" data-fr="Contact">Kontakt</a>
+
+            <div class="lang-switcher" role="group" aria-label="Sprache">
+                <button onclick="changeLanguage('de')" class="lang-btn active" lang="de">Deutsch</button>
+                <button onclick="changeLanguage('en')" class="lang-btn" lang="en">English</button>
+                <button onclick="changeLanguage('fr')" class="lang-btn" lang="fr">Français</button>
+            </div>
+        </nav>
+    </header>
+    <main class="lb">
+        <div class="lb-map" id="lbMap" aria-hidden="true"></div>
+        <div class="lb-shade" aria-hidden="true"></div>
+
+        <section class="lb-intro">
+            <p class="lb-kicker" data-de="Mein Weg" data-en="My path" data-fr="Mon parcours">Mein Weg</p>
+            <h1 data-de="Mein Lebenslauf als Reise" data-en="My CV as a journey" data-fr="Mon CV en voyage">Mein Lebenslauf als Reise</h1>
+            <p class="lb-lead" data-de="Von Brugg bis nach Auckland und Sabaudia. Scroll runter, die Karte fliegt mit." data-en="From Brugg to Auckland and Sabaudia. Scroll down, the map flies along." data-fr="De Brugg à Auckland et Sabaudia. Fais défiler, la carte vole avec toi.">Von Brugg bis nach Auckland und Sabaudia. Scroll runter, die Karte fliegt mit.</p>
+            <label class="lb-toggle"><input type="checkbox" id="lbFly" checked><span data-de="Mit Flug" data-en="With flight" data-fr="Avec vol">Mit Flug</span></label>
+        </section>
+
+        <section class="lb-step" data-lat="47.4833" data-lng="8.2083" data-zoom="12.5" data-city="Brugg" id="brugg">
+            <article class="lb-card">
+                <p class="lb-no">01 · Brugg</p>
+                <p class="lb-date">08/2015 – 08/2018</p>
+                <h2>Kaufmann EFZ</h2>
+                <p class="lb-org">BWZ Brugg · green.ch AG</p>
+                <p>Rotation und Praxiserfahrung in Marketing, Product Management, Finance und Empfang.</p>
+            </article>
+        </section>
+        <section class="lb-step" data-lat="47.4731" data-lng="8.3064" data-zoom="12.5" data-city="Baden" id="baden">
+            <article class="lb-card">
+                <p class="lb-no">02 · Baden</p>
+                <p class="lb-date">08/2020 – 07/2021</p>
+                <h2>Berufsmaturität (BM2)</h2>
+                <p class="lb-org">Berufsmaturitätsschule für Wirtschaft Baden</p>
+                <p>Ausrichtung Wirtschaft.</p>
+            </article>
+        </section>
+        <section class="lb-step" data-lat="47.3769" data-lng="8.5417" data-zoom="12" data-city="Zürich" id="zuerich">
+            <article class="lb-card">
+                <p class="lb-no">03 · Zürich</p>
+                <p class="lb-date">09/2021 – 09/2024</p>
+                <h2>Bachelor in Multimedia Production</h2>
+                <p class="lb-org">FH Graubünden, Zürich/Remote</p>
+                <p>Vertiefung in Live Communications.</p>
+            </article>
+        </section>
+        <section class="lb-step" data-lat="47.3103" data-lng="8.5254" data-zoom="13" data-city="Adliswil" id="adliswil">
+            <article class="lb-card">
+                <p class="lb-no">04 · Adliswil</p>
+                <p class="lb-date">04/2024 – 07/2024</p>
+                <h2>Lehrperson Französisch</h2>
+                <p class="lb-org">Sekundarstufe, Adliswil</p>
+            </article>
+        </section>
+        <section class="lb-step" data-lat="47.4017" data-lng="8.4" data-zoom="13" data-city="Dietikon" id="dietikon">
+            <article class="lb-card">
+                <p class="lb-no">05 · Dietikon</p>
+                <p class="lb-date">10/2024 – 02/2025</p>
+                <h2>Primarlehrperson</h2>
+                <p class="lb-org">Primarschule Dietikon Fondli</p>
+                <p>Klassenverantwortung, Unterrichtsplanung und pädagogische Betreuung.</p>
+            </article>
+        </section>
+        <section class="lb-step" data-lat="-36.8485" data-lng="174.7633" data-zoom="11.5" data-city="Auckland" id="auckland">
+            <article class="lb-card">
+                <p class="lb-no">06 · Auckland</p>
+                <p class="lb-date">02/2025 – 05/2026</p>
+                <h2>Freelance Marketing &amp; Auslandsaufenthalt</h2>
+                <p class="lb-org">Aroā Jun, Auckland</p>
+                <p>Content-Strategie, Marketing-Ideen und Brand Design. Video-Content und Ads. Konzeption und Postproduktion eigener Video- und Social-Media-Projekte. Vertiefung der Englischkenntnisse.</p>
+            </article>
+        </section>
+        <section class="lb-step" data-lat="41.2993" data-lng="13.0238" data-zoom="12" data-city="Sabaudia" id="sabaudia">
+            <article class="lb-card">
+                <p class="lb-no">07 · Sabaudia</p>
+                <p class="lb-date">Oktober 2026</p>
+                <h2>SUP-Weltmeisterschaft</h2>
+                <p class="lb-org">Sabaudia, Italien</p>
+                <p>Teilnahme an der SUP WM.</p>
+            </article>
+        </section>
+
+        <section class="lb-end">
+            <h2 data-de="Mehr zu mir" data-en="More about me" data-fr="En savoir plus">Mehr zu mir</h2>
+            <p class="lb-more">Kurs-Instruktor bei der Supkultur GmbH (seit 06/2021, jeweils Sommersaisons) · Online Marketing Praktikum bei Digital Minds, Remote (05–08/2020) · Kundenbetreuer bei Migros Services (2017/18 und 2019) · Transformationskurse FHNW (04/2020)</p>
+            <div class="btn-row">
+                <a class="btn" href="/CV_Nicolas_Rossi.pdf" target="_blank" rel="noopener"><span data-de="Lebenslauf als PDF" data-en="CV as PDF" data-fr="CV en PDF">Lebenslauf als PDF</span> <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="btn btn--ghost" href="/#contact"><span data-de="Kontakt" data-en="Contact" data-fr="Contact">Kontakt</span></a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer" data-theme="paper">
+        <div class="footer-content">
+            <a href="/" class="footer-wordmark" aria-label="LeRossi – zur Startseite">LeRossi<span class="mix-dot static"></span></a>
+            <nav class="footer-nav" aria-label="Abschnitte">
+                <a href="/#leistungen" data-de="Leistungen" data-en="Services" data-fr="Services">Leistungen</a>
+                <a href="/#portfolio" data-de="Arbeiten" data-en="Work" data-fr="Travaux">Arbeiten</a>
+                <a href="/#clients" data-de="Referenzen" data-en="References" data-fr="Références">Referenzen</a>
+                <a href="/#vision" data-de="Über mich" data-en="About" data-fr="À propos">Über mich</a>
+                <a href="/#cv" data-de="Mein Weg" data-en="My path" data-fr="Parcours">Mein Weg</a>
+                <a href="/sport/" data-de="Sport" data-en="Sport" data-fr="Sport">Sport</a>
+                <a href="/#contact" data-de="Kontakt" data-en="Contact" data-fr="Contact">Kontakt</a>
+            </nav>
+            <p class="footer-copy">&copy; 2026 Nicolas Rossi · Choose to <em>like</em> it.</p>
+        </div>
+    </footer>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <script src="/script.js?v=20261117" defer></script>
+    <script src="/lebenslauf.js?v=20261116" defer></script>
+</body>
+</html>
