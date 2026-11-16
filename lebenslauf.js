@@ -21,11 +21,20 @@
   });
   map.on('error', function(e){ if(e && e.error && /401|403|token/i.test(e.error.message||'')) noMap(); });
 
-  var markers = steps.map(function(s){
+  function place(s){
     var el = document.createElement('div');
     el.style.cssText = 'width:16px;height:16px;border-radius:50%;background:#FF5A00;border:3px solid #fff;box-shadow:0 0 0 6px rgba(255,90,0,.3)';
-    return new mapboxgl.Marker(el).setLngLat([+s.dataset.lng, +s.dataset.lat]).addTo(map);
-  });
+    new mapboxgl.Marker(el).setLngLat([+s.dataset.lng, +s.dataset.lat]).addTo(map);
+  }
+  /* Adressen werden nur für die Position auf der Karte genutzt (nicht angezeigt). Schlägt die Suche fehl, gelten die Ortskoordinaten. */
+  Promise.all(steps.map(function(s){
+    var a = s.dataset.addr; if(!a) return;
+    return fetch('https://api.mapbox.com/search/geocode/v6/forward?limit=1&country=ch,nz&q='+encodeURIComponent(a)+'&access_token='+MAPBOX_TOKEN)
+      .then(function(r){ return r.json(); })
+      .then(function(d){ var c = d.features && d.features[0] && d.features[0].geometry.coordinates;
+        if(c){ s.dataset.lng = c[0]; s.dataset.lat = c[1]; s.dataset.zoom = Math.max(+s.dataset.zoom, 14); } })
+      .catch(function(){});
+  })).then(function(){ steps.forEach(place); });
 
   var current = -1;
   function go(i){
