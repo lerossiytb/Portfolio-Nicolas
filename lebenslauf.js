@@ -1,7 +1,7 @@
 /* Lebenslauf als Flug: Mapbox GL JS.
    Den öffentlichen Mapbox-Token (beginnt mit pk.) hier eintragen und auf Mapbox auf nicolasrossi.ch beschränken. */
 (function(){
-  var MAPBOX_TOKEN = '';
+  var MAPBOX_TOKEN = 'pk.eyJ1IjoibGVyb3NzaSIsImEiOiJjbXdqM2M2ZnUwMW5iMnhxdzFobzB2ZmZsIn0.dEJ_7TCL2CrslawdBixPwg';
   var root = document.querySelector('.lb');
   var steps = [].slice.call(document.querySelectorAll('.lb-step'));
   var fly = document.getElementById('lbFly');
