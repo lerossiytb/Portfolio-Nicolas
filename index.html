@@ -218,6 +218,10 @@
                     </div>
 
                     <div class="hero-ui" id="heroUi">
+                        <div class="hero-cta">
+                            <a href="#portfolio" class="btn"><span data-de="Meine Arbeiten" data-en="My Work" data-fr="Mes Travaux">Meine Arbeiten</span> <span class="arrow" aria-hidden="true">→</span></a>
+                            <a href="#contact" class="btn btn-ghost"><span data-de="Kontakt" data-en="Contact" data-fr="Contact">Kontakt</span></a>
+                        </div>
                         <div class="hero-foot">
                             <a href="#intro" class="scroll-hint"><span data-de="Scrollen" data-en="Scroll" data-fr="Défiler">Scrollen</span> <span class="arrow" aria-hidden="true">↓</span></a>
                         </div>
@@ -307,7 +311,7 @@
 
                     <a href="/fotografie/" class="work">
                         <div class="work-media">
-                            <img width="1351" height="2400" src="images/aroa.jpeg" alt="Fotografie: Aroa Jun am Meer, Neuseeland" loading="lazy" decoding="async">
+                            <img width="1351" height="2400" src="images/web/aroa.jpg" alt="Fotografie: Aroa Jun am Meer, Neuseeland" loading="lazy" decoding="async">
                             <span class="work-view" aria-hidden="true" data-de="Ansehen" data-en="View" data-fr="Voir">Ansehen</span>
                         </div>
                         <div class="work-meta">
@@ -320,7 +324,7 @@
 
                     <a href="/event/" class="work">
                         <div class="work-media">
-                            <img width="2400" height="1600" src="images/event.jpeg" alt="Event Planning und Hosting – Eindruck von einem Event" loading="lazy" decoding="async">
+                            <img width="2400" height="1600" src="images/web/event.jpg" alt="Event Planning und Hosting – Eindruck von einem Event" loading="lazy" decoding="async">
                             <span class="work-view" aria-hidden="true" data-de="Ansehen" data-en="View" data-fr="Voir">Ansehen</span>
                         </div>
                         <div class="work-meta">
@@ -362,8 +366,8 @@
                 <div class="ref-grid">
                     <article class="ref">
                         <div class="ref-media">
-                            <img src="images/rugby1.jpg" alt="Rugby-Fotografie für den Hausen Baboons Rugby Club" loading="lazy" decoding="async">
-                            <img class="ref-hover" src="images/rugby2.jpg" alt="" loading="lazy" decoding="async">
+                            <img src="images/web/rugby1.jpg" alt="Rugby-Fotografie für den Hausen Baboons Rugby Club" loading="lazy" decoding="async">
+                            <img class="ref-hover" src="images/web/rugby2.jpg" alt="" loading="lazy" decoding="async">
                         </div>
                         <div class="ref-body">
                             <h3 class="ref-name">Hausen Baboons Rugby Club</h3>
@@ -372,7 +376,7 @@
                         <!-- Detail-Ansicht beim Klick. Beschreibung: 2–3 Sätze in <p class="ref-desc"> eintragen (leer = wird nicht angezeigt). Weitere Bilder einfach als <img> ergänzen. -->
                         <template class="ref-detail">
                             <p class="ref-desc" data-de="Sportfotografie vom Spielfeld und Content für die Social-Media-Kanäle des Hausen Baboons Rugby Clubs." data-en="Sports photography from the pitch and content for the Hausen Baboons Rugby Club’s social media channels." data-fr="Photographie sportive au bord du terrain et contenu pour les réseaux sociaux du Hausen Baboons Rugby Club.">Sportfotografie vom Spielfeld und Content für die Social-Media-Kanäle des Hausen Baboons Rugby Clubs.</p>
-                            <div class="ref-gallery"><img src="images/rugby1.jpg" alt="Hausen Baboons Rugby Club" loading="lazy"><img src="images/rugby2.jpg" alt="Hausen Baboons Rugby Club" loading="lazy"></div>
+                            <div class="ref-gallery"><img src="images/web/rugby1.jpg" alt="Hausen Baboons Rugby Club" loading="lazy"><img src="images/web/rugby2.jpg" alt="Hausen Baboons Rugby Club" loading="lazy"></div>
                         </template>
                         <button class="ref-open" type="button" aria-label="Hausen Baboons Rugby Club – Details ansehen"></button>
                     </article>
@@ -438,8 +442,8 @@
                     </article>
                     <article class="ref">
                         <div class="ref-media">
-                            <img src="images/indo_1.jpg" alt="Eigene Projekte: Reise-Content aus Indonesien" loading="lazy" decoding="async">
-                            <img class="ref-hover" src="images/women.jpg" alt="" loading="lazy" decoding="async">
+                            <img src="images/web/indo_1.jpg" alt="Eigene Projekte: Reise-Content aus Indonesien" loading="lazy" decoding="async">
+                            <img class="ref-hover" src="images/web/women.jpg" alt="" loading="lazy" decoding="async">
                         </div>
                         <div class="ref-body">
                             <h3 class="ref-name" data-de="Eigene Projekte" data-en="Own projects" data-fr="Projets personnels">Eigene Projekte</h3>
@@ -514,6 +518,21 @@
                         <h2 id="path-title" class="t" data-de="Mein Weg" data-en="My path" data-fr="Mon parcours">Mein Weg</h2>
                     </div>
                 </div>
+
+                <!-- Teaser auf die eigene Flugseite /lebenslauf/: Flugbahn rein in CSS/SVG, ohne zusätzliche Kartenbibliothek auf der Startseite -->
+                <a href="/lebenslauf/" class="cv-fly-teaser">
+                    <svg class="cv-fly-path" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true">
+                        <path d="M10 60 C 120 10, 180 70, 280 40 S 460 10, 590 45" />
+                        <circle class="cv-fly-dot" r="5">
+                            <animateMotion dur="5.5s" repeatCount="indefinite" path="M10 60 C 120 10, 180 70, 280 40 S 460 10, 590 45"/>
+                        </circle>
+                    </svg>
+                    <span class="cv-fly-text">
+                        <strong data-de="Mein Weg als Flug" data-en="My path, as a flight" data-fr="Mon parcours, en vol">Mein Weg als Flug</strong>
+                        <span data-de="Von Brugg über Auckland bis zur SUP-WM – scroll dich durch die Karte." data-en="From Brugg to Auckland and the SUP World Championship – scroll through the map." data-fr="De Brugg à Auckland jusqu'aux championnats du monde de SUP – fais défiler la carte.">Von Brugg über Auckland bis zur SUP-WM – scroll dich durch die Karte.</span>
+                    </span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </a>
                 <!-- Eine einzige Linie – wie eine Höhenlinie – mit den Stationen als Punkte -->
                 <div class="route" id="route">
                     <svg class="route-line" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 62.4 L10 64.1 L20 65.6 L30 67.0 L40 68.2 L50 69.3 L60 70.2 L70 70.9 L80 71.5 L90 71.8 L100 72.0 L110 72.0 L120 71.7 L130 71.3 L140 70.7 L150 69.9 L160 68.9 L170 67.8 L180 66.5 L190 65.0 L200 63.4 L210 61.7 L220 59.9 L230 58.0 L240 56.1 L250 54.1 L260 52.0 L270 49.9 L280 47.9 L290 45.8 L300 43.8 L310 41.8 L320 40.0 L330 38.2 L340 36.5 L350 34.9 L360 33.5 L370 32.2 L380 31.0 L390 30.1 L400 29.3 L410 28.7 L420 28.3 L430 28.0 L440 28.0 L450 28.2 L460 28.5 L470 29.1 L480 29.8 L490 30.8 L500 31.8 L510 33.1 L520 34.5 L530 36.0 L540 37.7 L550 39.5 L560 41.3 L570 43.3 L580 45.3 L590 47.3 L600 49.4 L610 51.4 L620 53.5 L630 55.5 L640 57.5 L650 59.4 L660 61.3 L670 63.0 L680 64.6 L690 66.1 L700 67.4 L710 68.6 L720 69.6 L730 70.5 L740 71.1 L750 71.6 L760 71.9 L770 72.0 L780 71.9 L790 71.6 L800 71.1 L810 70.4 L820 69.6 L830 68.5 L840 67.3 L850 66.0 L860 64.5 L870 62.9 L880 61.1 L890 59.3 L900 57.4 L910 55.4 L920 53.4 L930 51.3 L940 49.2 L950 47.2 L960 45.1 L970 43.1 L980 41.2 L990 39.3 L1000 37.6"/></svg>
@@ -691,13 +710,13 @@
                 </div>
 
                 <div class="impressions-grid">
-                    <img width="2400" height="1800" src="images/20260511_063039.jpg" alt="Landschaftsfotografie, Indonesien" loading="lazy" decoding="async">
-                    <img width="2400" height="1351" src="images/rugby3.jpg" alt="Rugby – Sportfotografie" loading="lazy" decoding="async">
+                    <img width="2400" height="1800" src="images/web/20260511_063039.jpg" alt="Landschaftsfotografie, Indonesien" loading="lazy" decoding="async">
+                    <img width="2400" height="1351" src="images/web/rugby3.jpg" alt="Rugby – Sportfotografie" loading="lazy" decoding="async">
                     <img width="1084" height="1614" src="images/LNDK_6.jpg" alt="Lange Nacht der Karriere, FHGR" loading="lazy" decoding="async">
                     <img width="1100" height="1602" src="images/LNDK_3.jpg" alt="Podiumsgespräch, Lange Nacht der Karriere" loading="lazy" decoding="async">
-                    <img width="1800" height="2400" src="images/bearbeiten.jpg" alt="Drohnenaufnahme: Palmen und Brandung" loading="lazy" decoding="async">
-                    <img width="1800" height="2400" src="images/ski.jpeg" alt="Ski – Outdoor-Aufnahme" loading="lazy" decoding="async">
-                    <img width="1800" height="2400" src="images/motorrad.jpg" alt="Motorrad – Detailaufnahme" loading="lazy" decoding="async">
+                    <img width="1800" height="2400" src="images/web/bearbeiten.jpg" alt="Drohnenaufnahme: Palmen und Brandung" loading="lazy" decoding="async">
+                    <img width="1800" height="2400" src="images/web/ski.jpg" alt="Ski – Outdoor-Aufnahme" loading="lazy" decoding="async">
+                    <img width="1800" height="2400" src="images/web/motorrad.jpg" alt="Motorrad – Detailaufnahme" loading="lazy" decoding="async">
                     <img width="2400" height="1326" src="images/LDNK_2.jpg" alt="Event-Detail, Lange Nacht der Karriere" loading="lazy" decoding="async">
                 </div>
 
@@ -799,6 +818,11 @@
                     <p data-de="Melde dich gerne bei mir – mit einer Idee, einem Projekt oder einfach so. Ich antworte persönlich."
                        data-en="Get in touch – with an idea, a project or just to say hi. I'll answer personally."
                        data-fr="Contacte-moi – pour une idée, un projet ou simplement pour dire bonjour. Je réponds personnellement.">Melde dich gerne bei mir – mit einer Idee, einem Projekt oder einfach so. Ich antworte persönlich.</p>
+                    <div class="contact-social">
+                        <a href="https://www.instagram.com/lerossiytb/" target="_blank" rel="noopener">Instagram <span class="arrow" aria-hidden="true">↗</span></a>
+                        <a href="https://www.youtube.com/@_lerossi" target="_blank" rel="noopener">YouTube <span class="arrow" aria-hidden="true">↗</span></a>
+                        <a href="https://www.tiktok.com/@lerossiyt" target="_blank" rel="noopener">TikTok <span class="arrow" aria-hidden="true">↗</span></a>
+                    </div>
                 </div>
                 <form action="https://formspree.io/f/maewyyzb" method="POST" id="contactForm">
                     <label class="sr-only" for="f-name">Name</label>
