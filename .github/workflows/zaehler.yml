@@ -1,0 +1,62 @@
+name: Aufrufzähler sichern
+
+# Holt stündlich die Zählerstände (nur lesen, /get) und legt sie als
+# aufrufe.json auf den Branch "zaehler". Die Website (main) bleibt unberührt.
+on:
+  schedule:
+    - cron: "40 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: zaehler
+
+jobs:
+  sichern:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zählerstände abrufen
+        run: |
+          set -u
+          keys="family-views family-sound family-paywall monami-views monami-lastpage rosarot-views missionpadel-views"
+          echo "{" > aufrufe.json
+          echo "  \"stand\": \"$(TZ=Europe/Zurich date '+%Y-%m-%d %H:%M')\"," >> aufrufe.json
+          sep=""
+          for k in $keys; do
+            code=$(curl -s -o body.txt -w '%{http_code}' --retry 3 --max-time 20 \
+              "https://abacus.jasoncameron.dev/get/nicolasrossi-ch/$k" || echo 000)
+            if [ "$code" = "200" ]; then
+              v=$(jq -r '.value // empty' body.txt 2>/dev/null)
+              [ -z "$v" ] && v='"fehler"'
+            elif [ "$code" = "404" ]; then
+              v=0
+            else
+              v='"fehler"'
+            fi
+            printf '%s  "%s": %s' "$sep" "$k" "$v" >> werte.txt
+            sep=$',\n'
+          done
+          cat werte.txt >> aufrufe.json
+          printf '\n}\n' >> aufrufe.json
+          cat aufrufe.json
+          jq . aufrufe.json > /dev/null
+
+      - name: Auf Branch "zaehler" speichern
+        run: |
+          git init -q repo && cd repo
+          git config user.name "zaehler-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          if git fetch -q --depth 1 origin zaehler 2>/dev/null; then
+            git checkout -q -b zaehler FETCH_HEAD
+          else
+            git checkout -q --orphan zaehler
+          fi
+          if [ -f aufrufe.json ] && [ "$(jq -S 'del(.stand)' aufrufe.json)" = "$(jq -S 'del(.stand)' ../aufrufe.json)" ]; then
+            echo "Keine neuen Aufrufe"; exit 0
+          fi
+          cp ../aufrufe.json .
+          git add aufrufe.json
+          git commit -q -m "Zählerstände $(TZ=Europe/Zurich date '+%d.%m. %H:%M')" || { echo "unverändert"; exit 0; }
+          git push -q origin zaehler
