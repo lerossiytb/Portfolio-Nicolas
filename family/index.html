@@ -332,7 +332,7 @@ button.btn.go{border:0;cursor:pointer;font:inherit;font-weight:600;margin-top:1.
  document.body.classList.add('hasv');
  var snd=document.getElementById('snd'),end=document.getElementById('end'),box=document.getElementById('vbox'),api={};
  snd.classList.remove('off');
- function showEnd(){end.classList.add('on');snd.classList.add('off');}
+ function showEnd(){snd.classList.add('off');var c=document.getElementById('cut');if(c){c.scrollIntoView({behavior:'smooth',block:'start'});}}
  snd.onclick=function(e){e.stopPropagation();api.unmute&&api.unmute();snd.classList.add('off');};
  document.getElementById('again').onclick=function(){end.classList.remove('on');api.restart&&api.restart();};
  var yt=VIDEO.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
