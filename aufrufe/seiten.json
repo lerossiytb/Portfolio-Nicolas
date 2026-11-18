@@ -16,7 +16,10 @@
         "FAQ",
         "Kontakt",
         "Fusszeile"
-      ]
+      ],
+      "events": {
+        "qr-andy": "QR-Scan Andy-Dossier"
+      }
     },
     {
       "id": "family",
