@@ -16,10 +16,7 @@
         "FAQ",
         "Kontakt",
         "Fusszeile"
-      ],
-      "events": {
-        "qr-andy": "QR-Scan Andy-Dossier"
-      }
+      ]
     },
     {
       "id": "family",
@@ -75,6 +72,31 @@
         "PS: Rot und Gelb",
         "Fusszeile"
       ]
+    },
+    {
+      "id": "andy",
+      "name": "Andy Was Right",
+      "url": "/andy/",
+      "sel": "#saal,#angeklagter,#anklage,#beweise,#aussage,#indizien,#nachtrag,#urteil",
+      "abschnitte": [
+        "Eröffnung",
+        "Der Angeklagte",
+        "Die Anklage",
+        "Beweisaufnahme",
+        "Zeugenaussage",
+        "Indizien (3 Ideen)",
+        "Nachtrag",
+        "Das Urteil"
+      ],
+      "events": {
+        "andy-qr": "via QR-Code (Dossier)",
+        "andy-beweis": "Beweisstück geöffnet",
+        "andy-urteil-andy": "Urteil: Andy",
+        "andy-urteil-nicolas": "Urteil: Nicolas",
+        "andy-urteil-beide": "Urteil: Beide",
+        "andy-mail": "Mail-Button",
+        "andy-tel": "Anruf-Button"
+      }
     }
   ],
   "dauer": [
