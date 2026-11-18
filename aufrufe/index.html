@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Aufrufe – Bewerbungsseiten</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..800&display=swap">
+<style>
+:root{--bg:#F6F4EF;--card:#FFFFFF;--fg:#141414;--muted:#6B6B6B;--line:#E4E1D9;--accent:#FF2A1A;--ok:#1F8A4C;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--card:#1C1C1C;--fg:#F3F1EA;--muted:#9C9C9C;--line:#2C2C2C;--accent:#FF4A3A;--ok:#4CC27F;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter Tight',system-ui,sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased}
+main{max-width:720px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:clamp(1.8rem,6vw,2.6rem);letter-spacing:-.04em;line-height:1;margin:0 0 6px}
+h1 i{color:var(--accent);font-style:normal}
+.sub{color:var(--muted);margin:0 0 28px;font-size:.95rem}
+h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:32px 0 10px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.card .n{font-size:2rem;font-weight:750;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.card .l{font-size:.85rem;color:var(--muted);margin-top:6px}
+.card .new{color:var(--accent);font-size:.8rem;font-weight:600;margin-top:4px}
+.day{margin:18px 0 6px;font-weight:650;font-size:.95rem}
+ul{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+li{display:flex;gap:12px;align-items:baseline;padding:11px 16px;border-top:1px solid var(--line)}
+li:first-child{border-top:0}
+li .t{font-variant-numeric:tabular-nums;font-weight:650;min-width:7.5em}
+li .w{flex:1}
+li .c{color:var(--muted);font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+.empty,.note{color:var(--muted);font-size:.9rem}
+.note{margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
+.me{color:var(--ok);font-weight:600}
+button{font:inherit;background:var(--fg);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;font-weight:600}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Aufrufe<i>.</i></h1>
+  <p class="sub" id="stand">Lade …</p>
+
+  <h2>Total seit Start</h2>
+  <div class="grid" id="totals"></div>
+
+  <h2>Besuche mit Uhrzeit</h2>
+  <div id="log"><p class="empty">Lade …</p></div>
+
+  <div class="note">
+    <p>Uhrzeiten sind auf 10 Minuten genau. Erfasst wird nur <em>wann</em> und <em>welche Seite</em>, keine Personen- oder Gerätedaten. Besuche vor dem 18.11. haben noch keine Uhrzeit.</p>
+    <p id="mestatus"></p>
+    <div class="row"><button id="refresh">Aktualisieren</button></div>
+  </div>
+</main>
+<script>
+(function(){
+  // Wer diese Seite öffnet, ist Nicolas: dieses Gerät künftig nicht mitzählen.
+  try{localStorage.setItem("nr_me","1");document.getElementById("mestatus").innerHTML='<span class="me">✓ Dieses Gerät wird nicht mitgezählt.</span> Öffne diese Seite einmal auf jedem Gerät, mit dem du deine Bewerbungsseiten anschaust.';}
+  catch(e){document.getElementById("mestatus").textContent="Hinweis: Dieser Browser lässt keine Speicherung zu, deine Besuche könnten mitgezählt werden.";}
+
+  var RAW="https://raw.githubusercontent.com/lerossiytb/Portfolio-Nicolas/zaehler/";
+  var API="https://abacus.jasoncameron.dev/get/nicolasrossi-ch/";
+  var META={
+    "family-views":["Family° geöffnet","#FF2A1A"],
+    "family-sound":["Family° · Ton an","#FF8A1A"],
+    "family-paywall":["Family° · bis zur Paywall","#C2410C"],
+    "monami-views":["monami geöffnet","#2563EB"],
+    "monami-lastpage":["monami · letzte Seite","#7C3AED"],
+    "rosarot-views":["Rosarot geöffnet","#E11D74"],
+    "missionpadel-views":["Mission Padel geöffnet","#65A30D"]
+  };
+  var KEYS=Object.keys(META);
+  var KORR={"family-views":2}; // eigene Testbesuche vor der Zeiterfassung
+
+  function pad(n){return(n<10?"0":"")+n}
+  function slotId(d){return""+d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+pad(d.getUTCHours())+pad(Math.floor(d.getUTCMinutes()/10)*10)}
+  function parseSlot(s){return new Date(Date.UTC(+s.slice(0,4),+s.slice(4,6)-1,+s.slice(6,8),+s.slice(8,10),+s.slice(10,12)))}
+  var fmtT=new Intl.DateTimeFormat("de-CH",{timeZone:"Europe/Zurich",hour:"2-digit",minute:"2-digit"});
+  var fmtD=new Intl.DateTimeFormat("de-CH",{timeZone:"Europe/Zurich",weekday:"long",day:"numeric",month:"long"});
+  function getVal(k){return fetch(API+k,{cache:"no-store"}).then(function(r){if(r.status===404)return 0;if(!r.ok)throw 0;return r.json().then(function(j){return j.value|0})}).catch(function(){return null})}
+  function getJSON(f){return fetch(RAW+f+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}
+
+  function load(){
+    document.getElementById("stand").textContent="Lade …";
+    Promise.all([getJSON("aufrufe.json"),getJSON("besuche.json"),Promise.all(KEYS.map(getVal))]).then(function(res){
+      var saved=res[0]||{},log=res[1]||{geprueft_bis:{},besuche:[]},live=res[2];
+      var visits=(log.besuche||[]).slice(),jobs=[];
+      // Neue Besuche seit dem letzten Abgleich direkt nachschlagen
+      KEYS.forEach(function(k,i){
+        var lv=live[i],sv=typeof saved[k]==="number"?saved[k]:null,from=(log.geprueft_bis||{})[k];
+        if(lv==null||sv==null||lv<=sv||!from)return;
+        var start=new Date(Math.max(parseSlot(from)-6e5,Date.now()-48*36e5)),now=new Date();
+        for(var t=new Date(start);t<=now;t=new Date(+t+6e5))(function(s){
+          jobs.push(getVal(k+"_"+s).then(function(v){if(v){visits=visits.filter(function(b){return!(b.key===k&&b.slot===s)});visits.push({key:k,slot:s,anzahl:v,neu:1})}}));
+        })(slotId(t));
+      });
+      return Promise.all(jobs).then(function(){render(saved,live,visits)});
+    });
+  }
+
+  function render(saved,live,visits){
+    var g=document.getElementById("totals");g.innerHTML="";
+    KEYS.forEach(function(k,i){
+      var v=live[i]!=null?live[i]:saved[k];
+      var shown=typeof v==="number"?Math.max(0,v-(KORR[k]||0)):"–";
+      var d=document.createElement("div");d.className="card";
+      d.innerHTML='<div class="n">'+shown+'</div><div class="l"><span class="dot" style="background:'+META[k][1]+'"></span>'+META[k][0]+'</div>';
+      g.appendChild(d);
+    });
+    var box=document.getElementById("log");box.innerHTML="";
+    visits.sort(function(a,b){return a.slot<b.slot?1:a.slot>b.slot?-1:0});
+    if(!visits.length){box.innerHTML='<p class="empty">Noch keine Besuche mit Uhrzeit erfasst.</p>';}
+    var day="",ul;
+    visits.forEach(function(b){
+      var t=parseSlot(b.slot),d=fmtD.format(t);
+      if(d!==day){day=d;var h=document.createElement("div");h.className="day";h.textContent=d.charAt(0).toUpperCase()+d.slice(1);box.appendChild(h);ul=document.createElement("ul");box.appendChild(ul);}
+      var m=META[b.key]||[b.key,"#888"],li=document.createElement("li");
+      li.innerHTML='<span class="t">'+fmtT.format(t)+'–'+fmtT.format(new Date(+t+6e5))+'</span><span class="w"><span class="dot" style="background:'+m[1]+'"></span>'+m[0]+'</span><span class="c">'+(b.anzahl>1?b.anzahl+"×":"")+'</span>';
+      ul.appendChild(li);
+    });
+    var ok=live.every(function(v){return v!=null});
+    document.getElementById("stand").textContent=ok?"Live-Stand: "+fmtT.format(new Date())+" Uhr":"Gespeicherter Stand: "+(saved.stand||"unbekannt")+" (Live-Abruf nicht möglich)";
+  }
+
+  document.getElementById("refresh").onclick=load;
+  load();
+})();
+</script>
+</body>
+</html>

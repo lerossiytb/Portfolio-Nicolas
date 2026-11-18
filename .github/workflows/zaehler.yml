@@ -1,11 +1,12 @@
 name: Aufrufzähler sichern
 
-# Holt die Zählerstände (nur lesen, /get) und legt sie als aufrufe.json
-# auf den Branch "zaehler". Die Website (main) bleibt unberührt.
-# Wird vom geplanten Claude-Task direkt gestartet; der Zeitplan hier ist nur Reserve.
+# Holt die Zählerstände (nur lesen, /get) und führt das Besuchsprotokoll.
+# Ergebnis: aufrufe.json (Totale) und besuche.json (Besuche mit Uhrzeit)
+# auf dem Branch "zaehler". Die Website (main) bleibt unberührt.
+# Wird vom geplanten Claude-Task direkt gestartet, der Zeitplan ist Reserve.
 on:
   schedule:
-    - cron: "50 8,10,14 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,35 +18,13 @@ jobs:
   sichern:
     runs-on: ubuntu-latest
     steps:
-      - name: Zählerstände abrufen
-        run: |
-          set -u
-          keys="family-views family-sound family-paywall monami-views monami-lastpage rosarot-views missionpadel-views"
-          echo "{" > aufrufe.json
-          echo "  \"stand\": \"$(TZ=Europe/Zurich date '+%Y-%m-%d %H:%M')\"," >> aufrufe.json
-          sep=""
-          for k in $keys; do
-            code=$(curl -s -o body.txt -w '%{http_code}' --retry 3 --max-time 20 \
-              "https://abacus.jasoncameron.dev/get/nicolasrossi-ch/$k" || echo 000)
-            if [ "$code" = "200" ]; then
-              v=$(jq -r '.value // empty' body.txt 2>/dev/null)
-              [ -z "$v" ] && v='"fehler"'
-            elif [ "$code" = "404" ]; then
-              v=0
-            else
-              v='"fehler"'
-            fi
-            printf '%s  "%s": %s' "$sep" "$k" "$v" >> werte.txt
-            sep=$',\n'
-          done
-          cat werte.txt >> aufrufe.json
-          printf '\n}\n' >> aufrufe.json
-          cat aufrufe.json
-          jq . aufrufe.json > /dev/null
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
 
-      - name: Auf Branch "zaehler" speichern
+      - name: Branch "zaehler" holen
         run: |
-          git init -q repo && cd repo
+          git init -q daten && cd daten
           git config user.name "zaehler-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
@@ -54,7 +33,14 @@ jobs:
           else
             git checkout -q --orphan zaehler
           fi
-          cp ../aufrufe.json .
-          git add aufrufe.json
+
+      - name: Zähler abrufen und Besuche zuordnen
+        run: python3 .github/scripts/zaehler.py daten
+
+      - name: Speichern
+        run: |
+          cd daten
+          git add aufrufe.json besuche.json
+          git diff --cached --quiet && { echo "unverändert"; exit 0; }
           git commit -q -m "Zählerstände $(TZ=Europe/Zurich date '+%d.%m. %H:%M')"
           git push -q origin zaehler
