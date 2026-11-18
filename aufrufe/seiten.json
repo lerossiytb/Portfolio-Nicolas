@@ -77,19 +77,18 @@
       "id": "andy",
       "name": "Andy Was Right",
       "url": "/andy/",
-      "sel": "#saal,#angeklagter,#anklage,#beweise,#schlusswort,#urteil",
+      "sel": "#saal,#angeklagter,#anklage,#beweise,#urteil",
       "abschnitte": [
         "Eröffnung",
         "Der Angeklagte",
         "Die Anklage",
         "Beweisaufnahme",
-        "Das letzte Wort",
         "Das Urteil"
       ],
       "events": {
         "andy-qr": "via QR-Code (Dossier)",
         "andy-video": "WM-Video abgespielt",
-        "andy-beweis": "Beweisfoto geöffnet",
+        "andy-beweis": "Beweisstück geöffnet",
         "andy-urteil-andy": "Urteil: Andy",
         "andy-urteil-nicolas": "Urteil: Nicolas",
         "andy-urteil-beide": "Urteil: Beide",

@@ -74,84 +74,97 @@ h2 em{font-style:normal;color:var(--red)}
 .arrow{width:46px;height:46px;border:2px solid var(--paper);border-radius:50%;display:grid;place-items:center;animation:bob 1.8s ease-in-out infinite;flex-shrink:0}
 @keyframes bob{50%{transform:translateY(8px)}}
 
-
-/* ---------- scenes (scrollytelling) ---------- */
-.scene{position:relative}
-.stage{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column}
-.stage .wrap{position:relative;height:100%;display:flex;flex-direction:column;padding:72px 0 28px}
-.ticks{display:flex;gap:6px;margin-top:auto}
-.ticks i{flex:1;height:4px;background:currentColor;opacity:.18;transition:opacity .3s,background .3s}
-.ticks i.on{opacity:1;background:var(--red)}
-
-/* Angeklagter */
-#angeklagter{background:var(--paper)}
-#angeklagter .wrap{justify-content:center}
-.mg{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,5vw,70px);align-items:center}
-.mugshot{position:relative;border:2px solid var(--ink);overflow:hidden;background:#D8D6CF;max-height:62svh;aspect-ratio:4/5;justify-self:center;width:100%;max-width:440px}
-.mugshot .lines{position:absolute;left:0;top:0;bottom:0;width:44px;background:rgba(246,245,241,.85) repeating-linear-gradient(180deg,transparent 0 38px,rgba(18,18,18,.8) 38px 40px);border-right:2px solid var(--ink);z-index:2}
-.mugshot img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:grayscale(1) contrast(1.1);transition:filter 1.2s}
-.placard{position:absolute;left:44px;right:0;bottom:0;z-index:3;background:var(--ink);color:var(--paper);padding:12px 16px;display:flex;justify-content:space-between;gap:10px;align-items:end;transform:translateY(100%);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
-.placard b{font-family:'AB';font-weight:400;font-size:clamp(18px,2.6vw,26px);line-height:1}
-[data-step="1"] .mugshot img,[data-step="2"] .mugshot img,[data-step="3"] .mugshot img{filter:none}
-[data-step="1"] .placard,[data-step="2"] .placard,[data-step="3"] .placard{transform:none}
-.facts{display:flex;flex-direction:column;gap:18px}
-.fact{opacity:.12;transform:translateX(30px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1)}
-.fact.on,.fact.past{opacity:1;transform:none}
-.fact .mono{color:var(--mu)}
-.fact b{display:block;font-family:'AB';font-weight:400;font-size:clamp(26px,4vw,44px);line-height:1.02;margin-top:4px}
+/* ---------- 2 Angeklagter ---------- */
+#angeklagter{padding:110px 0 120px}
+.mug{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,70px);align-items:center;margin-top:46px}
+.mugshot{position:relative;background:#D8D6CF;padding:0 0 0 0;border:2px solid var(--ink);overflow:hidden}
+.mugshot .lines{position:absolute;left:0;top:0;bottom:0;width:46px;background:rgba(246,245,241,.82) repeating-linear-gradient(180deg,transparent 0 38px,rgba(18,18,18,.8) 38px 40px);border-right:2px solid var(--ink);z-index:2}
+.mugshot .lines i{position:absolute;left:6px;margin-top:-16px;font-family:'MO';font-size:11px;font-style:normal;color:var(--ink)}
+.mugshot img{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.08);transition:filter 1.2s}
+.mugshot.in img{filter:grayscale(0) contrast(1)}
+.placard{position:relative;z-index:2;background:var(--ink);color:var(--paper);padding:14px 18px;display:flex;justify-content:space-between;gap:12px;align-items:end}
+.placard b{font-family:'AB';font-weight:400;font-size:clamp(20px,3vw,28px);line-height:1}
 .flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:60}
 .flash.go{animation:flash .5s}
 @keyframes flash{10%{opacity:.85}100%{opacity:0}}
+.file{border-top:2px solid var(--ink)}
+.file div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--ink)}
+.file dt{font-family:'MO';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);padding-top:3px}
+.file dd{font-weight:700}
 
-/* Anklage */
-#anklage .head{display:flex;justify-content:space-between;align-items:end;gap:20px}
-#anklage .count{font-family:'AB';font-size:clamp(70px,14vw,160px);line-height:.8;color:var(--red)}
-#anklage .count small{font-size:.32em;color:var(--brass)}
-.deck{position:relative;flex:1;margin:28px 0 22px}
-.charge{position:absolute;inset:0;margin:auto;height:fit-content;max-width:760px;background:var(--paper);color:var(--ink);padding:clamp(22px,4vw,40px);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);opacity:0;transform:translateY(70px) rotate(2deg);transition:opacity .55s,transform .65s cubic-bezier(.2,.8,.2,1);pointer-events:none}
-.charge.on{opacity:1;transform:none;pointer-events:auto}
-.charge.past{opacity:0;transform:translateY(-90px) rotate(-3deg) scale(.94)}
-.charge h3{font-family:'AB';font-weight:400;font-size:clamp(26px,4.4vw,46px);line-height:1.02;margin-bottom:16px;padding-right:clamp(0px,14vw,170px)}
-.charge p{font-size:clamp(16px,1.9vw,19px);color:#333;max-width:600px}
-.charge .where{margin-top:16px;color:var(--mu)}
-.guilty{position:absolute;right:clamp(14px,3vw,30px);top:clamp(14px,3vw,30px);border:4px solid var(--red);color:var(--red);font-family:'AB';font-size:clamp(15px,2vw,22px);letter-spacing:.06em;padding:6px 12px;border-radius:4px;transform:rotate(-10deg) scale(2.8);opacity:0}
-.charge.on .guilty{animation:stamp .4s .7s cubic-bezier(.3,1.6,.5,1) forwards}
+/* ---------- 3 Anklage ---------- */
+#anklage{padding:120px 0}
+.charges{display:flex;flex-direction:column;gap:22px;margin-top:56px}
+.charge{position:relative;background:var(--paper);color:var(--ink);padding:26px 28px 26px 92px;border-radius:2px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.charge .no{position:absolute;left:24px;top:22px;font-family:'AB';font-size:44px;line-height:1;color:var(--red)}
+.charge h3{font-family:'AB';font-weight:400;font-size:clamp(22px,3.4vw,32px);line-height:1.08;margin-bottom:10px;padding-right:120px}
+.charge p{font-size:16px;color:#333}
+.charge .where{margin-top:12px;color:var(--mu)}
+.guilty{position:absolute;right:22px;top:20px;border:4px solid var(--red);color:var(--red);font-family:'AB';font-size:20px;letter-spacing:.06em;padding:6px 12px;border-radius:4px;transform:rotate(-10deg) scale(2.6);opacity:0}
+.charge.in .guilty{animation:stamp .45s .55s cubic-bezier(.3,1.6,.5,1) forwards}
 @keyframes stamp{to{opacity:.92;transform:rotate(-10deg) scale(1)}}
-.vid{margin-top:18px;display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:10px 18px;background:var(--ink);color:var(--paper);border:0;font-weight:700}
-.vid:hover{background:var(--red)}
-.plea{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;opacity:0;transform:scale(1.15);transition:opacity .6s,transform .8s cubic-bezier(.2,.8,.2,1);pointer-events:none}
-.plea.on{opacity:1;transform:none}
+.plea{margin-top:90px;text-align:center}
 .plea .mono{color:var(--brass)}
 .plea .big{font-family:'AB';font-size:clamp(48px,12vw,150px);line-height:.88;letter-spacing:-.03em;margin-top:16px}
 .plea .big span{color:var(--red)}
 
-/* Beweise */
-#beweise .stage{background:var(--cork);background-image:radial-gradient(rgba(0,0,0,.14) 1px,transparent 1.6px),radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.4px);background-size:7px 7px,11px 11px}
-#beweise .label{background:var(--paper);align-self:flex-start;padding:14px 18px;box-shadow:0 14px 30px -18px rgba(0,0,0,.6);transform:rotate(-1deg)}
-#beweise .label h2{font-size:clamp(28px,5vw,52px)}
-.wall{position:relative;flex:1;margin:14px 0}
-.pol{position:absolute;width:var(--w);left:var(--x);top:var(--y);background:#fff;padding:9px 9px 0;border:0;box-shadow:0 18px 30px -14px rgba(0,0,0,.6);transform:rotate(var(--r)) translateY(-120svh);transition:transform .8s cubic-bezier(.3,1.25,.5,1),opacity .4s;text-align:left}
-.pol.on,.pol.past{transform:rotate(var(--r))}
-.pol.past{opacity:.9}
+/* ---------- 4 Beweise ---------- */
+#beweise{padding:120px 0 130px;background:var(--cork);background-image:radial-gradient(rgba(0,0,0,.14) 1px,transparent 1.6px),radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.4px);background-size:7px 7px,11px 11px;color:var(--ink)}
+#beweise .head{background:var(--paper);display:inline-block;padding:22px 26px 26px;box-shadow:0 20px 40px -24px rgba(0,0,0,.6);transform:rotate(-1deg)}
+.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 26px;margin-top:60px}
+.pol{position:relative;background:#fff;padding:10px 10px 0;box-shadow:0 18px 30px -16px rgba(0,0,0,.65);border:0;text-align:left;transform:rotate(var(--r)) translateY(60px) scale(.9);opacity:0;transition:transform .7s cubic-bezier(.2,1.3,.4,1),opacity .5s}
+.pol.in{opacity:1;transform:rotate(var(--r))}
+.pol:hover,.pol:focus-visible{transform:rotate(0) scale(1.04);z-index:2;outline:none}
 .pol img{width:100%;aspect-ratio:1;object-fit:cover}
-.pol .t{display:block;padding:8px 2px 10px;font-family:'MO';font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
-.pin{position:absolute;top:-8px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff8a73,var(--red) 55%,#8e1d0e);box-shadow:0 3px 4px rgba(0,0,0,.45)}
-.capbar{background:var(--ink);color:var(--paper);padding:16px 20px;min-height:84px;display:flex;align-items:center;gap:18px}
-.capbar .mono{color:var(--red);white-space:nowrap}
-.capbar span:last-child{font-family:'AB';font-size:clamp(18px,2.6vw,26px);line-height:1.1}
+.pol .cap{padding:10px 4px 14px;font-size:14px;line-height:1.35}
+.pol .cap b{display:block;font-family:'MO';font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:3px}
+.pin{position:absolute;top:-9px;left:50%;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff8a73,var(--red) 55%,#8e1d0e);box-shadow:0 3px 4px rgba(0,0,0,.45)}
+.hint{margin-top:44px;text-align:center;font-family:'MO';font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+dialog{border:0;padding:0;background:transparent;max-width:min(920px,94vw);max-height:92vh;margin:auto}
+dialog::backdrop{background:rgba(12,8,6,.88)}
+dialog figure{background:#fff;padding:12px 12px 16px}
+dialog img{max-height:76vh;width:auto;margin:0 auto}
+dialog figcaption{padding-top:12px;font-size:15px}
+dialog .x{position:absolute;top:-6px;right:-6px;width:44px;height:44px;border-radius:50%;border:0;background:var(--red);color:#fff;font-family:'AB';font-size:20px}
 
-/* Schlusswort */
-#schlusswort .stage{background:var(--wood)}
-#schlusswort .wrap{justify-content:center}
-.words{font-family:'AB';font-size:clamp(32px,6.4vw,78px);line-height:1.04;letter-spacing:-.02em;max-width:1000px}
-.words span{opacity:.16;transition:opacity .25s;color:var(--paper)}
-.words span.lit{opacity:1}
-.words span.r.lit{color:var(--red)}
-.who{margin-top:28px;color:var(--brass)}
+/* ---------- 5 Aussage ---------- */
+#aussage{padding:120px 0}
+.protocol{margin-top:54px;max-width:760px;border-left:2px solid var(--red);padding-left:clamp(20px,4vw,40px);counter-reset:z}
+.protocol p{position:relative;margin-bottom:22px;font-size:clamp(17px,1.9vw,19px);line-height:1.62;text-wrap:pretty}
+.protocol p::before{counter-increment:z;content:counter(z,decimal-leading-zero);position:absolute;left:calc(-1 * clamp(20px,4vw,40px) - 46px);top:4px;font-family:'MO';font-size:12px;color:var(--mu)}
+.protocol strong{background:linear-gradient(transparent 62%,rgba(232,67,42,.28) 62%)}
+.sign{margin-top:34px;display:flex;align-items:end;gap:20px}
+.sign .ab{font-size:44px;line-height:1}
 
-/* Urteil */
-#urteil{padding:110px 0 90px;min-height:100svh}
-.verdict{display:flex;flex-direction:column;gap:14px;margin-top:44px;max-width:720px}
+/* ---------- 6 Indizien ---------- */
+#indizien{padding:120px 0}
+.envs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:56px}
+.env{position:relative;background:#E7D9B8;color:var(--ink);padding:30px 24px 26px;min-height:340px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.env::before{content:'';position:absolute;inset:0 0 auto 0;height:150px;background:#D9C79E;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1s .4s cubic-bezier(.6,0,.3,1);z-index:2}
+.env .wax{position:absolute;left:50%;top:118px;width:66px;height:66px;margin-left:-33px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff6b52,var(--redd) 60%,#7d1608);display:grid;place-items:center;color:#fff;font-family:'AB';font-size:15px;z-index:3;transition:transform .7s .2s,opacity .7s .2s}
+.env .body{position:relative;z-index:1;opacity:0;transform:translateY(20px);transition:opacity .7s 1.1s,transform .7s 1.1s}
+.env.in::before{transform:scaleY(-1) translateY(100%)}
+.env.in .wax{transform:translateY(-30px) rotate(40deg) scale(.6);opacity:0}
+.env.in .body{opacity:1;transform:none}
+.env .n{font-family:'AB';font-size:56px;line-height:1;color:var(--red)}
+.env h3{font-family:'AB';font-weight:400;font-size:24px;line-height:1.1;margin:10px 0 10px}
+.env p{font-size:15.5px;line-height:1.5}
+.env .why{margin-top:14px;color:#5b4a2a}
+.pilot{margin-top:34px;border:2px dashed var(--brass);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:18px;color:#F1E8D6}
+.pilot b{font-family:'AB';font-weight:400;color:var(--brass);font-size:24px;white-space:nowrap}
+
+/* ---------- 7 Nachtrag ---------- */
+#nachtrag{padding:110px 0}
+.bag{margin-top:46px;position:relative;border:3px solid var(--ink);background:repeating-linear-gradient(135deg,rgba(18,18,18,.04) 0 14px,transparent 14px 28px);padding:52px 30px 34px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center}
+.bag::before{content:'';position:absolute;left:0;right:0;top:20px;border-top:4px dashed var(--red)}
+.bag .lock{width:84px;height:84px;border-radius:50%;background:var(--ink);display:grid;place-items:center;animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,67,42,.55)}70%{box-shadow:0 0 0 22px rgba(232,67,42,0)}100%{box-shadow:0 0 0 0 rgba(232,67,42,0)}}
+.bag h3{font-family:'AB';font-weight:400;font-size:clamp(26px,4vw,40px);line-height:1.05;margin-bottom:8px}
+.bag .tag{position:absolute;right:22px;top:-16px;background:var(--red);color:#fff;padding:6px 12px;transform:rotate(3deg)}
+
+/* ---------- 8 Urteil ---------- */
+#urteil{padding:120px 0 90px;min-height:100svh}
+.verdict{display:flex;flex-direction:column;gap:14px;margin-top:50px;max-width:720px}
 .opt{display:flex;align-items:center;gap:20px;width:100%;text-align:left;background:transparent;border:2px solid rgba(246,245,241,.25);padding:18px 20px;transition:border-color .2s,background .2s}
 .opt:hover,.opt:focus-visible{border-color:var(--paper);outline:none}
 .opt .box{width:44px;height:44px;border:3px solid var(--paper);flex-shrink:0;display:grid;place-items:center}
@@ -161,55 +174,60 @@ h2 em{font-style:normal;color:var(--red)}
 .opt.sel .box svg{opacity:1;transform:none}
 .opt span{font-family:'AB';font-size:clamp(24px,4vw,36px);line-height:1}
 .reply{min-height:58px;margin-top:26px;font-size:clamp(18px,2.2vw,22px);max-width:640px;color:#F1E8D6}
-.cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;opacity:.6;transition:opacity .5s}
+.cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;opacity:.6;transition:opacity .5s}
 .cta.on{opacity:1}
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:14px 24px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;border:2px solid var(--red)}
 .btn:hover{background:var(--redd);border-color:var(--redd)}
 .btn.ghost{background:transparent;border-color:var(--paper);color:var(--paper)}
 .btn.ghost:hover{background:var(--paper);color:var(--ink)}
-.nachtrag{margin-top:64px;border:2px dashed var(--brass);padding:18px 22px;display:flex;gap:16px;align-items:center;color:#F1E8D6;max-width:720px}
-.nachtrag .mono{color:var(--brass)}
 .bigstamp{position:fixed;left:50%;top:50%;z-index:70;pointer-events:none;border:8px solid var(--red);color:var(--red);font-family:'AB';font-size:clamp(46px,11vw,120px);padding:10px 34px;border-radius:10px;background:rgba(246,245,241,.92);transform:translate(-50%,-50%) rotate(-12deg) scale(3);opacity:0}
 .bigstamp.go{animation:big 1.9s cubic-bezier(.3,1.5,.5,1) forwards}
 @keyframes big{18%{opacity:1;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}78%{opacity:1;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}}
-dialog{border:0;padding:0;background:transparent;width:min(960px,94vw);max-height:92vh;margin:auto;overflow:visible}
-dialog::backdrop{background:rgba(12,8,6,.9)}
-dialog .frame{background:#000;aspect-ratio:16/9;width:100%}
-dialog .frame iframe{width:100%;height:100%;border:0;display:block}
-dialog figure{background:#fff;padding:12px 12px 16px}
-dialog figure img{max-height:76vh;width:auto;margin:0 auto}
-dialog figcaption{padding-top:12px;font-size:15px}
-dialog .x{position:absolute;top:-16px;right:-10px;width:44px;height:44px;border-radius:50%;border:0;background:var(--red);color:#fff;font-family:'AB';font-size:20px;z-index:2}
 footer{background:var(--ink);color:var(--paper);padding:40px 0 calc(40px + env(safe-area-inset-bottom))}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 footer .ab{font-size:24px}
 
-@media (max-width:760px){
-  .mg{grid-template-columns:minmax(0,1fr);gap:20px}
-  .mugshot{max-height:46svh;width:auto;justify-self:start}
-  .facts{gap:10px}
-  .fact b{font-size:24px}
-  .charge h3{padding-right:0;margin-top:34px}
-  .stage .wrap{padding-top:60px}
-  .capbar{flex-direction:column;align-items:flex-start;gap:4px;min-height:96px}
+
+.pol .th{position:relative;display:block;overflow:hidden;background:#222}
+.pol .th img{width:100%;aspect-ratio:1;object-fit:cover}
+.pol.v .th img{aspect-ratio:16/9}
+.pol .play{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.4);transition:transform .2s}
+.pol:hover .play{transform:scale(1.12)}
+.pol .cap small{display:block;font-size:12px;color:var(--mu);margin-top:3px}
+.board{grid-template-columns:repeat(3,minmax(0,1fr))}
+.vid{margin-top:14px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;background:var(--ink);color:var(--paper);border:0;font-weight:700;font-size:15px}
+.vid:hover{background:var(--red)}
+dialog .frame{background:#000;aspect-ratio:16/9;width:min(920px,94vw)}
+dialog .frame iframe{width:100%;height:100%;border:0;display:block}
+dialog .ttl{color:#fff;padding-top:10px;font-size:15px}
+.nachtrag{margin-top:60px;border:2px dashed var(--brass);padding:16px 20px;display:flex;gap:16px;align-items:center;color:#F1E8D6;max-width:720px}
+.nachtrag .mono{color:var(--brass)}
+.charge{padding-right:160px}
+@media (max-width:860px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.board{grid-template-columns:minmax(0,1fr);gap:26px}.pol{max-width:340px;justify-self:center;width:100%}}
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .board{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px}
+  .envs{grid-template-columns:minmax(0,1fr)}
+  .env{min-height:0}
+}
+@media (max-width:700px){
+  body{font-size:16px}
+  .mug{grid-template-columns:minmax(0,1fr)}
+  .file div{grid-template-columns:110px minmax(0,1fr)}
+  .charge{padding:22px 20px 22px 20px}
+  .charge .no{position:static;font-size:34px;margin-bottom:14px}
+  .charge h3{padding-right:0}
+  .guilty{top:16px;right:14px;font-size:14px;border-width:3px;padding:4px 10px}
+  .protocol p::before{display:none}
+  .bag{grid-template-columns:minmax(0,1fr)}
+  .pilot{flex-direction:column;align-items:flex-start}
   .gavel-wrap{bottom:120px;opacity:.9}
   .saal-top .right{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;transition-delay:0s!important}
-  .rv{opacity:1;transform:none}
-}
-.pol:nth-of-type(1){--x:0%;--y:4%;--w:21%;--r:-4deg}
-.pol:nth-of-type(2){--x:24%;--y:20%;--w:21%;--r:3deg}
-.pol:nth-of-type(3){--x:49%;--y:2%;--w:21%;--r:-2deg}
-.pol:nth-of-type(4){--x:75%;--y:16%;--w:21%;--r:4deg}
-.pol:nth-of-type(5){--x:36%;--y:40%;--w:21%;--r:-3deg}
-@media (max-width:760px){
-  .pol:nth-of-type(1){--x:0%;--y:0%;--w:47%}
-  .pol:nth-of-type(2){--x:51%;--y:5%;--w:47%}
-  .pol:nth-of-type(3){--x:2%;--y:34%;--w:47%}
-  .pol:nth-of-type(4){--x:50%;--y:40%;--w:47%}
-  .pol:nth-of-type(5){--x:24%;--y:58%;--w:50%}
+  .rv,.pol,.env .body{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -266,133 +284,119 @@ footer .ab{font-size:24px}
   </div>
 </section>
 
-
-<!-- 2 · Der Angeklagte (3 Schritte) -->
-<section id="angeklagter" class="scene" data-steps="4" style="height:300svh" data-akt="Der Angeklagte">
-  <div class="stage">
-    <div class="wrap">
-      <div class="kicker mono" style="margin-bottom:22px">Akt I · Der Angeklagte</div>
-      <div class="mg">
-        <figure class="mugshot">
-          <div class="lines" aria-hidden="true"></div>
-          <img src="/images/bild_nicolas.jpeg" alt="Porträt von Nicolas Rossi, die Arme verschränkt, lächelnd" width="1455" height="1782">
-          <figcaption class="placard"><b>ROSSI, NICOLAS</b><span class="mono">NWR-001</span></figcaption>
-        </figure>
-        <div class="facts">
-          <div class="fact" data-i="1"><span class="mono">Alias</span><b>LeRossi</b></div>
-          <div class="fact" data-i="2"><span class="mono">Spricht</span><b>Deutsch, Französisch, Englisch</b></div>
-          <div class="fact" data-i="3"><span class="mono">Motto</span><b>Choose to like it.</b></div>
-        </div>
-      </div>
+<!-- 2 · Der Angeklagte -->
+<section id="angeklagter" data-akt="Der Angeklagte">
+  <div class="wrap">
+    <div class="kicker mono rv">Akt I · Der Angeklagte</div>
+    <h2 class="rv">Vorgeführt wird: <em>Nicolas Rossi.</em></h2>
+    <div class="mug">
+      <figure class="mugshot rv" id="mugshot">
+        <div class="lines" aria-hidden="true"><i style="top:30px">190</i><i style="top:110px">180</i><i style="top:190px">170</i><i style="top:270px">160</i><i style="top:350px">150</i></div>
+        <img src="img/nicolas.webp" alt="Porträt von Nicolas Rossi, die Arme verschränkt, lächelnd" width="560" height="686" fetchpriority="low">
+        <figcaption class="placard"><b>ROSSI, NICOLAS</b><span class="mono">NWR-001 · 18.11.2026</span></figcaption>
+      </figure>
+      <dl class="file rv d1">
+        <div><dt>Alias</dt><dd>LeRossi</dd></div>
+        <div><dt>Beruf</dt><dd>Content Creator. Demnächst: eurer.</dd></div>
+        <div><dt>Spricht</dt><dd>Deutsch, Französisch, Englisch</dd></div>
+        <div><dt>Motto</dt><dd>Choose to like it.</dd></div>
+      </dl>
     </div>
   </div>
 </section>
 
-<!-- 3 · Die Anklage (5 Punkte + Plädoyer) -->
-<section id="anklage" class="scene dark" data-steps="6" style="height:540svh" data-akt="Die Anklage">
-  <div class="stage panel">
-    <div class="wrap">
-      <div class="head">
-        <div>
-          <div class="kicker mono" style="color:var(--brass);margin-bottom:10px">Akt II · Die Anklage</div>
-          <div class="mono" style="color:#E9E2D6">Dem Angeklagten wird vorgeworfen:</div>
-        </div>
-        <div class="count" aria-hidden="true"><span id="cnt">01</span><small>/05</small></div>
-      </div>
-      <div class="deck">
-        <article class="charge" data-i="0">
-          <h3>Wiederholtes Ansprechen fremder Menschen</h3>
-          <p>Und zwar bevor diese wussten, dass sie stehen bleiben wollen. Auf der Bühne, am Stand von Brands und vor der Kamera.</p>
-          <div class="where mono">Tatort: Energy Air, Events, Moderationen</div>
-          <div class="guilty">SCHULDIG</div>
-        </article>
-        <article class="charge" data-i="1">
-          <h3>Erklären komplexer Dinge, bis sie ein Zehnjähriger versteht</h3>
-          <p>Mit Vorsatz. Genau das braucht guter Content: in wenigen Sekunden klar, am Ende hängen geblieben. So wie hoffentlich diese Bewerbung.</p>
-          <div class="where mono">Tatort: Primarschule Fondli, Dietikon</div>
-          <div class="guilty">SCHULDIG</div>
-        </article>
-        <article class="charge" data-i="2">
-          <h3>Vertretung der Schweiz auf einem Brett</h3>
-          <p>Zehn Tage Wind, Wellen und Weltmeisterschaft. Erkenntnis: Das Wetter kannst du nicht planen, deine Reaktion darauf schon. So geht Newsjacking.</p>
-          <div class="where mono">Tatort: SUP-WM, Sabaudia (IT), Oktober 2026</div>
-          <button class="vid" id="vidbtn" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Beweisvideo abspielen</button>
-          <div class="guilty">SCHULDIG</div>
-        </article>
-        <article class="charge" data-i="3">
-          <h3>Ein Jahr mit dem Velo um die Welt, inklusive Markteinführung</h3>
-          <p>Unterwegs in Auckland der Marke Aroa Jun beim Markteintritt geholfen. Mit Fotos, Kampagne und Produktidee. Beweise siehe Akt III.</p>
-          <div class="where mono">Tatort: Auckland, Neuseeland</div>
-          <div class="guilty">SCHULDIG</div>
-        </article>
-        <article class="charge" data-i="4">
-          <h3>Unerlaubtes Vor-die-Kamera-Stellen</h3>
-          <p>Idee, Dreh, Schnitt und Gesicht in einer Person. Reels, TikToks und Shorts, regelmässig und ohne Reue.</p>
-          <div class="where mono">Tatort: TikTok @lerossiyt · YouTube @_lerossi · Instagram @lerossiytb</div>
-          <div class="guilty">SCHULDIG</div>
-        </article>
-        <div class="plea" data-i="5">
-          <div class="mono">Wie plädiert der Angeklagte?</div>
-          <div class="big">SCHULDIG.<br><span>IN ALLEN PUNKTEN.</span></div>
-        </div>
-      </div>
-      <div class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<!-- 3 · Die Anklage -->
+<section id="anklage" class="dark panel" data-akt="Die Anklage">
+  <div class="wrap">
+    <div class="kicker mono rv" style="color:var(--brass)">Akt II · Die Anklage</div>
+    <h2 class="rv">Dem Angeklagten wird <em>Folgendes</em> vorgeworfen.</h2>
+    <div class="charges">
+      <article class="charge rv">
+        <div class="no">01</div>
+        <h3>Wiederholtes Ansprechen fremder Menschen</h3>
+        <p>Und zwar bevor diese wussten, dass sie stehen bleiben wollen. Auf der Bühne, am Stand von Brands und vor der Kamera.</p>
+        <div class="where mono">Tatort: Energy Air, Events, Moderationen</div>
+        <div class="guilty" aria-label="Schuldig">SCHULDIG</div>
+      </article>
+      <article class="charge rv">
+        <div class="no">02</div>
+        <h3>Erklären komplexer Dinge, bis sie ein Zehnjähriger versteht</h3>
+        <p>Mit Vorsatz. Genau das braucht guter Content: in wenigen Sekunden klar, am Ende hängen geblieben. So wie hoffentlich diese Bewerbung.</p>
+        <div class="where mono">Tatort: Primarschule Fondli, Dietikon</div>
+        <div class="guilty" aria-label="Schuldig">SCHULDIG</div>
+      </article>
+      <article class="charge rv">
+        <div class="no">03</div>
+        <h3>Vertretung der Schweiz auf einem Brett</h3>
+        <p>Zehn Tage Wind, Wellen und Weltmeisterschaft. Erkenntnis: Das Wetter kannst du nicht planen, deine Reaktion darauf schon. So geht Newsjacking.</p>
+        <div class="where mono">Tatort: SUP-WM, Sabaudia (IT), Oktober 2026</div>
+        <button class="vid" type="button" data-yt="pX3oyUaNzis" data-cap="Mein Weg an die SUP Weltmeisterschaften | Teil 1"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Beweisvideo abspielen</button>
+        <div class="guilty" aria-label="Schuldig">SCHULDIG</div>
+      </article>
+      <article class="charge rv">
+        <div class="no">04</div>
+        <h3>Ein Jahr mit dem Velo um die Welt, inklusive Markteinführung</h3>
+        <p>Unterwegs in Auckland der Marke Aroa Jun beim Markteintritt geholfen. Mit Fotos, Kampagne und Produktidee.</p>
+        <div class="where mono">Tatort: Auckland, Neuseeland</div>
+        <div class="guilty" aria-label="Schuldig">SCHULDIG</div>
+      </article>
+      <article class="charge rv">
+        <div class="no">05</div>
+        <h3>Unerlaubtes Vor-die-Kamera-Stellen</h3>
+        <p>Idee, Dreh, Schnitt und Gesicht in einer Person. Reels, TikToks und Shorts, regelmässig und ohne Reue.</p>
+        <div class="where mono">Tatort: TikTok @lerossiyt · YouTube @_lerossi · Instagram @lerossiytb</div>
+        <div class="guilty" aria-label="Schuldig">SCHULDIG</div>
+      </article>
+    </div>
+    <div class="plea">
+      <div class="mono rv">Wie plädiert der Angeklagte?</div>
+      <div class="big rv d1">SCHULDIG.<br><span>IN ALLEN PUNKTEN.</span></div>
     </div>
   </div>
 </section>
 
-<!-- 4 · Beweisaufnahme (5 Fotos) -->
-<section id="beweise" class="scene" data-steps="5" style="height:460svh" data-akt="Beweisaufnahme">
-  <div class="stage">
-    <div class="wrap">
-      <div class="label"><div class="kicker mono" style="margin-bottom:6px">Akt III · Beweisaufnahme</div><h2>Die Beweise <em>hängen an der Wand.</em></h2></div>
-      <div class="wall">
-        <button class="pol" data-i="0" type="button" data-full="/images/web/event.jpg" data-cap="Moderation auf der Bühne"><span class="pin"></span><img src="/images/thumbs/event.jpg" alt="Moderation auf der Bühne"><span class="t">Beweisstück A</span></button>
-        <button class="pol" data-i="1" type="button" data-full="/images/LNDK_3.jpg" data-cap="Event-Fotografie: Lange Nacht der Karriere, FHGR"><span class="pin"></span><img src="/images/LNDK_3.jpg" alt="Podiumsgespräch an der Langen Nacht der Karriere"><span class="t">Beweisstück B</span></button>
-        <button class="pol" data-i="2" type="button" data-full="/images/web/aroa.jpg" data-cap="Aroa Jun, Neuseeland: Produktfotografie am Meer"><span class="pin"></span><img src="/images/thumbs/aroa.jpg" alt="Aroa Jun am Meer in Neuseeland"><span class="t">Beweisstück C</span></button>
-        <button class="pol" data-i="3" type="button" data-full="/images/aroa-giveaway.jpg" data-cap="Aroa Jun: Giveaway-Kampagne"><span class="pin"></span><img src="/images/aroa-giveaway.jpg" alt="Giveaway-Post für Aroa Jun"><span class="t">Beweisstück D</span></button>
-        <button class="pol" data-i="4" type="button" data-full="/images/web/rugby1.jpg" data-cap="Sportfotografie: Hausen Baboons Rugby Club"><span class="pin"></span><img src="/images/thumbs/rugby1.jpg" alt="Rugby-Spielszene"><span class="t">Beweisstück E</span></button>
-      </div>
-      <div class="capbar" aria-live="polite"><span class="mono" id="capno">Beweisstück A</span><span id="captxt">Moderation auf der Bühne</span></div>
+<!-- 4 · Beweisaufnahme -->
+<section id="beweise" data-akt="Beweisaufnahme">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kicker mono">Akt III · Beweisaufnahme</div>
+      <h2>Die Beweise <em>laufen auf Video.</em></h2>
     </div>
+    <div class="board" id="board">
+      <button class="pol v" style="--r:-2deg" data-yt="0O60w_dkzTk" data-cap="Showreel"><span class="pin"></span><span class="th"><img src="https://i.ytimg.com/vi/0O60w_dkzTk/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg></span></span><span class="cap"><b>Beweisstück A</b>Showreel<small>Video · Kamera &amp; Schnitt</small></span></button>
+      <button class="pol v" style="--r:2deg" data-yt="Trah2tPlJ-k" data-cap="«Die unverwundbaren Superhelden»"><span class="pin"></span><span class="th"><img src="https://i.ytimg.com/vi/Trah2tPlJ-k/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg></span></span><span class="cap"><b>Beweisstück B</b>«Die unverwundbaren Superhelden»<small>Doku · Regie, Kamera &amp; Edit</small></span></button>
+      <button class="pol v" style="--r:-1.5deg" data-yt="MLxpGQ1qe8U" data-cap="«Was es braucht, um Ironman zu gewinnen»"><span class="pin"></span><span class="th"><img src="https://i.ytimg.com/vi/MLxpGQ1qe8U/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg></span></span><span class="cap"><b>Beweisstück C</b>«Was es braucht, um Ironman zu gewinnen»<small>Interview mit Jan van Berkel · Edit</small></span></button>
+      <button class="pol v" style="--r:2.5deg" data-yt="mPtZAlupbPo" data-cap="«Destination: Garten»"><span class="pin"></span><span class="th"><img src="https://i.ytimg.com/vi/mPtZAlupbPo/mqdefault.jpg" alt="" loading="lazy" width="320" height="180"><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M7 4v16l13-8z"/></svg></span></span><span class="cap"><b>Beweisstück D</b>«Destination: Garten»<small>Kampagnenvideo</small></span></button>
+      <button class="pol" style="--r:-2.5deg" data-full="img/aroa-giveaway-l.webp" data-cap="Aroa Jun: Giveaway-Kampagne"><span class="pin"></span><span class="th"><img src="img/aroa-giveaway.webp" alt="" loading="lazy"></span><span class="cap"><b>Beweisstück E</b>Aroa Jun: Giveaway-Kampagne<small>Social Media · Neuseeland</small></span></button>
+      <button class="pol" style="--r:1.5deg" data-full="img/wwb-l.webp" data-cap="«Was war bekannt?»"><span class="pin"></span><span class="th"><img src="img/wwb.webp" alt="" loading="lazy"></span><span class="cap"><b>Beweisstück F</b>«Was war bekannt?»<small>Social Media · Posts</small></span></button>
+    </div>
+    <div class="hint">Tippe ein Beweisstück an, um es abzuspielen.</div>
   </div>
+  <dialog id="dlg" aria-label="Beweisstück">
+    <button class="x" id="dlgx" aria-label="Schliessen">×</button>
+    <div id="dlgin"></div>
+  </dialog>
 </section>
 
-<!-- 5 · Schlusswort (Wort für Wort) -->
-<section id="schlusswort" class="scene dark" data-steps="1" data-words="1" style="height:240svh" data-akt="Schlusswort">
-  <div class="stage panel">
-    <div class="wrap">
-      <div class="kicker mono" style="color:var(--brass)">Akt IV · Das letzte Wort</div>
-      <p class="words" id="words">Ich mache Marken und Menschen sichtbar. Ich erkläre Dinge so, dass sie hängen bleiben. Und gute Arbeit ist für mich eine Entscheidung. <span class="r">Choose to like it.</span></p>
-      <div class="who mono">Nicolas Rossi, Angeklagter</div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 · Urteil -->
+<!-- 8 · Urteil -->
 <section id="urteil" class="dark panel" data-akt="Das Urteil">
   <div class="wrap">
-    <div class="kicker mono rv" style="color:var(--brass)">Akt V · Das Urteil</div>
+    <div class="kicker mono rv" style="color:var(--brass)">Akt IV · Das Urteil</div>
     <h2 class="rv">Das Urteil <em>liegt bei euch.</em></h2>
     <div class="verdict" role="group" aria-label="Urteil wählen">
-      <button class="opt" data-v="andy" aria-pressed="false" type="button"><span class="box"><svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 4 24 24M24 4 4 24" stroke="#E8432A" stroke-width="5" stroke-linecap="round"/></svg></span><span>Andy was right.</span></button>
-      <button class="opt" data-v="nicolas" aria-pressed="false" type="button"><span class="box"><svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 4 24 24M24 4 4 24" stroke="#E8432A" stroke-width="5" stroke-linecap="round"/></svg></span><span>Nicolas was right.</span></button>
-      <button class="opt" data-v="beide" aria-pressed="false" type="button"><span class="box"><svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 4 24 24M24 4 4 24" stroke="#E8432A" stroke-width="5" stroke-linecap="round"/></svg></span><span>Beide. Logisch.</span></button>
+      <button class="opt rv" data-v="andy" aria-pressed="false"><span class="box"><svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 4 24 24M24 4 4 24" stroke="#E8432A" stroke-width="5" stroke-linecap="round"/></svg></span><span>Andy was right.</span></button>
+      <button class="opt rv d1" data-v="nicolas" aria-pressed="false"><span class="box"><svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 4 24 24M24 4 4 24" stroke="#E8432A" stroke-width="5" stroke-linecap="round"/></svg></span><span>Nicolas was right.</span></button>
+      <button class="opt rv d2" data-v="beide" aria-pressed="false"><span class="box"><svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 4 24 24M24 4 4 24" stroke="#E8432A" stroke-width="5" stroke-linecap="round"/></svg></span><span>Beide. Logisch.</span></button>
     </div>
     <p class="reply" id="reply" aria-live="polite"></p>
     <div class="cta" id="cta">
       <a class="btn" id="mail" href="mailto:nrossi5@gmx.ch?subject=Verhandlungstermin%20Fall%202026-NWR-001&amp;body=Hoi%20Nicolas%2C%0A%0Adas%20Gericht%20m%C3%B6chte%20dich%20an%20der%20Heinrichstrasse%20sehen.%0A%0AVorschlag%20f%C3%BCr%20einen%20Termin%3A%20">Verhandlungstermin vereinbaren</a>
       <a class="btn ghost" id="tel" href="tel:+41764217303">076 421 73 03</a>
     </div>
-    <div class="nachtrag"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D9B26A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><div><div class="mono">Nachtrag</div>Neues Beweismaterial wird nachgereicht. Die Ermittlungen laufen noch.</div></div>
+    <div class="nachtrag"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D9B26A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><div><div class="mono">Nachtrag</div>Neues Beweismaterial wird nachgereicht. Die Ermittlungen laufen noch.</div></div>
   </div>
 </section>
 </main>
-
-<dialog id="dlg" aria-label="Beweis">
-  <button class="x" id="dlgx" type="button" aria-label="Schliessen">×</button>
-  <div id="dlgin"></div>
-</dialog>
 
 <footer>
   <div class="wrap">
@@ -405,64 +409,28 @@ footer .ab{font-size:24px}
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // simple reveal (Urteil)
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
-
-  // words for Schlusswort
-  var wordsEl=document.getElementById('words'), words=[];
-  (function split(node){
-    [].slice.call(node.childNodes).forEach(function(n){
-      if(n.nodeType===3){
-        var frag=document.createDocumentFragment();
-        n.textContent.split(/(\s+)/).forEach(function(t){
-          if(!t) return;
-          if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t));return;}
-          var s=document.createElement('span'); s.textContent=t;
-          if(node.classList && node.classList.contains('r')) s.className='r';
-          frag.appendChild(s); words.push(s);
-        });
-        node.replaceChild(frag,n);
-      } else if(n.nodeType===1){ split(n); }
+  // reveal on scroll
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
     });
-  })(wordsEl);
+  },{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv,.pol,.env').forEach(function(el){ io.observe(el); });
 
-  // scenes
-  var scenes=[].slice.call(document.querySelectorAll('.scene'));
-  var flash=document.getElementById('flash'), flashed=false;
-  var cnt=document.getElementById('cnt'), capno=document.getElementById('capno'), captxt=document.getElementById('captxt');
-  var pols=[].slice.call(document.querySelectorAll('.pol'));
-  var letters='ABCDE';
-  function update(){
-    var vh=window.innerHeight;
-    scenes.forEach(function(sc){
-      var r=sc.getBoundingClientRect(), span=r.height-vh;
-      var p=span>0?Math.min(1,Math.max(0,-r.top/span)):0;
-      var n=+sc.getAttribute('data-steps');
-      if(sc.hasAttribute('data-words')){
-        var k=Math.round(Math.min(1,p*1.15)*words.length);
-        words.forEach(function(w,i){w.classList.toggle('lit',i<k);});
-        return;
-      }
-      var idx=Math.min(n-1,Math.floor(p*n));
-      if(sc.getAttribute('data-step')==String(idx)) return;
-      sc.setAttribute('data-step',idx);
-      sc.querySelectorAll('[data-i]').forEach(function(el){
-        var i=+el.getAttribute('data-i');
-        el.classList.toggle('on',i===idx);
-        el.classList.toggle('past',i<idx);
-      });
-      sc.querySelectorAll('.ticks i').forEach(function(t,i){t.classList.toggle('on',i<=idx);});
-      if(sc.id==='anklage') cnt.textContent='0'+Math.min(5,idx+1);
-      if(sc.id==='beweise'){ capno.textContent='Beweisstück '+letters[idx]; captxt.textContent=pols[idx].getAttribute('data-cap'); }
-      if(sc.id==='angeklagter' && idx>=1 && !flashed){ flashed=true; if(!reduce){flash.classList.add('go');} }
+  // polaroids: stagger
+  document.querySelectorAll('.pol').forEach(function(p,i){ p.style.transitionDelay=(i%4)*90+'ms'; });
+
+  // mugshot flash
+  var mug=document.getElementById('mugshot'), flash=document.getElementById('flash'), flashed=false;
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !flashed){ flashed=true; if(!reduce){ flash.classList.add('go'); } setTimeout(function(){ mug.classList.add('in'); },350); }
     });
-  }
-  window.addEventListener('scroll',update,{passive:true});
-  window.addEventListener('resize',update);
-  update();
+  },{threshold:.55}).observe(mug);
 
-  // progress bar + akt label
+  // progress + akt label
   var prog=document.getElementById('prog'), bar=document.getElementById('bar'), akt=document.getElementById('akt');
   var secs=[].slice.call(document.querySelectorAll('main section[data-akt]'));
   function onScroll(){
@@ -475,23 +443,24 @@ footer .ab{font-size:24px}
   }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
-  // dialog: photos + video
+  // evidence lightbox (videos + images)
   var dlg=document.getElementById('dlg'), din=document.getElementById('dlgin');
-  function open(html){ din.innerHTML=html; if(dlg.showModal) dlg.showModal(); }
-  function close(){ dlg.close(); }
-  dlg.addEventListener('close',function(){ din.innerHTML=''; });
-  document.getElementById('dlgx').addEventListener('click',close);
-  dlg.addEventListener('click',function(e){ if(e.target===dlg) close(); });
-  pols.forEach(function(p){
-    p.addEventListener('click',function(){
-      open('<figure><img src="'+p.getAttribute('data-full')+'" alt=""><figcaption><b class="mono" style="color:var(--red)">'+p.querySelector('.t').textContent+'</b><br>'+p.getAttribute('data-cap')+'</figcaption></figure>');
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+  function openEl(el){
+    var yt=el.getAttribute('data-yt'), cap=esc(el.getAttribute('data-cap')||'');
+    if(yt){
+      din.innerHTML='<div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/'+yt+'?autoplay=1&rel=0" title="'+cap+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="ttl">'+cap+'</div>';
+      window.nrHit(yt==='pX3oyUaNzis'?'andy-video':'andy-beweis');
+    } else {
+      din.innerHTML='<figure><img src="'+el.getAttribute('data-full')+'" alt=""><figcaption>'+cap+'</figcaption></figure>';
       window.nrHit('andy-beweis');
-    });
-  });
-  document.getElementById('vidbtn').addEventListener('click',function(){
-    open('<div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/pX3oyUaNzis?autoplay=1&rel=0" title="Mein Weg an die SUP Weltmeisterschaften | Teil 1 – LeRossi auf YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>');
-    window.nrHit('andy-video');
-  });
+    }
+    if(dlg.showModal) dlg.showModal();
+  }
+  document.querySelectorAll('.pol,.vid').forEach(function(p){ p.addEventListener('click',function(){ openEl(p); }); });
+  document.getElementById('dlgx').addEventListener('click',function(){ dlg.close(); });
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+  dlg.addEventListener('close',function(){ din.innerHTML=''; });
 
   // verdict
   var replies={
