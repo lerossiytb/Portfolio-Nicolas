@@ -20,7 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: .github/scripts
+          sparse-checkout: |
+            .github/scripts
+            aufrufe
 
       - name: Branch "zaehler" holen
         run: |
@@ -35,7 +37,7 @@ jobs:
           fi
 
       - name: Zähler abrufen und Besuche zuordnen
-        run: python3 .github/scripts/zaehler.py daten
+        run: node .github/scripts/zaehler.mjs daten
 
       - name: Speichern
         run: |

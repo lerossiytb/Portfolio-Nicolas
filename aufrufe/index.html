@@ -4,126 +4,182 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Aufrufe – Bewerbungsseiten</title>
+<title>Aufrufe – nicolasrossi.ch</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..800&display=swap">
 <style>
-:root{--bg:#F6F4EF;--card:#FFFFFF;--fg:#141414;--muted:#6B6B6B;--line:#E4E1D9;--accent:#FF2A1A;--ok:#1F8A4C;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#121212;--card:#1C1C1C;--fg:#F3F1EA;--muted:#9C9C9C;--line:#2C2C2C;--accent:#FF4A3A;--ok:#4CC27F;color-scheme:dark}}
+:root{--bg:#F6F4EF;--card:#FFFFFF;--fg:#141414;--muted:#6B6B6B;--line:#E4E1D9;--track:#EFECE5;--accent:#FF2A1A;--ok:#1F8A4C;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--card:#1C1C1C;--fg:#F3F1EA;--muted:#9C9C9C;--line:#2C2C2C;--track:#262626;--accent:#FF4A3A;--ok:#4CC27F;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter Tight',system-ui,sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased}
-main{max-width:720px;margin:0 auto;padding:32px 16px 64px}
+main{max-width:760px;margin:0 auto;padding:32px 16px 64px}
 h1{font-size:clamp(1.8rem,6vw,2.6rem);letter-spacing:-.04em;line-height:1;margin:0 0 6px}
 h1 i{color:var(--accent);font-style:normal}
-.sub{color:var(--muted);margin:0 0 28px;font-size:.95rem}
-h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:32px 0 10px;font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:28px 0 10px;font-weight:600}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin:0 -16px;padding-inline:16px;scrollbar-width:none}
+.tabs button{flex:none;font:inherit;font-weight:600;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:7px 14px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tabs .c{opacity:.6;font-weight:500;margin-left:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.card .n{font-size:2rem;font-weight:750;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.card .l{font-size:.85rem;color:var(--muted);margin-top:6px}
-.card .new{color:var(--accent);font-size:.8rem;font-weight:600;margin-top:4px}
+.kpi .n{font-size:1.9rem;font-weight:750;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:.85rem;color:var(--muted);margin-top:6px}
+.funnel .r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;margin:10px 0}
+.funnel .r:first-child{margin-top:0}
+.funnel .lab{font-size:.92rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.funnel .val{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.bar{grid-column:1/-1;height:8px;border-radius:4px;background:var(--track);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--accent);border-radius:4px}
+.funnel .drop .lab::after{content:" ← danach abgesprungen";color:var(--accent);font-weight:600;font-size:.8rem}
+.empty,.note{color:var(--muted);font-size:.9rem}
 .day{margin:18px 0 6px;font-weight:650;font-size:.95rem}
 ul{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-li{display:flex;gap:12px;align-items:baseline;padding:11px 16px;border-top:1px solid var(--line)}
+li{padding:12px 16px;border-top:1px solid var(--line)}
 li:first-child{border-top:0}
-li .t{font-variant-numeric:tabular-nums;font-weight:650;min-width:7.5em}
-li .w{flex:1}
-li .c{color:var(--muted);font-variant-numeric:tabular-nums}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
-.empty,.note{color:var(--muted);font-size:.9rem}
+li .top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+li .t{font-variant-numeric:tabular-nums;font-weight:650}
+li .p{font-weight:600}
+li .m{color:var(--muted);font-size:.88rem}
+.steps{display:flex;gap:3px;margin-top:8px}
+.steps i{flex:1;height:6px;border-radius:3px;background:var(--track)}
+.steps i.on{background:var(--accent)}
 .note{margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
 .me{color:var(--ok);font-weight:600}
-button{font:inherit;background:var(--fg);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;font-weight:600}
-.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.btn{font:inherit;background:var(--fg);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;font-weight:600}
 </style>
 </head>
 <body>
 <main>
   <h1>Aufrufe<i>.</i></h1>
   <p class="sub" id="stand">Lade …</p>
-
-  <h2>Total seit Start</h2>
-  <div class="grid" id="totals"></div>
-
-  <h2>Besuche mit Uhrzeit</h2>
-  <div id="log"><p class="empty">Lade …</p></div>
-
+  <div class="tabs" id="tabs" role="toolbar" aria-label="Seite wählen"></div>
+  <div id="view"><p class="empty" style="margin-top:20px">Lade …</p></div>
   <div class="note">
-    <p>Uhrzeiten sind auf 10 Minuten genau. Erfasst wird nur <em>wann</em> und <em>welche Seite</em>, keine Personen- oder Gerätedaten. Besuche vor dem 18.11. haben noch keine Uhrzeit.</p>
+    <p>Pro Besuch erfasst: Startzeit (auf 10 Minuten genau), erreichte Abschnitte und Verweildauer (nur Zeit, in der die Seite sichtbar war). Keine Personen- oder Gerätedaten, keine Cookies. Details gibt es für Besuche ab 18.11. mittags; Besuche im selben 10-Minuten-Fenster werden zusammengefasst.</p>
     <p id="mestatus"></p>
-    <div class="row"><button id="refresh">Aktualisieren</button></div>
+    <button class="btn" id="refresh">Aktualisieren</button>
   </div>
 </main>
+<script src="/aufrufe/kern.js?v=2"></script>
 <script>
 (function(){
-  // Wer diese Seite öffnet, ist Nicolas: dieses Gerät künftig nicht mitzählen.
-  try{localStorage.setItem("nr_me","1");document.getElementById("mestatus").innerHTML='<span class="me">✓ Dieses Gerät wird nicht mitgezählt.</span> Öffne diese Seite einmal auf jedem Gerät, mit dem du deine Bewerbungsseiten anschaust.';}
+  try{localStorage.setItem("nr_me","1");document.getElementById("mestatus").innerHTML='<span class="me">✓ Dieses Gerät wird nicht mitgezählt.</span> Öffne diese Seite einmal auf jedem Gerät, mit dem du deine Seiten anschaust.';}
   catch(e){document.getElementById("mestatus").textContent="Hinweis: Dieser Browser lässt keine Speicherung zu, deine Besuche könnten mitgezählt werden.";}
 
   var RAW="https://raw.githubusercontent.com/lerossiytb/Portfolio-Nicolas/zaehler/";
-  var API="https://abacus.jasoncameron.dev/get/nicolasrossi-ch/";
-  var META={
-    "family-views":["Family° geöffnet","#FF2A1A"],
-    "family-sound":["Family° · Ton an","#FF8A1A"],
-    "family-paywall":["Family° · bis zur Paywall","#C2410C"],
-    "monami-views":["monami geöffnet","#2563EB"],
-    "monami-lastpage":["monami · letzte Seite","#7C3AED"],
-    "rosarot-views":["Rosarot geöffnet","#E11D74"],
-    "missionpadel-views":["Mission Padel geöffnet","#65A30D"]
-  };
-  var KEYS=Object.keys(META);
-  var KORR={"family-views":2}; // eigene Testbesuche vor der Zeiterfassung
-
-  function pad(n){return(n<10?"0":"")+n}
-  function slotId(d){return""+d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+pad(d.getUTCHours())+pad(Math.floor(d.getUTCMinutes()/10)*10)}
-  function parseSlot(s){return new Date(Date.UTC(+s.slice(0,4),+s.slice(4,6)-1,+s.slice(6,8),+s.slice(8,10),+s.slice(10,12)))}
-  var fmtT=new Intl.DateTimeFormat("de-CH",{timeZone:"Europe/Zurich",hour:"2-digit",minute:"2-digit"});
-  var fmtD=new Intl.DateTimeFormat("de-CH",{timeZone:"Europe/Zurich",weekday:"long",day:"numeric",month:"long"});
-  function getVal(k){return fetch(API+k,{cache:"no-store"}).then(function(r){if(r.status===404)return 0;if(!r.ok)throw 0;return r.json().then(function(j){return j.value|0})}).catch(function(){return null})}
-  function getJSON(f){return fetch(RAW+f+"?t="+Date.now()).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}
+  var KORR={"family-views":2}; // eigene Testbesuche vor der Detailerfassung
+  var cfg,state,sel="alle";
+  var fT=new Intl.DateTimeFormat("de-CH",{timeZone:"Europe/Zurich",hour:"2-digit",minute:"2-digit"});
+  var fD=new Intl.DateTimeFormat("de-CH",{timeZone:"Europe/Zurich",weekday:"long",day:"numeric",month:"long"});
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function seite(id){return cfg.seiten.filter(function(s){return s.id===id})[0]}
+  function dauerText(sec){if(!sec)return"unter 10 Sek.";return sec<60?"über "+sec+" Sek.":"über "+(sec/60)+" Min."}
+  function maxDauer(b){var m=0;cfg.dauer.forEach(function(d){if(b.dauer&&b.dauer[d]>0)m=d});return m}
+  function hatDetails(b){return b.abschnitte&&(b.abschnitte.some(Boolean)||cfg.dauer.some(function(d){return b.dauer[d]>0}))}
+  function eventName(k){for(var i=0;i<cfg.seiten.length;i++){var e=cfg.seiten[i].events||{};if(e[k])return[cfg.seiten[i],e[k]]}return null}
 
   function load(){
     document.getElementById("stand").textContent="Lade …";
-    Promise.all([getJSON("aufrufe.json"),getJSON("besuche.json"),Promise.all(KEYS.map(getVal))]).then(function(res){
-      var saved=res[0]||{},log=res[1]||{geprueft_bis:{},besuche:[]},live=res[2];
-      var visits=(log.besuche||[]).slice(),jobs=[];
-      // Neue Besuche seit dem letzten Abgleich direkt nachschlagen
-      KEYS.forEach(function(k,i){
-        var lv=live[i],sv=typeof saved[k]==="number"?saved[k]:null,from=(log.geprueft_bis||{})[k];
-        if(lv==null||sv==null||lv<=sv||!from)return;
-        var start=new Date(Math.max(parseSlot(from)-6e5,Date.now()-48*36e5)),now=new Date();
-        for(var t=new Date(start);t<=now;t=new Date(+t+6e5))(function(s){
-          jobs.push(getVal(k+"_"+s).then(function(v){if(v){visits=visits.filter(function(b){return!(b.key===k&&b.slot===s)});visits.push({key:k,slot:s,anzahl:v,neu:1})}}));
-        })(slotId(t));
-      });
-      return Promise.all(jobs).then(function(){render(saved,live,visits)});
+    Promise.all([
+      fetch("/aufrufe/seiten.json",{cache:"no-store"}).then(function(r){return r.json()}),
+      fetch(RAW+"besuche.json?t="+Date.now()).then(function(r){return r.ok?r.json():{}}).catch(function(){return{}})
+    ]).then(function(r){
+      cfg=r[0];var saved=r[1];
+      return NrKern.abgleich(saved,cfg).then(function(s){state=s;render(true)},function(){state=saved;render(false)});
     });
   }
 
-  function render(saved,live,visits){
-    var g=document.getElementById("totals");g.innerHTML="";
-    KEYS.forEach(function(k,i){
-      var v=live[i]!=null?live[i]:saved[k];
-      var shown=typeof v==="number"?Math.max(0,v-(KORR[k]||0)):"–";
-      var d=document.createElement("div");d.className="card";
-      d.innerHTML='<div class="n">'+shown+'</div><div class="l"><span class="dot" style="background:'+META[k][1]+'"></span>'+META[k][0]+'</div>';
-      g.appendChild(d);
+  function render(live){
+    document.getElementById("stand").textContent=live?"Live-Stand: "+fT.format(new Date())+" Uhr":"Gespeicherter Stand: "+(state.stand||"unbekannt");
+    var tabs=document.getElementById("tabs");tabs.innerHTML="";
+    [{id:"alle",name:"Alle"}].concat(cfg.seiten).forEach(function(s){
+      var b=document.createElement("button");b.setAttribute("aria-pressed",s.id===sel);
+      var n=s.id==="alle"?null:Math.max(0,(state.totale[s.id+"-views"]||0)-(KORR[s.id+"-views"]||0));
+      b.innerHTML=esc(s.name)+(n!=null?'<span class="c">'+n+'</span>':"");
+      b.onclick=function(){sel=s.id;render(live)};tabs.appendChild(b);
     });
-    var box=document.getElementById("log");box.innerHTML="";
-    visits.sort(function(a,b){return a.slot<b.slot?1:a.slot>b.slot?-1:0});
-    if(!visits.length){box.innerHTML='<p class="empty">Noch keine Besuche mit Uhrzeit erfasst.</p>';}
+    var v=document.getElementById("view");v.innerHTML="";
+    if(sel==="alle")renderAlle(v);else renderSeite(v,seite(sel));
+  }
+
+  function renderAlle(v){
+    v.insertAdjacentHTML("beforeend","<h2>Total seit Start</h2>");
+    var g=document.createElement("div");g.className="grid";v.appendChild(g);
+    cfg.seiten.forEach(function(s){
+      var n=Math.max(0,(state.totale[s.id+"-views"]||0)-(KORR[s.id+"-views"]||0));
+      g.insertAdjacentHTML("beforeend",'<div class="card kpi"><div class="n">'+n+'</div><div class="l">'+esc(s.name)+'</div></div>');
+    });
+    liste(v,state.besuche,"Letzte Besuche");
+  }
+
+  function renderSeite(v,s){
+    var key=s.id+"-views",vis=state.besuche.filter(function(b){return b.key===key});
+    var det=vis.filter(hatDetails),n=det.reduce(function(a,b){return a+b.anzahl},0);
+    v.insertAdjacentHTML("beforeend","<h2>Überblick</h2>");
+    var g=document.createElement("div");g.className="grid";v.appendChild(g);
+    var kp=[[Math.max(0,(state.totale[key]||0)-(KORR[key]||0)),"Aufrufe total"]];
+    Object.keys(s.events||{}).forEach(function(e){kp.push([state.totale[e]||0,s.events[e]])});
+    if(n){
+      var last=s.abschnitte.length-1,end=det.reduce(function(a,b){return a+Math.min(b.anzahl,b.abschnitte[last])},0);
+      kp.push([Math.round(100*end/n)+"%","bis zum Schluss"]);
+      var lang=det.reduce(function(a,b){return a+Math.min(b.anzahl,b.dauer[60]||0)},0);
+      kp.push([Math.round(100*lang/n)+"%","länger als 1 Min."]);
+    }
+    kp.forEach(function(k){g.insertAdjacentHTML("beforeend",'<div class="card kpi"><div class="n">'+esc(k[0])+'</div><div class="l">'+esc(k[1])+'</div></div>')});
+
+    v.insertAdjacentHTML("beforeend","<h2>Bis wohin gescrollt"+(s.manuell?" (geblättert)":"")+"</h2>");
+    var f=document.createElement("div");f.className="card funnel";v.appendChild(f);
+    if(!n){f.innerHTML='<p class="empty" style="margin:0">Noch keine Besuche mit Details.</p>';}
+    else{
+      var counts=s.abschnitte.map(function(_,i){return det.reduce(function(a,b){return a+Math.min(b.anzahl,b.abschnitte[i]||0)},0)});
+      var worst=-1,wd=0;counts.forEach(function(c,i){if(i&&counts[i-1]-c>wd){wd=counts[i-1]-c;worst=i-1}});
+      s.abschnitte.forEach(function(a,i){
+        var p=Math.round(100*counts[i]/n);
+        f.insertAdjacentHTML("beforeend",'<div class="r'+(i===worst?" drop":"")+'"><span class="lab">'+(i+1)+". "+esc(a)+'</span><span class="val">'+counts[i]+" von "+n+" · "+p+'%</span><div class="bar"><span style="width:'+p+'%"></span></div></div>');
+      });
+    }
+
+    v.insertAdjacentHTML("beforeend","<h2>Wie lange geblieben</h2>");
+    var d=document.createElement("div");d.className="card funnel";v.appendChild(d);
+    if(!n){d.innerHTML='<p class="empty" style="margin:0">Noch keine Besuche mit Details.</p>';}
+    else cfg.dauer.forEach(function(x){
+      var c=det.reduce(function(a,b){return a+Math.min(b.anzahl,b.dauer[x]||0)},0),p=Math.round(100*c/n);
+      d.insertAdjacentHTML("beforeend",'<div class="r"><span class="lab">'+dauerText(x)+'</span><span class="val">'+c+" von "+n+" · "+p+'%</span><div class="bar"><span style="width:'+p+'%"></span></div></div>');
+    });
+    var ev=state.besuche.filter(function(b){return s.events&&s.events[b.key]});
+    liste(v,vis.concat(ev),"Besuche");
+  }
+
+  function liste(v,items,title){
+    v.insertAdjacentHTML("beforeend","<h2>"+title+"</h2>");
+    items=items.slice().sort(function(a,b){return a.slot<b.slot?1:a.slot>b.slot?-1:0}).slice(0,150);
+    if(!items.length){v.insertAdjacentHTML("beforeend",'<p class="empty">Noch keine Besuche mit Uhrzeit erfasst.</p>');return}
     var day="",ul;
-    visits.forEach(function(b){
-      var t=parseSlot(b.slot),d=fmtD.format(t);
-      if(d!==day){day=d;var h=document.createElement("div");h.className="day";h.textContent=d.charAt(0).toUpperCase()+d.slice(1);box.appendChild(h);ul=document.createElement("ul");box.appendChild(ul);}
-      var m=META[b.key]||[b.key,"#888"],li=document.createElement("li");
-      li.innerHTML='<span class="t">'+fmtT.format(t)+'–'+fmtT.format(new Date(+t+6e5))+'</span><span class="w"><span class="dot" style="background:'+m[1]+'"></span>'+m[0]+'</span><span class="c">'+(b.anzahl>1?b.anzahl+"×":"")+'</span>';
-      ul.appendChild(li);
+    items.forEach(function(b){
+      var t=new Date(NrKern.slotMs(b.slot)),dd=fD.format(t);
+      if(dd!==day){day=dd;v.insertAdjacentHTML("beforeend",'<div class="day">'+esc(dd.charAt(0).toUpperCase()+dd.slice(1))+"</div>");ul=document.createElement("ul");v.appendChild(ul)}
+      var li=document.createElement("li"),zeit=fT.format(t)+"–"+fT.format(new Date(+t+6e5)),html;
+      var s=b.key.slice(-6)==="-views"?seite(b.key.slice(0,-6)):null;
+      if(s){
+        var meta=[];if(b.anzahl>1)meta.push(b.anzahl+" Besuche");
+        if(hatDetails(b)){
+          var last=-1;b.abschnitte.forEach(function(c,i){if(c>0)last=i});
+          meta.push(dauerText(maxDauer(b)));
+          if(last>-1)meta.push("bis «"+s.abschnitte[last]+"»"+(last===s.abschnitte.length-1?" ✓":""));
+          html='<div class="top"><span class="t">'+zeit+'</span><span class="p">'+esc(s.name)+'</span><span class="m">'+esc(meta.join(" · "))+'</span></div><div class="steps">'+b.abschnitte.map(function(c){return"<i"+(c>0?' class="on"':"")+"></i>"}).join("")+"</div>";
+        }else{
+          meta.push("ohne Details");
+          html='<div class="top"><span class="t">'+zeit+'</span><span class="p">'+esc(s.name)+'</span><span class="m">'+esc(meta.join(" · "))+"</span></div>";
+        }
+      }else{
+        var e=eventName(b.key);
+        html='<div class="top"><span class="t">'+zeit+'</span><span class="p">'+esc(e?e[0].name:b.key)+'</span><span class="m">'+esc(e?e[1]:"")+(b.anzahl>1?" · "+b.anzahl+"×":"")+"</span></div>";
+      }
+      li.innerHTML=html;ul.appendChild(li);
     });
-    var ok=live.every(function(v){return v!=null});
-    document.getElementById("stand").textContent=ok?"Live-Stand: "+fmtT.format(new Date())+" Uhr":"Gespeicherter Stand: "+(saved.stand||"unbekannt")+" (Live-Abruf nicht möglich)";
   }
 
   document.getElementById("refresh").onclick=load;

@@ -656,6 +656,6 @@ button, a, input { touch-action: manipulation; }
   setInterval(tick, 1000);
 })();
 </script>
-<script>/* Aufrufzähler (nur Zahlen, keine persönlichen Daten) */window.nrHit=function(k){try{if(/[?&]ich=1/.test(location.search))localStorage.setItem("nr_me","1");if(localStorage.getItem("nr_me")==="1"||/[?&]danke=1/.test(location.search))return;var s="nr_"+k;if(sessionStorage.getItem(s))return;sessionStorage.setItem(s,"1");}catch(e){}try{var d=new Date(),p=function(n){return(n<10?"0":"")+n},t=""+d.getUTCFullYear()+p(d.getUTCMonth()+1)+p(d.getUTCDate())+p(d.getUTCHours())+p(Math.floor(d.getUTCMinutes()/10)*10);[k,k+"_"+t].forEach(function(x){fetch("https://abacus.jasoncameron.dev/hit/nicolasrossi-ch/"+x,{mode:"cors",keepalive:true}).catch(function(){})});}catch(e){}};nrHit("missionpadel-views");</script>
+
 </body>
 </html>

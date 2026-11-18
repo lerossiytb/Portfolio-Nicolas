@@ -1,0 +1,85 @@
+{
+  "seiten": [
+    {
+      "id": "home",
+      "name": "Startseite",
+      "url": "/",
+      "sel": "#hero,#intro,#portfolio,#clients,#vision,#cv,#impressions,#faq,#contact,footer.footer",
+      "abschnitte": [
+        "Start (Video)",
+        "Das biete ich",
+        "Meine Arbeiten",
+        "Referenzen",
+        "Lerne mich kennen",
+        "Mein Weg",
+        "Eindrücke",
+        "FAQ",
+        "Kontakt",
+        "Fusszeile"
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Family°",
+      "url": "/family/",
+      "sel": "#top,#cut,.scenes,#paywall,#ideen",
+      "abschnitte": [
+        "Start (Video)",
+        "Director's Cut",
+        "Drehbuch",
+        "Paywall",
+        "3 Ideen für euch"
+      ],
+      "events": {
+        "family-sound": "Ton an",
+        "family-paywall": "bis zur Paywall"
+      }
+    },
+    {
+      "id": "monami",
+      "name": "monami",
+      "url": "/monami/",
+      "manuell": true,
+      "abschnitte": [
+        "Umschlag",
+        "S. 1 Hallo",
+        "S. 2 Das bin ich",
+        "S. 3 Das kann ich gut",
+        "S. 4 Highlights",
+        "S. 5 Mein Weg",
+        "S. 6 Warum ihr?",
+        "S. 7 Tools",
+        "S. 8 Ideen für euch",
+        "S. 9 Euer Eintrag",
+        "S. 10 Ankreuzen"
+      ],
+      "events": {
+        "monami-lastpage": "letzte Seite"
+      }
+    },
+    {
+      "id": "rosarot",
+      "name": "Rosarot",
+      "url": "/rosarot/",
+      "sel": "section,footer",
+      "abschnitte": [
+        "Start",
+        "Warum ihr?",
+        "Macht Content",
+        "Eigene Projekte",
+        "Mein Weg",
+        "Ready. Rosarot. Go.",
+        "PS: Rot und Gelb",
+        "Fusszeile"
+      ]
+    }
+  ],
+  "dauer": [
+    10,
+    30,
+    60,
+    120,
+    300,
+    600
+  ]
+}
