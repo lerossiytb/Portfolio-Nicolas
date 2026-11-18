@@ -1,13 +1,25 @@
 {
   "geprueft_bis": {
-    "family-views": "202611180920",
-    "family-sound": "202611180920",
-    "family-paywall": "202611180920",
-    "monami-views": "202611180920",
-    "monami-lastpage": "202611180920",
-    "rosarot-views": "202611180920",
-    "missionpadel-views": "202611180920"
+    "family-views": "202611180940",
+    "family-sound": "202611180940",
+    "family-paywall": "202611180940",
+    "monami-views": "202611180940",
+    "monami-lastpage": "202611180940",
+    "rosarot-views": "202611180940",
+    "missionpadel-views": "202611180920",
+    "home-views": "202611180940"
   },
   "besuche": [],
-  "stand": "2026-11-18 10:28"
+  "stand": "2026-11-18 10:40",
+  "totale": {
+    "family-views": 3,
+    "family-sound": 1,
+    "family-paywall": 1,
+    "monami-views": 2,
+    "monami-lastpage": 0,
+    "rosarot-views": 0,
+    "missionpadel-views": 0,
+    "home-views": 0
+  },
+  "stand_ms": 1794994812900
 }
