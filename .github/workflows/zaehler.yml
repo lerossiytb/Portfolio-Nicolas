@@ -1,10 +1,11 @@
 name: Aufrufzähler sichern
 
-# Holt stündlich die Zählerstände (nur lesen, /get) und legt sie als
-# aufrufe.json auf den Branch "zaehler". Die Website (main) bleibt unberührt.
+# Holt die Zählerstände (nur lesen, /get) und legt sie als aufrufe.json
+# auf den Branch "zaehler". Die Website (main) bleibt unberührt.
+# Wird vom geplanten Claude-Task direkt gestartet; der Zeitplan hier ist nur Reserve.
 on:
   schedule:
-    - cron: "40 * * * *"
+    - cron: "50 8,10,14 * * *"
   workflow_dispatch:
 
 permissions:
@@ -53,10 +54,7 @@ jobs:
           else
             git checkout -q --orphan zaehler
           fi
-          if [ -f aufrufe.json ] && [ "$(jq -S 'del(.stand)' aufrufe.json)" = "$(jq -S 'del(.stand)' ../aufrufe.json)" ]; then
-            echo "Keine neuen Aufrufe"; exit 0
-          fi
           cp ../aufrufe.json .
           git add aufrufe.json
-          git commit -q -m "Zählerstände $(TZ=Europe/Zurich date '+%d.%m. %H:%M')" || { echo "unverändert"; exit 0; }
+          git commit -q -m "Zählerstände $(TZ=Europe/Zurich date '+%d.%m. %H:%M')"
           git push -q origin zaehler
