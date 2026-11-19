@@ -313,7 +313,7 @@ document.getElementById('send').addEventListener('click',async e=>{
   window.__pdf=pdf;document.getElementById('fs').submit();
  }catch(err){location.href=document.getElementById('send').href;}
 });
-if(/[?&]danke=1/.test(location.search)){document.getElementById('thx').classList.add('on');}
+if(/[?&]danke=1/.test(location.search)){document.getElementById('thx').classList.add('on');try{if(localStorage.getItem('nr_me')!=='1'&&!sessionStorage.getItem('nrsub')){sessionStorage.setItem('nrsub','1');fetch('https://abacus.jasoncameron.dev/hit/nicolasrossi-ch/monami-submit',{mode:'cors',keepalive:true}).catch(function(){});}}catch(e){}}
 function go(d){const n=Math.max(0,Math.min(N-1,c+d));if(n!==c){c=n;render();}}
 document.getElementById('next').onclick=()=>go(1);document.getElementById('prev').onclick=()=>go(-1);
 addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input'))return;if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1);});
