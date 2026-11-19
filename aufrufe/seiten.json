@@ -32,7 +32,8 @@
       ],
       "events": {
         "family-sound": "Ton an",
-        "family-paywall": "bis zur Paywall"
+        "family-paywall": "bis zur Paywall",
+        "family-submit": "Formular abgeschickt"
       }
     },
     {
@@ -54,7 +55,8 @@
         "S. 10 Ankreuzen"
       ],
       "events": {
-        "monami-lastpage": "letzte Seite"
+        "monami-lastpage": "letzte Seite",
+        "monami-submit": "Eintrag abgeschickt"
       }
     },
     {
