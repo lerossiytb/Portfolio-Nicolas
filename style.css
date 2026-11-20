@@ -545,7 +545,7 @@ h1, h2, h3 { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
     --hero-fill: var(--yellow);   /* Ende des Zooms = Farbe des nächsten Abschnitts */
     --hero-dot: var(--yellow);
 }
-.hero-pin { position: relative; height: 290vh; }   /* kürzer: Zoom rein, Slogan, Linie – ohne langes Warten */   /* Zoom rein + «Choose to like it» raus */
+.hero-pin { position: relative; height: 215vh; }   /* kürzer & schneller: Zoom rein, Slogan, Linie – ohne langes Warten */   /* Zoom rein + «Choose to like it» raus */
 .hero-stage {
     position: sticky;
     top: 0;
@@ -1800,6 +1800,3 @@ html[data-variant="strand"] .hero-mask--b {
 html[data-variant="strand"] .logo .mix-dot.static { margin-left: .02em; }
 
 /* Neuestes YouTube-Video (Upload-Liste des Kanals: zeigt automatisch das neueste) */
-.latest-yt { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 0 0 clamp(2rem, 5vw, 4rem); background: #111; overflow: hidden; }
-.latest-yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.latest-yt-cap { margin: 0 0 1rem; font-weight: 600; font-size: clamp(1.05rem, 1.8vw, 1.4rem); }

@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const a = Math.random() * Math.PI * 2, r = ring * (0.65 + Math.random() * 0.6);
                 pushSpark(sparkOx + Math.cos(a) * r, sparkOy + Math.sin(a) * r, a + (Math.random() - .5) * 0.5, 2 + Math.random() * 7, { max: 55, s: 2.6, streak: 0.45 });
             }
-            if (sparks.length > 900) sparks.splice(0, sparks.length - 900);
+            if (sparks.length > 550) sparks.splice(0, sparks.length - 550);
             if (!sparkRaf) sparkRaf = requestAnimationFrame(tickSparks);
         };
         const spawnLineSparks = (n, e) => {   // Linie: Funken sprühen an beiden Enden der wachsenden Linie
@@ -195,15 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
             sparkRaf = sparks.length ? requestAnimationFrame(tickSparks) : 0;
         };
         const heroVideoEl = document.querySelector('.hero-video');
+        let targetScale = 1, curScale = 1, scaleRaf = 0;
+        const tickScale = () => {
+            curScale += (targetScale - curScale) * 0.3;
+            if (Math.abs(targetScale - curScale) < 0.002) curScale = targetScale;
+            setHero('transform', `scale(${curScale.toFixed(4)})`);
+            scaleRaf = curScale === targetScale ? 0 : requestAnimationFrame(tickScale);
+        };
         const updateHero = () => {
             if (!desktop.matches) return;
             const start = heroPin.getBoundingClientRect().top + window.scrollY;
             const total = heroPin.offsetHeight - window.innerHeight;
             const p = total > 0 ? Math.min(1, Math.max(0, (window.scrollY - start) / total)) : 0;
-            const z = Math.min(1, p / 0.5);   // erste Hälfte: in «Nicolas» hineinzoomen
+            const zRaw = Math.min(1, p / 0.5);   // erste Hälfte: in «Nicolas» hineinzoomen
+            const z = zRaw * zRaw * (3 - 2 * zRaw);   // Smoothstep: ruhiger Start, sauberer Auslauf statt 1:1-Sprung zum Scrollen
             const dy = Math.abs(window.scrollY - lastY); lastY = window.scrollY;
-            if (dy > 0 && z > 0.03 && z < 0.95) spawnSparks(Math.min(48, 4 + Math.round(dy * 0.6)), z);
-            setHero('transform', `scale(${Math.pow(maxScale, z)})`);
+            if (dy > 0 && z > 0.03 && z < 0.95) spawnSparks(Math.min(30, 3 + Math.round(dy * 0.4)), z);
+            targetScale = Math.pow(maxScale, z);
+            if (!scaleRaf) scaleRaf = requestAnimationFrame(tickScale);
             setHero('visibility', z > 0.97 ? 'hidden' : 'visible');
             if (heroVideoEl) heroVideoEl.style.opacity = String(Math.min(1, Math.max(0, (z - 0.05) / 0.2)));   // Name bleibt am Start schwarz, das Video blendet erst beim Reinzoomen ein
             if (heroUi) heroUi.style.opacity = String(Math.max(0, 1 - z * 4));
