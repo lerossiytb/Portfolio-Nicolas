@@ -38,13 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         onScroll();
     }
 
-    /* ---------- Hero-Video erst nach dem Laden starten (schnellere Ladezeit = besser für Google) ---------- */
-    const heroVideo = document.querySelector('.bg-video[data-src]');
-    if (heroVideo) {
-        const startVideo = () => setTimeout(() => { heroVideo.src = heroVideo.dataset.src; }, 600);
-        if (document.readyState === 'complete') startVideo(); else window.addEventListener('load', startVideo, { once: true });
-    }
-
     /* ---------- Hero: «Nicolas» genau so breit wie der Bildschirm ---------- */
     const heroStage = document.querySelector('.hero-stage');
     const fitName = () => {
@@ -138,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sparkCv.className = 'hero-sparks'; sparkCv.setAttribute('aria-hidden', 'true');
         heroStage.appendChild(sparkCv);
         const sctx = sparkCv.getContext('2d');
-        let lineOx = 0, lineY = 0, sparks = [], sparkRaf = 0, sparkOx = 0, sparkOy = 0, lastY = window.scrollY, dpr = 1;
+        let sparks = [], sparkRaf = 0, sparkOx = 0, sparkOy = 0, lastY = window.scrollY, dpr = 1;
         const sizeSparks = () => {
             dpr = Math.min(2, window.devicePixelRatio || 1);
             sparkCv.width = Math.round(heroStage.clientWidth * dpr);
@@ -146,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const sr = heroStage.getBoundingClientRect();
             const prev = heroLayers[0].style.transform; setHero('transform', 'none');
             const t0 = zoomTarget.getBoundingClientRect(); setHero('transform', prev);
-            if (heroLine) { const lr = heroLine.getBoundingClientRect(); lineY = lr.top + lr.height / 2 - sr.top; lineOx = parseFloat(heroLine.style.transformOrigin) || heroStage.clientWidth / 2; }
             sparkOx = t0.left + t0.width / 2 - sr.left; sparkOy = t0.top + t0.height * 0.55 - sr.top;
         };
         const COLORS = ['#FF5A00', '#FF5A00', '#FF7A1F', '#FFA35C', '#FFD08A'];
@@ -164,15 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 pushSpark(sparkOx + Math.cos(a) * r, sparkOy + Math.sin(a) * r, a + (Math.random() - .5) * 0.5, 2 + Math.random() * 7, { max: 55, s: 2.6, streak: 0.45 });
             }
             if (sparks.length > 550) sparks.splice(0, sparks.length - 550);
-            if (!sparkRaf) sparkRaf = requestAnimationFrame(tickSparks);
-        };
-        const spawnLineSparks = (n, e) => {   // Linie: Funken sprühen an beiden Enden der wachsenden Linie
-            const W = heroStage.clientWidth;
-            for (let i = 0; i < n; i++) {
-                const dir = Math.random() < 0.5 ? -1 : 1;
-                const x = lineOx + dir * e * (dir < 0 ? lineOx : W - lineOx);
-                pushSpark(x, lineY, (dir < 0 ? Math.PI : 0) + (Math.random() - .5) * 1.6, 1 + Math.random() * 4, { max: 38, s: 2, streak: 0.5, up: 0.4 + Math.random() * 1.4, g: 0.03 });
-            }
             if (!sparkRaf) sparkRaf = requestAnimationFrame(tickSparks);
         };
         const tickSparks = () => {
@@ -210,7 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const zRaw = Math.min(1, p / 0.5);   // erste Hälfte: in «Nicolas» hineinzoomen
             const z = zRaw * zRaw * (3 - 2 * zRaw);   // Smoothstep: ruhiger Start, sauberer Auslauf statt 1:1-Sprung zum Scrollen
             const dy = Math.abs(window.scrollY - lastY); lastY = window.scrollY;
-            if (dy > 0 && z > 0.03 && z < 0.95) spawnSparks(Math.min(30, 3 + Math.round(dy * 0.4)), z);
+            /* Funken nur als kurzer Übergang gleich zu Beginn des Reinzoomens, nicht während der ganzen Zoomstrecke */
+            if (dy > 0 && z > 0.02 && z < 0.22) spawnSparks(Math.min(30, 3 + Math.round(dy * 0.4)), z);
             targetScale = Math.pow(maxScale, z);
             if (!scaleRaf) scaleRaf = requestAnimationFrame(tickScale);
             setHero('visibility', z > 0.97 ? 'hidden' : 'visible');
@@ -227,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (heroLine) {   // zum Schluss: vom Punkt in «it.» zieht sich die orange Linie über die ganze Breite – sie wird zur Trennlinie zu «Das biete ich»
                 const l = Math.min(1, Math.max(0, (p - 0.8) / 0.17));
                 heroLine.style.transform = `scaleX(${(1 - Math.pow(1 - l, 3)).toFixed(4)})`;
-                if (dy > 0 && l > 0.02 && l < 0.98) spawnLineSparks(Math.min(14, 2 + Math.round(dy * 0.2)), 1 - Math.pow(1 - l, 3));
             }
         };
         window.addEventListener('scroll', updateHero, { passive: true });

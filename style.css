@@ -1777,6 +1777,10 @@ h2.t, .subpage-title, .intro-claim { hyphens: manual; -webkit-hyphens: manual; o
 /* Start: Video erst beim Reinzoomen sichtbar (Name am Anfang schwarz) */
 .hero-video { opacity: 0; }
 
+.latest-yt { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 0 0 clamp(2rem, 5vw, 4rem); background: #111; overflow: hidden; }
+.latest-yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.latest-yt-cap { margin: 0 0 1rem; font-weight: 600; font-size: clamp(1.05rem, 1.8vw, 1.4rem); }
+
 /* Hintergrund: Sand mit warmen Farbverläufen, zwei Höhenlinien-Ebenen (grau + orange, gegenläufig), feines Korn */
 @keyframes topoDriftA { from { background-position: 0 0, 0 0, 0 0, 0 0, 40% 46%, 0 0; } to { background-position: 0 0, 0 0, 0 0, 0 0, 60% 54%, 0 0; } }
 @keyframes topoDrift  { from { background-position: 0 0, 0 0, 0 0, 62% 56%, 40% 46%, 0 0; } to { background-position: 0 0, 0 0, 0 0, 38% 44%, 60% 54%, 0 0; } }
