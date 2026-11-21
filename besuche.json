@@ -1,26 +1,52 @@
 {
   "geprueft_bis": {
-    "family-views": "202611211100",
-    "family-sound": "202611211100",
-    "family-paywall": "202611211100",
-    "monami-views": "202611211100",
-    "monami-lastpage": "202611211100",
-    "rosarot-views": "202611211100",
+    "family-views": "202611211500",
+    "family-sound": "202611211500",
+    "family-paywall": "202611211500",
+    "monami-views": "202611211500",
+    "monami-lastpage": "202611211500",
+    "rosarot-views": "202611211500",
     "missionpadel-views": "202611180920",
     "home-views": "202611211100",
-    "andy-views": "202611211100",
-    "andy-qr": "202611211100",
-    "andy-beweis": "202611211100",
-    "andy-urteil-andy": "202611211100",
-    "andy-urteil-nicolas": "202611211100",
-    "andy-urteil-beide": "202611211100",
-    "andy-mail": "202611211100",
-    "andy-tel": "202611211100",
-    "andy-video": "202611211100",
-    "family-submit": "202611211100",
-    "monami-submit": "202611211100"
+    "andy-views": "202611211500",
+    "andy-qr": "202611211500",
+    "andy-beweis": "202611211500",
+    "andy-urteil-andy": "202611211500",
+    "andy-urteil-nicolas": "202611211500",
+    "andy-urteil-beide": "202611211500",
+    "andy-mail": "202611211500",
+    "andy-tel": "202611211500",
+    "andy-video": "202611211500",
+    "family-submit": "202611211500",
+    "monami-submit": "202611211500"
   },
   "besuche": [
+    {
+      "key": "home-views",
+      "slot": "202611211410",
+      "anzahl": 1,
+      "abschnitte": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dauer": {
+        "10": 1,
+        "30": 1,
+        "60": 0,
+        "120": 0,
+        "300": 0,
+        "600": 0
+      },
+      "zeit": "2026-11-21 15:10"
+    },
     {
       "key": "home-views",
       "slot": "202611210630",
@@ -74,7 +100,7 @@
       "zeit": "2026-11-20 07:20"
     }
   ],
-  "stand": "2026-11-21 12:06",
+  "stand": "2026-11-21 16:06",
   "totale": {
     "family-views": 3,
     "family-sound": 1,
@@ -83,7 +109,7 @@
     "monami-lastpage": 0,
     "rosarot-views": 0,
     "missionpadel-views": 0,
-    "home-views": 4,
+    "home-views": 5,
     "andy-views": 0,
     "andy-qr": 0,
     "andy-beweis": 0,
@@ -96,5 +122,5 @@
     "family-submit": 0,
     "monami-submit": 0
   },
-  "stand_ms": 1795259208457
+  "stand_ms": 1795273586947
 }
