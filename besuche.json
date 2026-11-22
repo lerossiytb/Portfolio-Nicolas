@@ -1,24 +1,24 @@
 {
   "geprueft_bis": {
     "family-views": "202611221500",
-    "family-sound": "202611221500",
-    "family-paywall": "202611221500",
-    "monami-views": "202611221500",
-    "monami-lastpage": "202611221500",
-    "rosarot-views": "202611221500",
+    "family-sound": "202611221750",
+    "family-paywall": "202611221750",
+    "monami-views": "202611221750",
+    "monami-lastpage": "202611221750",
+    "rosarot-views": "202611221750",
     "missionpadel-views": "202611180920",
-    "home-views": "202611221500",
-    "andy-views": "202611221500",
-    "andy-qr": "202611221500",
-    "andy-beweis": "202611221500",
-    "andy-urteil-andy": "202611221500",
-    "andy-urteil-nicolas": "202611221500",
-    "andy-urteil-beide": "202611221500",
-    "andy-mail": "202611221500",
-    "andy-tel": "202611221500",
-    "andy-video": "202611221500",
-    "family-submit": "202611221500",
-    "monami-submit": "202611221500"
+    "home-views": "202611221750",
+    "andy-views": "202611221750",
+    "andy-qr": "202611221750",
+    "andy-beweis": "202611221750",
+    "andy-urteil-andy": "202611221750",
+    "andy-urteil-nicolas": "202611221750",
+    "andy-urteil-beide": "202611221750",
+    "andy-mail": "202611221750",
+    "andy-tel": "202611221750",
+    "andy-video": "202611221750",
+    "family-submit": "202611221750",
+    "monami-submit": "202611221750"
   },
   "besuche": [
     {
@@ -100,7 +100,7 @@
       "zeit": "2026-11-20 07:20"
     }
   ],
-  "stand": "2026-11-22 16:06",
+  "stand": "2026-11-22 18:51",
   "totale": {
     "family-views": 3,
     "family-sound": 1,
@@ -122,5 +122,5 @@
     "family-submit": 0,
     "monami-submit": 0
   },
-  "stand_ms": 1795360004864
+  "stand_ms": 1795369873950
 }
