@@ -1,25 +1,32 @@
 {
   "geprueft_bis": {
-    "family-views": "202611230740",
-    "family-sound": "202611230740",
-    "family-paywall": "202611230740",
-    "monami-views": "202611230740",
-    "monami-lastpage": "202611230740",
-    "rosarot-views": "202611230740",
+    "family-views": "202611230900",
+    "family-sound": "202611230900",
+    "family-paywall": "202611230900",
+    "monami-views": "202611230900",
+    "monami-lastpage": "202611230900",
+    "rosarot-views": "202611230900",
     "missionpadel-views": "202611180920",
-    "home-views": "202611221750",
-    "andy-views": "202611230740",
-    "andy-qr": "202611230740",
-    "andy-beweis": "202611230740",
-    "andy-urteil-andy": "202611230740",
-    "andy-urteil-nicolas": "202611230740",
-    "andy-urteil-beide": "202611230740",
-    "andy-mail": "202611230740",
-    "andy-tel": "202611230740",
-    "andy-video": "202611230740",
-    "family-submit": "202611230740",
-    "monami-submit": "202611230740",
-    "rosarot-geloest": "202611230740"
+    "home-views": "202611230900",
+    "andy-views": "202611230900",
+    "andy-qr": "202611230900",
+    "andy-beweis": "202611230900",
+    "andy-urteil-andy": "202611230900",
+    "andy-urteil-nicolas": "202611230900",
+    "andy-urteil-beide": "202611230900",
+    "andy-mail": "202611230900",
+    "andy-tel": "202611230900",
+    "andy-video": "202611230900",
+    "family-submit": "202611230900",
+    "monami-submit": "202611230900",
+    "rosarot-geloest": "202611230900",
+    "rosarot-loesung": "202611230900",
+    "rosarot-info-wer": "202611230900",
+    "rosarot-info-social": "202611230900",
+    "rosarot-info-beratung": "202611230900",
+    "rosarot-info-idee": "202611230900",
+    "rosarot-info-erfahrung": "202611230900",
+    "rosarot-info-cv": "202611230900"
   },
   "besuche": [
     {
@@ -32,7 +39,27 @@
       "key": "home-views",
       "slot": "202611230050",
       "anzahl": 1,
-      "zeit": "2026-11-23 01:50"
+      "zeit": "2026-11-23 01:50",
+      "abschnitte": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dauer": {
+        "10": 0,
+        "30": 0,
+        "60": 0,
+        "120": 0,
+        "300": 0,
+        "600": 0
+      }
     },
     {
       "key": "home-views",
@@ -139,7 +166,7 @@
       "zeit": "2026-11-20 07:20"
     }
   ],
-  "stand": "2026-11-23 08:42",
+  "stand": "2026-11-23 10:06",
   "totale": {
     "family-views": 3,
     "family-sound": 1,
@@ -160,7 +187,14 @@
     "andy-video": 0,
     "family-submit": 0,
     "monami-submit": 0,
-    "rosarot-geloest": 0
+    "rosarot-geloest": 0,
+    "rosarot-loesung": 0,
+    "rosarot-info-wer": 0,
+    "rosarot-info-social": 0,
+    "rosarot-info-beratung": 0,
+    "rosarot-info-idee": 0,
+    "rosarot-info-erfahrung": 0,
+    "rosarot-info-cv": 0
   },
-  "stand_ms": 1795419750485
+  "stand_ms": 1795424800493
 }
