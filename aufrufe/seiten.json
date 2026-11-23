@@ -65,19 +65,22 @@
       "url": "/rosarot/",
       "sel": "section,footer",
       "abschnitte": [
-        "Ich bin Nicolas",
-        "Velo Neuseeland",
-        "Ready. Focus. Go.",
-        "Rätsel",
-        "Forschende",
-        "Macht Content (Arbeiten)",
-        "Kurz & knapp + PDFs",
-        "Ready. Rosarot. Go.",
+        "01 Wer ich bin",
+        "02 Social Media",
+        "03 Kampagnen",
+        "04 Erfahrung",
+        "05 Lebenslauf",
+        "06 Kontakt",
         "Fusszeile"
       ],
       "events": {
         "rosarot-geloest": "Rätsel gemalt",
-        "rosarot-loesung": "Lösung angeschaut"
+        "rosarot-loesung": "Lösung angeschaut",
+        "rosarot-info-wer": "Info: Wer",
+        "rosarot-info-social": "Info: Social Media",
+        "rosarot-info-kampagnen": "Info: Kampagnen",
+        "rosarot-info-erfahrung": "Info: Erfahrung",
+        "rosarot-info-cv": "Info: Lebenslauf"
       }
     },
     {
