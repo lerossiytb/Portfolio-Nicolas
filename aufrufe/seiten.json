@@ -66,8 +66,8 @@
       "sel": "section,footer",
       "abschnitte": [
         "01 Wer ich bin",
-        "02 Social Media",
-        "03 Kampagnen",
+        "02 Kreativberatung",
+        "03 Social Media",
         "04 Idee für euch",
         "05 Erfahrung",
         "06 Lebenslauf",
@@ -79,7 +79,7 @@
         "rosarot-loesung": "Lösung angeschaut",
         "rosarot-info-wer": "Info: Wer",
         "rosarot-info-social": "Info: Social Media",
-        "rosarot-info-kampagnen": "Info: Kampagnen",
+        "rosarot-info-beratung": "Info: Kreativberatung",
         "rosarot-info-idee": "Info: Idee Focuswater",
         "rosarot-info-erfahrung": "Info: Erfahrung",
         "rosarot-info-cv": "Info: Lebenslauf"
