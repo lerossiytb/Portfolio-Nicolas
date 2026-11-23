@@ -68,9 +68,10 @@
         "01 Wer ich bin",
         "02 Social Media",
         "03 Kampagnen",
-        "04 Erfahrung",
-        "05 Lebenslauf",
-        "06 Kontakt",
+        "04 Idee für euch",
+        "05 Erfahrung",
+        "06 Lebenslauf",
+        "07 Kontakt",
         "Fusszeile"
       ],
       "events": {
@@ -79,6 +80,7 @@
         "rosarot-info-wer": "Info: Wer",
         "rosarot-info-social": "Info: Social Media",
         "rosarot-info-kampagnen": "Info: Kampagnen",
+        "rosarot-info-idee": "Info: Idee Focuswater",
         "rosarot-info-erfahrung": "Info: Erfahrung",
         "rosarot-info-cv": "Info: Lebenslauf"
       }
