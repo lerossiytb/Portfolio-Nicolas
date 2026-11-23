@@ -73,7 +73,10 @@
         "Ready. Rosarot. Go.",
         "PS: Rot und Gelb",
         "Fusszeile"
-      ]
+      ],
+      "events": {
+        "rosarot-geloest": "Rätsel gelöst"
+      }
     },
     {
       "id": "andy",

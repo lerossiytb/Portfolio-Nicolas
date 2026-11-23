@@ -65,16 +65,61 @@ a{color:inherit}
 .btn.y{background:var(--yel);color:#0B0B0B}.btn.r{background:var(--red);color:#fff}.btn.o{border:2px solid #333;color:var(--fg)}
 footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #222}
 @media (prefers-reduced-motion:reduce){.c.e span,.sol,.sub,.scroll{animation:none;opacity:1;transform:none}.sol{transform:rotate(-3deg)}}
+
+/* Plakatwand-Rätsel */
+body.locked{overflow:hidden}
+body.locked .hero *{animation-play-state:paused!important}
+#gate{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:70px 18px 30px;overflow:auto;
+ background:#26221F;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 2px,transparent 2px 46px),repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 92px),radial-gradient(ellipse at 50% 30%,#3a342f,#1a1715 75%);transition:opacity .7s,visibility .7s}
+#gate.off{opacity:0;visibility:hidden}
+#gate .gt{font:700 11px/1.4 'SG',system-ui;letter-spacing:3px;text-transform:uppercase;color:#B9B0A5;text-align:center}
+#gate .gt b{color:var(--yel)}
+.pw{position:relative;background:var(--bg);width:min(100%,460px);padding:28px 24px 26px;border-radius:4px;transform:rotate(-1.2deg);box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 1px #000}
+.pw .tp{position:absolute;top:-12px;width:92px;height:26px;background:rgba(255,210,0,.78)}
+.pw .tg{font:700 9px/1 'SG';letter-spacing:2.5px;text-transform:uppercase;color:#8C877F}
+.pw .tg span{color:var(--red)}.pw .tg i{font-style:normal;color:var(--yel)}
+.pw .rows{display:flex;flex-direction:column;gap:10px;margin:20px 0 18px}
+.pw .w{gap:5px}
+.pw .c{width:clamp(18px,5.6vw,30px);font-size:clamp(22px,7vw,38px);padding-bottom:4px}
+.pw .c::after{height:4px}
+.pw .c.g::after{background:var(--yel)}
+.pw .c.g span{display:inline-block;color:var(--yel);opacity:0;transform:translateY(-24px) scale(.4)}
+.pw.ok .c.g span{animation:drop .45s cubic-bezier(.2,.9,.25,1.3) forwards}
+.pw .tip{font-family:'MK';color:var(--yel);font-size:clamp(17px,4.6vw,22px);transform:rotate(-2deg)}
+.ask{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.ask label{font-family:'MK';font-size:clamp(24px,6.5vw,32px);color:var(--fg)}
+.ask input{width:74px;height:86px;border:0;border-bottom:6px solid var(--yel);border-radius:10px 10px 4px 4px;background:rgba(0,0,0,.45);color:var(--yel);font-family:'MK';font-size:56px;text-align:center;text-transform:uppercase;outline:none;caret-color:var(--yel)}
+.ask input:focus{background:rgba(0,0,0,.65)}
+.ask.no input{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+.ask .msg{min-height:22px;font-size:14px;color:#D9D3CA;max-width:320px}
+.ask .skip{display:none;background:none;border:0;color:#8C877F;font:500 13px 'SG';text-decoration:underline;cursor:pointer}
+.ask.help .skip{display:inline}
 </style><script>/* Zurück-Taste führt auf nicolasrossi.ch */(function(){try{var u=location.href;if(!(history.state&&history.state.nr)){history.replaceState({nr:1},'','/');history.pushState({nr:2},'',u);}addEventListener('popstate',function(e){if(e.state&&e.state.nr===1)location.replace('/');});addEventListener('pageshow',function(){if(location.pathname==='/')location.replace('/');});}catch(e){}})();</script>
 </head><body>
 <a class="nr-home" href="/" style="position:fixed;top:12px;right:12px;z-index:50;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:30px;background:rgba(20,20,20,.82);border:1px solid #333;color:#F7F3EC;font:700 13px/1 system-ui,-apple-system,sans-serif;text-decoration:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)">nicolasrossi.ch <span style="color:#FFD200">→</span></a>
 
+
+<div id="gate" role="dialog" aria-label="Rätsel lösen">
+  <div class="gt">Digitale Plakatfläche · Budget: <b>CHF 0.–</b></div>
+  <div class="pw" id="pw"><div class="tp" style="left:18px;transform:rotate(-7deg)"></div><div class="tp" style="right:18px;transform:rotate(6deg)"></div>
+    <div class="tg">Blindbewerbung · Nicolas Rossi → <span>Rosa</span><i>rot</i></div>
+    <div class="rows" id="pwr"></div>
+    <div class="tip">Tipp: Es fehlt nur ein Buchstabe.</div>
+  </div>
+  <form class="ask" id="ask" autocomplete="off" onsubmit="return false">
+    <label for="ltr">Welcher fehlt?</label>
+    <input id="ltr" maxlength="1" inputmode="text" autocapitalize="characters" autocorrect="off" spellcheck="false" aria-label="Fehlender Buchstabe">
+    <div class="msg" id="msg">Setzt ihn ein – dann geht's weiter.</div>
+    <button type="button" class="skip" id="skip">Lösung zeigen</button>
+  </form>
+</div>
 <div class="wrap">
   <div class="hero">
     <div class="tag">Blindbewerbung · Nicolas Rossi → Rosarot</div>
     <div class="hm" id="hm"></div>
     <div class="sol">E – wie Einstellen.</div>
-    <p class="sub">Richtig gelöst. Ihr sagt: Plakate werden gesehen.<br><b style="color:var(--yel)">Ich sag: Bewerbungen auch – vor allem, wenn ihr sie selber aufhängt.</b></p>
+    <p class="sub">Richtig gelöst. Ihr sagt: Plakate werden gesehen.<br><b style="color:var(--yel)">Ich sag: Bewerbungen auch – sogar ohne Plakatbudget.</b></p>
     <div class="scroll">↓ Hier kommt der Rest</div>
   </div>
 
@@ -95,7 +140,7 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #
     <h2>Drei gute Gründe.</h2>
     <div class="why">
       <div class="card"><b>Eure Brands kenn ich.</b><p>Als Brand Ambassador habe ich Focus Water an Messen und Pop-ups schon direkt zur Zielgruppe gebracht. «Ready. Focus. Go.» unterschreib ich sofort.</p></div>
-      <div class="card cream"><b>Rätsel bleiben hängen.</b><p>Wenn ihr das lest, habt ihr mein Plakat ausgerollt, das Rätsel gelöst und gescannt – es hat geklappt. Eure ACE2ACE-Plakate haben mich darauf gebracht.</p></div>
+      <div class="card cream"><b>Rätsel bleiben hängen.</b><p>Wenn ihr das lest, habt ihr meine Postkarte gescannt und das Rätsel gelöst – es hat geklappt. Eure ACE2ACE-Plakate haben mich darauf gebracht.</p></div>
       <div class="card"><b>Content mach ich sowieso.</b><p>Privat auf meinen eigenen Kanälen, während des Studiums und auf meiner Weltreise. Dazu ein paar Karussell-Posts für Nutrexin, ein Reel für Hawlik – und bald Content für den Theaterverein Urdorf.</p></div>
     </div>
   </section>
@@ -166,6 +211,33 @@ for(const L of lines){const r=document.createElement('div');r.className='w';
   else{c.className='c';c.textContent=ch}
   r.appendChild(c)}
  hm.appendChild(r)}
+</script>
+
+<script>
+(function(){
+ var g=document.getElementById('gate'),pw=document.getElementById('pw'),rows=document.getElementById('pwr'),ask=document.getElementById('ask'),inp=document.getElementById('ltr'),msg=document.getElementById('msg');
+ ['BEWERBUNGEN','WERDEN','GESEHEN.'].forEach(function(L){var r=document.createElement('div');r.className='w';var k=0;
+  L.split('').forEach(function(ch){var c=document.createElement('div');
+   if(ch==='.'){c.textContent='.';c.style.cssText="font-family:'MK';font-size:clamp(22px,7vw,38px);line-height:1.15"}
+   else if(ch==='E'){c.className='c g';var s=document.createElement('span');s.textContent='E';c.appendChild(s)}
+   else{c.className='c';c.textContent=ch}
+   r.appendChild(c)});rows.appendChild(r)});
+ var sp=pw.querySelectorAll('.c.g span');for(var i=0;i<sp.length;i++)sp[i].style.animationDelay=(i*0.12)+'s';
+ var solved=false;try{solved=sessionStorage.getItem('rr_ok')==='1'}catch(e){}
+ function open(){g.classList.add('off');document.body.classList.remove('locked');setTimeout(function(){g.style.display='none'},800)}
+ if(solved){g.style.display='none';return}
+ document.body.classList.add('locked');
+ var tries=0,tips=['Fast. Nochmals.','Tipp: Den braucht ihr zum Einstellen.','Kleiner Tipp: In «BEWERBUNGEN» fehlt er gleich 3×.'];
+ function win(){if(solved)return;solved=true;inp.value='E';inp.blur();msg.textContent='Richtig. Plakat hängt.';pw.classList.add('ok');
+  try{sessionStorage.setItem('rr_ok','1')}catch(e){}
+  if(window.nrHit)nrHit('rosarot-geloest');setTimeout(open,1900)}
+ inp.addEventListener('input',function(){var v=(inp.value||'').trim().toUpperCase();if(!v)return;
+  if(v==='E'){win();return}
+  tries++;msg.textContent=tips[Math.min(tries-1,tips.length-1)];ask.classList.remove('no');void ask.offsetWidth;ask.classList.add('no');
+  if(tries>=3)ask.classList.add('help');setTimeout(function(){inp.value=''},350)});
+ document.getElementById('skip').addEventListener('click',win);
+ setTimeout(function(){try{inp.focus({preventScroll:true})}catch(e){}},600);
+})();
 </script>
 <script>window.nrHit=window.nrHit||function(k){(window.nrQ=window.nrQ||[]).push(k)};window.nrSec=window.nrSec||function(i){(window.nrS=window.nrS||[]).push(i)};</script><script src="/zaehler.js?v=2" data-page="rosarot" defer></script>
 </body></html>
