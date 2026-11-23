@@ -75,7 +75,8 @@
         "Fusszeile"
       ],
       "events": {
-        "rosarot-geloest": "Rätsel gelöst"
+        "rosarot-geloest": "Rätsel gemalt",
+        "rosarot-loesung": "Lösung angeschaut"
       }
     },
     {

@@ -70,7 +70,7 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #
 .bb{position:relative;height:100svh;min-height:520px;overflow:hidden;background:#111}
 .bb .blur{position:absolute;inset:-40px;background:url(plakatwand.jpg) center/cover;filter:blur(22px) brightness(.45) saturate(.6)}
 .bb .scene{position:absolute;left:0;top:0;background:url(plakatwand.jpg) 0 0/100% 100% no-repeat;box-shadow:0 0 80px rgba(0,0,0,.6)}
-.bb .board{position:absolute;left:44.3%;top:33.6%;width:42.8%;height:24.9%;background:#0B0B0B;container-type:inline-size;padding:3.2cqw 4cqw 2cqw;display:flex;flex-direction:column;justify-content:center;cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(45 16 16)'%3E%3Crect x='12' y='0' width='8' height='22' rx='2' fill='%23FFD200' stroke='%230B0B0B' stroke-width='1.5'/%3E%3Cpath d='M12 22h8l-4 8z' fill='%23F7F3EC' stroke='%230B0B0B' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E") 4 28,crosshair;box-shadow:inset 0 0 6cqw rgba(0,0,0,.6)}
+.bb .board{position:absolute;left:44.84%;top:33.6%;width:43.33%;height:24.9%;background:#0B0B0B;container-type:inline-size;padding:3.2cqw 4cqw 2cqw;display:flex;flex-direction:column;justify-content:center;cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(45 16 16)'%3E%3Crect x='12' y='0' width='8' height='22' rx='2' fill='%23FFD200' stroke='%230B0B0B' stroke-width='1.5'/%3E%3Cpath d='M12 22h8l-4 8z' fill='%23F7F3EC' stroke='%230B0B0B' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E") 4 28,crosshair;box-shadow:inset 0 0 6cqw rgba(0,0,0,.6)}
 .bb .bt{font:700 2.1cqw/1 'SG',system-ui;letter-spacing:.5cqw;text-transform:uppercase;color:#8C877F;margin-bottom:2.6cqw}
 .bb .bt span{color:var(--red)}.bb .bt i{font-style:normal;color:var(--yel)}
 .bb .rows{display:flex;flex-direction:column;gap:1.4cqw}
@@ -80,14 +80,17 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #
 .bb .dot{font-family:'MK';font-size:8.4cqw;line-height:1.12;color:var(--fg)}
 .bb .c.g::after{background:var(--yel)}
 .bb .c.g span{display:inline-block;color:var(--yel);opacity:0;transform:translateY(-3cqw) scale(.4)}
-.bb.ok .c.g span{animation:drop .45s cubic-bezier(.2,.9,.25,1.3) forwards}
-.bb .c.g.act::after{animation:blink 1s steps(2) infinite}
+.bb .c.g.fill span{animation:drop .45s cubic-bezier(.2,.9,.25,1.3) forwards}
+.bb canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;z-index:2}
+.bb .board{touch-action:none}
+.bb.draw .c.g::after{animation:blink 1.2s steps(2) infinite}
 @keyframes blink{50%{background:var(--fg)}}
-.bb .c.g input{position:absolute;left:0;top:0;width:100%;height:100%;border:0;padding:0;margin:0;background:transparent;color:var(--yel);font:inherit;line-height:1.12;text-align:center;text-transform:uppercase;outline:none;caret-color:transparent;-webkit-appearance:none;border-radius:0;cursor:inherit;font-size:max(16px,1em)}
-.bb .c.g.bad input{color:var(--red)}
-.bb.no .rows{animation:shake .4s}
-@keyframes shake{20%,60%{transform:translateX(-1.5cqw)}40%,80%{transform:translateX(1.5cqw)}}
-.bb.ok .c.g input{display:none}
+.bb .pen{position:fixed;left:0;top:0;width:34px;height:34px;pointer-events:none;z-index:60;display:none;transform-origin:4px 30px}
+.bb .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.bb .btns button{font:700 15px 'SG',system-ui;border-radius:30px;padding:11px 20px;cursor:pointer;border:0}
+.bb .btns .go{background:var(--yel);color:#0B0B0B}
+.bb .btns .clr{background:transparent;color:var(--fg);border:2px solid #444}
+.bb .btns button[hidden]{display:none}
 .bb .cap{position:absolute;left:0;right:0;bottom:0;padding:60px 22px calc(26px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(11,11,11,.92) 45%);text-align:center}
 .bb .cap .t{font-family:'MK';color:var(--yel);font-size:clamp(20px,5.4vw,34px);transform:rotate(-2deg)}
 .bb .cap .m{font-size:clamp(14px,3.8vw,17px);color:#D9D3CA;margin-top:6px}
@@ -96,9 +99,6 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #
 .bb.ok .cap .sol2{display:block;animation:pop .6s cubic-bezier(.2,.9,.25,1.3) both;animation-delay:.9s}
 .bb.ok .cap .t{display:none}
 .bb .cap .dn{display:inline-block;margin-top:12px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mu);text-decoration:none}
-.bb .skip{background:none;border:0;color:#8C877F;font:500 13px 'SG';text-decoration:underline;cursor:pointer;display:none;margin-left:6px}
-.bb.help .skip{display:inline}
-.bb.ok .skip{display:none!important}
 </style><script>/* Zurück-Taste führt auf nicolasrossi.ch */(function(){try{var u=location.href;if(!(history.state&&history.state.nr)){history.replaceState({nr:1},'','/');history.pushState({nr:2},'',u);}addEventListener('popstate',function(e){if(e.state&&e.state.nr===1)location.replace('/');});addEventListener('pageshow',function(){if(location.pathname==='/')location.replace('/');});}catch(e){}})();</script>
 </head><body>
 <a class="nr-home" href="/" style="position:fixed;top:12px;right:12px;z-index:50;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:30px;background:rgba(20,20,20,.82);border:1px solid #333;color:#F7F3EC;font:700 13px/1 system-ui,-apple-system,sans-serif;text-decoration:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)">nicolasrossi.ch <span style="color:#FFD200">→</span></a>
@@ -109,11 +109,14 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #
   <div class="scene" id="scene"><div class="board" id="board">
     <div class="bt">Blindbewerbung · Nicolas Rossi → <span>Rosa</span><i>rot</i></div>
     <div class="rows" id="rows"></div>
+    <canvas id="cv" aria-label="Zeichenfläche: Buchstaben in die Lücken malen"></canvas>
   </div></div>
+  <svg class="pen" id="pen" viewBox="0 0 34 34" aria-hidden="true"><g transform="rotate(40 17 17)"><rect x="12.5" y="0" width="9" height="22" rx="2.5" fill="#FFD200" stroke="#0B0B0B" stroke-width="1.6"/><rect x="12.5" y="3" width="9" height="4" fill="#0B0B0B"/><path d="M12.5 22h9l-4.5 9z" fill="#F7F3EC" stroke="#0B0B0B" stroke-width="1.6"/><path d="M15.6 28.2h2.8L17 31z" fill="#FFD200"/></g></svg>
   <div class="cap">
     <div class="t">Tipp: Es fehlt nur ein Buchstabe.</div>
     <div class="sol2">E – wie Einstellen.</div>
-    <div class="m" id="msg">Tippt auf eine Lücke und setzt ihn ein.<button type="button" class="skip" id="skip">Lösung zeigen</button></div>
+    <div class="m" id="msg">Schnappt euch den Stift und malt ihn direkt in die Lücken.</div>
+    <div class="btns"><button type="button" class="go" id="go">Lösung zeigen</button><button type="button" class="clr" id="clr" hidden>Nochmals</button></div>
     <a class="dn" href="#rest">↓ Oder einfach weiterscrollen</a>
   </div>
 </header>
@@ -210,26 +213,35 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13px;border-top:1px solid #
    r.appendChild(c)});rows.appendChild(r)});
  var gaps=rows.querySelectorAll('.c.g');for(var i=0;i<gaps.length;i++)gaps[i].querySelector('span').style.animationDelay=(i*0.12)+'s';
  // Bild so legen, dass das Plakat gut sichtbar und gross ist
- var IW=1288,IH=960,BX=.443+.428/2,BY=.336+.249/2,BW=.428;
- function lay(){var vw=bb.clientWidth,vh=bb.clientHeight,cover=Math.max(vw/IW,vh/IH)*IW,fit=Math.min(vw*.96,980)/BW,W=Math.min(cover*1.15,fit),H=W*IH/IW;
+ var IW=1272,IH=960,BX=.4484+.4333/2,BY=.336+.249/2,BW=.4333;
+ function lay(){var vw=bb.clientWidth,vh=bb.clientHeight,cover=Math.max(vw/IW,vh/IH)*IW,fit=Math.min(vw*.96,980)/BW,W=Math.min(Math.max(cover*1.15,vw*.55/BW),fit),H=W*IH/IW;
   var x=vw/2-BX*W,y=vh*.42-BY*H;if(W>=vw)x=Math.min(0,Math.max(vw-W,x));if(H>=vh)y=Math.min(0,Math.max(vh-H,y));
   sc.style.width=W+'px';sc.style.height=H+'px';sc.style.transform='translate('+x+'px,'+y+'px)'}
- lay();addEventListener('resize',lay);
- var inp=document.createElement('input');inp.maxLength=1;inp.setAttribute('autocapitalize','characters');inp.setAttribute('autocorrect','off');inp.setAttribute('autocomplete','off');inp.spellcheck=false;inp.setAttribute('aria-label','Fehlender Buchstabe');
- var cur=null,solved=false,tries=0,tips=['Fast. Nochmals.','Tipp: Den braucht ihr zum Einstellen.','Kleiner Tipp: In «BEWERBUNGEN» fehlt er gleich 3×.'];
- function setMsg(h){msg.firstChild.nodeValue=h}
- function sel(c,focus){if(solved)return;if(cur)cur.classList.remove('act','bad');cur=c;c.classList.add('act');c.appendChild(inp);inp.value='';if(focus){try{inp.focus({preventScroll:true})}catch(e){inp.focus()}}}
- for(var j=0;j<gaps.length;j++)gaps[j].addEventListener('click',function(){sel(this,true)});
- document.getElementById('board').addEventListener('click',function(e){if(!e.target.closest('.c.g')&&!solved)sel(cur||gaps[0],true)});
- function win(){if(solved)return;solved=true;inp.blur();if(cur)cur.classList.remove('act','bad');bb.classList.add('ok');
-  setMsg('Richtig gelöst. Ihr sagt: Plakate werden gesehen. Ich sag: Bewerbungen auch – sogar ohne Plakatbudget.');dn.textContent='↓ Hier kommt der Rest';
-  if(window.nrHit)nrHit('rosarot-geloest')}
- inp.addEventListener('input',function(){var v=(inp.value||'').trim().toUpperCase();if(!v)return;inp.value=v;
-  if(v==='E'){win();return}
-  tries++;setMsg(tips[Math.min(tries-1,tips.length-1)]);cur.classList.add('bad');bb.classList.remove('no');void bb.offsetWidth;bb.classList.add('no');
-  if(tries>=3)bb.classList.add('help');setTimeout(function(){inp.value='';cur&&cur.classList.remove('bad')},500)});
- document.getElementById('skip').addEventListener('click',win);
- sel(gaps[0],false);
+ lay();
+ var board=document.getElementById('board'),cv=document.getElementById('cv'),ctx=cv.getContext('2d'),pen=document.getElementById('pen'),go=document.getElementById('go'),clr=document.getElementById('clr');
+ var strokes=[],curS=null,solved=false,drew=false;
+ function size(){var r=board.getBoundingClientRect(),d=window.devicePixelRatio||1;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);redraw()}
+ function redraw(){var w=cv.width,h=cv.height;ctx.clearRect(0,0,w,h);ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#FFD200';ctx.lineWidth=Math.max(3,w*.011);
+  strokes.forEach(function(s){ctx.beginPath();s.forEach(function(p,i){i?ctx.lineTo(p[0]*w,p[1]*h):ctx.moveTo(p[0]*w,p[1]*h)});if(s.length===1)ctx.lineTo(s[0][0]*w+.5,s[0][1]*h);ctx.stroke()})}
+ function pt(e){var r=board.getBoundingClientRect();return[(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height]}
+ cv.addEventListener('pointerdown',function(e){if(solved)return;e.preventDefault();cv.setPointerCapture(e.pointerId);curS=[pt(e)];strokes.push(curS);redraw();
+  if(!drew){drew=true;bb.classList.remove('draw');go.textContent='Fertig';clr.hidden=false;msg.textContent='Schön. Alle Lücken? Dann auf «Fertig».'}});
+ cv.addEventListener('pointermove',function(e){if(e.pointerType!=='touch'){pen.style.display='block';pen.style.transform='translate('+(e.clientX-4)+'px,'+(e.clientY-30)+'px)'}
+  if(!curS)return;var ev=e.getCoalescedEvents?e.getCoalescedEvents():[e];ev.forEach(function(x){curS.push(pt(x))});redraw()});
+ function up(){curS=null}
+ cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+ cv.addEventListener('pointerleave',function(e){pen.style.display='none';if(e.pointerType==='mouse')up()});
+ cv.addEventListener('pointerenter',function(e){if(e.pointerType!=='touch'&&!solved)cv.style.cursor='none'});
+ clr.addEventListener('click',function(){strokes=[];redraw();drew=false;go.textContent='Lösung zeigen';clr.hidden=true;bb.classList.add('draw');msg.textContent='Schnappt euch den Stift und malt ihn direkt in die Lücken.'});
+ function inked(g){var b=board.getBoundingClientRect(),r=g.getBoundingClientRect(),x0=(r.left-b.left)/b.width,x1=(r.right-b.left)/b.width,y0=(r.top-b.top)/b.height,y1=(r.bottom-b.top)/b.height;
+  return strokes.some(function(s){return s.some(function(p){return p[0]>=x0&&p[0]<=x1&&p[1]>=y0&&p[1]<=y1})})}
+ function win(){if(solved)return;solved=true;var n=0;
+  for(var i=0;i<gaps.length;i++){if(inked(gaps[i]))n++;else gaps[i].classList.add('fill')}
+  bb.classList.remove('draw');bb.classList.add('ok');cv.style.cursor='auto';pen.style.display='none';clr.hidden=true;go.hidden=true;
+  msg.textContent=(n>=gaps.length-1?'Sauber plakatiert. ':n>0?'Den Rest hab ich ergänzt. ':'')+'Ihr sagt: Plakate werden gesehen. Ich sag: Bewerbungen auch – sogar ohne Plakatbudget.';dn.textContent='↓ Hier kommt der Rest';
+  if(window.nrHit)nrHit(drew?'rosarot-geloest':'rosarot-loesung')}
+ go.addEventListener('click',win);
+ bb.classList.add('draw');size();addEventListener('resize',function(){lay();size()});
 })();
 </script>
 
