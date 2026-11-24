@@ -107,6 +107,28 @@
         "andy-mail": "Mail-Button",
         "andy-tel": "Anruf-Button"
       }
+    },
+    {
+      "id": "thjnk",
+      "name": "thjnk",
+      "url": "/thjnk/",
+      "sel": "section,footer",
+      "abschnitte": [
+        "01 Wer ich bin",
+        "02 Video & Design",
+        "03 Ihr sucht. Ich hab.",
+        "04 Ein I behalten (Idee)",
+        "05 Lebenslauf",
+        "06 Kontakt",
+        "Fusszeile"
+      ],
+      "events": {
+        "thjnk-info-wer": "Info: Wer",
+        "thjnk-info-video": "Info: Video & Design",
+        "thjnk-info-stelle": "Info: Ihr sucht",
+        "thjnk-info-idee": "Info: Idee Sunrise",
+        "thjnk-info-cv": "Info: Lebenslauf"
+      }
     }
   ],
   "dauer": [
