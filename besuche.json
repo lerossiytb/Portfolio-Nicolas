@@ -1,32 +1,32 @@
 {
   "geprueft_bis": {
-    "family-views": "202611232010",
-    "family-sound": "202611232010",
-    "family-paywall": "202611232010",
-    "monami-views": "202611232010",
-    "monami-lastpage": "202611232010",
-    "rosarot-views": "202611232010",
+    "family-views": "202611240450",
+    "family-sound": "202611240450",
+    "family-paywall": "202611240450",
+    "monami-views": "202611240450",
+    "monami-lastpage": "202611240450",
+    "rosarot-views": "202611240450",
     "missionpadel-views": "202611180920",
-    "home-views": "202611232010",
-    "andy-views": "202611232010",
-    "andy-qr": "202611232010",
-    "andy-beweis": "202611232010",
-    "andy-urteil-andy": "202611232010",
-    "andy-urteil-nicolas": "202611232010",
-    "andy-urteil-beide": "202611232010",
-    "andy-mail": "202611232010",
-    "andy-tel": "202611232010",
-    "andy-video": "202611232010",
-    "family-submit": "202611232010",
-    "monami-submit": "202611232010",
-    "rosarot-geloest": "202611232010",
-    "rosarot-loesung": "202611232010",
-    "rosarot-info-wer": "202611232010",
-    "rosarot-info-social": "202611232010",
-    "rosarot-info-beratung": "202611232010",
-    "rosarot-info-idee": "202611232010",
-    "rosarot-info-erfahrung": "202611232010",
-    "rosarot-info-cv": "202611232010"
+    "home-views": "202611240450",
+    "andy-views": "202611240450",
+    "andy-qr": "202611240450",
+    "andy-beweis": "202611240450",
+    "andy-urteil-andy": "202611240450",
+    "andy-urteil-nicolas": "202611240450",
+    "andy-urteil-beide": "202611240450",
+    "andy-mail": "202611240450",
+    "andy-tel": "202611240450",
+    "andy-video": "202611240450",
+    "family-submit": "202611240450",
+    "monami-submit": "202611240450",
+    "rosarot-geloest": "202611240450",
+    "rosarot-loesung": "202611240450",
+    "rosarot-info-wer": "202611240450",
+    "rosarot-info-social": "202611240450",
+    "rosarot-info-beratung": "202611240450",
+    "rosarot-info-idee": "202611240450",
+    "rosarot-info-erfahrung": "202611240450",
+    "rosarot-info-cv": "202611240450"
   },
   "besuche": [
     {
@@ -166,7 +166,7 @@
       "zeit": "2026-11-20 07:20"
     }
   ],
-  "stand": "2026-11-23 21:16",
+  "stand": "2026-11-24 05:50",
   "totale": {
     "family-views": 3,
     "family-sound": 1,
@@ -196,5 +196,5 @@
     "rosarot-info-erfahrung": 0,
     "rosarot-info-cv": 0
   },
-  "stand_ms": 1795464969597
+  "stand_ms": 1795495828111
 }
