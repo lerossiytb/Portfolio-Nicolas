@@ -1,6 +1,6 @@
 {
-  "stand": "2026-11-24 05:50",
-  "home-views": 10,
+  "stand": "2026-11-24 10:06",
+  "home-views": 11,
   "family-views": 3,
   "family-sound": 1,
   "family-paywall": 1,
@@ -8,7 +8,7 @@
   "monami-views": 2,
   "monami-lastpage": 0,
   "monami-submit": 0,
-  "rosarot-views": 0,
+  "rosarot-views": 1,
   "rosarot-geloest": 0,
   "rosarot-loesung": 0,
   "rosarot-info-wer": 0,
@@ -25,5 +25,14 @@
   "andy-urteil-nicolas": 0,
   "andy-urteil-beide": 0,
   "andy-mail": 0,
-  "andy-tel": 0
+  "andy-tel": 0,
+  "thjnk-views": 1,
+  "thjnk-info-wer": 0,
+  "thjnk-info-video": 0,
+  "thjnk-info-stelle": 0,
+  "thjnk-info-idee": 0,
+  "thjnk-info-cv": "fehler",
+  "thjnk-like": "fehler",
+  "thjnk-sound": "fehler",
+  "thjnk-tiktok": "fehler"
 }
