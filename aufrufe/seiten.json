@@ -115,13 +115,16 @@
       "sel": "section.rl,footer",
       "abschnitte": [
         "Reel 1 Wer ich bin",
-        "Reel 2 Family-Video",
+        "Reel 2 Bewerbungsvideo",
         "Reel 3 Hawlik",
-        "Reel 4 Posts",
-        "Reel 5 Ihr sucht",
-        "Reel 6 Idee Sunrise",
-        "Reel 7 Lebenslauf",
-        "Reel 8 Kontakt",
+        "Reel 4 TikTok Snowboard",
+        "Reel 5 TikTok Polynesien",
+        "Reel 6 TikTok Marquesas",
+        "Reel 7 Posts",
+        "Reel 8 Ihr sucht",
+        "Reel 9 Idee Sunrise",
+        "Reel 10 Lebenslauf",
+        "Reel 11 Kontakt",
         "Fusszeile"
       ],
       "events": {
@@ -131,7 +134,8 @@
         "thjnk-info-idee": "Info: Idee Sunrise",
         "thjnk-info-cv": "Info: Lebenslauf",
         "thjnk-like": "Herz gedrückt",
-        "thjnk-sound": "Ton an"
+        "thjnk-sound": "Ton an",
+        "thjnk-tiktok": "TikTok abgespielt"
       }
     }
   ],
