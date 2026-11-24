@@ -112,14 +112,16 @@
       "id": "thjnk",
       "name": "thjnk",
       "url": "/thjnk/",
-      "sel": "section,footer",
+      "sel": "section.rl,footer",
       "abschnitte": [
-        "01 Wer ich bin",
-        "02 Video & Design",
-        "03 Ihr sucht. Ich hab.",
-        "04 Ein I behalten (Idee)",
-        "05 Lebenslauf",
-        "06 Kontakt",
+        "Reel 1 Wer ich bin",
+        "Reel 2 Family-Video",
+        "Reel 3 Hawlik",
+        "Reel 4 Posts",
+        "Reel 5 Ihr sucht",
+        "Reel 6 Idee Sunrise",
+        "Reel 7 Lebenslauf",
+        "Reel 8 Kontakt",
         "Fusszeile"
       ],
       "events": {
@@ -127,7 +129,9 @@
         "thjnk-info-video": "Info: Video & Design",
         "thjnk-info-stelle": "Info: Ihr sucht",
         "thjnk-info-idee": "Info: Idee Sunrise",
-        "thjnk-info-cv": "Info: Lebenslauf"
+        "thjnk-info-cv": "Info: Lebenslauf",
+        "thjnk-like": "Herz gedrückt",
+        "thjnk-sound": "Ton an"
       }
     }
   ],
